@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mashina — SHLabs</title>
+  <meta name="description" content="Mashina is a family of VCV Rack modules that pair Soviet-era analog aesthetics with West Coast synthesis ideas. Includes Mashina, Volna, and Strela.">
+  <link rel="icon" type="image/svg+xml" href="../img/favicon.svg">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { theme: { extend: {
+      colors: { bg:'#0a0c12', panel:'#161924', panel2:'#1c1f2a', border:'#23273a',
+                muted:'#9aa0b4', cyan:{ 400:'#6ec8e0' },
+                mashred:{ 400:'#cf4a4a', 500:'#a83a3a' } },
+      fontFamily: { sans:['Inter','system-ui','sans-serif'], mono:['JetBrains Mono','ui-monospace','monospace'] },
+    } } };
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  <style>
+    body { font-family:'Inter', system-ui, sans-serif; }
+    .family-stripe { height:3px; opacity:0.85; }
+    .mod-card { transition: transform 120ms ease, border-color 120ms ease; }
+    .mod-card:hover { transform: translateY(-2px); border-color: rgba(207,74,74,0.5); }
+  </style>
+</head>
+<body class="bg-bg text-white antialiased">
+
+  <nav class="border-b border-border">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-3">
+        <span class="font-semibold tracking-widest text-lg">SH<span class="text-cyan-400">LABS</span></span>
+        <span class="text-muted text-sm">/ Mashina</span>
+      </a>
+      <div class="flex items-center gap-6 text-sm">
+        <a href="/" class="text-muted hover:text-white">All modules</a>
+        <a href="/about/" class="text-muted hover:text-white">About</a>
+        <a href="/donate/" class="text-muted hover:text-white">Donate</a>
+        <a href="https://github.com/kevisc" class="text-muted hover:text-white">GitHub →</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="max-w-6xl mx-auto px-6 pt-20 pb-12">
+    <div class="family-stripe rounded mb-8 max-w-xs" style="background:#cf4a4a"></div>
+    <div class="text-xs tracking-[0.3em] uppercase mb-4" style="color:#cf4a4a">Sound design · For getting weird</div>
+    <h1 class="text-5xl md:text-6xl font-bold tracking-tight mb-6 leading-tight">Mashina</h1>
+    <p class="text-lg md:text-xl text-muted max-w-3xl leading-relaxed">
+      A family of three VCV Rack modules that pair the gritty, idiosyncratic
+      analog character of mid-century Soviet synthesizers — the
+      Polivoks, the ANS, the Aelita — with the patch-cable, function-generator,
+      complex-oscillator tradition of West Coast synthesis. Soviet machines met the
+      West Coast nowhere in real life; Mashina puts them in the same rack.
+    </p>
+  </header>
+
+  <section class="max-w-6xl mx-auto px-6 py-12 border-t border-border">
+    <h2 class="text-2xl font-bold mb-8">The three modules</h2>
+    <div class="grid md:grid-cols-3 gap-6">
+
+      <article class="mod-card bg-panel border border-border rounded-lg overflow-hidden">
+        <div class="family-stripe" style="background:#cf4a4a"></div>
+        <div class="p-5">
+          <div class="text-xs tracking-widest mb-1" style="color:#cf4a4a">MASHINA</div>
+          <h3 class="text-lg font-semibold mb-2">The machine itself</h3>
+          <p class="text-sm text-muted leading-relaxed">
+            The namesake module. <em>Description forthcoming once the panel
+            renders settle</em>. Sits as the centerpiece of any Mashina-family
+            patch.
+          </p>
+        </div>
+      </article>
+
+      <article class="mod-card bg-panel border border-border rounded-lg overflow-hidden">
+        <div class="family-stripe" style="background:#cf4a4a"></div>
+        <div class="p-5">
+          <div class="text-xs tracking-widest mb-1" style="color:#cf4a4a">VOLNA</div>
+          <h3 class="text-lg font-semibold mb-2">Wave</h3>
+          <p class="text-sm text-muted leading-relaxed">
+            (<em>волна</em>, "wave".) Oscillator / wave-shaper exploring
+            unusual wavefolding and West-Coast-inspired timbral movement.
+            Detail page forthcoming.
+          </p>
+        </div>
+      </article>
+
+      <article class="mod-card bg-panel border border-border rounded-lg overflow-hidden">
+        <div class="family-stripe" style="background:#cf4a4a"></div>
+        <div class="p-5">
+          <div class="text-xs tracking-widest mb-1" style="color:#cf4a4a">STRELA</div>
+          <h3 class="text-lg font-semibold mb-2">Arrow</h3>
+          <p class="text-sm text-muted leading-relaxed">
+            (<em>стрела</em>, "arrow".) A directional / projection-focused
+            module designed to thread signals across the rack with
+            character. Detail page forthcoming.
+          </p>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="max-w-6xl mx-auto px-6 py-12 border-t border-border">
+    <h2 class="text-2xl font-bold mb-4">Design notes</h2>
+    <div class="grid md:grid-cols-2 gap-10 text-muted leading-relaxed">
+      <div class="space-y-4">
+        <p>
+          <strong class="text-white">Why Soviet?</strong> The Eastern-bloc
+          synthesizer tradition operated under tight component constraints,
+          which produced characterful nonlinearities — overdriven envelopes,
+          drifty VCOs, idiosyncratic filter responses — that became part of
+          the instrument's voice. Mashina pays homage to that voice as a
+          design ideal, not as kitsch.
+        </p>
+        <p>
+          <strong class="text-white">Why West Coast?</strong> Buchla,
+          Serge, Make Noise: synthesis as patching rather than playing,
+          timbre as a parametric space rather than a preset library.
+          Mashina inherits that grammar — modules are open-ended,
+          parameter-rich, and reward exploration.
+        </p>
+      </div>
+      <div class="space-y-4">
+        <p>
+          <strong class="text-white">Aesthetic.</strong> Red family-stripe
+          marker under each panel header. Knob layouts that intentionally
+          break VCV's normcore grid. Documentation in plain language, no
+          spec-sheet jargon.
+        </p>
+        <p>
+          <strong class="text-white">Status.</strong> All three modules
+          are functional and shipping; detailed per-module pages on this
+          site are being written iteratively as the family stabilizes.
+          Source and panel SVGs are public on GitHub now.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="max-w-6xl mx-auto px-6 py-12 border-t border-border">
+    <h2 class="text-2xl font-bold mb-6">Install</h2>
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="bg-panel border border-border rounded-lg p-6">
+        <div class="text-sm text-muted mb-2">Step 1</div>
+        <h3 class="font-semibold mb-3">Get VCV Rack 2</h3>
+        <a href="https://vcvrack.com/Rack" class="text-cyan-400 hover:underline text-sm">vcvrack.com/Rack →</a>
+      </div>
+      <div class="bg-panel border border-border rounded-lg p-6">
+        <div class="text-sm text-muted mb-2">Step 2</div>
+        <h3 class="font-semibold mb-3">Download Mashina</h3>
+        <a href="https://github.com/kevisc/mashina/releases" class="text-cyan-400 hover:underline text-sm">github.com/kevisc/mashina →</a>
+      </div>
+      <div class="bg-panel border border-border rounded-lg p-6">
+        <div class="text-sm text-muted mb-2">Step 3</div>
+        <h3 class="font-semibold mb-3">Drop into Rack</h3>
+        <p class="text-sm text-muted leading-relaxed">Move the <code class="text-xs bg-bg px-1 py-0.5 rounded">.vcvplugin</code> archives into Rack's plugin folder, restart Rack. Modules appear under SHLabs.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="max-w-6xl mx-auto px-6 py-12 text-sm text-muted border-t border-border">
+    <p>© 2026 Kevin Schoenholzer · SHLabs · Mashina is GPL-3.0-or-later.</p>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Atmos — SHLabs</title>
+  <meta name="description" content="Atmos is a family of three spatial and environmental VCV Rack modules: Helix, Halo, and Metro185. Tools for shaping sonic environments.">
+  <link rel="icon" type="image/svg+xml" href="../img/favicon.svg">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { theme: { extend: {
+      colors: { bg:'#0a0c12', panel:'#161924', panel2:'#1c1f2a', border:'#23273a',
+                muted:'#9aa0b4', cyan:{ 400:'#6ec8e0' },
+                atmosgold:{ 400:'#f5c842', 500:'#c9a335' } },
+      fontFamily: { sans:['Inter','system-ui','sans-serif'], mono:['JetBrains Mono','ui-monospace','monospace'] },
+    } } };
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  <style>
+    body { font-family:'Inter', system-ui, sans-serif; }
+    .family-stripe { height:3px; opacity:0.85; }
+    .mod-card { transition: transform 120ms ease, border-color 120ms ease; }
+    .mod-card:hover { transform: translateY(-2px); border-color: rgba(245,200,66,0.5); }
+  </style>
+</head>
+<body class="bg-bg text-white antialiased">
+
+  <nav class="border-b border-border">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-3">
+        <span class="font-semibold tracking-widest text-lg">SH<span class="text-cyan-400">LABS</span></span>
+        <span class="text-muted text-sm">/ Atmos</span>
+      </a>
+      <div class="flex items-center gap-6 text-sm">
+        <a href="/" class="text-muted hover:text-white">All modules</a>
+        <a href="/about/" class="text-muted hover:text-white">About</a>
+        <a href="/donate/" class="text-muted hover:text-white">Donate</a>
+        <a href="https://github.com/kevisc" class="text-muted hover:text-white">GitHub →</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="max-w-6xl mx-auto px-6 pt-20 pb-12">
+    <div class="family-stripe rounded mb-8 max-w-xs" style="background:#f5c842"></div>
+    <div class="text-xs tracking-[0.3em] uppercase mb-4" style="color:#f5c842">Environments · slow textures</div>
+    <h1 class="text-5xl md:text-6xl font-bold tracking-tight mb-6 leading-tight">Atmos</h1>
+    <p class="text-lg md:text-xl text-muted max-w-3xl leading-relaxed">
+      Three VCV Rack modules that shape sonic environments rather than
+      melodies: <strong class="text-white">Helix</strong>,
+      <strong class="text-white">Halo</strong>, and
+      <strong class="text-white">Metro185</strong>. Tools you patch in once
+      and let breathe — slow-evolving, textural, ambient-leaning. Patch
+      them between any sound source and any monitor and the air in the
+      room changes.
+    </p>
+  </header>
+
+  <section class="max-w-6xl mx-auto px-6 py-12 border-t border-border">
+    <h2 class="text-2xl font-bold mb-8">The three modules</h2>
+    <div class="grid md:grid-cols-3 gap-6">
+
+      <article class="mod-card bg-panel border border-border rounded-lg overflow-hidden">
+        <div class="family-stripe" style="background:#f5c842"></div>
+        <div class="p-5">
+          <div class="text-xs tracking-widest mb-1" style="color:#f5c842">HELIX</div>
+          <h3 class="text-lg font-semibold mb-2">Spiraling structure</h3>
+          <p class="text-sm text-muted leading-relaxed">
+            Layered, self-modulating motion — wraps a signal around itself
+            through configurable feedback paths. <em>Detail page
+            forthcoming.</em>
+          </p>
+        </div>
+      </article>
+
+      <article class="mod-card bg-panel border border-border rounded-lg overflow-hidden">
+        <div class="family-stripe" style="background:#f5c842"></div>
+        <div class="p-5">
+          <div class="text-xs tracking-widest mb-1" style="color:#f5c842">HALO</div>
+          <h3 class="text-lg font-semibold mb-2">Radiant smear</h3>
+          <p class="text-sm text-muted leading-relaxed">
+            Diffusion / shimmer / radiance effect — extends a sound's tail
+            into the soft glowing background of the mix. <em>Detail page
+            forthcoming.</em>
+          </p>
+        </div>
+      </article>
+
+      <article class="mod-card bg-panel border border-border rounded-lg overflow-hidden">
+        <div class="family-stripe" style="background:#f5c842"></div>
+        <div class="p-5">
+          <div class="text-xs tracking-widest mb-1" style="color:#f5c842">METRO185</div>
+          <h3 class="text-lg font-semibold mb-2">Slow clock with character</h3>
+          <p class="text-sm text-muted leading-relaxed">
+            Long-form clocking with deliberate drift and offset modes —
+            the metronome for music whose pulse you don't expect a listener
+            to count. <em>Detail page forthcoming.</em>
+          </p>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="max-w-6xl mx-auto px-6 py-12 border-t border-border">
+    <h2 class="text-2xl font-bold mb-4">Design notes</h2>
+    <div class="text-muted leading-relaxed max-w-3xl space-y-4">
+      <p>
+        Atmos modules are designed around the assumption that the
+        listener won't be holding still in front of a knob. They are
+        long-form by default: knob ranges resolve into multi-minute
+        evolutions, modulation depths are calibrated for slow movement,
+        defaults sit at "interesting but not active." Patch one in and
+        leave it.
+      </p>
+      <p>
+        Aesthetically, the family uses a warm-gold family stripe under
+        each panel header (matching the family color on this site), and
+        panel layouts favor large knobs over crowded jack rows — these
+        are tools you set once and listen to, not modules you re-cable
+        every measure.
+      </p>
+    </div>
+  </section>
+
+  <footer class="max-w-6xl mx-auto px-6 py-12 text-sm text-muted border-t border-border">
+    <p>© 2026 Kevin Schoenholzer · SHLabs · Atmos is GPL-3.0-or-later.</p>
+  </footer>
+
+</body>
+</html>
