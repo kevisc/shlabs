@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Atmos — SHLabs</title>
-  <meta name="description" content="Atmos is a family of four spatial and environmental VCV Rack modules: Helix, Halo, Metro185, and Skywave. Tools for shaping sonic environments.">
+  <meta name="description" content="Atmos is a family of four VCV Rack modules for tone, space, and time: the Helix ladder filter, the Halo stereo repeater, the Skywave character delay, and the Metro185 step sequencer.">
   <link rel="icon" type="image/svg+xml" href="../img/favicon.svg">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -42,17 +42,15 @@
 
   <header class="max-w-6xl mx-auto px-6 pt-20 pb-12">
     <div class="family-stripe rounded mb-8 max-w-xs" style="background:#f5c842"></div>
-    <div class="text-xs tracking-[0.3em] uppercase mb-4" style="color:#f5c842">Environments · slow textures</div>
+    <div class="text-xs tracking-[0.3em] uppercase mb-4" style="color:#f5c842">Tone · space · time</div>
     <h1 class="text-5xl md:text-6xl font-bold tracking-tight mb-6 leading-tight">Atmos</h1>
     <p class="text-lg md:text-xl text-muted max-w-3xl leading-relaxed">
-      Four VCV Rack modules that shape sonic environments rather than
-      melodies: <strong class="text-white">Helix</strong>,
-      <strong class="text-white">Halo</strong>,
-      <strong class="text-white">Metro185</strong>, and
-      <strong class="text-white">Skywave</strong>. Tools you patch in once
-      and let breathe — slow-evolving, textural, ambient-leaning. Patch
-      them between any sound source and any monitor and the air in the
-      room changes.
+      Four VCV Rack modules for shaping tone, space, and time: the
+      <strong class="text-white">Helix</strong> transistor-ladder filter, the
+      <strong class="text-white">Halo</strong> stereo repeater, the
+      <strong class="text-white">Skywave</strong> character delay with reverb,
+      and the <strong class="text-white">Metro185</strong> step sequencer.
+      A filter, two stereo time effects, and a sequencer to drive them.
     </p>
     <div class="inline-flex items-center gap-2 px-4 py-2 rounded border mt-8" style="border-color:#f5c842;color:#f5c842">
       <span class="text-sm font-semibold tracking-wide">Coming soon</span>
@@ -68,11 +66,13 @@
         <div class="family-stripe" style="background:#f5c842"></div>
         <div class="p-5">
           <div class="text-xs tracking-widest mb-1" style="color:#f5c842">HELIX</div>
-          <h3 class="text-lg font-semibold mb-2">Spiraling structure</h3>
+          <h3 class="text-lg font-semibold mb-2">Transistor-ladder filter</h3>
           <p class="text-sm text-muted leading-relaxed">
-            Layered, self-modulating motion — wraps a signal around itself
-            through configurable feedback paths. <em>Detail page
-            forthcoming.</em>
+            A 4-pole Moog-style lowpass that self-oscillates and tracks
+            V/oct, so it doubles as a sine source. Three twists go beyond a
+            clone — DRIFT detunes the poles, FRICTION adds per-stage
+            saturation, TURBULENCE feeds noise into the resonance. Simultaneous
+            LP / HP / BP outs, selectable slope, drive, and 16-voice poly.
           </p>
         </div>
       </article>
@@ -81,11 +81,11 @@
         <div class="family-stripe" style="background:#f5c842"></div>
         <div class="p-5">
           <div class="text-xs tracking-widest mb-1" style="color:#f5c842">HALO</div>
-          <h3 class="text-lg font-semibold mb-2">Radiant smear</h3>
+          <h3 class="text-lg font-semibold mb-2">Stereo color repeater</h3>
           <p class="text-sm text-muted leading-relaxed">
-            Diffusion / shimmer / radiance effect — extends a sound's tail
-            into the soft glowing background of the mix. <em>Detail page
-            forthcoming.</em>
+            A modulated multi-tap delay network with two independent zones
+            and polarizing pitch drift, for smeared, gently detuned echoes
+            that spread a sound across the stereo field.
           </p>
         </div>
       </article>
@@ -94,11 +94,12 @@
         <div class="family-stripe" style="background:#f5c842"></div>
         <div class="p-5">
           <div class="text-xs tracking-widest mb-1" style="color:#f5c842">METRO185</div>
-          <h3 class="text-lg font-semibold mb-2">Slow clock with character</h3>
+          <h3 class="text-lg font-semibold mb-2">Step sequencer</h3>
           <p class="text-sm text-muted leading-relaxed">
-            Long-form clocking with deliberate drift and offset modes —
-            the metronome for music whose pulse you don't expect a listener
-            to count. <em>Detail page forthcoming.</em>
+            An eight-stage sequencer in the M185 / Metropolis tradition: each
+            stage has a pitch, a pulse count, and a gate type. The count and
+            gate-type controls are vertical sliders and patchable over
+            polyphonic CV, so the sequence itself becomes modulatable.
           </p>
         </div>
       </article>
@@ -107,11 +108,12 @@
         <div class="family-stripe" style="background:#f5c842"></div>
         <div class="p-5">
           <div class="text-xs tracking-widest mb-1" style="color:#f5c842">SKYWAVE</div>
-          <h3 class="text-lg font-semibold mb-2">Drifting ionospheric haze</h3>
+          <h3 class="text-lg font-semibold mb-2">Character delay &amp; reverb</h3>
           <p class="text-sm text-muted leading-relaxed">
-            Shortwave-inspired motion — slow detune, fading, and
-            atmospheric noise that washes a signal in and out like a distant
-            broadcast. <em>Detail page forthcoming.</em>
+            A multi-model stereo delay with scatter reverb, themed on radio
+            propagation. Three engines — longwave (tape), shortwave
+            (bucket-brigade), and microwave (clean digital) — plus internal
+            modulation, atmospheric hiss and crackle, and clock sync.
           </p>
         </div>
       </article>

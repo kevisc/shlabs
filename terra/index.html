@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Terra — SHLabs</title>
-  <meta name="description" content="Terra is an experimental standalone module from SHLabs — a workbench for slow generative terrain that may later seed a new family.">
+  <meta name="description" content="Terra is a standalone granular sampler from SHLabs for VCV Rack — six grain voices steered by an on-panel XY field over an 8-second buffer.">
   <link rel="icon" type="image/svg+xml" href="../img/favicon.svg">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -45,11 +45,12 @@
     <div class="text-xs tracking-[0.3em] uppercase mb-4" style="color:#b89bdc">Experimental · standalone</div>
     <h1 class="text-5xl md:text-6xl font-bold tracking-tight mb-6 leading-tight">Terra</h1>
     <p class="text-lg md:text-xl text-muted max-w-3xl leading-relaxed">
-      A standalone experimental module — a workbench for an idea that
-      hasn't yet decided which family it belongs to. Terra explores slow
-      generative terrain: a state-space wandering tool that may later
-      seed an entire family of its own, or may stay a one-off oddity.
-      Either is fine.
+      A standalone granular sampler. Terra records a few seconds of audio
+      into a buffer and plays it back as overlapping grains, steered by an
+      on-panel XY field — read position on one axis, grain pitch on the
+      other. Six voices spread around that point for thick, gestural
+      textures. Released as a standalone experiment outside the main module
+      families.
     </p>
   </header>
 
@@ -57,18 +58,20 @@
     <h2 class="text-2xl font-bold mb-4">What it is</h2>
     <div class="text-muted leading-relaxed max-w-3xl space-y-4">
       <p>
-        Terra is released under SHLabs' "research" track: a module that
-        exists primarily to test an idea, with the documentation, panel
-        polish, and worked examples following the source code rather than
-        preceding it. It's shipping working — patch it in, hear what it
-        does — but the formal description on this page will fill in as
-        the module itself stabilizes.
+        Six grain voices share a stereo 8-second buffer fed from the audio
+        input; FREEZE captures the buffer so you can scrub a held sound. The
+        XY field sets the center of the playback — X is read position, Y is
+        grain pitch (±12 semitones) — while the POSITION and PITCH knobs
+        (with X-CV / Y-CV) move it. SPREAD distributes the voices on a ring
+        around that point and SCATTER randomizes each grain.
       </p>
       <p>
-        If you patch in a copy and have thoughts (it's surprising;
-        something is off; this should be a knob, not a switch), the
-        feedback is genuinely useful in deciding whether Terra grows into
-        its own family or stays singular.
+        DENSITY (1–100 grains/sec), SIZE (1–500 ms), SHAPE (Hann to
+        rectangular), JITTER, and FEEDBACK shape the grain cloud, and V/OCT
+        transposes the whole field. Outputs are a stereo mix plus a
+        polyphonic out carrying one voice per channel for downstream
+        processing. Terra is on the experimental track, so its panel and
+        docs are still settling.
       </p>
     </div>
   </section>

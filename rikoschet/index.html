@@ -42,15 +42,14 @@
 
   <header class="max-w-6xl mx-auto px-6 pt-20 pb-12">
     <div class="family-stripe rounded mb-8 max-w-xs" style="background:#e85e93"></div>
-    <div class="text-xs tracking-[0.3em] uppercase mb-4" style="color:#e85e93">Rhythm · gates · multitap</div>
+    <div class="text-xs tracking-[0.3em] uppercase mb-4" style="color:#e85e93">Rhythmic delay &amp; gate effects</div>
     <h1 class="text-5xl md:text-6xl font-bold tracking-tight mb-6 leading-tight">Rikoshet</h1>
     <p class="text-lg md:text-xl text-muted max-w-3xl leading-relaxed">
-      A growing series of multitap gate and rhythm modules. The idea is
-      simple: take one input clock, send it through a configurable array of
-      taps and gate-logic combinators, and get back a rich rhythmic
-      polyphony that would otherwise take a rack-row of cabling to assemble
-      by hand. Patch one in for instant counterpoint without losing the
-      pulse of the original clock.
+      Four tempo-synced rhythmic effects for VCV Rack: a rhythmic amplitude
+      gate, a stereo ping-pong delay, a multi-tap pattern delay, and a stereo
+      crossfader. Each one locks to your clock and snaps to musical
+      subdivisions, with CV over the parameters that matter — built for
+      turning a steady signal into something that moves in time.
     </p>
     <div class="flex flex-wrap gap-3 mt-8">
       <a href="https://github.com/kevisc/rikoshet/releases" class="px-5 py-3 text-bg font-medium rounded transition" style="background:#e85e93">
@@ -68,30 +67,28 @@
     <div class="grid md:grid-cols-2 gap-10 text-muted leading-relaxed">
       <div class="space-y-4">
         <p>
-          A multitap delay takes a single input and returns several
-          time-offset copies of it. Rikoshet modules apply that
-          principle to gates: one trigger in, an array of derived triggers
-          out — each at a configurable phase, each routable through a
-          logic combinator (AND, OR, XOR, modulo, swing, polyrhythm).
+          Rikoshet is a small set of rhythm and time effects that all work
+          the same way: feed them a clock, and they lock their motion to
+          musical subdivisions — from two bars down to a 1/32, including
+          dotted and triplet values. Without a clock, they run from their
+          own tempo knob instead.
         </p>
         <p>
-          The result: drum-machine grooves from a single clock; ratcheted
-          envelopes from a single trigger; counterpoint from a single
-          melody line. The Rikoshet philosophy is "one signal in, many
-          deliberately-related signals out", which is a different design
-          stance than the usual "ten LFOs in, one mix out" of
-          modular workflows.
+          Gate chops level in time, PingPong and MultiTap place echoes across
+          the stereo field, and Blend crossfades between two signals. They
+          stay out of the way harmonically and put their character into
+          timing and stereo movement, with CV on the controls you'd want to
+          modulate.
         </p>
       </div>
       <div class="bg-panel border border-border rounded-lg p-6">
-        <div class="text-xs tracking-widest text-rikomag-400 mb-2">DESIGN INVARIANTS</div>
+        <div class="text-xs tracking-widest text-rikomag-400 mb-2">WHAT THEY SHARE</div>
         <ul class="space-y-3 text-sm">
-          <li class="flex gap-3"><span style="color:#e85e93">·</span> One input clock per module</li>
-          <li class="flex gap-3"><span style="color:#e85e93">·</span> N configurable taps (typically 8)</li>
-          <li class="flex gap-3"><span style="color:#e85e93">·</span> Per-tap phase, probability, gate-length</li>
-          <li class="flex gap-3"><span style="color:#e85e93">·</span> Polyphonic output cable preserving tap order</li>
-          <li class="flex gap-3"><span style="color:#e85e93">·</span> Optional gate-logic recombiners</li>
-          <li class="flex gap-3"><span style="color:#e85e93">·</span> Magenta family-stripe under header</li>
+          <li class="flex gap-3"><span style="color:#e85e93">·</span> Tempo sync from a clock input, or a free tempo knob</li>
+          <li class="flex gap-3"><span style="color:#e85e93">·</span> Musical subdivisions (2 bars → 1/32, dotted &amp; triplet)</li>
+          <li class="flex gap-3"><span style="color:#e85e93">·</span> Stereo throughout, with width / spread controls</li>
+          <li class="flex gap-3"><span style="color:#e85e93">·</span> CV inputs on the key parameters</li>
+          <li class="flex gap-3"><span style="color:#e85e93">·</span> Pink family-stripe under the header</li>
         </ul>
       </div>
     </div>
@@ -118,10 +115,12 @@
         <div class="family-stripe" style="background:#e85e93"></div>
         <div class="p-5">
           <div class="text-xs tracking-widest mb-1" style="color:#e85e93">PINGPONG</div>
-          <h3 class="text-lg font-semibold mb-2">Stereo multitap</h3>
+          <h3 class="text-lg font-semibold mb-2">Ping-pong delay</h3>
           <p class="text-sm text-muted leading-relaxed">
-            Ping-pong taps bouncing across the stereo field, with per-tap
-            timing and feedback for cascading echoes and rhythmic bounces.
+            Stereo delay with cross-fed feedback that bounces repeats between
+            channels. Spread offsets the right-channel time for tumbling
+            echoes; Cross sets how much feedback crosses sides; low- and
+            high-cut in the feedback path let repeats darken as they fade.
           </p>
         </div>
       </article>
@@ -130,11 +129,12 @@
         <div class="family-stripe" style="background:#e85e93"></div>
         <div class="p-5">
           <div class="text-xs tracking-widest mb-1" style="color:#e85e93">MULTITAP</div>
-          <h3 class="text-lg font-semibold mb-2">The core engine</h3>
+          <h3 class="text-lg font-semibold mb-2">Pattern delay</h3>
           <p class="text-sm text-muted leading-relaxed">
-            One trigger in, an array of derived gates out — each at a
-            configurable phase, probability, and gate-length, on a polyphonic
-            output cable.
+            An 8-step delay across a tempo-synced window. Per-tap level
+            sliders place the hits, alternating L/R panning with Spread opens
+            the stereo image, Decay tapers the taps, and Feedback recirculates
+            the whole pattern.
           </p>
         </div>
       </article>
@@ -143,10 +143,11 @@
         <div class="family-stripe" style="background:#e85e93"></div>
         <div class="p-5">
           <div class="text-xs tracking-widest mb-1" style="color:#e85e93">BLEND</div>
-          <h3 class="text-lg font-semibold mb-2">Recombiner</h3>
+          <h3 class="text-lg font-semibold mb-2">Crossfader</h3>
           <p class="text-sm text-muted leading-relaxed">
-            Mixes and gate-logics taps (AND / OR / XOR / modulo) into new
-            composite rhythms — the counterpoint stage of the series.
+            A stereo A/B crossfader with input drive and an equal-power curve.
+            Use it to blend parallel chains of Rikoshet effects, or as a
+            dry/wet control around a serial one. CV over Mix and Drive.
           </p>
         </div>
       </article>
