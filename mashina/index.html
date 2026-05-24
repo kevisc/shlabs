@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Mashina — SHLabs</title>
-  <meta name="description" content="Mashina is a family of VCV Rack modules that pair Soviet-era analog aesthetics with West Coast synthesis ideas. Includes Mashina, Volna, and Strela.">
+  <meta name="description" content="Mashina is a family of eight VCV Rack modules pairing Soviet-era analog character with West-Coast synthesis: drum voices, oscillators, a clock, a reverb, and generative sequencers.">
   <link rel="icon" type="image/svg+xml" href="../img/favicon.svg">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -34,7 +34,6 @@
       <div class="flex items-center gap-6 text-sm">
         <a href="/" class="text-muted hover:text-white">All modules</a>
         <a href="/about/" class="text-muted hover:text-white">About</a>
-        <a href="/donate/" class="text-muted hover:text-white">Donate</a>
         <a href="https://github.com/kevisc" class="text-muted hover:text-white">GitHub →</a>
       </div>
     </div>
@@ -44,55 +43,94 @@
     <div class="family-stripe rounded mb-8 max-w-xs" style="background:#cf4a4a"></div>
     <div class="text-xs tracking-[0.3em] uppercase mb-4" style="color:#cf4a4a">Sound design · For getting weird</div>
     <h1 class="text-5xl md:text-6xl font-bold tracking-tight mb-6 leading-tight">Mashina</h1>
-    <p class="text-lg md:text-xl text-muted max-w-3xl leading-relaxed">
-      A family of three VCV Rack modules that pair the gritty, idiosyncratic
-      analog character of mid-century Soviet synthesizers — the
-      Polivoks, the ANS, the Aelita — with the patch-cable, function-generator,
-      complex-oscillator tradition of West Coast synthesis. Soviet machines met the
-      West Coast nowhere in real life; Mashina puts them in the same rack.
+    <p class="text-lg md:text-xl text-muted max-w-3xl leading-relaxed mb-8">
+      A family of <strong class="text-white">eight VCV Rack modules</strong> that pair the gritty,
+      idiosyncratic character of mid-century Soviet synthesizers — the Polivoks, the ANS, the
+      Aelita — with the patch-cable, function-generator tradition of West Coast synthesis. Drum
+      voices, oscillators, a master clock, a plate reverb, and generative sequencers, all in one
+      rack. Soviet machines met the West Coast nowhere in real life; Mashina puts them together.
     </p>
+    <a href="SHLabs-Mashina-2.0.0-mac-arm64.vcvplugin"
+       class="inline-block px-5 py-3 font-medium rounded transition" style="background:#cf4a4a;color:#0a0c12">
+      Download v2.0.0 (macOS · Apple Silicon)
+    </a>
+    <p class="text-xs text-muted mt-3">Windows / Linux / Intel builds and a VCV Library listing are on the way.</p>
   </header>
 
   <section class="max-w-6xl mx-auto px-6 py-12 border-t border-border">
-    <h2 class="text-2xl font-bold mb-8">The three modules</h2>
-    <div class="grid md:grid-cols-3 gap-6">
+    <h2 class="text-2xl font-bold mb-2">The eight modules</h2>
+    <p class="text-muted mb-8 max-w-3xl">Each carries the red family-stripe under its header strip.</p>
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
 
       <article class="mod-card bg-panel border border-border rounded-lg overflow-hidden">
         <div class="family-stripe" style="background:#cf4a4a"></div>
         <div class="p-5">
-          <div class="text-xs tracking-widest mb-1" style="color:#cf4a4a">MASHINA</div>
-          <h3 class="text-lg font-semibold mb-2">The machine itself</h3>
-          <p class="text-sm text-muted leading-relaxed">
-            The namesake module. <em>Description forthcoming once the panel
-            renders settle</em>. Sits as the centerpiece of any Mashina-family
-            patch.
-          </p>
+          <div class="text-xs tracking-widest mb-1" style="color:#cf4a4a">UDAR · удар</div>
+          <h3 class="text-base font-semibold mb-2">Percussion voice + sequencer</h3>
+          <p class="text-sm text-muted leading-relaxed">Analog-style drum voice with an 8-step sequencer (a DFAM homage): two VCOs, noise, a tanh-saturated ladder filter, per-step pitch/velocity/gate modes, conditional triggers, and polyphonic per-step trigger/velocity outs.</p>
         </div>
       </article>
 
       <article class="mod-card bg-panel border border-border rounded-lg overflow-hidden">
         <div class="family-stripe" style="background:#cf4a4a"></div>
         <div class="p-5">
-          <div class="text-xs tracking-widest mb-1" style="color:#cf4a4a">VOLNA</div>
-          <h3 class="text-lg font-semibold mb-2">Wave</h3>
-          <p class="text-sm text-muted leading-relaxed">
-            (<em>волна</em>, "wave".) Oscillator / wave-shaper exploring
-            unusual wavefolding and West-Coast-inspired timbral movement.
-            Detail page forthcoming.
-          </p>
+          <div class="text-xs tracking-widest mb-1" style="color:#cf4a4a">KLUBOK · клубок</div>
+          <h3 class="text-base font-semibold mb-2">Generative dual sequencer + voice</h3>
+          <p class="text-sm text-muted leading-relaxed">A Labyrinth-style pair of step engines with per-step probability, length, divergence, and feedback for evolving patterns — feeding their own VCO → filter → wavefolder → reverb voice or any other module.</p>
         </div>
       </article>
 
       <article class="mod-card bg-panel border border-border rounded-lg overflow-hidden">
         <div class="family-stripe" style="background:#cf4a4a"></div>
         <div class="p-5">
-          <div class="text-xs tracking-widest mb-1" style="color:#cf4a4a">STRELA</div>
-          <h3 class="text-lg font-semibold mb-2">Arrow</h3>
-          <p class="text-sm text-muted leading-relaxed">
-            (<em>стрела</em>, "arrow".) A directional / projection-focused
-            module designed to thread signals across the rack with
-            character. Detail page forthcoming.
-          </p>
+          <div class="text-xs tracking-widest mb-1" style="color:#cf4a4a">BOCHKA · бочка</div>
+          <h3 class="text-base font-semibold mb-2">Techno kick voice</h3>
+          <p class="text-sm text-muted leading-relaxed">A punchy kick: pitch-swept sine, filtered click, sub layer, tanh drive, tilt EQ, and a choke input. KIT MODE turns one polyphonic trigger cable into kick / snare / hat / clap — a mini drum kit in one module.</p>
+        </div>
+      </article>
+
+      <article class="mod-card bg-panel border border-border rounded-lg overflow-hidden">
+        <div class="family-stripe" style="background:#cf4a4a"></div>
+        <div class="p-5">
+          <div class="text-xs tracking-widest mb-1" style="color:#cf4a4a">TAKT · такт</div>
+          <h3 class="text-base font-semibold mb-2">Master clock</h3>
+          <p class="text-sm text-muted leading-relaxed">A Pamela-style master clock with eight independent divided / multiplied outputs (/64 to ×64), tap tempo, run/stop, reset, global swing, pulse width, and BPM CV.</p>
+        </div>
+      </article>
+
+      <article class="mod-card bg-panel border border-border rounded-lg overflow-hidden">
+        <div class="family-stripe" style="background:#cf4a4a"></div>
+        <div class="p-5">
+          <div class="text-xs tracking-widest mb-1" style="color:#cf4a4a">OTZVUK · отзвук</div>
+          <h3 class="text-base font-semibold mb-2">Plate reverb</h3>
+          <p class="text-sm text-muted leading-relaxed">A warm Dattorro-style plate with shimmer, a self-ducker, modulation, tilt EQ, and tape drive in the feedback path. CHARACTER morphs ROOM → PLATE → HALL → SHIMMER; pre-delay can be tempo-synced.</p>
+        </div>
+      </article>
+
+      <article class="mod-card bg-panel border border-border rounded-lg overflow-hidden">
+        <div class="family-stripe" style="background:#cf4a4a"></div>
+        <div class="p-5">
+          <div class="text-xs tracking-widest mb-1" style="color:#cf4a4a">STRELA · стрела</div>
+          <h3 class="text-base font-semibold mb-2">Register additive VCO</h3>
+          <p class="text-sm text-muted leading-relaxed">A register-driven additive oscillator inspired by 1950s Soviet console computers: a 16-bit switch register controls 16 harmonics, a clock shifts the register, and a polyphonic bit-CV input combines via OR/AND/XOR. Spectral thinning, tilt, phase distortion, and drive.</p>
+        </div>
+      </article>
+
+      <article class="mod-card bg-panel border border-border rounded-lg overflow-hidden">
+        <div class="family-stripe" style="background:#cf4a4a"></div>
+        <div class="p-5">
+          <div class="text-xs tracking-widest mb-1" style="color:#cf4a4a">VOLNA · волна</div>
+          <h3 class="text-base font-semibold mb-2">Polyphonic analog VCO</h3>
+          <p class="text-sm text-muted leading-relaxed">A polyphonic oscillator with four simultaneous band-limited outputs (sine, triangle, saw, pulse), PolyBLEP anti-aliasing, CV-able PWM, hard sync, FM, per-voice drift for natural chorus, and a warmth control.</p>
+        </div>
+      </article>
+
+      <article class="mod-card bg-panel border border-border rounded-lg overflow-hidden">
+        <div class="family-stripe" style="background:#cf4a4a"></div>
+        <div class="p-5">
+          <div class="text-xs tracking-widest mb-1" style="color:#cf4a4a">PODTON · подтон</div>
+          <h3 class="text-base font-semibold mb-2">Subharmonic synth</h3>
+          <p class="text-sm text-muted leading-relaxed">A Subharmonicon-style polyrhythmic voice: two VCOs each with two integer-divided sub-oscillators, dual 4-step sequencers on independent clock divisions, a ladder filter, per-step gate modes, and a drone mode.</p>
         </div>
       </article>
 
@@ -104,33 +142,31 @@
     <div class="grid md:grid-cols-2 gap-10 text-muted leading-relaxed">
       <div class="space-y-4">
         <p>
-          <strong class="text-white">Why Soviet?</strong> The Eastern-bloc
-          synthesizer tradition operated under tight component constraints,
-          which produced characterful nonlinearities — overdriven envelopes,
-          drifty VCOs, idiosyncratic filter responses — that became part of
-          the instrument's voice. Mashina pays homage to that voice as a
-          design ideal, not as kitsch.
+          <strong class="text-white">Why Soviet?</strong> The Eastern-bloc synthesizer tradition
+          worked under tight component constraints, which produced characterful nonlinearities —
+          overdriven envelopes, drifty VCOs, idiosyncratic filters — that became part of the
+          instrument's voice. Mashina treats that voice as a design ideal, not as kitsch. Each
+          module's name is its Russian function: <em>udar</em> (hit), <em>volna</em> (wave),
+          <em>strela</em> (arrow), <em>bochka</em> (barrel / kick), <em>takt</em> (beat).
         </p>
         <p>
-          <strong class="text-white">Why West Coast?</strong> Buchla,
-          Serge, Make Noise: synthesis as patching rather than playing,
-          timbre as a parametric space rather than a preset library.
-          Mashina inherits that grammar — modules are open-ended,
-          parameter-rich, and reward exploration.
+          <strong class="text-white">Why West Coast?</strong> Buchla, Serge, Make Noise: synthesis
+          as patching rather than playing, timbre as a parametric space rather than a preset
+          library. Mashina inherits that grammar — open-ended, parameter-rich modules that reward
+          exploration.
         </p>
       </div>
       <div class="space-y-4">
         <p>
-          <strong class="text-white">Aesthetic.</strong> Red family-stripe
-          marker under each panel header. Knob layouts that intentionally
-          break VCV's normcore grid. Documentation in plain language, no
-          spec-sheet jargon.
+          <strong class="text-white">Aesthetic.</strong> A consistent SHLabs panel grammar — a
+          gunmetal field, a red family-stripe under each header, and clear left-to-right signal
+          flow — shared with the other SHLabs series so a Mashina module reads as part of one
+          instrument family.
         </p>
         <p>
-          <strong class="text-white">Status.</strong> All three modules
-          are functional and shipping; detailed per-module pages on this
-          site are being written iteratively as the family stabilizes.
-          Source and panel SVGs are public on GitHub now.
+          <strong class="text-white">Status.</strong> All eight modules are functional and
+          shipping under GPL-3.0. A cross-platform release and a VCV Library listing are in
+          preparation; the macOS (Apple Silicon) build is available above today.
         </p>
       </div>
     </div>
@@ -147,12 +183,13 @@
       <div class="bg-panel border border-border rounded-lg p-6">
         <div class="text-sm text-muted mb-2">Step 2</div>
         <h3 class="font-semibold mb-3">Download Mashina</h3>
-        <a href="https://github.com/kevisc/mashina/releases" class="text-cyan-400 hover:underline text-sm">github.com/kevisc/mashina →</a>
+        <a href="SHLabs-Mashina-2.0.0-mac-arm64.vcvplugin" class="text-cyan-400 hover:underline text-sm">SHLabs-Mashina v2.0.0 (.vcvplugin) →</a>
+        <p class="text-xs text-muted mt-2">macOS · Apple Silicon</p>
       </div>
       <div class="bg-panel border border-border rounded-lg p-6">
         <div class="text-sm text-muted mb-2">Step 3</div>
         <h3 class="font-semibold mb-3">Drop into Rack</h3>
-        <p class="text-sm text-muted leading-relaxed">Move the <code class="text-xs bg-bg px-1 py-0.5 rounded">.vcvplugin</code> archives into Rack's plugin folder, restart Rack. Modules appear under SHLabs.</p>
+        <p class="text-sm text-muted leading-relaxed">Move the <code class="text-xs bg-bg px-1 py-0.5 rounded">.vcvplugin</code> into Rack's plugin folder, then restart Rack. Modules appear under <strong>SHLabs</strong>.</p>
       </div>
     </div>
   </section>
