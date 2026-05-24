@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Empiria — SHLabs</title>
-  <meta name="description" content="Empiria is an open-source modular-synthesizer suite that turns VCV Rack into a live teaching surface for statistics, data science, and computational social science.">
+  <meta name="description" content="Empiria is an open-source suite of VCV Rack modules that turn real statistical, social, and stochastic processes into control voltage — quirky, generative patch material with genuinely correct math under the hood.">
   <link rel="icon" type="image/svg+xml" href="../img/favicon.svg">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -47,7 +47,7 @@
         <!-- hidden until donations are configured
         <a href="/donate/" class="text-muted hover:text-white">Donate</a>
         -->
-        <a href="https://github.com/kevisc/empiria" target="_blank" rel="noopener" class="text-muted hover:text-white">GitHub →</a>
+        <a href="https://github.com/kevisc/empiria-vcv" target="_blank" rel="noopener" class="text-muted hover:text-white">GitHub →</a>
       </div>
     </div>
   </nav>
@@ -55,24 +55,24 @@
   <!-- ─── hero ────────────────────────────────────────────────────────── -->
   <header class="max-w-6xl mx-auto px-6 pt-20 pb-12">
     <div class="family-stripe rounded mb-8 max-w-xs" style="background:#6ec8e0"></div>
-    <div class="text-xs tracking-[0.3em] text-cyan-400 uppercase mb-4">A statistical signal-flow platform</div>
+    <div class="text-xs tracking-[0.3em] text-cyan-400 uppercase mb-4">Real math as patchable voltage</div>
     <h1 class="text-5xl md:text-6xl font-bold tracking-tight mb-6 leading-tight">Empiria</h1>
     <p class="text-lg md:text-xl text-muted max-w-3xl leading-relaxed mb-8">
       A suite of <strong class="text-white">twenty-eight open-source modules across five plugins</strong>
-      that turns the modular synthesizer's patch cables into a live, manipulable
-      surface for statistics, data science, and computational social science.
-      Every parameter is a knob; every intermediate estimator is a control-voltage signal;
-      every module ships with a real-time visualization matched to the statistic it computes.
+      that turn real statistical, social, and stochastic processes into control voltage
+      you can patch anywhere in your rack. Sample a distribution as a modulation source,
+      clock a segregation grid into a gate sequencer, let an epidemic curve sweep a filter.
+      Quirky, generative, alive — and the math underneath is the genuine article, not a toy.
     </p>
     <div class="flex flex-wrap gap-3">
-      <a href="https://github.com/kevisc/empiria/releases" class="px-5 py-3 bg-cyan-400 text-bg font-medium rounded hover:bg-cyan-500 transition">
+      <a href="https://github.com/kevisc/empiria-vcv/releases" class="px-5 py-3 bg-cyan-400 text-bg font-medium rounded hover:bg-cyan-500 transition">
         Download v2.0.0
       </a>
-      <a href="https://github.com/kevisc/empiria/blob/main/docs/methods_manual.pdf" class="px-5 py-3 border border-border text-muted hover:text-white hover:border-muted rounded transition">
+      <a href="https://github.com/kevisc/empiria-vcv/blob/main/docs/methods_manual.pdf" class="px-5 py-3 border border-border text-muted hover:text-white hover:border-muted rounded transition">
         Read the manual (PDF)
       </a>
-      <a href="https://github.com/kevisc/empiria/blob/main/paper.md" class="px-5 py-3 border border-border text-muted hover:text-white hover:border-muted rounded transition">
-        Read the paper
+      <a href="https://kevinschoenholzer.com/empiria/" target="_blank" rel="noopener" class="px-5 py-3 border border-cyan-400 text-cyan-400 hover:bg-cyan-400 hover:text-bg rounded transition">
+        Teaching stats? Empiria web →
       </a>
     </div>
   </header>
@@ -83,27 +83,29 @@
     <div class="grid md:grid-cols-2 gap-10">
       <div class="space-y-4 text-muted leading-relaxed">
         <p>
-          Statistics education has been urged for two decades to center on
-          <em>simulation-based reasoning</em> rather than closed-form normal-theory
-          derivation, but the dominant computational vehicles — R scripts, Python
-          notebooks, single-purpose web applets — still hide the data-generating
-          process and the inferential apparatus behind opaque function calls.
+          Empiria began as a teaching idea, but what it really is is a box of
+          <strong class="text-white">modular-synth instruments built from real
+          mathematics</strong>. Each module is a genuine statistical, agent-based,
+          or dynamical process — a bootstrap resampler, a Granovetter cascade, an
+          SIR epidemic, a reaction-diffusion field — exposed as knobs and control
+          voltage.
         </p>
         <p>
-          Empiria takes the opposite approach. It exposes the entire empirical
-          workflow as patch cables on a rack: parametric sampling →
-          sample-window estimation → online OLS regression → exact
-          <em>t</em>-tests → BCa bootstrap → autocorrelation diagnostics →
-          deterministic record-and-replay → CSV export.
+          Patch them like anything else on your rack. A sampling distribution
+          becomes a modulation source; a segregation grid becomes a generative
+          gate pattern; a drift-diffusion decision fires triggers; an
+          opinion-dynamics model becomes a slow, evolving CV sweep. The output is
+          quirky and alive precisely because the process underneath behaves the way
+          the theory says it should.
         </p>
         <p>
-          The patch <em>is</em> the curriculum. The wires drawn between modules
-          externalize the inferential logic of a lesson in a way no static
-          diagram can — and because every random draw is Mersenne-Twister-seeded
-          and every closed-form quantity is computed by the standard numerical
-          recipe (Lentz CF for the incomplete beta, BCa for the bootstrap,
-          Sanger's rule for online PCA), the same patch is also a
-          <em>reproducible analog computer</em>.
+          And the math is not faked for effect: every random draw is
+          Mersenne-Twister-seeded and every closed-form quantity uses the standard
+          numerical recipe (Lentz continued fractions, BCa bootstrap, Sanger's
+          rule), so a patch is reproducible and the numbers are correct — it just
+          happens to be fun. Want Empiria as a <em>teaching</em> tool instead? That
+          now lives in the browser-based
+          <a href="https://kevinschoenholzer.com/empiria/" class="text-cyan-400 hover:underline">Empiria web app</a>.
         </p>
       </div>
 
@@ -120,13 +122,13 @@
         </div>
         <hr class="border-border">
         <div>
-          <div class="text-xs tracking-widest text-muted mb-2">AUDIENCE</div>
+          <div class="text-xs tracking-widest text-muted mb-2">WHO IT'S FOR</div>
           <p class="text-sm leading-relaxed">
-            From high-school general education through graduate methods seminars.
-            The visceral knob-driven interaction makes it usable for an audience
-            that has never met a probability distribution before; the exact
-            numerics and audit-friendly source make it acceptable for graduate
-            research-methods seminars.
+            Modular-synth patchers, generative and ambient musicians, sound
+            designers — and the statistically curious. No stats background needed
+            to enjoy it; if you do know the math, you can trust it. Teaching or
+            learning statistics? Reach for the
+            <a href="https://kevinschoenholzer.com/empiria/" class="text-cyan-400 hover:underline">Empiria web app</a> instead.
           </p>
         </div>
       </aside>
@@ -236,8 +238,8 @@
           <p class="text-sm text-muted leading-relaxed">
             <span class="codeblock text-xs bg-panel px-1 py-0.5 rounded">.vcv</span>
             patches are plain JSON. Tape's right-click <em>Export buffer to
-            CSV</em> bridges Empiria into R / Python / Julia. The patch is
-            a citeable scientific artifact.
+            CSV</em> bridges Empiria into R / Python / Julia. Reproducible, and
+            identical every time you load it.
           </p>
         </div>
       </div>
@@ -258,29 +260,29 @@
         <div class="text-sm text-muted mb-2">Step 2</div>
         <h3 class="font-semibold mb-3">Download Empiria</h3>
         <p class="text-sm text-muted leading-relaxed mb-3">Grab the latest <span class="codeblock text-xs bg-bg px-1 py-0.5 rounded">.vcvplugin</span> archives from GitHub releases.</p>
-        <a href="https://github.com/kevisc/empiria/releases" class="text-cyan-400 hover:underline text-sm">github.com/kevisc/empiria/releases →</a>
+        <a href="https://github.com/kevisc/empiria-vcv/releases" class="text-cyan-400 hover:underline text-sm">github.com/kevisc/empiria-vcv/releases →</a>
       </div>
       <div class="bg-panel border border-border rounded-lg p-6">
         <div class="text-sm text-muted mb-2">Step 3</div>
         <h3 class="font-semibold mb-3">Drop into Rack</h3>
         <p class="text-sm text-muted leading-relaxed mb-3">Move the archive into Rack's plugin folder; restart Rack. Modules appear under the <strong>SHLabs</strong> brand.</p>
-        <a href="https://github.com/kevisc/empiria/blob/main/docs/methods_manual.pdf" class="text-cyan-400 hover:underline text-sm">Full manual (PDF) →</a>
+        <a href="https://github.com/kevisc/empiria-vcv/blob/main/docs/methods_manual.pdf" class="text-cyan-400 hover:underline text-sm">Full manual (PDF) →</a>
       </div>
     </div>
   </section>
 
   <!-- ─── cite ─────────────────────────────────────────────────────────── -->
   <section class="max-w-6xl mx-auto px-6 py-12 border-t border-border">
-    <h2 class="text-2xl font-bold mb-6">Cite Empiria</h2>
-    <p class="text-muted mb-4">If you use Empiria in published research or coursework, please cite the companion paper.</p>
-    <pre class="bg-panel border border-border rounded-lg p-5 text-xs overflow-x-auto codeblock"><code>@article{empiria2026,
-  author  = {Schoenholzer, Kevin},
-  title   = {Empiria: A Modular-Synthesizer Platform for
-             Simulation-Based Statistics Education},
-  journal = {Journal of Statistics and Data Science Education},
-  year    = {2026},
-  note    = {under review}
+    <h2 class="text-2xl font-bold mb-6">Using Empiria in your work</h2>
+    <p class="text-muted mb-4">Empiria is free for music, research, or teaching. If you'd like to credit it, cite the software:</p>
+    <pre class="bg-panel border border-border rounded-lg p-5 text-xs overflow-x-auto codeblock"><code>@software{empiria_vcv,
+  author = {Schoenholzer, Kevin},
+  title  = {Empiria: Statistical and Social-Science
+            Modules for VCV Rack},
+  year   = {2026},
+  url    = {https://github.com/kevisc/empiria-vcv}
 }</code></pre>
+    <p class="text-muted text-sm mt-4">Teaching statistics is the job of the browser-based <a href="https://kevinschoenholzer.com/empiria/" class="text-cyan-400 hover:underline">Empiria web app</a> — a separate, classroom-focused tool.</p>
   </section>
 
   <!-- hidden until donations are configured
