@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Rikoschet — SHLabs</title>
-  <meta name="description" content="Rikoschet is a series of multitap rhythm and gate-combination modules for VCV Rack. One clock in, rich rhythmic polyphony out.">
+  <title>Rikoshet — SHLabs</title>
+  <meta name="description" content="Rikoshet is a series of multitap rhythm and gate-combination modules for VCV Rack. One clock in, rich rhythmic polyphony out.">
   <link rel="icon" type="image/svg+xml" href="../img/favicon.svg">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -29,13 +29,13 @@
     <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
       <a href="/" class="flex items-center gap-3">
         <span class="font-semibold tracking-widest text-lg">SH<span class="text-cyan-400">LABS</span></span>
-        <span class="text-muted text-sm">/ Rikoschet</span>
+        <span class="text-muted text-sm">/ Rikoshet</span>
       </a>
       <div class="flex items-center gap-6 text-sm">
         <a href="/" class="text-muted hover:text-white">All modules</a>
         <a href="/about/" class="text-muted hover:text-white">About</a>
         <a href="/donate/" class="text-muted hover:text-white">Donate</a>
-        <a href="https://github.com/kevisc" class="text-muted hover:text-white">GitHub →</a>
+        <a href="https://github.com/kevisc/rikoshet" class="text-muted hover:text-white">GitHub →</a>
       </div>
     </div>
   </nav>
@@ -43,7 +43,7 @@
   <header class="max-w-6xl mx-auto px-6 pt-20 pb-12">
     <div class="family-stripe rounded mb-8 max-w-xs" style="background:#e85e93"></div>
     <div class="text-xs tracking-[0.3em] uppercase mb-4" style="color:#e85e93">Rhythm · gates · multitap</div>
-    <h1 class="text-5xl md:text-6xl font-bold tracking-tight mb-6 leading-tight">Rikoschet</h1>
+    <h1 class="text-5xl md:text-6xl font-bold tracking-tight mb-6 leading-tight">Rikoshet</h1>
     <p class="text-lg md:text-xl text-muted max-w-3xl leading-relaxed">
       A growing series of multitap gate and rhythm modules. The idea is
       simple: take one input clock, send it through a configurable array of
@@ -52,6 +52,15 @@
       by hand. Patch one in for instant counterpoint without losing the
       pulse of the original clock.
     </p>
+    <div class="flex flex-wrap gap-3 mt-8">
+      <a href="https://github.com/kevisc/rikoshet/releases" class="px-5 py-3 text-bg font-medium rounded transition" style="background:#e85e93">
+        Download v2.0.0
+      </a>
+      <a href="https://github.com/kevisc/rikoshet" target="_blank" rel="noopener" class="px-5 py-3 border border-border text-muted hover:text-white hover:border-muted rounded transition">
+        Source on GitHub
+      </a>
+    </div>
+    <p class="text-xs text-muted mt-3">Free to download and use · GPL-3.0 · macOS (Apple Silicon) today; Windows &amp; Linux on the way.</p>
   </header>
 
   <section class="max-w-6xl mx-auto px-6 py-12 border-t border-border">
@@ -60,7 +69,7 @@
       <div class="space-y-4">
         <p>
           A multitap delay takes a single input and returns several
-          time-offset copies of it. Rikoschet modules apply that
+          time-offset copies of it. Rikoshet modules apply that
           principle to gates: one trigger in, an array of derived triggers
           out — each at a configurable phase, each routable through a
           logic combinator (AND, OR, XOR, modulo, swing, polyrhythm).
@@ -68,7 +77,7 @@
         <p>
           The result: drum-machine grooves from a single clock; ratcheted
           envelopes from a single trigger; counterpoint from a single
-          melody line. The Rikoschet philosophy is "one signal in, many
+          melody line. The Rikoshet philosophy is "one signal in, many
           deliberately-related signals out", which is a different design
           stance than the usual "ten LFOs in, one mix out" of
           modular workflows.
@@ -89,15 +98,59 @@
   </section>
 
   <section class="max-w-6xl mx-auto px-6 py-12 border-t border-border">
-    <h2 class="text-2xl font-bold mb-4">Modules in the series</h2>
-    <p class="text-muted mb-6">
-      The series is growing — the table will fill in as modules ship. Each
-      will land with its own detail page, panel render, and starter patch.
-    </p>
-    <div class="bg-panel border border-border rounded-lg p-6 text-muted text-sm">
-      Module list and screenshots forthcoming. Watch the
-      <a href="https://github.com/kevisc" class="text-cyan-400 hover:underline">SHLabs GitHub</a>
-      for releases.
+    <h2 class="text-2xl font-bold mb-8">The four modules</h2>
+    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+      <article class="mod-card bg-panel border border-border rounded-lg overflow-hidden">
+        <div class="family-stripe" style="background:#e85e93"></div>
+        <div class="p-5">
+          <div class="text-xs tracking-widest mb-1" style="color:#e85e93">GATE</div>
+          <h3 class="text-lg font-semibold mb-2">Rhythmic gate</h3>
+          <p class="text-sm text-muted leading-relaxed">
+            Tempo-synced amplitude gate — 14 musical subdivisions, morphable
+            shape, pulse width, and a stereo offset that slips the right
+            channel for width.
+          </p>
+        </div>
+      </article>
+
+      <article class="mod-card bg-panel border border-border rounded-lg overflow-hidden">
+        <div class="family-stripe" style="background:#e85e93"></div>
+        <div class="p-5">
+          <div class="text-xs tracking-widest mb-1" style="color:#e85e93">PINGPONG</div>
+          <h3 class="text-lg font-semibold mb-2">Stereo multitap</h3>
+          <p class="text-sm text-muted leading-relaxed">
+            Ping-pong taps bouncing across the stereo field, with per-tap
+            timing and feedback for cascading echoes and rhythmic bounces.
+          </p>
+        </div>
+      </article>
+
+      <article class="mod-card bg-panel border border-border rounded-lg overflow-hidden">
+        <div class="family-stripe" style="background:#e85e93"></div>
+        <div class="p-5">
+          <div class="text-xs tracking-widest mb-1" style="color:#e85e93">MULTITAP</div>
+          <h3 class="text-lg font-semibold mb-2">The core engine</h3>
+          <p class="text-sm text-muted leading-relaxed">
+            One trigger in, an array of derived gates out — each at a
+            configurable phase, probability, and gate-length, on a polyphonic
+            output cable.
+          </p>
+        </div>
+      </article>
+
+      <article class="mod-card bg-panel border border-border rounded-lg overflow-hidden">
+        <div class="family-stripe" style="background:#e85e93"></div>
+        <div class="p-5">
+          <div class="text-xs tracking-widest mb-1" style="color:#e85e93">BLEND</div>
+          <h3 class="text-lg font-semibold mb-2">Recombiner</h3>
+          <p class="text-sm text-muted leading-relaxed">
+            Mixes and gate-logics taps (AND / OR / XOR / modulo) into new
+            composite rhythms — the counterpoint stage of the series.
+          </p>
+        </div>
+      </article>
+
     </div>
   </section>
 
