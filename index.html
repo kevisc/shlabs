@@ -195,21 +195,48 @@
 
     </div>
 
-    <!-- ─── standalone / experimental row ─────────────────────────────── -->
-    <div class="mt-12">
-      <div class="text-xs tracking-[0.3em] text-muted uppercase mb-3">Standalones &amp; experiments</div>
-      <p class="text-sm text-muted max-w-3xl mb-6">
-        Modules that sit outside the main families — either one-off ideas, or
-        modules whose family hasn't formed around them yet. Shipped working,
-        but documented less formally than the family modules above.
+    <!-- ─── standalone & VST row ──────────────────────────────────────── -->
+    <div id="standalone" class="mt-16 scroll-mt-24">
+      <div class="flex items-baseline gap-4 mb-3 flex-wrap">
+        <span class="branch-pill bg-muted/10 text-muted">STANDALONE &amp; VST</span>
+        <span class="text-xs text-muted">VST3 · AU · macOS &amp; Windows</span>
+      </div>
+      <h2 class="text-3xl font-bold mb-3">Beyond the rack</h2>
+      <p class="text-sm text-muted max-w-3xl mb-8">
+        Tools outside the VCV families — the start of the SHLabs DAW branch, plus
+        one-off standalone experiments.
       </p>
-      <div class="grid md:grid-cols-2 gap-6">
+      <div class="space-y-6">
+
+        <!-- Contour — first SHLabs VST -->
+        <a href="/contour/" class="module-card block bg-panel border border-border rounded-lg overflow-hidden">
+          <div class="family-stripe" style="background:#5fb0c9"></div>
+          <div class="p-6 flex items-center gap-6">
+            <img src="img/contour.png" alt="Contour" width="72" height="72"
+                 class="w-16 h-16 md:w-20 md:h-20 rounded-2xl border border-border shrink-0">
+            <div class="min-w-0">
+              <div class="flex items-baseline justify-between gap-3 mb-2 flex-wrap">
+                <div class="text-xs tracking-widest" style="color:#5fb0c9">CONTOUR</div>
+                <div class="text-xs" style="color:#5fb0c9">Coming soon · first SHLabs VST</div>
+              </div>
+              <h3 class="text-2xl font-semibold mb-2">Multi-LFO modulation rack</h3>
+              <p class="text-sm text-muted leading-relaxed">
+                Draw modulation on a curve editor and lock it to the beat — four
+                curve-LFOs shaping volume, pan and filter, with multiband routing,
+                envelope triggering and MIDI output. VST3 · AU · Standalone.
+              </p>
+              <div class="text-xs text-muted mt-3">→ Read more</div>
+            </div>
+          </div>
+        </a>
+
+        <!-- Terra — experimental -->
         <a href="/terra/" class="module-card block bg-panel2 border border-dashed border-border rounded-lg overflow-hidden">
           <div class="family-stripe" style="background:#8b7cd2;opacity:0.5"></div>
           <div class="p-6">
             <div class="flex items-baseline justify-between mb-2">
               <div class="text-xs tracking-widest" style="color:#b89bdc">TERRA</div>
-              <div class="text-xs text-muted">Experimental · standalone</div>
+              <div class="text-xs text-muted">Experimental</div>
             </div>
             <h3 class="text-lg font-semibold mb-2">Granular sampler</h3>
             <p class="text-sm text-muted leading-relaxed">
@@ -219,6 +246,7 @@
             </p>
           </div>
         </a>
+
       </div>
     </div>
   </section>
@@ -257,47 +285,6 @@
           </p>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- ─── VST & standalone teaser ───────────────────────────────────────── -->
-  <section id="standalone" class="max-w-6xl mx-auto px-6 py-20">
-    <div class="flex items-baseline gap-4 mb-3 flex-wrap">
-      <span class="branch-pill bg-muted/10 text-muted">IN DEVELOPMENT · VST3 / AU</span>
-      <span class="text-xs text-muted">macOS · Windows</span>
-    </div>
-    <h2 class="text-3xl font-bold mb-4">DAW-ready audio tools</h2>
-    <p class="text-muted max-w-3xl mb-10 leading-relaxed">
-      The next branch of SHLabs is a family of DAW-friendly plugins — VST3 and AU,
-      plus standalone apps — carrying the same design ethos as the VCV catalog:
-      expressive, playable, deliberate. The first one is taking shape now.
-    </p>
-
-    <a href="/contour/" class="module-card block bg-panel border border-border rounded-lg overflow-hidden max-w-3xl">
-      <div class="family-stripe" style="background:#5fb0c9"></div>
-      <div class="p-6 flex items-center gap-6">
-        <img src="img/contour.png" alt="Contour" width="72" height="72"
-             class="w-16 h-16 md:w-20 md:h-20 rounded-2xl border border-border shrink-0">
-        <div class="min-w-0">
-          <div class="flex items-baseline justify-between gap-3 mb-2 flex-wrap">
-            <div class="text-xs tracking-widest" style="color:#5fb0c9">CONTOUR</div>
-            <div class="text-xs" style="color:#5fb0c9">Coming soon · first SHLabs VST</div>
-          </div>
-          <h3 class="text-2xl font-semibold mb-2">Multi-LFO modulation rack</h3>
-          <p class="text-sm text-muted leading-relaxed">
-            Draw modulation on a curve editor and lock it to the beat — four
-            curve-LFOs shaping volume, pan and filter, with multiband routing,
-            envelope triggering and MIDI output. VST3 · AU · Standalone.
-          </p>
-          <div class="text-xs text-muted mt-3">→ Read more</div>
-        </div>
-      </div>
-    </a>
-
-    <div class="flex flex-wrap gap-4 mt-10">
-      <a href="https://github.com/kevisc" target="_blank" rel="noopener" class="px-5 py-3 border border-border text-muted hover:text-white hover:border-muted rounded transition">
-        Watch on GitHub →
-      </a>
     </div>
   </section>
 
