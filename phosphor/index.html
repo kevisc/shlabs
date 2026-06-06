@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Phosphor — SHLabs</title>
+  <meta name="description" content="Phosphor is an audio-reactive video synthesiser plugin from SHLabs: it analyses your audio and renders beat-locked visuals you can throw fullscreen onto a second screen. VST3 / AU / Standalone. Coming soon.">
+  <link rel="icon" type="image/svg+xml" href="../img/favicon.svg">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { theme: { extend: {
+      colors: { bg:'#0a0c12', panel:'#161924', panel2:'#1c1f2a', border:'#23273a',
+                muted:'#9aa0b4', cyan:{ 400:'#6ec8e0' }, phos:{ 400:'#5fd6b0' } },
+      fontFamily: { sans:['Inter','system-ui','sans-serif'], mono:['JetBrains Mono','ui-monospace','monospace'] },
+    } } };
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  <style>
+    body { font-family:'Inter', system-ui, sans-serif; }
+    .family-stripe { height:3px; opacity:0.85; }
+    .mod-card { transition: transform 120ms ease, border-color 120ms ease; }
+    .mod-card:hover { transform: translateY(-2px); border-color: rgba(95,214,176,0.5); }
+  </style>
+</head>
+<body class="bg-bg text-white antialiased">
+
+  <nav class="border-b border-border">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-3">
+        <span class="font-semibold tracking-widest text-lg">SH<span class="text-cyan-400">LABS</span></span>
+        <span class="text-muted text-sm">/ Phosphor</span>
+      </a>
+      <div class="flex items-center gap-6 text-sm">
+        <a href="/" class="text-muted hover:text-white">All modules</a>
+        <a href="/about/" class="text-muted hover:text-white">About</a>
+        <a href="https://github.com/kevisc" class="text-muted hover:text-white">GitHub →</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="max-w-6xl mx-auto px-6 pt-20 pb-12">
+    <div class="flex flex-col md:flex-row md:items-center gap-8">
+      <img src="../img/phosphor.png" alt="Phosphor" width="120" height="120"
+           class="w-24 h-24 md:w-32 md:h-32 rounded-2xl border border-border shadow-lg shrink-0">
+      <div>
+        <div class="family-stripe rounded mb-6 max-w-xs" style="background:#5fd6b0"></div>
+        <div class="text-xs tracking-[0.3em] uppercase mb-4" style="color:#5fd6b0">Audio-reactive video synth · VST</div>
+        <h1 class="text-5xl md:text-6xl font-bold tracking-tight mb-6 leading-tight">Phosphor</h1>
+        <p class="text-lg md:text-xl text-muted max-w-3xl leading-relaxed">
+          A <strong class="text-white">video synthesiser</strong> that listens. Drop
+          it on a track and Phosphor analyses the audio — untouched as it passes —
+          and renders a beat-locked visual field you can throw fullscreen onto a
+          second screen. Live visuals that move with the music, straight from your
+          DAW.
+        </p>
+      </div>
+    </div>
+
+    <div class="flex flex-wrap items-center gap-3 mt-10">
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded border" style="border-color:#5fd6b0;color:#5fd6b0">
+        <span class="text-sm font-semibold tracking-wide">Coming soon</span>
+      </div>
+      <span class="text-xs text-muted">VST3 · AU · Standalone · macOS &amp; Windows</span>
+    </div>
+    <p class="text-xs text-muted mt-3">A paid SHLabs plugin in active development. Follow SHLabs for the release.</p>
+  </header>
+
+  <section class="max-w-6xl mx-auto px-6 py-12 border-t border-border">
+    <h2 class="text-2xl font-bold mb-8">What it does</h2>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      <article class="mod-card bg-panel border border-border rounded-lg overflow-hidden">
+        <div class="family-stripe" style="background:#5fd6b0"></div>
+        <div class="p-5">
+          <div class="text-xs tracking-widest mb-1" style="color:#5fd6b0">AUDIO-REACTIVE</div>
+          <h3 class="text-lg font-semibold mb-2">Visuals driven by sound</h3>
+          <p class="text-sm text-muted leading-relaxed">
+            The render engine reacts to the audio on the track — level, motion and
+            transients shape the image in real time. Insert it anywhere; the audio
+            passes through untouched.
+          </p>
+        </div>
+      </article>
+
+      <article class="mod-card bg-panel border border-border rounded-lg overflow-hidden">
+        <div class="family-stripe" style="background:#5fd6b0"></div>
+        <div class="p-5">
+          <div class="text-xs tracking-widest mb-1" style="color:#5fd6b0">FIVE FIELDS</div>
+          <h3 class="text-lg font-semibold mb-2">A morphing source</h3>
+          <p class="text-sm text-muted leading-relaxed">
+            One source control morphs across five visual fields — bands, rings,
+            plasma, moiré and spiral — with spatial frequency, domain warp, and full
+            palette control over hue, spread and brightness.
+          </p>
+        </div>
+      </article>
+
+      <article class="mod-card bg-panel border border-border rounded-lg overflow-hidden">
+        <div class="family-stripe" style="background:#5fd6b0"></div>
+        <div class="p-5">
+          <div class="text-xs tracking-widest mb-1" style="color:#5fd6b0">FX PIPELINE</div>
+          <h3 class="text-lg font-semibold mb-2">Feedback &amp; fold</h3>
+          <p class="text-sm text-muted leading-relaxed">
+            Feedback trails with tunnel zoom and rotation, a mirror-to-kaleidoscope
+            fold, RGB chromatic split, and colour posterise — stack them for
+            anything from subtle motion to full psychedelia.
+          </p>
+        </div>
+      </article>
+
+      <article class="mod-card bg-panel border border-border rounded-lg overflow-hidden">
+        <div class="family-stripe" style="background:#5fd6b0"></div>
+        <div class="p-5">
+          <div class="text-xs tracking-widest mb-1" style="color:#5fd6b0">LOCKED IN TIME</div>
+          <h3 class="text-lg font-semibold mb-2">Beat-synced motion</h3>
+          <p class="text-sm text-muted leading-relaxed">
+            Animation locks to your transport — sample-accurate from the host
+            playhead inside the DAW, or over Ableton Link when running standalone
+            alongside Live. Motion stays on the grid.
+          </p>
+        </div>
+      </article>
+
+      <article class="mod-card bg-panel border border-border rounded-lg overflow-hidden">
+        <div class="family-stripe" style="background:#5fd6b0"></div>
+        <div class="p-5">
+          <div class="text-xs tracking-widest mb-1" style="color:#5fd6b0">SECOND SCREEN</div>
+          <h3 class="text-lg font-semibold mb-2">Fullscreen output</h3>
+          <p class="text-sm text-muted leading-relaxed">
+            Throw the render fullscreen onto a second display or projector for live
+            shows and installations — a visual instrument that runs right next to
+            the sound it's reacting to.
+          </p>
+        </div>
+      </article>
+
+      <article class="mod-card bg-panel border border-border rounded-lg overflow-hidden">
+        <div class="family-stripe" style="background:#5fd6b0"></div>
+        <div class="p-5">
+          <div class="text-xs tracking-widest mb-1" style="color:#5fd6b0">ONE ENGINE</div>
+          <h3 class="text-lg font-semibold mb-2">Plugin or standalone</h3>
+          <p class="text-sm text-muted leading-relaxed">
+            The same host-agnostic render core runs as a VST3/AU insert and as a
+            standalone app, so the look you build in the studio comes with you to
+            the stage.
+          </p>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <footer class="max-w-6xl mx-auto px-6 py-12 text-sm text-muted border-t border-border">
+    <p>© 2026 SHLabs · instruments for the modular world · <svg width="11" height="11" viewBox="0 0 32 32" style="display:inline-block;vertical-align:-1px" aria-hidden="true"><rect width="32" height="32" rx="3" fill="#d52b1e"/><rect x="13" y="6" width="6" height="20" fill="#fff"/><rect x="6" y="13" width="20" height="6" fill="#fff"/></svg> Made in Switzerland</p>
+  </footer>
+
+</body>
+</html>

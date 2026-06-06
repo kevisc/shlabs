@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Slicery — SHLabs</title>
+  <meta name="description" content="Slicery is a slice instrument from SHLabs: drop in a loop, chop it into playable slices across the keyboard, shape each one, and grab the keepers to your library. VST3 / AU / Standalone. Coming soon.">
+  <link rel="icon" type="image/svg+xml" href="../img/favicon.svg">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { theme: { extend: {
+      colors: { bg:'#0a0c12', panel:'#161924', panel2:'#1c1f2a', border:'#23273a',
+                muted:'#9aa0b4', cyan:{ 400:'#6ec8e0' }, slice:{ 400:'#cbb38a' } },
+      fontFamily: { sans:['Inter','system-ui','sans-serif'], mono:['JetBrains Mono','ui-monospace','monospace'] },
+    } } };
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  <style>
+    body { font-family:'Inter', system-ui, sans-serif; }
+    .family-stripe { height:3px; opacity:0.85; }
+    .mod-card { transition: transform 120ms ease, border-color 120ms ease; }
+    .mod-card:hover { transform: translateY(-2px); border-color: rgba(203,179,138,0.5); }
+  </style>
+</head>
+<body class="bg-bg text-white antialiased">
+
+  <nav class="border-b border-border">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-3">
+        <span class="font-semibold tracking-widest text-lg">SH<span class="text-cyan-400">LABS</span></span>
+        <span class="text-muted text-sm">/ Slicery</span>
+      </a>
+      <div class="flex items-center gap-6 text-sm">
+        <a href="/" class="text-muted hover:text-white">All modules</a>
+        <a href="/about/" class="text-muted hover:text-white">About</a>
+        <a href="https://github.com/kevisc" class="text-muted hover:text-white">GitHub →</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="max-w-6xl mx-auto px-6 pt-20 pb-12">
+    <div class="flex flex-col md:flex-row md:items-center gap-8">
+      <img src="../img/slicery.png" alt="Slicery" width="120" height="120"
+           class="w-24 h-24 md:w-32 md:h-32 rounded-2xl border border-border shadow-lg shrink-0">
+      <div>
+        <div class="family-stripe rounded mb-6 max-w-xs" style="background:#cbb38a"></div>
+        <div class="text-xs tracking-[0.3em] uppercase mb-4" style="color:#cbb38a">Slice instrument · VST</div>
+        <h1 class="text-5xl md:text-6xl font-bold tracking-tight mb-6 leading-tight">Slicery</h1>
+        <p class="text-lg md:text-xl text-muted max-w-3xl leading-relaxed">
+          Drop in a song or a loop and <strong class="text-white">Slicery</strong>
+          chops it into slices, maps them across the keyboard, and lets you play
+          them back — then save the ones you love out to your sample library. The
+          chop-and-play workflow you actually repeat, in one focused instrument.
+        </p>
+      </div>
+    </div>
+
+    <div class="flex flex-wrap items-center gap-3 mt-10">
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded border" style="border-color:#cbb38a;color:#cbb38a">
+        <span class="text-sm font-semibold tracking-wide">Coming soon</span>
+      </div>
+      <span class="text-xs text-muted">VST3 · AU · Standalone · macOS &amp; Windows</span>
+    </div>
+    <p class="text-xs text-muted mt-3">A paid SHLabs plugin in active development. Follow SHLabs for the release.</p>
+  </header>
+
+  <section class="max-w-6xl mx-auto px-6 py-12 border-t border-border">
+    <h2 class="text-2xl font-bold mb-8">What it does</h2>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      <article class="mod-card bg-panel border border-border rounded-lg overflow-hidden">
+        <div class="family-stripe" style="background:#cbb38a"></div>
+        <div class="p-5">
+          <div class="text-xs tracking-widest mb-1" style="color:#cbb38a">CHOP</div>
+          <h3 class="text-lg font-semibold mb-2">Transient or grid</h3>
+          <p class="text-sm text-muted leading-relaxed">
+            Slice by onset detection with a sensitivity control, or divide cleanly
+            by note value at a set tempo. Markers are drawn right over the waveform,
+            ready to nudge.
+          </p>
+        </div>
+      </article>
+
+      <article class="mod-card bg-panel border border-border rounded-lg overflow-hidden">
+        <div class="family-stripe" style="background:#cbb38a"></div>
+        <div class="p-5">
+          <div class="text-xs tracking-widest mb-1" style="color:#cbb38a">PLAYABLE</div>
+          <h3 class="text-lg font-semibold mb-2">Across the keyboard</h3>
+          <p class="text-sm text-muted leading-relaxed">
+            Every slice maps chromatically from C1 upward, so the chop is instantly
+            playable from your host or a controller — audition a slice with a click,
+            or perform the whole loop by hand.
+          </p>
+        </div>
+      </article>
+
+      <article class="mod-card bg-panel border border-border rounded-lg overflow-hidden">
+        <div class="family-stripe" style="background:#cbb38a"></div>
+        <div class="p-5">
+          <div class="text-xs tracking-widest mb-1" style="color:#cbb38a">PER-SLICE VOICE</div>
+          <h3 class="text-lg font-semibold mb-2">Shape every hit</h3>
+          <p class="text-sm text-muted leading-relaxed">
+            Gain, pitch (±24), reverse, anti-click fades, gate vs one-shot, and
+            choke groups for hi-hat-style mutual exclusivity — each slice tuned to
+            sit exactly how you want.
+          </p>
+        </div>
+      </article>
+
+      <article class="mod-card bg-panel border border-border rounded-lg overflow-hidden">
+        <div class="family-stripe" style="background:#cbb38a"></div>
+        <div class="p-5">
+          <div class="text-xs tracking-widest mb-1" style="color:#cbb38a">LIBRARY</div>
+          <h3 class="text-lg font-semibold mb-2">Keep the good ones</h3>
+          <p class="text-sm text-muted leading-relaxed">
+            Found a one-shot you love? Name it and grab it straight to your sample
+            library. Slicery is as much a sample-prep tool as an instrument.
+          </p>
+        </div>
+      </article>
+
+      <article class="mod-card bg-panel border border-border rounded-lg overflow-hidden">
+        <div class="family-stripe" style="background:#cbb38a"></div>
+        <div class="p-5">
+          <div class="text-xs tracking-widest mb-1" style="color:#cbb38a">LAUNCH CLIPS</div>
+          <h3 class="text-lg font-semibold mb-2">Loop &amp; sync</h3>
+          <p class="text-sm text-muted leading-relaxed">
+            Turn a slice into a looping launch clip locked to a shared clock —
+            Slicery doubles as a clip launcher for hybrid performance rigs.
+          </p>
+        </div>
+      </article>
+
+      <article class="mod-card bg-panel border border-border rounded-lg overflow-hidden">
+        <div class="family-stripe" style="background:#cbb38a"></div>
+        <div class="p-5">
+          <div class="text-xs tracking-widest mb-1" style="color:#cbb38a">WORKFLOW</div>
+          <h3 class="text-lg font-semibold mb-2">Fast and focused</h3>
+          <p class="text-sm text-muted leading-relaxed">
+            Drag-and-drop loading, a clear waveform with slice pads, and a workflow
+            centred on the loop you repeat: chop, play, keep. Think ReCycle ×
+            Serato Sample, distilled.
+          </p>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <footer class="max-w-6xl mx-auto px-6 py-12 text-sm text-muted border-t border-border">
+    <p>© 2026 SHLabs · instruments for the modular world · <svg width="11" height="11" viewBox="0 0 32 32" style="display:inline-block;vertical-align:-1px" aria-hidden="true"><rect width="32" height="32" rx="3" fill="#d52b1e"/><rect x="13" y="6" width="6" height="20" fill="#fff"/><rect x="6" y="13" width="20" height="6" fill="#fff"/></svg> Made in Switzerland</p>
+  </footer>
+
+</body>
+</html>

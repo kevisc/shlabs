@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Metro 185 — SHLabs</title>
+  <meta name="description" content="Metro 185 is a professional MIDI-effect step sequencer from SHLabs, in the lineage of the RYK M-185 and Roland System 100m — reimagined for the DAW. VST3 / AU / Standalone. Coming soon.">
+  <link rel="icon" type="image/svg+xml" href="../img/favicon.svg">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { theme: { extend: {
+      colors: { bg:'#0a0c12', panel:'#161924', panel2:'#1c1f2a', border:'#23273a',
+                muted:'#9aa0b4', cyan:{ 400:'#6ec8e0' }, metro:{ 400:'#9fb0cc' } },
+      fontFamily: { sans:['Inter','system-ui','sans-serif'], mono:['JetBrains Mono','ui-monospace','monospace'] },
+    } } };
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  <style>
+    body { font-family:'Inter', system-ui, sans-serif; }
+    .family-stripe { height:3px; opacity:0.85; }
+    .mod-card { transition: transform 120ms ease, border-color 120ms ease; }
+    .mod-card:hover { transform: translateY(-2px); border-color: rgba(159,176,204,0.5); }
+  </style>
+</head>
+<body class="bg-bg text-white antialiased">
+
+  <nav class="border-b border-border">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-3">
+        <span class="font-semibold tracking-widest text-lg">SH<span class="text-cyan-400">LABS</span></span>
+        <span class="text-muted text-sm">/ Metro 185</span>
+      </a>
+      <div class="flex items-center gap-6 text-sm">
+        <a href="/" class="text-muted hover:text-white">All modules</a>
+        <a href="/about/" class="text-muted hover:text-white">About</a>
+        <a href="https://github.com/kevisc" class="text-muted hover:text-white">GitHub →</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="max-w-6xl mx-auto px-6 pt-20 pb-12">
+    <div class="flex flex-col md:flex-row md:items-center gap-8">
+      <img src="../img/metro185.png" alt="Metro 185" width="120" height="120"
+           class="w-24 h-24 md:w-32 md:h-32 rounded-2xl border border-border shadow-lg shrink-0">
+      <div>
+        <div class="family-stripe rounded mb-6 max-w-xs" style="background:#9fb0cc"></div>
+        <div class="text-xs tracking-[0.3em] uppercase mb-4" style="color:#9fb0cc">MIDI step sequencer · VST</div>
+        <h1 class="text-5xl md:text-6xl font-bold tracking-tight mb-6 leading-tight">Metro 185</h1>
+        <p class="text-lg md:text-xl text-muted max-w-3xl leading-relaxed">
+          A step sequencer in the lineage of the <strong class="text-white">RYK
+          M-185</strong> and Roland System 100m, reimagined for the DAW. A pure MIDI
+          effect — drop it on a MIDI track, route it into any instrument, and drive
+          it with eight deep, expressive steps.
+        </p>
+      </div>
+    </div>
+
+    <div class="flex flex-wrap items-center gap-3 mt-10">
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded border" style="border-color:#9fb0cc;color:#9fb0cc">
+        <span class="text-sm font-semibold tracking-wide">Coming soon</span>
+      </div>
+      <span class="text-xs text-muted">VST3 · AU · Standalone · MIDI effect · macOS &amp; Windows</span>
+    </div>
+    <p class="text-xs text-muted mt-3">A paid SHLabs plugin in active development. Follow SHLabs for the release.</p>
+  </header>
+
+  <section class="max-w-6xl mx-auto px-6 py-12 border-t border-border">
+    <h2 class="text-2xl font-bold mb-8">What it does</h2>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      <article class="mod-card bg-panel border border-border rounded-lg overflow-hidden">
+        <div class="family-stripe" style="background:#9fb0cc"></div>
+        <div class="p-5">
+          <div class="text-xs tracking-widest mb-1" style="color:#9fb0cc">STEP ENGINE</div>
+          <h3 class="text-lg font-semibold mb-2">Eight deep steps</h3>
+          <p class="text-sm text-muted leading-relaxed">
+            Eight steps with sample-accurate MIDI generation locked to host
+            transport. Per step: pitch, gate mode, pulse count (1–8), velocity, gate
+            length, ratchets, slide, skip and two CC outputs.
+          </p>
+        </div>
+      </article>
+
+      <article class="mod-card bg-panel border border-border rounded-lg overflow-hidden">
+        <div class="family-stripe" style="background:#9fb0cc"></div>
+        <div class="p-5">
+          <div class="text-xs tracking-widest mb-1" style="color:#9fb0cc">14 GATE MODES</div>
+          <h3 class="text-lg font-semibold mb-2">Per-step character</h3>
+          <p class="text-sm text-muted leading-relaxed">
+            Single, repeat, legato, hold, divisions, probability gates and two
+            Euclidean modes that spread onsets across a step's pulses — plus RYK-style
+            ratcheting up to four re-triggers.
+          </p>
+        </div>
+      </article>
+
+      <article class="mod-card bg-panel border border-border rounded-lg overflow-hidden">
+        <div class="family-stripe" style="background:#9fb0cc"></div>
+        <div class="p-5">
+          <div class="text-xs tracking-widest mb-1" style="color:#9fb0cc">MUSICAL</div>
+          <h3 class="text-lg font-semibold mb-2">34 scales &amp; swing</h3>
+          <p class="text-sm text-muted leading-relaxed">
+            Automatic quantization to 34 scales with root selection, global and
+            MIDI-input transpose, swing on every other pulse, and pitch-bend slide
+            between steps.
+          </p>
+        </div>
+      </article>
+
+      <article class="mod-card bg-panel border border-border rounded-lg overflow-hidden">
+        <div class="family-stripe" style="background:#9fb0cc"></div>
+        <div class="p-5">
+          <div class="text-xs tracking-widest mb-1" style="color:#9fb0cc">PLAY MODES</div>
+          <h3 class="text-lg font-semibold mb-2">Direction &amp; chance</h3>
+          <p class="text-sm text-muted leading-relaxed">
+            Forward, reverse, ping-pong, random and brownian — each with a "fixed"
+            variant that always traverses all eight steps. Sequence length 1–8.
+          </p>
+        </div>
+      </article>
+
+      <article class="mod-card bg-panel border border-border rounded-lg overflow-hidden">
+        <div class="family-stripe" style="background:#9fb0cc"></div>
+        <div class="p-5">
+          <div class="text-xs tracking-widest mb-1" style="color:#9fb0cc">DAW-NATIVE</div>
+          <h3 class="text-lg font-semibold mb-2">Built for the host</h3>
+          <p class="text-sm text-muted leading-relaxed">
+            Full transport sync, every control automatable, right-click MIDI-learn
+            on any parameter, state saved with the project, and a configurable MIDI
+            output channel.
+          </p>
+        </div>
+      </article>
+
+      <article class="mod-card bg-panel border border-border rounded-lg overflow-hidden">
+        <div class="family-stripe" style="background:#9fb0cc"></div>
+        <div class="p-5">
+          <div class="text-xs tracking-widest mb-1" style="color:#9fb0cc">PATTERNS</div>
+          <h3 class="text-lg font-semibold mb-2">Save &amp; recall</h3>
+          <p class="text-sm text-muted leading-relaxed">
+            Store and load full patterns to disk, and route the two per-step CC
+            outputs to modulate anything in your rack — the sequence becomes a
+            modulation source too.
+          </p>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <footer class="max-w-6xl mx-auto px-6 py-12 text-sm text-muted border-t border-border">
+    <p>© 2026 SHLabs · instruments for the modular world · <svg width="11" height="11" viewBox="0 0 32 32" style="display:inline-block;vertical-align:-1px" aria-hidden="true"><rect width="32" height="32" rx="3" fill="#d52b1e"/><rect x="13" y="6" width="6" height="20" fill="#fff"/><rect x="6" y="13" width="20" height="6" fill="#fff"/></svg> Made in Switzerland</p>
+  </footer>
+
+</body>
+</html>
