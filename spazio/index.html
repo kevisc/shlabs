@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Spazio — SHLabs</title>
+  <meta name="description" content="Spazio is a reverb–delay continuum: a studio delay at one end, a hall at the other, and the diffused, blooming territory in between — morphed by one CONTINUUM control. Tempo-synced echoes, an 8-line modulated reverb network, freeze, ducking and a live decay-profile display. VST3 / AU / Standalone. Coming soon.">
+  <link rel="icon" type="image/svg+xml" href="../img/favicon.svg">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { theme: { extend: {
+      colors: { bg:'#0a0c12', panel:'#161924', panel2:'#1c1f2a', border:'#23273a',
+                muted:'#9aa0b4', cyan:{ 400:'#6ec8e0' },
+                spz:{ 400:'#7d8fe0', 500:'#5f72c8' } },
+      fontFamily: { sans:['Inter','system-ui','sans-serif'], mono:['JetBrains Mono','ui-monospace','monospace'] },
+    } } };
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  <style>
+    body { font-family:'Inter', system-ui, sans-serif; }
+    .family-stripe { height:3px; opacity:0.85; }
+    .mod-card { transition: transform 120ms ease, border-color 120ms ease; }
+    .mod-card:hover { transform: translateY(-2px); border-color: rgba(125,143,224,0.5); }
+  </style>
+</head>
+<body class="bg-bg text-white antialiased">
+
+  <nav class="border-b border-border">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-3">
+        <span class="font-semibold tracking-widest text-lg">SH<span class="text-cyan-400">LABS</span></span>
+        <span class="text-muted text-sm">/ Spazio</span>
+      </a>
+      <div class="flex items-center gap-6 text-sm">
+        <a href="/" class="text-muted hover:text-white">All modules</a>
+        <a href="/about/" class="text-muted hover:text-white">About</a>
+        <a href="https://github.com/shlabs-audio" class="text-muted hover:text-white">GitHub →</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="max-w-6xl mx-auto px-6 pt-20 pb-12">
+    <div class="flex flex-col md:flex-row md:items-center gap-8">
+      <img src="../img/spazio.png" alt="Spazio" width="120" height="120"
+           class="w-24 h-24 md:w-32 md:h-32 rounded-2xl border border-border shadow-lg shrink-0">
+      <div>
+        <div class="family-stripe rounded mb-6 max-w-xs" style="background:#7d8fe0"></div>
+        <div class="text-xs tracking-[0.3em] uppercase mb-4" style="color:#7d8fe0">Reverb · delay continuum</div>
+        <h1 class="text-5xl md:text-6xl font-bold tracking-tight mb-6 leading-tight">Spazio</h1>
+        <p class="text-lg md:text-xl text-muted max-w-3xl leading-relaxed">
+          One engine for <strong class="text-white">every space between echo and
+          hall</strong>. A precision studio delay at one end, a lush modulated
+          reverb at the other — and the territory in between, where repeats smear,
+          diffuse and bloom into tails, on a single <strong class="text-white">CONTINUUM</strong>
+          control. Every parameter underneath stays yours to adjust.
+        </p>
+      </div>
+    </div>
+
+    <div class="flex flex-wrap items-center gap-3 mt-10">
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded border" style="border-color:#7d8fe0;color:#7d8fe0">
+        <span class="text-sm font-semibold tracking-wide">Coming soon</span>
+      </div>
+      <span class="text-xs text-muted">VST3 · AU · Standalone · macOS (Windows planned) · audio effect</span>
+      <!-- WHEN READY TO SELL: swap the "Coming soon" badge above for a buy button. With Lemon Squeezy
+           (merchant of record — it takes payment, handles EU/Swiss VAT, issues the licence key and delivers
+           the download), it is two lines:
+             <a href="https://shlabs.lemonsqueezy.com/buy/PRODUCT-ID?embed=1" class="lemonsqueezy-button inline-flex items-center gap-2 px-5 py-2.5 rounded font-semibold" style="background:#7d8fe0;color:#0a0c12">Buy Spazio — €39</a>
+             <script src="https://app.lemonsqueezy.com/js/lemon.js" defer></script>
+           Paddle is the alternative (same MoR/VAT handling). -->
+    </div>
+    <p class="text-xs text-muted mt-3">
+      Spazio is a paid, closed-source SHLabs plugin in active development.
+      Follow SHLabs for the release.
+    </p>
+  </header>
+
+  <section class="max-w-6xl mx-auto px-6 py-12 border-t border-border">
+    <h2 class="text-2xl font-bold mb-8">What it does</h2>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      <article class="mod-card bg-panel border border-border rounded-lg overflow-hidden">
+        <div class="family-stripe" style="background:#7d8fe0"></div>
+        <div class="p-5">
+          <div class="text-xs tracking-widest mb-1" style="color:#7d8fe0">CONTINUUM</div>
+          <h3 class="text-lg font-semibold mb-2">Echo to hall, one move</h3>
+          <p class="text-sm text-muted leading-relaxed">
+            The headline control morphs the whole engine: pure repeats on the
+            left, pure space on the right. In the middle the reverb network is
+            <strong class="text-white">fed by the echoes themselves</strong>, so
+            every repeat blooms a tail. Equal-power, fully smoothed, automatable.
+          </p>
+        </div>
+      </article>
+
+      <article class="mod-card bg-panel border border-border rounded-lg overflow-hidden">
+        <div class="family-stripe" style="background:#7d8fe0"></div>
+        <div class="p-5">
+          <div class="text-xs tracking-widest mb-1" style="color:#7d8fe0">ECHO</div>
+          <h3 class="text-lg font-semibold mb-2">A serious studio delay</h3>
+          <p class="text-sm text-muted leading-relaxed">
+            Tempo-synced (sixteen divisions, dotted and triplet) or free-running
+            per-channel times, ping-pong cross-feed, feedback past 100% that
+            self-limits through an <strong class="text-white">in-loop saturation
+            stage</strong>, loop filters that darken each pass, and wow-style
+            modulation from subtle chorus to tape wobble.
+          </p>
+        </div>
+      </article>
+
+      <article class="mod-card bg-panel border border-border rounded-lg overflow-hidden">
+        <div class="family-stripe" style="background:#7d8fe0"></div>
+        <div class="p-5">
+          <div class="text-xs tracking-widest mb-1" style="color:#7d8fe0">SMEAR</div>
+          <h3 class="text-lg font-semibold mb-2">The in-between maker</h3>
+          <p class="text-sm text-muted leading-relaxed">
+            A diffuser inside the feedback loop turns clean repeats into
+            <strong class="text-white">washes that thicken with every pass</strong> —
+            slapback stays crisp at zero, dub clouds and ambient smears live at the
+            top. This is the zone most delays and reverbs leave uncovered.
+          </p>
+        </div>
+      </article>
+
+      <article class="mod-card bg-panel border border-border rounded-lg overflow-hidden">
+        <div class="family-stripe" style="background:#7d8fe0"></div>
+        <div class="p-5">
+          <div class="text-xs tracking-widest mb-1" style="color:#7d8fe0">SPACE</div>
+          <h3 class="text-lg font-semibold mb-2">A modern modulated reverb</h3>
+          <p class="text-sm text-muted leading-relaxed">
+            An eight-line modulated reverb network with
+            <strong class="text-white">two-band decay</strong> — let the lows
+            bloom past the mids or tighten them — high-frequency damping, size
+            from plate to vast hall, decay from 0.1 to 60 seconds, and a lossless
+            <strong class="text-white">FREEZE</strong> that holds the room forever.
+          </p>
+        </div>
+      </article>
+
+      <article class="mod-card bg-panel border border-border rounded-lg overflow-hidden">
+        <div class="family-stripe" style="background:#7d8fe0"></div>
+        <div class="p-5">
+          <div class="text-xs tracking-widest mb-1" style="color:#7d8fe0">DECAY PROFILE</div>
+          <h3 class="text-lg font-semibold mb-2">See the space you are shaping</h3>
+          <p class="text-sm text-muted leading-relaxed">
+            The display renders the <strong class="text-white">actual impulse
+            response of your current settings</strong> — tap spikes, bloom, tail —
+            recomputed live as you turn knobs. Not a stock animation: the real
+            engine, rendered ahead of time.
+          </p>
+        </div>
+      </article>
+
+      <article class="mod-card bg-panel border border-border rounded-lg overflow-hidden">
+        <div class="family-stripe" style="background:#7d8fe0"></div>
+        <div class="p-5">
+          <div class="text-xs tracking-widest mb-1" style="color:#7d8fe0">CONTROL</div>
+          <h3 class="text-lg font-semibold mb-2">Mix-ready by design</h3>
+          <p class="text-sm text-muted leading-relaxed">
+            Program-dependent <strong class="text-white">ducking</strong> keeps the
+            space behind the performance, width runs from mono to extra-wide, a
+            tilt tone darkens or opens the wet path — thirty-six parameters, zero
+            latency, click-free time glides (crossfade or tape repitch), factory
+            and user presets.
+          </p>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="max-w-6xl mx-auto px-6 py-12 border-t border-border">
+    <h2 class="text-2xl font-bold mb-4">The space of the rig</h2>
+    <div class="text-muted leading-relaxed max-w-3xl space-y-4">
+      <p>
+        Most sessions run a delay <em>and</em> a reverb and automate the balance.
+        Spazio treats them as <strong class="text-white">one instrument</strong>:
+        the same signal path covers slapback, ping-pong, dub clouds, gated rooms,
+        vocal halls and frozen pads — and, unlike a send pair, the in-between
+        states are real engine states, not crossfades between two plugins.
+      </p>
+      <p>
+        It slots straight into the SHLabs ecosystem: give
+        <a href="/tincture/" class="text-white hover:underline">Tincture</a> a room
+        to live in, push <a href="/slicery/" class="text-white hover:underline">Slicery</a>
+        chops into dub territory, then hand the mix to the
+        <a href="/glue/" class="text-white hover:underline">Glue</a> /
+        <a href="/stesso/" class="text-white hover:underline">Stesso</a> mastering bench.
+      </p>
+      <p>
+        A paid, closed-source plugin in active development. This page is an early
+        look; pricing and availability will be announced when it ships. Follow
+        SHLabs to hear when it lands.
+      </p>
+    </div>
+  </section>
+
+  <footer class="max-w-6xl mx-auto px-6 py-12 text-sm text-muted border-t border-border">
+    <p>© 2026 SHLabs · instruments for the modular world · <svg width="11" height="11" viewBox="0 0 32 32" style="display:inline-block;vertical-align:-1px" aria-hidden="true"><rect width="32" height="32" rx="3" fill="#d52b1e"/><rect x="13" y="6" width="6" height="20" fill="#fff"/><rect x="6" y="13" width="20" height="6" fill="#fff"/></svg> Made in Switzerland</p>
+  </footer>
+
+</body>
+</html>
