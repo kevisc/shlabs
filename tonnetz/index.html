@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tonnetz — SHLabs</title>
+  <meta name="description" content="Tonnetz is a MIDI harmony conductor: a master key and scale, an interactive Neo-Riemannian lattice, three quantizers, a voiced chord generator, arpeggiator, bass, drone and a progression sequencer — all driving your synths over MIDI. VST3 / AU / Standalone. Coming soon.">
+  <link rel="icon" type="image/svg+xml" href="../img/favicon.svg">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = { theme: { extend: {
+      colors: { bg:'#0a0c12', panel:'#161924', panel2:'#1c1f2a', border:'#23273a',
+                muted:'#9aa0b4', cyan:{ 400:'#6ec8e0' },
+                tnz:{ 400:'#eca13c', 500:'#c9842c' } },
+      fontFamily: { sans:['Inter','system-ui','sans-serif'], mono:['JetBrains Mono','ui-monospace','monospace'] },
+    } } };
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  <style>
+    body { font-family:'Inter', system-ui, sans-serif; }
+    .family-stripe { height:3px; opacity:0.85; }
+    .mod-card { transition: transform 120ms ease, border-color 120ms ease; }
+    .mod-card:hover { transform: translateY(-2px); border-color: rgba(236,161,60,0.5); }
+  </style>
+</head>
+<body class="bg-bg text-white antialiased">
+
+  <nav class="border-b border-border">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-3">
+        <span class="font-semibold tracking-widest text-lg">SH<span class="text-cyan-400">LABS</span></span>
+        <span class="text-muted text-sm">/ Tonnetz</span>
+      </a>
+      <div class="flex items-center gap-6 text-sm">
+        <a href="/" class="text-muted hover:text-white">All modules</a>
+        <a href="/about/" class="text-muted hover:text-white">About</a>
+        <a href="https://github.com/kevisc" class="text-muted hover:text-white">GitHub →</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="max-w-6xl mx-auto px-6 pt-20 pb-12">
+    <div class="flex flex-col md:flex-row md:items-center gap-8">
+      <img src="../img/tonnetz.png" alt="Tonnetz" width="120" height="120"
+           class="w-24 h-24 md:w-32 md:h-32 rounded-2xl border border-border shadow-lg shrink-0">
+      <div>
+        <div class="family-stripe rounded mb-6 max-w-xs" style="background:#eca13c"></div>
+        <div class="text-xs tracking-[0.3em] uppercase mb-4" style="color:#eca13c">MIDI harmony conductor · Sinfonion-style brain</div>
+        <h1 class="text-5xl md:text-6xl font-bold tracking-tight mb-6 leading-tight">Tonnetz</h1>
+        <p class="text-lg md:text-xl text-muted max-w-3xl leading-relaxed">
+          A <strong class="text-white">harmonic conductor</strong> for your whole rig.
+          Set a key and scale, then play chords from an interactive Neo-Riemannian
+          lattice while three quantizers, a voiced chord generator, an arpeggiator,
+          bass and drone all stay locked to the same harmony — and drive any synth
+          or hardware over MIDI. No sound of its own; it conducts the instruments
+          you already own.
+        </p>
+      </div>
+    </div>
+
+    <div class="flex flex-wrap items-center gap-3 mt-10">
+      <div class="inline-flex items-center gap-2 px-4 py-2 rounded border" style="border-color:#eca13c;color:#eca13c">
+        <span class="text-sm font-semibold tracking-wide">Coming soon</span>
+      </div>
+      <span class="text-xs text-muted">VST3 · AU · Standalone · macOS &amp; Windows · MIDI effect</span>
+      <!-- WHEN READY TO SELL: swap the "Coming soon" badge above for a buy button. With Lemon Squeezy
+           (merchant of record — it takes payment, handles EU/Swiss VAT, issues the licence key and delivers
+           the download), it is two lines:
+             <a href="https://shlabs.lemonsqueezy.com/buy/PRODUCT-ID?embed=1" class="lemonsqueezy-button inline-flex items-center gap-2 px-5 py-2.5 rounded font-semibold" style="background:#eca13c;color:#0a0c12">Buy Tonnetz — €39</a>
+             <script src="https://app.lemonsqueezy.com/js/lemon.js" defer></script>
+           Paddle is the alternative (same MoR/VAT handling). -->
+    </div>
+    <p class="text-xs text-muted mt-3">
+      Tonnetz is a paid, closed-source SHLabs plugin in active development.
+      Follow SHLabs for the release.
+    </p>
+  </header>
+
+  <section class="max-w-6xl mx-auto px-6 py-12 border-t border-border">
+    <h2 class="text-2xl font-bold mb-8">What it does</h2>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      <article class="mod-card bg-panel border border-border rounded-lg overflow-hidden">
+        <div class="family-stripe" style="background:#eca13c"></div>
+        <div class="p-5">
+          <div class="text-xs tracking-widest mb-1" style="color:#eca13c">THE LATTICE</div>
+          <h3 class="text-lg font-semibold mb-2">Play harmony in space</h3>
+          <p class="text-sm text-muted leading-relaxed">
+            An interactive Neo-Riemannian <strong class="text-white">Tonnetz</strong>
+            lattice at the centre of the plugin — click a triad and the whole rig
+            follows, with the notes lighting up as they play. The harmonic map no
+            other plugin puts front and centre.
+          </p>
+        </div>
+      </article>
+
+      <article class="mod-card bg-panel border border-border rounded-lg overflow-hidden">
+        <div class="family-stripe" style="background:#eca13c"></div>
+        <div class="p-5">
+          <div class="text-xs tracking-widest mb-1" style="color:#eca13c">MASTER HARMONY</div>
+          <h3 class="text-lg font-semibold mb-2">One key, everything obeys</h3>
+          <p class="text-sm text-muted leading-relaxed">
+            A live, modulatable key and scale with degree → chord stacking
+            (root / 3 / 5 / 7 / 9 / 11 / 13). Change the degree and every part
+            re-voices, in tune, instantly.
+          </p>
+        </div>
+      </article>
+
+      <article class="mod-card bg-panel border border-border rounded-lg overflow-hidden">
+        <div class="family-stripe" style="background:#eca13c"></div>
+        <div class="p-5">
+          <div class="text-xs tracking-widest mb-1" style="color:#eca13c">QUANTIZERS</div>
+          <h3 class="text-lg font-semibold mb-2">Never a wrong note</h3>
+          <p class="text-sm text-muted leading-relaxed">
+            Three independent channels snap incoming MIDI to the master key —
+            <strong class="text-white">Scale, Triad, 7th, 9th</strong> or Full —
+            each on its own input/output MIDI channel and octave. Play freely; it
+            stays in key.
+          </p>
+        </div>
+      </article>
+
+      <article class="mod-card bg-panel border border-border rounded-lg overflow-hidden">
+        <div class="family-stripe" style="background:#eca13c"></div>
+        <div class="p-5">
+          <div class="text-xs tracking-widest mb-1" style="color:#eca13c">CHORD + PARTS</div>
+          <h3 class="text-lg font-semibold mb-2">A whole band, in key</h3>
+          <p class="text-sm text-muted leading-relaxed">
+            A voiced chord generator with voice-leading, spread and inversions,
+            plus an <strong class="text-white">arpeggiator</strong>, bass and drone
+            — each routable to its own synth on its own channel, with swing and
+            humanize for feel.
+          </p>
+        </div>
+      </article>
+
+      <article class="mod-card bg-panel border border-border rounded-lg overflow-hidden">
+        <div class="family-stripe" style="background:#eca13c"></div>
+        <div class="p-5">
+          <div class="text-xs tracking-widest mb-1" style="color:#eca13c">SONG MODE</div>
+          <h3 class="text-lg font-semibold mb-2">Write the progression</h3>
+          <p class="text-sm text-muted leading-relaxed">
+            A 16-step progression sequencer drives the degree from the clock —
+            host transport or internal — so your changes land exactly on the beat
+            or bar. Twelve factory presets to start, save your own.
+          </p>
+        </div>
+      </article>
+
+      <article class="mod-card bg-panel border border-border rounded-lg overflow-hidden">
+        <div class="family-stripe" style="background:#eca13c"></div>
+        <div class="p-5">
+          <div class="text-xs tracking-widest mb-1" style="color:#eca13c">PERFORM</div>
+          <h3 class="text-lg font-semibold mb-2">Built to play live</h3>
+          <p class="text-sm text-muted leading-relaxed">
+            Chord-by-MIDI, global transpose, quantized chord changes,
+            <strong class="text-white">MIDI-Learn</strong> on every control, and
+            drag-to-DAW MIDI export of the whole arrangement. A performance
+            instrument, not just a utility.
+          </p>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <section class="max-w-6xl mx-auto px-6 py-12 border-t border-border">
+    <h2 class="text-2xl font-bold mb-4">The conductor for your studio</h2>
+    <div class="text-muted leading-relaxed max-w-3xl space-y-4">
+      <p>
+        Tonnetz is the harmonic brain of the SHLabs rig — pure MIDI, no sound of
+        its own, pointed at whatever synths and hardware you already love. In the
+        spirit of the ACL Sinfonion and the Conductive Labs NDLR, rebuilt as a
+        plugin with the <strong class="text-white">Tonnetz lattice</strong> at its
+        heart, so a single key change moves your whole arrangement in tune.
+      </p>
+      <p>
+        It pairs naturally with <a href="/metro185/" class="text-white hover:underline">Metro&nbsp;185</a>
+        for rhythm and the rest of the catalog. Runs as a MIDI-effect plugin
+        (VST3 / AU) or standalone with a virtual MIDI port.
+      </p>
+      <p>
+        A paid, closed-source plugin in active development. This page is an early
+        look; pricing and availability will be announced when it ships. Follow
+        SHLabs to hear when it lands.
+      </p>
+    </div>
+  </section>
+
+  <footer class="max-w-6xl mx-auto px-6 py-12 text-sm text-muted border-t border-border">
+    <p>© 2026 SHLabs · instruments for the modular world · <svg width="11" height="11" viewBox="0 0 32 32" style="display:inline-block;vertical-align:-1px" aria-hidden="true"><rect width="32" height="32" rx="3" fill="#d52b1e"/><rect x="13" y="6" width="6" height="20" fill="#fff"/><rect x="6" y="13" width="20" height="6" fill="#fff"/></svg> Made in Switzerland</p>
+  </footer>
+
+</body>
+</html>
