@@ -78,5 +78,5 @@ Brand colors used throughout:
 
 ## License
 
-The site content (text, layout, design) is © Kevin Schoenholzer and
+The site content (text, layout, design) is © SHLabs and
 released under CC-BY-4.0. Modules linked from the site are GPL-3.0-or-later.
