@@ -4,597 +4,437 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>SHLabs — instruments for the modular world</title>
-  <meta name="description" content="SHLabs is an independent studio making music software — modules for VCV Rack and a growing line of VST3 / AU plugins and standalone apps: effects, synthesizers, mastering tools and MIDI composers.">
+  <meta name="description" content="SHLabs is an independent audio-tools studio making instruments for VCV Rack and the DAW — synthesizers, effects, mastering tools, MIDI composers and visuals. One studio, one design language.">
   <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            bg:       '#0a0c12',
-            panel:    '#161924',
-            panel2:   '#1c1f2a',
-            border:   '#23273a',
-            muted:    '#9aa0b4',
-            cyan:     { 400: '#6ec8e0', 500: '#4fb6cf' },
-            mashred:  { 400: '#cf4a4a', 500: '#a83a3a' },
-            atmosgold:{ 400: '#f5c842', 500: '#c9a335' },
-            rikomag:  { 400: '#e85e93', 500: '#c14674' },
-            amber:    { 400: '#f5c842' },
-          },
-          fontFamily: {
-            sans: ['Inter', 'system-ui', 'sans-serif'],
-            mono: ['JetBrains Mono', 'ui-monospace', 'monospace'],
-          },
-        },
-      },
-    };
-  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <style>
-    body { font-family: 'Inter', system-ui, sans-serif; }
-    .family-stripe { height: 3px; opacity: 0.85; }
-    .module-card { transition: transform 120ms ease, border-color 120ms ease; }
-    .module-card:hover { transform: translateY(-2px); border-color: rgba(255, 255, 255, 0.25); }
-    .branch-pill { display:inline-block; padding:.25rem .75rem; border-radius:9999px; font-size:.7rem; letter-spacing:.2em; }
-    .cat-pill { display:inline-block; padding:.35rem .9rem; border-radius:9999px; font-size:.75rem; }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/shlabs.css">
+  <script>
+    document.documentElement.className += ' js';
+    addEventListener('load', function () { setTimeout(function () {
+      if (!window.__shlabsJS) { var r = document.querySelectorAll('.reveal'); for (var i = 0; i < r.length; i++) r[i].classList.add('in'); }
+    }, 1200); });
+  </script>
+  <meta property="og:title" content="SHLabs — instruments for the modular world">
+  <meta property="og:description" content="An independent studio making instruments for VCV Rack and the DAW.">
+  <meta property="og:type" content="website">
 </head>
-<body class="bg-bg text-white antialiased">
+<body>
 
   <!-- ─── nav ───────────────────────────────────────────────────────────── -->
-  <nav class="border-b border-border">
-    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-      <a href="/" class="flex items-center gap-3">
-        <span class="font-semibold tracking-widest text-lg">SH<span class="text-cyan-400">LABS</span></span>
+  <nav class="nav">
+    <div class="wrap nav__in">
+      <a class="brand" href="/" aria-label="SHLabs home">
+        <svg class="brand__mark" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <rect x="1" y="1" width="22" height="22" rx="6" fill="#1c1e22" stroke="#3a3f47"/>
+          <rect x="6.4" y="5.5" width="1.8" height="13" rx=".9" fill="#8b929b"/>
+          <rect x="4.8" y="8.5" width="5" height="3" rx="1.5" fill="#ced3da"/>
+          <rect x="11.1" y="5.5" width="1.8" height="13" rx=".9" fill="#8b929b"/>
+          <rect x="9.5" y="12.5" width="5" height="3" rx="1.5" fill="#ced3da"/>
+          <rect x="15.8" y="5.5" width="1.8" height="13" rx=".9" fill="#8b929b"/>
+          <rect x="14.2" y="7.5" width="5" height="3" rx="1.5" fill="#ced3da"/>
+        </svg>
+        <span class="brand__word">SH<b>LABS</b></span>
       </a>
-      <div class="flex items-center gap-6 text-sm">
-        <div class="relative group">
-          <a href="#products" class="text-muted hover:text-white">Products <span class="text-[0.6rem] align-middle">▾</span></a>
-          <div class="absolute right-0 top-full pt-3 hidden group-hover:block z-20">
-            <div class="bg-panel border border-border rounded-lg shadow-xl py-2 w-64">
-              <a href="#vcv-rack" class="block px-4 py-2 text-muted hover:text-white hover:bg-panel2">VCV Rack 2 modules</a>
-              <div class="px-4 pt-3 pb-1 text-[0.65rem] tracking-[0.2em] text-muted/70 uppercase">VST &amp; Standalone</div>
-              <a href="#vst-effects" class="block px-4 py-2 text-muted hover:text-white hover:bg-panel2">Effects</a>
-              <a href="#vst-synths" class="block px-4 py-2 text-muted hover:text-white hover:bg-panel2">Synthesizers &amp; instruments</a>
-              <a href="#vst-mastering" class="block px-4 py-2 text-muted hover:text-white hover:bg-panel2">Mastering tools</a>
-              <a href="#vst-midi" class="block px-4 py-2 text-muted hover:text-white hover:bg-panel2">MIDI generators &amp; composers</a>
-              <a href="#vst-visuals" class="block px-4 py-2 text-muted hover:text-white hover:bg-panel2">Visuals</a>
-            </div>
+      <div class="nav__links" id="nav-menu">
+        <div class="menu">
+          <a class="nav__link" href="#products" data-menu-toggle role="button" aria-haspopup="true" aria-expanded="false">Products ▾</a>
+          <div class="menu__panel">
+            <a class="menu__item" href="#vcv"><span class="dot"></span> VCV Rack 2 modules</a>
+            <div class="menu__head">VST &amp; Standalone</div>
+            <a class="menu__item" href="#cat-synths"><span class="dot"></span> Synthesizers &amp; instruments</a>
+            <a class="menu__item" href="#cat-effects"><span class="dot"></span> Effects</a>
+            <a class="menu__item" href="#cat-mastering"><span class="dot"></span> Mastering tools</a>
+            <a class="menu__item" href="#cat-midi"><span class="dot"></span> MIDI generators &amp; composers</a>
+            <a class="menu__item" href="#cat-visuals"><span class="dot"></span> Visuals</a>
           </div>
         </div>
-        <a href="/about/" class="text-muted hover:text-white">About</a>
-        <!-- hidden until donations are configured
-        <a href="/donate/" class="text-muted hover:text-white">Donate</a>
-        -->
-        <a href="https://github.com/shlabs-audio" target="_blank" rel="noopener" class="text-muted hover:text-white">GitHub →</a>
+        <a class="nav__link" href="/about/">Studio</a>
+        <a class="nav__cta" href="https://github.com/shlabs-audio" target="_blank" rel="noopener">GitHub ↗</a>
       </div>
+      <button class="nav__burger" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
     </div>
   </nav>
 
   <!-- ─── hero ──────────────────────────────────────────────────────────── -->
-  <header class="max-w-6xl mx-auto px-6 pt-24 pb-20">
-    <div class="text-xs tracking-[0.3em] text-cyan-400 uppercase mb-6">An independent audio-tools studio</div>
-    <h1 class="text-5xl md:text-7xl font-bold tracking-tight mb-6 leading-none">
-      Instruments<br>
-      <span class="text-muted">for the modular world.</span>
-    </h1>
-    <p class="text-lg md:text-xl text-muted max-w-2xl leading-relaxed mb-10">
-      SHLabs builds instruments at the intersection of musical use, real
-      computation, and unusual control surfaces — modules for
-      <a href="https://vcvrack.com" target="_blank" rel="noopener" class="text-cyan-400 hover:underline">VCV&nbsp;Rack&nbsp;2</a>
-      and a growing line of VST3&nbsp;/&nbsp;AU plugins and standalone apps:
-      effects, synthesizers, mastering tools and MIDI composers.
-    </p>
-    <div class="flex flex-wrap gap-4">
-      <a href="#vcv-rack" class="inline-flex items-center gap-2 px-5 py-3 bg-cyan-400 text-bg font-medium rounded hover:bg-cyan-500 transition">
-        Browse VCV modules ↓
-      </a>
-      <a href="#standalone" class="inline-flex items-center gap-2 px-5 py-3 border border-border text-muted hover:text-white hover:border-muted rounded transition">
-        View VST plugins ↓
-      </a>
-      <!-- hidden until donations are configured
-      <a href="/donate/" class="inline-flex items-center gap-2 px-5 py-3 border border-border text-muted hover:text-white hover:border-muted rounded transition">
-        Support the work
-      </a>
-      -->
+  <header class="section" style="padding-top:clamp(40px,7vh,72px)">
+    <div class="wrap hero__grid">
+      <div>
+        <div class="eyebrow" style="margin-bottom:22px">Independent audio-tools studio · Switzerland</div>
+        <h1 class="display">Instruments for<br>the modular world.</h1>
+        <p class="lead" style="max-width:38ch;margin:26px 0 34px">
+          SHLabs builds instruments at the intersection of musical use, real
+          computation and unusual control surfaces — modules for
+          <a class="link" href="https://vcvrack.com" target="_blank" rel="noopener">VCV&nbsp;Rack&nbsp;2</a>
+          and a growing line of VST3&nbsp;/&nbsp;AU plugins and standalone apps.
+        </p>
+        <div style="display:flex;flex-wrap:wrap;gap:12px">
+          <a class="btn btn--primary" href="#products">Explore products <span class="arw">→</span></a>
+          <a class="btn btn--ghost" href="/about/">The studio</a>
+        </div>
+      </div>
+
+      <!-- hero collage — real plugin UIs -->
+      <div style="display:flex;justify-content:center" class="hero-rig">
+        <div class="shotstack" aria-hidden="true">
+          <img class="s1" src="img/shots/contour.jpg" alt="" width="1280" height="1137">
+          <img class="s2" src="img/shots/tincture.jpg" alt="" width="1280" height="1170">
+          <img class="s3" src="img/shots/glue.jpg" alt="" width="1280" height="759">
+        </div>
+      </div>
     </div>
   </header>
 
+  <!-- ─── two branches strip ────────────────────────────────────────────── -->
+  <section class="wrap">
+    <hr class="hair">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:22px;padding:34px 0" class="branches">
+      <div class="reveal">
+        <div class="eyebrow eyebrow--silver" style="margin-bottom:10px">The rack</div>
+        <p class="body" style="margin:0;max-width:46ch">
+          Open modules for <strong>VCV&nbsp;Rack&nbsp;2</strong> — sequencers, generative
+          sources, stochastic processes and effects. Community-first, cross-platform,
+          some free.
+        </p>
+      </div>
+      <div class="reveal">
+        <div class="eyebrow eyebrow--silver" style="margin-bottom:10px">The studio</div>
+        <p class="body" style="margin:0;max-width:46ch">
+          A family of <strong>VST3&nbsp;/&nbsp;AU plugins and standalone apps</strong> — synths,
+          effects, mastering tools, MIDI brains and visuals. One design language,
+          built to be played.
+        </p>
+      </div>
+    </div>
+    <hr class="hair">
+  </section>
+
   <!-- ─── products ──────────────────────────────────────────────────────── -->
-  <section id="products" class="max-w-6xl mx-auto px-6 pt-16 scroll-mt-16">
-    <div class="border-t border-border pt-16">
-      <h2 class="text-3xl font-bold mb-3">Products</h2>
-      <p class="text-muted max-w-2xl mb-8">
-        Two branches: open modules for VCV&nbsp;Rack&nbsp;2, and a family of
-        VST3&nbsp;/&nbsp;AU plugins and standalone apps for the DAW. Jump to a category:
+  <main>
+  <section id="products" class="section" style="scroll-margin-top:70px">
+    <div class="wrap">
+      <div class="eyebrow" style="margin-bottom:14px">Catalog</div>
+      <h2 class="h2" style="margin-bottom:14px">Products</h2>
+      <p class="lead" style="max-width:56ch;margin-bottom:26px">
+        Two branches, one studio. Jump to a category, or browse the full catalog below.
       </p>
-      <div class="flex flex-wrap gap-2 mb-4">
-        <a href="#vcv-rack" class="cat-pill bg-cyan-400/10 text-cyan-400 hover:bg-cyan-400/20 transition">VCV Rack 2</a>
-        <a href="#vst-effects" class="cat-pill bg-panel border border-border text-muted hover:text-white hover:border-muted transition">Effects</a>
-        <a href="#vst-synths" class="cat-pill bg-panel border border-border text-muted hover:text-white hover:border-muted transition">Synthesizers &amp; instruments</a>
-        <a href="#vst-mastering" class="cat-pill bg-panel border border-border text-muted hover:text-white hover:border-muted transition">Mastering tools</a>
-        <a href="#vst-midi" class="cat-pill bg-panel border border-border text-muted hover:text-white hover:border-muted transition">MIDI generators &amp; composers</a>
-        <a href="#vst-visuals" class="cat-pill bg-panel border border-border text-muted hover:text-white hover:border-muted transition">Visuals</a>
+      <div class="catbar" style="margin-bottom:56px">
+        <a class="cat cat--on" href="#vcv">VCV Rack 2</a>
+        <a class="cat" href="#cat-synths">Synthesizers &amp; instruments</a>
+        <a class="cat" href="#cat-effects">Effects</a>
+        <a class="cat" href="#cat-mastering">Mastering tools</a>
+        <a class="cat" href="#cat-midi">MIDI &amp; composers</a>
+        <a class="cat" href="#cat-visuals">Visuals</a>
+      </div>
+
+      <!-- VCV RACK -->
+      <div id="vcv" style="scroll-margin-top:70px">
+        <div class="rule-label"><span class="eyebrow">VCV Rack 2 · Modules</span><span class="mono small muted">macOS · Windows · Linux</span></div>
+        <div class="grid grid-2">
+
+          <a class="card reveal" href="/stochast/">
+            <div class="card__accent"></div>
+            <div class="card__body prod">
+              <img class="prod__logo" src="img/stochast.png" alt="Stochast" width="60" height="60">
+              <div>
+                <div class="prod__top"><span class="prod__name">Stochast</span><span class="prod__meta">5 plugins · 28 modules</span></div>
+                <h3 class="prod__title">Statistics &amp; emergence as patchable CV</h3>
+                <p class="prod__desc">Real statistical, social and stochastic processes turned into control voltage — sampling distributions, the bootstrap, agent-based cascades, epidemics, reaction–diffusion. Quirky generative material with correct math underneath.</p>
+                <div class="prod__foot">Download · manual · 28-module reference →</div>
+              </div>
+            </div>
+          </a>
+
+          <a class="card reveal" href="/mashina/">
+            <div class="card__accent"></div>
+            <div class="card__body prod">
+              <img class="prod__logo" src="img/mashina.png" alt="Mashina" width="60" height="60">
+              <div>
+                <div class="prod__top"><span class="prod__name">Mashina</span><span class="prod__meta">8 modules</span></div>
+                <h3 class="prod__title">Soviet machines meet the West Coast</h3>
+                <p class="prod__desc">Eight sound-design modules with a deliberate Eastern-bloc analog character, shaped by the West Coast tradition of complex oscillators and function generators: drum voices, oscillators, a master clock, a plate reverb and generative sequencers.</p>
+                <div class="prod__foot">Udar · Klubok · Bochka · Takt · Otzvuk · Strela · Volna · Podton →</div>
+              </div>
+            </div>
+          </a>
+
+          <a class="card reveal" href="/lucida/">
+            <div class="card__accent"></div>
+            <div class="card__body prod">
+              <img class="prod__logo" src="img/lucida.png" alt="Lucida" width="60" height="60">
+              <div>
+                <div class="prod__top"><span class="prod__name">Lucida</span><span class="prod__meta">2 modules · more planned</span></div>
+                <h3 class="prod__title">Generative systems, made visible</h3>
+                <p class="prod__desc">Emergent systems you watch evolve on screen and patch as CV. <strong>Colony</strong> is a cellular-automaton grid; <strong>Turing</strong> is a probabilistic shift-register sequencer with a built-in quantizer.</p>
+                <div class="prod__foot">Colony · Turing →</div>
+              </div>
+            </div>
+          </a>
+
+          <a class="card reveal" href="/rikoschet/">
+            <div class="card__accent"></div>
+            <div class="card__body prod">
+              <img class="prod__logo" src="img/rikoshet.png" alt="Rikoshet" width="60" height="60">
+              <div>
+                <div class="prod__top"><span class="prod__name">Rikoshet</span><span class="prod__meta">4 modules · free</span></div>
+                <h3 class="prod__title">Rhythmic delay &amp; gate effects</h3>
+                <p class="prod__desc">Four tempo-synced effects: a rhythmic amplitude gate, a stereo ping-pong delay, a multi-tap pattern delay and a crossfader. Lock them to your clock for movement in time and across the stereo field.</p>
+                <div class="prod__foot">Gate · PingPong · MultiTap · Blend →</div>
+              </div>
+            </div>
+          </a>
+
+          <a class="card reveal" href="/atmos/">
+            <div class="card__accent"></div>
+            <div class="card__body prod">
+              <img class="prod__logo" src="img/atmos.png" alt="Atmos" width="60" height="60">
+              <div>
+                <div class="prod__top"><span class="prod__name">Atmos</span><span class="prod__meta">4 modules · soon</span></div>
+                <h3 class="prod__title">Tone, space and time</h3>
+                <p class="prod__desc">A transistor-ladder filter (<strong>Helix</strong>), a stereo color repeater (<strong>Halo</strong>), a character delay with reverb (<strong>Skywave</strong>) and an eight-stage step sequencer (<strong>Metro185</strong>).</p>
+                <div class="prod__foot">Helix · Halo · Metro185 · Skywave →</div>
+              </div>
+            </div>
+          </a>
+
+        </div>
+      </div>
+
+      <!-- PLUGINS -->
+      <div style="margin-top:76px">
+        <div class="rule-label"><span class="eyebrow">VST3 · AU · Standalone · Plugins</span><span class="mono small muted">macOS &amp; Windows</span></div>
+
+        <!-- synths -->
+        <div id="cat-synths" style="scroll-margin-top:70px;margin-bottom:46px">
+          <h3 class="h3" style="margin-bottom:6px">Synthesizers &amp; instruments <span class="mono small muted" style="font-weight:400">· sound sources you play</span></h3>
+          <div class="grid grid-2" style="margin-top:20px">
+
+            <a class="card reveal" href="/cell/">
+              <div class="card__accent"></div>
+              <div class="card__body prod">
+                <img class="prod__logo" src="img/cell.png" alt="Cell" width="60" height="60">
+                <div>
+                  <div class="prod__top"><span class="prod__name">Cell</span><span class="prod__meta">Coming soon</span></div>
+                  <h3 class="prod__title">Subtractive synthesizer</h3>
+                  <p class="prod__desc">The essential analog voice, built to stack — two band-limited oscillators, sub and noise into one clean state-variable filter, with filter and amp envelopes, an LFO and a compact mod matrix. Featherweight on the CPU.</p>
+                </div>
+              </div>
+            </a>
+
+            <a class="card reveal" href="/tincture/">
+              <div class="card__accent"></div>
+              <div class="card__body prod">
+                <img class="prod__logo" src="img/tincture.png" alt="Tincture" width="60" height="60">
+                <div>
+                  <div class="prod__top"><span class="prod__name">Tincture</span><span class="prod__meta">Coming soon</span></div>
+                  <h3 class="prod__title">Wavetable synthesizer</h3>
+                  <p class="prod__desc">A synth built around modulation you can touch: band-limited morphing wavetables, warp into FM and ring-mod, drawable LFOs, a 48-slot matrix and a studio FX rack with plate reverb, bus compressor and maximizer.</p>
+                </div>
+              </div>
+            </a>
+
+            <a class="card reveal" href="/slicery/">
+              <div class="card__accent"></div>
+              <div class="card__body prod">
+                <img class="prod__logo" src="img/slicery.png" alt="Slicery" width="60" height="60">
+                <div>
+                  <div class="prod__top"><span class="prod__name">Slicery</span><span class="prod__meta">Coming soon</span></div>
+                  <h3 class="prod__title">Slice instrument</h3>
+                  <p class="prod__desc">Chop a loop into playable slices across the keyboard, shape each hit and grab the keepers to your library — the chop-and-play workflow, distilled. ReCycle × Serato Sample.</p>
+                </div>
+              </div>
+            </a>
+
+          </div>
+        </div>
+
+        <!-- effects -->
+        <div id="cat-effects" style="scroll-margin-top:70px;margin-bottom:46px">
+          <h3 class="h3" style="margin-bottom:6px">Effects <span class="mono small muted" style="font-weight:400">· modulation · space</span></h3>
+          <div class="grid grid-2" style="margin-top:20px">
+
+            <a class="card reveal" href="/contour/">
+              <div class="card__accent"></div>
+              <div class="card__body prod">
+                <img class="prod__logo" src="img/contour.png" alt="Contour" width="60" height="60">
+                <div>
+                  <div class="prod__top"><span class="prod__name">Contour</span><span class="prod__meta">Coming soon</span></div>
+                  <h3 class="prod__title">Multi-LFO modulation rack</h3>
+                  <p class="prod__desc">Draw modulation on a curve editor and lock it to the beat — four curve-LFOs over volume, pan and filter, with multiband routing and MIDI out. The first SHLabs VST.</p>
+                </div>
+              </div>
+            </a>
+
+            <a class="card reveal" href="/spazio/">
+              <div class="card__accent"></div>
+              <div class="card__body prod">
+                <img class="prod__logo" src="img/spazio.png" alt="Spazio" width="60" height="60">
+                <div>
+                  <div class="prod__top"><span class="prod__name">Spazio</span><span class="prod__meta">Coming soon</span></div>
+                  <h3 class="prod__title">Reverb–delay continuum</h3>
+                  <p class="prod__desc">Studio delay, lush modulated reverb and everything in between on one CONTINUUM control: tempo-synced echoes that smear and bloom into tails, two-band decay, freeze, ducking and a live decay-profile display.</p>
+                </div>
+              </div>
+            </a>
+
+          </div>
+        </div>
+
+        <!-- mastering -->
+        <div id="cat-mastering" style="scroll-margin-top:70px;margin-bottom:46px">
+          <h3 class="h3" style="margin-bottom:6px">Mastering tools <span class="mono small muted" style="font-weight:400">· the last mile of a mix</span></h3>
+          <div class="grid grid-2" style="margin-top:20px">
+
+            <a class="card reveal" href="/glue/">
+              <div class="card__accent"></div>
+              <div class="card__body prod">
+                <img class="prod__logo" src="img/glue.png" alt="Glue" width="60" height="60">
+                <div>
+                  <div class="prod__top"><span class="prod__name">Glue</span><span class="prod__meta">Coming soon</span></div>
+                  <h3 class="prod__title">Mastering bus compressor</h3>
+                  <p class="prod__desc">The SSL-style glue that holds a mix together — stepped controls, program-dependent release, sidechain high-pass, Mid/Side and a parallel mix, with a big gain-reduction meter.</p>
+                </div>
+              </div>
+            </a>
+
+            <a class="card reveal" href="/stesso/">
+              <div class="card__accent"></div>
+              <div class="card__body prod">
+                <img class="prod__logo" src="img/stesso.png" alt="Stesso" width="60" height="60">
+                <div>
+                  <div class="prod__top"><span class="prod__name">Stesso</span><span class="prod__meta">Coming soon</span></div>
+                  <h3 class="prod__title">Mastering equaliser</h3>
+                  <p class="prod__desc">A draggable curve over a live spectrum — up to 24 bands, eight filter types, 6–96 dB/oct slopes and per-band Left/Right or Mid/Side. Surgical or musical.</p>
+                </div>
+              </div>
+            </a>
+
+          </div>
+        </div>
+
+        <!-- midi -->
+        <div id="cat-midi" style="scroll-margin-top:70px;margin-bottom:46px">
+          <h3 class="h3" style="margin-bottom:6px">MIDI generators &amp; composers <span class="mono small muted" style="font-weight:400">· sequencing &amp; harmony brains</span></h3>
+          <div class="grid grid-2" style="margin-top:20px">
+
+            <a class="card reveal" href="/tonnetz/">
+              <div class="card__accent"></div>
+              <div class="card__body prod">
+                <img class="prod__logo" src="img/tonnetz.png" alt="Tonnetz" width="60" height="60">
+                <div>
+                  <div class="prod__top"><span class="prod__name">Tonnetz</span><span class="prod__meta">Coming soon</span></div>
+                  <h3 class="prod__title">MIDI harmony conductor</h3>
+                  <p class="prod__desc">A Sinfonion-style brain: master key and scale, an interactive Tonnetz lattice, three quantizers, a voiced chord generator, arp, bass, drone and a progression sequencer — driving your synths.</p>
+                </div>
+              </div>
+            </a>
+
+            <a class="card reveal" href="/metro185/">
+              <div class="card__accent"></div>
+              <div class="card__body prod">
+                <img class="prod__logo" src="img/metro185.png" alt="Metro 185" width="60" height="60">
+                <div>
+                  <div class="prod__top"><span class="prod__name">Metro 185</span><span class="prod__meta">Coming soon</span></div>
+                  <h3 class="prod__title">MIDI step sequencer</h3>
+                  <p class="prod__desc">A deep eight-step sequencer in the RYK M-185 / System 100m lineage, reimagined for the DAW — ratchets, 34 scales, gate modes, play directions, MIDI-learn and pattern save.</p>
+                </div>
+              </div>
+            </a>
+
+          </div>
+        </div>
+
+        <!-- visuals -->
+        <div id="cat-visuals" style="scroll-margin-top:70px">
+          <h3 class="h3" style="margin-bottom:6px">Visuals <span class="mono small muted" style="font-weight:400">· sound you can see</span></h3>
+          <div class="grid" style="grid-template-columns:repeat(auto-fill,minmax(340px,560px));margin-top:20px">
+
+            <a class="card reveal" href="/phosphor/">
+              <div class="card__accent"></div>
+              <div class="card__body prod">
+                <img class="prod__logo" src="img/phosphor.png" alt="Phosphor" width="60" height="60">
+                <div>
+                  <div class="prod__top"><span class="prod__name">Phosphor</span><span class="prod__meta">Coming soon</span></div>
+                  <h3 class="prod__title">Audio-reactive video synth</h3>
+                  <p class="prod__desc">Listens to your track and renders beat-locked visuals you can throw fullscreen onto a second screen — five morphing fields, a feedback FX pipeline, host &amp; Link sync.</p>
+                </div>
+              </div>
+            </a>
+
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
 
-  <!-- ─── VCV Rack 2 branch ─────────────────────────────────────────────── -->
-  <section id="vcv-rack" class="max-w-6xl mx-auto px-6 py-16 scroll-mt-16">
-    <div class="flex items-baseline gap-4 mb-3 flex-wrap">
-      <span class="branch-pill bg-cyan-400/10 text-cyan-400">VCV RACK 2</span>
-      <span class="text-xs text-muted">macOS · Windows · Linux</span>
-    </div>
-    <h2 class="text-3xl font-bold mb-3">Module families</h2>
-    <p class="text-muted max-w-2xl mb-12">Each family is a coherent design programme. Click through for details, screenshots, install instructions, and source.</p>
-
-    <div class="grid md:grid-cols-2 gap-6">
-
-      <a href="/stochast/" class="module-card block bg-panel border border-border rounded-lg overflow-hidden">
-        <div class="family-stripe" style="background:#6ec8e0"></div>
-        <div class="p-6 flex gap-5">
-          <img src="img/stochast.png" alt="Stochast" class="w-16 h-16 rounded-xl border border-border shrink-0">
-          <div class="min-w-0">
-            <div class="flex items-baseline justify-between mb-2 gap-2 flex-wrap">
-              <div class="text-xs tracking-widest text-cyan-400">STOCHAST</div>
-              <div class="text-xs text-muted">5 plugins · 28 modules</div>
-            </div>
-            <h3 class="text-2xl font-semibold mb-3">Statistics &amp; emergence as patchable CV</h3>
-            <p class="text-sm text-muted leading-relaxed mb-4">
-              Real statistical, social, and stochastic processes turned into
-              control voltage — sampling distributions, the bootstrap, agent-based
-              cascades, epidemics, reaction-diffusion. Quirky, generative patch
-              material with genuinely correct math underneath. (Teaching stats?
-              That's the Empiria <em>web app</em>.)
-            </p>
-            <div class="text-xs text-muted">→ Download · manual · 28-module reference</div>
-          </div>
+  <!-- ─── ethos ─────────────────────────────────────────────────────────── -->
+  <section class="section" style="background:var(--bg-deep);border-top:1px solid var(--edge-soft);border-bottom:1px solid var(--edge-soft)">
+    <div class="wrap">
+      <div class="eyebrow" style="margin-bottom:32px">What ties them together</div>
+      <div class="grid grid-3">
+        <div class="reveal">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#bcc4cc" stroke-width="1.4" style="margin-bottom:16px"><path d="M4 12a8 8 0 1 1 2.3 5.6"/><path d="M4 20v-4h4"/></svg>
+          <h3 class="h3" style="margin-bottom:8px">Nothing gets lost</h3>
+          <p class="prod__desc">Generative modules are seedable and every plugin recalls its full state — stumble onto a sound you love and dial it back any time. Save it, share it, and it plays the same on every machine.</p>
         </div>
-      </a>
-
-      <a href="/mashina/" class="module-card block bg-panel border border-border rounded-lg overflow-hidden">
-        <div class="family-stripe" style="background:#cf4a4a"></div>
-        <div class="p-6 flex gap-5">
-          <img src="img/mashina.png" alt="Mashina" class="w-16 h-16 rounded-xl border border-border shrink-0">
-          <div class="min-w-0">
-            <div class="flex items-baseline justify-between mb-2 gap-2 flex-wrap">
-              <div class="text-xs tracking-widest" style="color:#cf4a4a">MASHINA</div>
-              <div class="text-xs text-muted">8 modules</div>
-            </div>
-            <h3 class="text-2xl font-semibold mb-3">Soviet machines meet the West Coast</h3>
-            <p class="text-sm text-muted leading-relaxed mb-4">
-              Eight sound-design modules with a deliberate Eastern-bloc analog
-              character, shaped by the West Coast tradition of complex oscillators
-              and function generators: drum voices, oscillators, a master clock, a
-              plate reverb, and generative sequencers. Built for fun and for
-              getting weird.
-            </p>
-            <div class="text-xs text-muted">→ Udar · Klubok · Bochka · Takt · Otzvuk · Strela · Volna · Podton</div>
-          </div>
+        <div class="reveal">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#bcc4cc" stroke-width="1.4" style="margin-bottom:16px"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18M15 3v18M3 9h18M3 15h18"/></svg>
+          <h3 class="h3" style="margin-bottom:8px">Built to be played</h3>
+          <p class="prod__desc">Whether it's a panel in the rack or a plugin window in your DAW, the interface is a control surface, not decoration — drag-to-assign modulation, MIDI-learn, sensible defaults and no telemetry.</p>
         </div>
-      </a>
-
-      <a href="/lucida/" class="module-card block bg-panel border border-border rounded-lg overflow-hidden">
-        <div class="family-stripe" style="background:#76c85a"></div>
-        <div class="p-6 flex gap-5">
-          <img src="img/lucida.png" alt="Lucida" class="w-16 h-16 rounded-xl border border-border shrink-0">
-          <div class="min-w-0">
-            <div class="flex items-baseline justify-between mb-2 gap-2 flex-wrap">
-              <div class="text-xs tracking-widest" style="color:#76c85a">LUCIDA</div>
-              <div class="text-xs text-muted">2 modules · more planned</div>
-            </div>
-            <h3 class="text-2xl font-semibold mb-3">Generative systems, made visible</h3>
-            <p class="text-sm text-muted leading-relaxed mb-4">
-              Emergent systems you watch evolve on screen and patch as CV.
-              <strong class="text-white">Colony</strong> is a cellular-automaton
-              grid; <strong class="text-white">Turing</strong> is a probabilistic
-              shift-register sequencer with a built-in quantizer. Set them running,
-              nudge them, and take the patterns as pitch, gates, and modulation.
-            </p>
-            <div class="text-xs text-muted">→ Colony · Turing</div>
-          </div>
-        </div>
-      </a>
-
-      <a href="/rikoschet/" class="module-card block bg-panel border border-border rounded-lg overflow-hidden">
-        <div class="family-stripe" style="background:#e85e93"></div>
-        <div class="p-6 flex gap-5">
-          <img src="img/rikoshet.png" alt="Rikoshet" class="w-16 h-16 rounded-xl border border-border shrink-0">
-          <div class="min-w-0">
-            <div class="flex items-baseline justify-between mb-2 gap-2 flex-wrap">
-              <div class="text-xs tracking-widest" style="color:#e85e93">RIKOSHET</div>
-              <div class="text-xs text-muted">4 modules · free</div>
-            </div>
-            <h3 class="text-2xl font-semibold mb-3">Rhythmic delay &amp; gate effects</h3>
-            <p class="text-sm text-muted leading-relaxed mb-4">
-              Four tempo-synced effects: a rhythmic amplitude gate, a stereo
-              ping-pong delay, a multi-tap pattern delay, and a crossfader.
-              Lock them to your clock for movement in time and across the
-              stereo field. Free to download and use.
-            </p>
-            <div class="text-xs text-muted">→ Gate · PingPong · MultiTap · Blend</div>
-          </div>
-        </div>
-      </a>
-
-      <a href="/atmos/" class="module-card block bg-panel border border-border rounded-lg overflow-hidden">
-        <div class="family-stripe" style="background:#f5c842"></div>
-        <div class="p-6 flex gap-5">
-          <img src="img/atmos.png" alt="Atmos" class="w-16 h-16 rounded-xl border border-border shrink-0">
-          <div class="min-w-0">
-            <div class="flex items-baseline justify-between mb-2 gap-2 flex-wrap">
-              <div class="text-xs tracking-widest" style="color:#f5c842">ATMOS</div>
-              <div class="text-xs text-muted">4 modules · soon</div>
-            </div>
-            <h3 class="text-2xl font-semibold mb-3">Tone, space, and time</h3>
-            <p class="text-sm text-muted leading-relaxed mb-4">
-              A transistor-ladder filter (<strong class="text-white">Helix</strong>),
-              a stereo color repeater (<strong class="text-white">Halo</strong>),
-              a character delay with reverb (<strong class="text-white">Skywave</strong>),
-              and an eight-stage step sequencer (<strong class="text-white">Metro185</strong>).
-            </p>
-            <div class="text-xs text-muted">→ Helix · Halo · Metro185 · Skywave</div>
-          </div>
-        </div>
-      </a>
-
-    </div>
-
-    <!-- ─── plugins (VST & standalone) ────────────────────────────────── -->
-    <div id="standalone" class="mt-16 scroll-mt-24">
-      <div class="flex items-baseline gap-4 mb-3 flex-wrap">
-        <span class="branch-pill bg-muted/10 text-muted">VST3 · AU · STANDALONE</span>
-        <span class="text-xs text-muted">macOS &amp; Windows · in development</span>
-      </div>
-      <h2 class="text-3xl font-bold mb-3">Plugins</h2>
-      <p class="text-sm text-muted max-w-3xl mb-12">
-        The SHLabs DAW branch — a growing family of VST3 / AU plugins and standalone
-        apps, all in active development. Paid releases; follow along for availability.
-      </p>
-
-      <!-- ── effects ── -->
-      <div id="vst-effects" class="scroll-mt-24 mb-14">
-        <div class="flex items-baseline gap-3 mb-6">
-          <h3 class="text-xl font-semibold">Effects</h3>
-          <span class="text-xs text-muted">modulation · space</span>
-        </div>
-        <div class="grid md:grid-cols-2 gap-6">
-
-          <!-- Contour -->
-          <a href="/contour/" class="module-card block bg-panel border border-border rounded-lg overflow-hidden">
-            <div class="family-stripe" style="background:#5fb0c9"></div>
-            <div class="p-6 flex gap-5">
-              <img src="img/contour.png" alt="Contour" class="w-16 h-16 rounded-xl border border-border shrink-0">
-              <div class="min-w-0">
-                <div class="flex items-baseline justify-between mb-2 gap-2 flex-wrap">
-                  <div class="text-xs tracking-widest" style="color:#5fb0c9">CONTOUR</div>
-                  <div class="text-xs" style="color:#5fb0c9">Coming soon</div>
-                </div>
-                <h3 class="text-xl font-semibold mb-2">Multi-LFO modulation rack</h3>
-                <p class="text-sm text-muted leading-relaxed">
-                  Draw modulation on a curve editor and lock it to the beat — four
-                  curve-LFOs over volume, pan and filter, with multiband routing and
-                  MIDI out. The first SHLabs VST.
-                </p>
-              </div>
-            </div>
-          </a>
-
-          <!-- Spazio -->
-          <a href="/spazio/" class="module-card block bg-panel border border-border rounded-lg overflow-hidden">
-            <div class="family-stripe" style="background:#7d8fe0"></div>
-            <div class="p-6 flex gap-5">
-              <img src="img/spazio.png" alt="Spazio" class="w-16 h-16 rounded-xl border border-border shrink-0">
-              <div class="min-w-0">
-                <div class="flex items-baseline justify-between mb-2 gap-2 flex-wrap">
-                  <div class="text-xs tracking-widest" style="color:#7d8fe0">SPAZIO</div>
-                  <div class="text-xs" style="color:#7d8fe0">Coming soon</div>
-                </div>
-                <h3 class="text-xl font-semibold mb-2">Reverb–delay continuum</h3>
-                <p class="text-sm text-muted leading-relaxed">
-                  Studio delay, lush modulated reverb and everything in between on
-                  one CONTINUUM control: tempo-synced echoes that smear and bloom
-                  into tails, two-band decay, freeze, ducking and a live
-                  decay-profile display.
-                </p>
-              </div>
-            </div>
-          </a>
-
-        </div>
-      </div>
-
-      <!-- ── synthesizers & instruments ── -->
-      <div id="vst-synths" class="scroll-mt-24 mb-14">
-        <div class="flex items-baseline gap-3 mb-6">
-          <h3 class="text-xl font-semibold">Synthesizers &amp; instruments</h3>
-          <span class="text-xs text-muted">sound sources you play</span>
-        </div>
-        <div class="grid md:grid-cols-2 gap-6">
-
-          <!-- Tincture -->
-          <a href="/tincture/" class="module-card block bg-panel border border-border rounded-lg overflow-hidden">
-            <div class="family-stripe" style="background:#b06ee0"></div>
-            <div class="p-6 flex gap-5">
-              <img src="img/tincture.png" alt="Tincture" class="w-16 h-16 rounded-xl border border-border shrink-0">
-              <div class="min-w-0">
-                <div class="flex items-baseline justify-between mb-2 gap-2 flex-wrap">
-                  <div class="text-xs tracking-widest" style="color:#b06ee0">TINCTURE</div>
-                  <div class="text-xs" style="color:#b06ee0">Coming soon</div>
-                </div>
-                <h3 class="text-xl font-semibold mb-2">Wavetable synthesizer</h3>
-                <p class="text-sm text-muted leading-relaxed">
-                  A standalone synth with drag-and-drop modulation: band-limited
-                  morphing wavetables, warp with FM and ring mod, drawable LFOs,
-                  a 48-slot matrix and a studio FX rack with plate reverb,
-                  bus compressor and maximizer.
-                </p>
-              </div>
-            </div>
-          </a>
-
-          <!-- Slicery -->
-          <a href="/slicery/" class="module-card block bg-panel border border-border rounded-lg overflow-hidden">
-            <div class="family-stripe" style="background:#cbb38a"></div>
-            <div class="p-6 flex gap-5">
-              <img src="img/slicery.png" alt="Slicery" class="w-16 h-16 rounded-xl border border-border shrink-0">
-              <div class="min-w-0">
-                <div class="flex items-baseline justify-between mb-2 gap-2 flex-wrap">
-                  <div class="text-xs tracking-widest" style="color:#cbb38a">SLICERY</div>
-                  <div class="text-xs" style="color:#cbb38a">Coming soon</div>
-                </div>
-                <h3 class="text-xl font-semibold mb-2">Slice instrument</h3>
-                <p class="text-sm text-muted leading-relaxed">
-                  Chop a loop into playable slices across the keyboard, shape each hit,
-                  and grab the keepers to your library — the chop-and-play workflow,
-                  distilled. ReCycle × Serato Sample.
-                </p>
-              </div>
-            </div>
-          </a>
-
-        </div>
-      </div>
-
-      <!-- ── mastering tools ── -->
-      <div id="vst-mastering" class="scroll-mt-24 mb-14">
-        <div class="flex items-baseline gap-3 mb-6">
-          <h3 class="text-xl font-semibold">Mastering tools</h3>
-          <span class="text-xs text-muted">the last mile of a mix</span>
-        </div>
-        <div class="grid md:grid-cols-2 gap-6">
-
-          <!-- Glue -->
-          <a href="/glue/" class="module-card block bg-panel border border-border rounded-lg overflow-hidden">
-            <div class="family-stripe" style="background:#d99a4e"></div>
-            <div class="p-6 flex gap-5">
-              <img src="img/glue.png" alt="Glue" class="w-16 h-16 rounded-xl border border-border shrink-0">
-              <div class="min-w-0">
-                <div class="flex items-baseline justify-between mb-2 gap-2 flex-wrap">
-                  <div class="text-xs tracking-widest" style="color:#d99a4e">GLUE</div>
-                  <div class="text-xs" style="color:#d99a4e">Coming soon</div>
-                </div>
-                <h3 class="text-xl font-semibold mb-2">Mastering bus compressor</h3>
-                <p class="text-sm text-muted leading-relaxed">
-                  The SSL-style glue that holds a mix together — stepped controls,
-                  program-dependent release, sidechain high-pass, Mid/Side and a
-                  parallel mix, with a big gain-reduction meter.
-                </p>
-              </div>
-            </div>
-          </a>
-
-          <!-- Stesso -->
-          <a href="/stesso/" class="module-card block bg-panel border border-border rounded-lg overflow-hidden">
-            <div class="family-stripe" style="background:#57c7d6"></div>
-            <div class="p-6 flex gap-5">
-              <img src="img/stesso.png" alt="Stesso" class="w-16 h-16 rounded-xl border border-border shrink-0">
-              <div class="min-w-0">
-                <div class="flex items-baseline justify-between mb-2 gap-2 flex-wrap">
-                  <div class="text-xs tracking-widest" style="color:#57c7d6">STESSO</div>
-                  <div class="text-xs" style="color:#57c7d6">Coming soon</div>
-                </div>
-                <h3 class="text-xl font-semibold mb-2">Mastering equaliser</h3>
-                <p class="text-sm text-muted leading-relaxed">
-                  A draggable curve over a live spectrum — up to 24 bands, eight
-                  filter types, 6–96 dB/oct slopes and per-band Left/Right or
-                  Mid/Side. Surgical or musical.
-                </p>
-              </div>
-            </div>
-          </a>
-
-        </div>
-      </div>
-
-      <!-- ── MIDI generators & composers ── -->
-      <div id="vst-midi" class="scroll-mt-24 mb-14">
-        <div class="flex items-baseline gap-3 mb-6">
-          <h3 class="text-xl font-semibold">MIDI generators &amp; composers</h3>
-          <span class="text-xs text-muted">sequencing &amp; harmony brains</span>
-        </div>
-        <div class="grid md:grid-cols-2 gap-6">
-
-          <!-- Tonnetz -->
-          <a href="/tonnetz/" class="module-card block bg-panel border border-border rounded-lg overflow-hidden">
-            <div class="family-stripe" style="background:#eca13c"></div>
-            <div class="p-6 flex gap-5">
-              <img src="img/tonnetz.png" alt="Tonnetz" class="w-16 h-16 rounded-xl border border-border shrink-0">
-              <div class="min-w-0">
-                <div class="flex items-baseline justify-between mb-2 gap-2 flex-wrap">
-                  <div class="text-xs tracking-widest" style="color:#eca13c">TONNETZ</div>
-                  <div class="text-xs" style="color:#eca13c">Coming soon</div>
-                </div>
-                <h3 class="text-xl font-semibold mb-2">MIDI harmony conductor</h3>
-                <p class="text-sm text-muted leading-relaxed">
-                  A Sinfonion-style brain: master key and scale, an interactive
-                  Tonnetz lattice, three quantizers, a voiced chord generator, arp,
-                  bass, drone and a progression sequencer — driving your synths.
-                </p>
-              </div>
-            </div>
-          </a>
-
-          <!-- Metro 185 -->
-          <a href="/metro185/" class="module-card block bg-panel border border-border rounded-lg overflow-hidden">
-            <div class="family-stripe" style="background:#9fb0cc"></div>
-            <div class="p-6 flex gap-5">
-              <img src="img/metro185.png" alt="Metro 185" class="w-16 h-16 rounded-xl border border-border shrink-0">
-              <div class="min-w-0">
-                <div class="flex items-baseline justify-between mb-2 gap-2 flex-wrap">
-                  <div class="text-xs tracking-widest" style="color:#9fb0cc">METRO 185</div>
-                  <div class="text-xs" style="color:#9fb0cc">Coming soon</div>
-                </div>
-                <h3 class="text-xl font-semibold mb-2">MIDI step sequencer</h3>
-                <p class="text-sm text-muted leading-relaxed">
-                  A deep eight-step sequencer in the RYK M-185 / System 100m lineage,
-                  reimagined for the DAW — ratchets, 34 scales, gate modes, play
-                  directions, MIDI-learn and pattern save.
-                </p>
-              </div>
-            </div>
-          </a>
-
-        </div>
-      </div>
-
-      <!-- ── visuals ── -->
-      <div id="vst-visuals" class="scroll-mt-24">
-        <div class="flex items-baseline gap-3 mb-6">
-          <h3 class="text-xl font-semibold">Visuals</h3>
-          <span class="text-xs text-muted">sound you can see</span>
-        </div>
-        <div class="grid md:grid-cols-2 gap-6">
-
-          <!-- Phosphor -->
-          <a href="/phosphor/" class="module-card block bg-panel border border-border rounded-lg overflow-hidden">
-            <div class="family-stripe" style="background:#5fd6b0"></div>
-            <div class="p-6 flex gap-5">
-              <img src="img/phosphor.png" alt="Phosphor" class="w-16 h-16 rounded-xl border border-border shrink-0">
-              <div class="min-w-0">
-                <div class="flex items-baseline justify-between mb-2 gap-2 flex-wrap">
-                  <div class="text-xs tracking-widest" style="color:#5fd6b0">PHOSPHOR</div>
-                  <div class="text-xs" style="color:#5fd6b0">Coming soon</div>
-                </div>
-                <h3 class="text-xl font-semibold mb-2">Audio-reactive video synth</h3>
-                <p class="text-sm text-muted leading-relaxed">
-                  Listens to your track and renders beat-locked visuals you can throw
-                  fullscreen onto a second screen — five morphing fields, a feedback
-                  FX pipeline, host &amp; Link sync.
-                </p>
-              </div>
-            </div>
-          </a>
-
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ─── values / about strip ──────────────────────────────────────────── -->
-  <section class="border-y border-border bg-panel2 py-16">
-    <div class="max-w-6xl mx-auto px-6">
-      <div class="grid md:grid-cols-3 gap-12">
-        <div>
-          <div class="text-cyan-400 text-2xl mb-3">↺</div>
-          <h3 class="font-semibold mb-2">Nothing gets lost</h3>
-          <p class="text-sm text-muted leading-relaxed">
-            Generative modules are seedable and every plugin recalls its full
-            state — stumble onto a sound you love and dial it back any time.
-            Save it, share it, and it plays the same on every machine.
-          </p>
-        </div>
-        <div>
-          <div class="text-cyan-400 text-2xl mb-3">⊞</div>
-          <h3 class="font-semibold mb-2">Built to be played</h3>
-          <p class="text-sm text-muted leading-relaxed">
-            Whether it's a panel in the rack or a plugin window in your DAW,
-            the interface is a control surface, not decoration — drag-to-assign
-            modulation, MIDI-learn, sensible defaults, and no telemetry.
-          </p>
-        </div>
-        <div>
-          <div class="text-cyan-400 text-2xl mb-3">∿</div>
-          <h3 class="font-semibold mb-2">Real under the hood</h3>
-          <p class="text-sm text-muted leading-relaxed">
-            The processes are the real thing — analog-modelled circuits,
-            feedback, sampling, stochastic motion — but every tool is voiced
-            as an instrument first: expressive, surprising, and made to be
-            listened to, not measured.
-          </p>
+        <div class="reveal">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#bcc4cc" stroke-width="1.4" style="margin-bottom:16px"><path d="M3 12h3l3-8 6 16 3-8h3"/></svg>
+          <h3 class="h3" style="margin-bottom:8px">Real under the hood</h3>
+          <p class="prod__desc">The processes are the real thing — analog-modelled circuits, feedback, sampling, stochastic motion — but every tool is voiced as an instrument first: expressive, surprising, and made to be listened to.</p>
         </div>
       </div>
     </div>
   </section>
+  </main>
 
   <!-- ─── footer ────────────────────────────────────────────────────────── -->
-  <footer class="max-w-6xl mx-auto px-6 py-12 text-sm text-muted border-t border-border">
-    <div class="flex flex-wrap justify-between gap-6">
-      <div>
-        <div class="font-semibold tracking-widest text-white mb-3">SH<span class="text-cyan-400">LABS</span></div>
-        <p>An independent audio-tools studio<br>making instruments for the modular world and beyond.</p>
-      </div>
-      <div class="flex flex-wrap gap-8">
+  <footer class="foot">
+    <div class="wrap">
+      <div class="foot__grid">
         <div>
-          <div class="text-white mb-2 text-xs tracking-widest">VCV Rack</div>
-          <ul class="space-y-1">
-            <li><a href="/stochast/" class="hover:text-white">Stochast</a></li>
-            <li><a href="/rikoschet/" class="hover:text-white">Rikoshet</a></li>
-            <li><a href="/mashina/" class="hover:text-white">Mashina</a></li>
-            <li><a href="/lucida/" class="hover:text-white">Lucida</a></li>
-            <li><a href="/atmos/" class="hover:text-white">Atmos</a></li>
-          </ul>
+          <div class="foot__word">SH<b>LABS</b></div>
+          <p class="foot__blurb">An independent audio-tools studio making instruments for the modular world and the DAW.</p>
         </div>
-        <div>
-          <div class="text-white mb-2 text-xs tracking-widest">Effects</div>
-          <ul class="space-y-1">
-            <li><a href="/contour/" class="hover:text-white">Contour</a></li>
-            <li><a href="/spazio/" class="hover:text-white">Spazio</a></li>
-          </ul>
-          <div class="text-white mb-2 mt-5 text-xs tracking-widest">Instruments</div>
-          <ul class="space-y-1">
-            <li><a href="/tincture/" class="hover:text-white">Tincture</a></li>
-            <li><a href="/slicery/" class="hover:text-white">Slicery</a></li>
-          </ul>
+        <div class="foot__col">
+          <p class="foot__h">VCV Rack</p>
+          <a href="/stochast/">Stochast</a><a href="/rikoschet/">Rikoshet</a><a href="/mashina/">Mashina</a><a href="/lucida/">Lucida</a><a href="/atmos/">Atmos</a>
         </div>
-        <div>
-          <div class="text-white mb-2 text-xs tracking-widest">Mastering</div>
-          <ul class="space-y-1">
-            <li><a href="/glue/" class="hover:text-white">Glue</a></li>
-            <li><a href="/stesso/" class="hover:text-white">Stesso</a></li>
-          </ul>
-          <div class="text-white mb-2 mt-5 text-xs tracking-widest">MIDI</div>
-          <ul class="space-y-1">
-            <li><a href="/tonnetz/" class="hover:text-white">Tonnetz</a></li>
-            <li><a href="/metro185/" class="hover:text-white">Metro 185</a></li>
-          </ul>
-          <div class="text-white mb-2 mt-5 text-xs tracking-widest">Visuals</div>
-          <ul class="space-y-1">
-            <li><a href="/phosphor/" class="hover:text-white">Phosphor</a></li>
-          </ul>
+        <div class="foot__col">
+          <p class="foot__h">Instruments</p>
+          <a href="/cell/">Cell</a><a href="/tincture/">Tincture</a><a href="/slicery/">Slicery</a>
+          <p class="foot__h" style="margin-top:18px">Effects</p>
+          <a href="/contour/">Contour</a><a href="/spazio/">Spazio</a>
         </div>
-        <div>
-          <div class="text-white mb-2 text-xs tracking-widest">Project</div>
-          <ul class="space-y-1">
-            <li><a href="/about/" class="hover:text-white">About SHLabs</a></li>
-            <!-- hidden until donations are configured
-            <li><a href="/donate/" class="hover:text-white">Support the work</a></li>
-            -->
-            <li><a href="https://github.com/shlabs-audio" class="hover:text-white">GitHub →</a></li>
-          </ul>
+        <div class="foot__col">
+          <p class="foot__h">Mastering</p>
+          <a href="/glue/">Glue</a><a href="/stesso/">Stesso</a>
+          <p class="foot__h" style="margin-top:18px">MIDI &amp; Visuals</p>
+          <a href="/tonnetz/">Tonnetz</a><a href="/metro185/">Metro 185</a><a href="/phosphor/">Phosphor</a>
+        </div>
+        <div class="foot__col">
+          <p class="foot__h">Studio</p>
+          <a href="/about/">About SHLabs</a><a href="https://github.com/shlabs-audio" target="_blank" rel="noopener">GitHub ↗</a>
         </div>
       </div>
-    </div>
-    <hr class="border-border my-8">
-    <div class="text-xs">
-      © 2026 SHLabs · instruments for the modular world · <svg width="11" height="11" viewBox="0 0 32 32" style="display:inline-block;vertical-align:-1px" aria-hidden="true"><rect width="32" height="32" rx="3" fill="#d52b1e"/><rect x="13" y="6" width="6" height="20" fill="#fff"/><rect x="6" y="13" width="20" height="6" fill="#fff"/></svg> Made in Switzerland
+      <div class="foot__bar">
+        <span>© <span data-year>2026</span> SHLabs · instruments for the modular world</span>
+        <span class="swiss">
+          <svg width="12" height="12" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="3" fill="#d52b1e"/><rect x="13" y="6" width="6" height="20" fill="#fff"/><rect x="6" y="13" width="20" height="6" fill="#fff"/></svg>
+          Made in Switzerland
+        </span>
+      </div>
     </div>
   </footer>
 
+  <script src="js/shlabs.js"></script>
 </body>
 </html>
