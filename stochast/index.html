@@ -4,306 +4,198 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Stochast — SHLabs</title>
-  <meta name="description" content="Stochast is an open-source suite of VCV Rack modules that turn real statistical, social, and stochastic processes into control voltage — quirky, generative patch material with genuinely correct math under the hood.">
-  <link rel="icon" type="image/svg+xml" href="../img/favicon.svg">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: { extend: {
-        colors: {
-          bg:'#0a0c12', panel:'#161924', panel2:'#1c1f2a',
-          border:'#23273a', muted:'#9aa0b4',
-          cyan: { 400:'#6ec8e0', 500:'#4fb6cf' },
-          orange: { 400:'#cf8a4f' }, red:{ 400:'#f57878' },
-          green:{ 400:'#78dc8c' }, purple:{ 400:'#b87cd2' },
-          amber:{ 400:'#f5c842' },
-        },
-        fontFamily: { sans:['Inter','system-ui','sans-serif'], mono:['JetBrains Mono','ui-monospace','monospace'] },
-      } },
-    };
-  </script>
+  <meta name="description" content="Stochast is a free, open-source suite of 28 VCV Rack 2 modules across five plugins that turn real statistical, social, and stochastic processes into control voltage. Sample a distribution, clock a segregation grid, sweep a filter with an epidemic curve — quirky, generative patch material with genuinely correct math under the hood. GPL-3.0. macOS, Windows, Linux.">
+  <link rel="icon" type="image/svg+xml" href="/img/favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
-  <style>
-    body { font-family:'Inter', system-ui, sans-serif; }
-    .family-stripe { height:3px; opacity:0.85; }
-    .mod-card { transition: transform 120ms ease, border-color 120ms ease; }
-    .mod-card:hover { transform: translateY(-2px); border-color: rgba(110,200,224,0.5); }
-    .codeblock { font-family:'JetBrains Mono', ui-monospace, monospace; }
-  </style>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/shlabs.css">
+  <script>
+    document.documentElement.className += ' js';
+    addEventListener('load', function () { setTimeout(function () {
+      if (!window.__shlabsJS) { var r = document.querySelectorAll('.reveal'); for (var i = 0; i < r.length; i++) r[i].classList.add('in'); }
+    }, 1200); });
+  </script>
 </head>
-<body class="bg-bg text-white antialiased">
+<body style="--accent:#6ec8e0">
 
-  <!-- ─── nav ─────────────────────────────────────────────────────────── -->
-  <nav class="border-b border-border">
-    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-      <a href="/" class="flex items-center gap-3">
-        <span class="font-semibold tracking-widest text-lg">SH<span class="text-cyan-400">labs</span></span>
-        <span class="text-muted text-sm">/ Stochast</span>
+  <nav class="nav">
+    <div class="wrap nav__in">
+      <a class="brand" href="/" aria-label="SHLabs home">
+        <svg class="brand__mark" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <rect x="1" y="1" width="22" height="22" rx="6" fill="#1c1e22" stroke="#3a3f47"/>
+          <rect x="6.4" y="5.5" width="1.8" height="13" rx=".9" fill="#8b929b"/>
+          <rect x="4.8" y="8.5" width="5" height="3" rx="1.5" fill="#ced3da"/>
+          <rect x="11.1" y="5.5" width="1.8" height="13" rx=".9" fill="#8b929b"/>
+          <rect x="9.5" y="12.5" width="5" height="3" rx="1.5" fill="#ced3da"/>
+          <rect x="15.8" y="5.5" width="1.8" height="13" rx=".9" fill="#8b929b"/>
+          <rect x="14.2" y="7.5" width="5" height="3" rx="1.5" fill="#ced3da"/>
+        </svg>
+        <span class="brand__word">SH<b>labs</b></span>
       </a>
-      <div class="flex items-center gap-6 text-sm">
-        <a href="/" class="text-muted hover:text-white">All modules</a>
-        <a href="/about/" class="text-muted hover:text-white">About</a>
-        <!-- hidden until donations are configured
-        <a href="/donate/" class="text-muted hover:text-white">Donate</a>
-        -->
-        <a href="https://github.com/shlabs-audio/stochast" target="_blank" rel="noopener" class="text-muted hover:text-white">GitHub →</a>
+      <div class="nav__links" id="nav-menu">
+        <div class="menu">
+          <a class="nav__link" href="/#products" data-menu-toggle role="button" aria-haspopup="true" aria-expanded="false">Products &#9662;</a>
+          <div class="menu__panel">
+            <a class="menu__item" href="/#vcv"><span class="dot"></span> VCV Rack 2 modules</a>
+            <div class="menu__head">VST &amp; Standalone</div>
+            <a class="menu__item" href="/#cat-synths"><span class="dot"></span> Synthesizers &amp; instruments</a>
+            <a class="menu__item" href="/#cat-effects"><span class="dot"></span> Effects</a>
+            <a class="menu__item" href="/#cat-mastering"><span class="dot"></span> Mastering tools</a>
+            <a class="menu__item" href="/#cat-midi"><span class="dot"></span> MIDI generators &amp; composers</a>
+            <a class="menu__item" href="/#cat-visuals"><span class="dot"></span> Visuals</a>
+          </div>
+        </div>
+        <a class="nav__link" href="/about/">Studio</a>
+        <a class="nav__cta" href="https://github.com/shlabs-audio/stochast" target="_blank" rel="noopener">GitHub &#8599;</a>
       </div>
+      <button class="nav__burger" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
     </div>
   </nav>
 
-  <!-- ─── hero ────────────────────────────────────────────────────────── -->
-  <header class="max-w-6xl mx-auto px-6 pt-20 pb-12">
-    <div class="family-stripe rounded mb-8 max-w-xs" style="background:#6ec8e0"></div>
-    <div class="text-xs tracking-[0.3em] text-cyan-400 uppercase mb-4">Real math as patchable voltage</div>
-    <h1 class="text-5xl md:text-6xl font-bold tracking-tight mb-6 leading-tight">Stochast</h1>
-    <p class="text-lg md:text-xl text-muted max-w-3xl leading-relaxed mb-8">
-      A suite of <strong class="text-white">twenty-eight open-source modules across five plugins</strong>
-      that turn real statistical, social, and stochastic processes into control voltage
-      you can patch anywhere in your rack. Sample a distribution as a modulation source,
-      clock a segregation grid into a gate sequencer, let an epidemic curve sweep a filter.
-      Quirky, generative, alive — and the math underneath is the genuine article, not a toy.
-    </p>
-    <div class="flex flex-wrap gap-3">
-      <a href="https://github.com/shlabs-audio/stochast/releases" class="px-5 py-3 bg-cyan-400 text-bg font-medium rounded hover:bg-cyan-500 transition">
-        Download v2.0.3
-      </a>
-      <a href="https://github.com/shlabs-audio/stochast/blob/main/docs/methods_manual.md" class="px-5 py-3 border border-border text-muted hover:text-white hover:border-muted rounded transition">
-        Read the manual
-      </a>
-      <a href="https://kevinschoenholzer.com/empiria/" target="_blank" rel="noopener" class="px-5 py-3 border border-cyan-400 text-cyan-400 hover:bg-cyan-400 hover:text-bg rounded transition">
-        Teaching stats? Empiria web →
-      </a>
+  <div class="wrap crumb"><a href="/#products">Products</a> &nbsp;/&nbsp; <a href="/#vcv">VCV Rack 2</a> &nbsp;/&nbsp; <span style="color:var(--txt-2)">Stochast</span></div>
+
+  <header class="wrap">
+    <div class="phero__grid">
+      <div>
+        <img class="phero__logo" src="/img/stochast.png" alt="Stochast" width="76" height="76">
+        <div class="phero__accentline"></div>
+        <div class="eyebrow" style="color:var(--accent);margin-bottom:18px">Real math as patchable voltage</div>
+        <h1 class="phero__title">Stochast</h1>
+        <p class="lead" style="max-width:52ch">Twenty-eight open-source modules across five plugins that turn real statistical, social, and stochastic processes into control voltage you can patch anywhere in your rack. Sample a distribution as a modulation source, clock a segregation grid into a gate sequencer, let an epidemic curve sweep a filter. Quirky, generative, alive — and the math underneath is the genuine article, not a toy.</p>
+        <div class="phero__meta">
+          <span class="chip chip--free"><span class="led"></span> Free &amp; open source</span>
+          <span class="mono small muted">5 plugins · 28 modules · GPL-3.0 · macOS · Windows · Linux</span>
+        </div>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:26px">
+          <a class="btn btn--primary" href="https://github.com/shlabs-audio/stochast/releases/latest" target="_blank" rel="noopener">Download for VCV Rack 2 <span class="arw">↓</span></a>
+          <a class="btn btn--ghost" href="https://github.com/shlabs-audio/stochast" target="_blank" rel="noopener">Source on GitHub <span class="arw">→</span></a>
+        </div>
+        <p class="mono small muted" style="margin-top:14px">Grab the <strong style="color:var(--txt-2)">.vcvplugin</strong> from GitHub releases and drop it into Rack's user plugin folder — it appears under the <strong style="color:var(--txt-2)">SHLabs</strong> brand.</p>
+      </div>
+      <div class="phero__panelwrap">
+        <div class="hero-panel">
+          <img class="hero-panel__logo" src="/img/stochast.png" alt="Stochast" width="132" height="132">
+          <div class="mono small" style="color:var(--dim);letter-spacing:.16em;text-transform:uppercase">Methods&nbsp; ·&nbsp; Polis&nbsp; ·&nbsp; Epi&nbsp; ·&nbsp; Space&nbsp; ·&nbsp; Decisions</div>
+        </div>
+      </div>
     </div>
   </header>
 
-  <!-- ─── what is it ───────────────────────────────────────────────────── -->
-  <section class="max-w-6xl mx-auto px-6 py-12 border-t border-border">
-    <h2 class="text-2xl font-bold mb-6">What it is</h2>
-    <div class="grid md:grid-cols-2 gap-10">
-      <div class="space-y-4 text-muted leading-relaxed">
-        <p>
-          Stochast began as a teaching idea, but what it really is is a box of
-          <strong class="text-white">modular-synth instruments built from real
-          mathematics</strong>. Each module is a genuine statistical, agent-based,
-          or dynamical process — a bootstrap resampler, a Granovetter cascade, an
-          SIR epidemic, a reaction-diffusion field — exposed as knobs and control
-          voltage.
-        </p>
-        <p>
-          Patch them like anything else on your rack. A sampling distribution
-          becomes a modulation source; a segregation grid becomes a generative
-          gate pattern; a drift-diffusion decision fires triggers; an
-          opinion-dynamics model becomes a slow, evolving CV sweep. The output is
-          quirky and alive precisely because the process underneath behaves the way
-          the theory says it should.
-        </p>
-        <p>
-          And the math is not faked for effect: every random draw is
-          Mersenne-Twister-seeded and every closed-form quantity uses the standard
-          numerical recipe (Lentz continued fractions, BCa bootstrap, Sanger's
-          rule), so a patch is reproducible and the numbers are correct — it just
-          happens to be fun. Want Stochast as a <em>teaching</em> tool instead? That
-          now lives in the browser-based
-          <a href="https://kevinschoenholzer.com/empiria/" class="text-cyan-400 hover:underline">Empiria web app</a>.
-        </p>
-      </div>
-
-      <aside class="bg-panel border border-border rounded-lg p-6 space-y-4">
-        <div>
-          <div class="text-xs tracking-widest text-muted mb-2">AT A GLANCE</div>
-          <ul class="text-sm space-y-2">
-            <li class="flex gap-3"><span class="text-cyan-400 w-5">·</span>5 plugins · 28 modules</li>
-            <li class="flex gap-3"><span class="text-cyan-400 w-5">·</span>GPL-3.0-or-later license</li>
-            <li class="flex gap-3"><span class="text-cyan-400 w-5">·</span>macOS · Windows · Linux</li>
-            <li class="flex gap-3"><span class="text-cyan-400 w-5">·</span>Zero deps beyond VCV Rack 2</li>
-            <li class="flex gap-3"><span class="text-cyan-400 w-5">·</span>Free — no paid tier, no telemetry</li>
-          </ul>
-        </div>
-        <hr class="border-border">
-        <div>
-          <div class="text-xs tracking-widest text-muted mb-2">WHO IT'S FOR</div>
-          <p class="text-sm leading-relaxed">
-            Modular-synth patchers, generative and ambient musicians, sound
-            designers — and the statistically curious. No stats background needed
-            to enjoy it; if you do know the math, you can trust it. Teaching or
-            learning statistics? Reach for the
-            <a href="https://kevinschoenholzer.com/empiria/" class="text-cyan-400 hover:underline">Empiria web app</a> instead.
-          </p>
-        </div>
-      </aside>
+  <main>
+  <section class="section wrap">
+    <div class="rule-label"><h2 class="eyebrow" style="margin:0;font-weight:500">What it is</h2></div>
+    <div class="grid grid-3">
+        <article class="feat reveal">
+          <div class="feat__k">REAL MATH</div>
+          <h3 class="feat__t">Instruments built from processes</h3>
+          <p class="feat__b">Each module is a genuine statistical, agent-based, or dynamical process — a bootstrap resampler, a Granovetter cascade, an SIR epidemic, a reaction-diffusion field — exposed as knobs and control voltage. The output is quirky and alive precisely because the process underneath behaves the way the theory says it should.</p>
+        </article>
+        <article class="feat reveal">
+          <div class="feat__k">PATCHABLE</div>
+          <h3 class="feat__t">Voltage you can route anywhere</h3>
+          <p class="feat__b">Patch them like anything else on your rack. A sampling distribution becomes a modulation source; a segregation grid becomes a generative gate pattern; a drift-diffusion decision fires triggers; an opinion-dynamics model becomes a slow, evolving CV sweep. No stats background needed to enjoy it — and if you do know the math, you can trust it.</p>
+        </article>
+        <article class="feat reveal">
+          <div class="feat__k">REPRODUCIBLE</div>
+          <h3 class="feat__t">Seeded, exact, portable</h3>
+          <p class="feat__b">Every random module wraps a Mersenne-Twister generator with an explicit on-panel seed, so the same seed is byte-identical across macOS, Windows and Linux. Closed-form quantities use the standard numerical recipes — Lentz continued fractions, BCa bootstrap, Sanger's rule. Patches are plain-JSON <span class="mono">.vcv</span> files, and Tape exports its buffer to CSV for R, Python or Julia.</p>
+        </article>
     </div>
   </section>
 
-  <!-- ─── the five plugins ─────────────────────────────────────────────── -->
-  <section class="max-w-6xl mx-auto px-6 py-12 border-t border-border">
-    <h2 class="text-2xl font-bold mb-2">The five plugins</h2>
-    <p class="text-muted mb-10 max-w-3xl">Each plugin is its own family of modules sharing a colored family-stripe under the header strip.</p>
-
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-
-      <article class="mod-card bg-panel border border-border rounded-lg overflow-hidden">
-        <div class="family-stripe" style="background:#6ec8e0"></div>
-        <div class="p-5">
-          <div class="text-xs tracking-widest text-cyan-400 mb-1">METHODS · 15 modules</div>
-          <h3 class="text-lg font-semibold mb-2">Statistical workflow</h3>
-          <p class="text-sm text-muted leading-relaxed">
-            Sample · Frame · Regress · Test · Boot · Lag · Code · Tab · Strata ·
-            Cohort · Factor · Seed · Tape · Gauge · Quantity.
-          </p>
-        </div>
-      </article>
-
-      <article class="mod-card bg-panel border border-border rounded-lg overflow-hidden">
-        <div class="family-stripe" style="background:#cf8a4f"></div>
-        <div class="p-5">
-          <div class="text-xs tracking-widest mb-1" style="color:#cf8a4f">POLIS · 6 modules</div>
-          <h3 class="text-lg font-semibold mb-2">Agent-based social models</h3>
-          <p class="text-sm text-muted leading-relaxed">
-            Cascade · Discourse · Pareto · Dilemma · Diffusion · Network. Granovetter
-            cascades, opinion dynamics, wealth condensation, iterated dilemmas,
-            small-world / scale-free networks.
-          </p>
-        </div>
-      </article>
-
-      <article class="mod-card bg-panel border border-border rounded-lg overflow-hidden">
-        <div class="family-stripe" style="background:#f57878"></div>
-        <div class="p-5">
-          <div class="text-xs tracking-widest mb-1" style="color:#f57878">EPI · 1 module</div>
-          <h3 class="text-lg font-semibold mb-2">Network epidemiology</h3>
-          <p class="text-sm text-muted leading-relaxed">
-            Outbreak — SIR-style epidemic spread on Watts-Strogatz, Erdős-Rényi,
-            and Barabási-Albert graphs. "Flatten the curve" is one patch cable
-            away.
-          </p>
-        </div>
-      </article>
-
-      <article class="mod-card bg-panel border border-border rounded-lg overflow-hidden">
-        <div class="family-stripe" style="background:#78dc8c"></div>
-        <div class="p-5">
-          <div class="text-xs tracking-widest mb-1" style="color:#78dc8c">SPACE · 3 modules</div>
-          <h3 class="text-lg font-semibold mb-2">Spatial dynamics</h3>
-          <p class="text-sm text-muted leading-relaxed">
-            Life · Schelling · Turing. Conway's Game of Life with rule presets,
-            Schelling segregation on a 24 × 24 grid, Gray-Scott reaction-diffusion
-            traversing spots, stripes, labyrinths.
-          </p>
-        </div>
-      </article>
-
-      <article class="mod-card bg-panel border border-border rounded-lg overflow-hidden">
-        <div class="family-stripe" style="background:#b87cd2"></div>
-        <div class="p-5">
-          <div class="text-xs tracking-widest mb-1" style="color:#b87cd2">DECISIONS · 3 modules</div>
-          <h3 class="text-lg font-semibold mb-2">Behavioral economics &amp; cognition</h3>
-          <p class="text-sm text-muted leading-relaxed">
-            Prospect · Bandit · DDM. Kahneman-Tversky prospect theory, K-armed
-            bandits with ε-greedy / UCB1 / Thompson sampling, Ratcliff
-            drift-diffusion.
-          </p>
-        </div>
-      </article>
-
+  <section class="section wrap" style="padding-top:0">
+    <div class="rule-label"><h2 class="eyebrow" style="margin:0;font-weight:500">The five plugins</h2></div>
+    <div class="grid grid-3">
+        <article class="feat reveal">
+          <div class="feat__k">METHODS · 15 MODULES</div>
+          <h3 class="feat__t">Statistical workflow</h3>
+          <p class="feat__b">Sample · Frame · Regress · Test · Boot · Lag · Code · Tab · Strata · Cohort · Factor · Seed · Tape · Gauge · Quantity. The full sampling-to-inference chain — draws, regressions, tests and bootstraps — turned into patchable voltage.</p>
+        </article>
+        <article class="feat reveal">
+          <div class="feat__k">POLIS · 6 MODULES</div>
+          <h3 class="feat__t">Agent-based social models</h3>
+          <p class="feat__b">Cascade · Discourse · Pareto · Dilemma · Diffusion · Network. Granovetter cascades, opinion dynamics, wealth condensation, iterated dilemmas, and small-world / scale-free networks as evolving control sources.</p>
+        </article>
+        <article class="feat reveal">
+          <div class="feat__k">EPI · 1 MODULE</div>
+          <h3 class="feat__t">Network epidemiology</h3>
+          <p class="feat__b">Outbreak — SIR-style epidemic spread on Watts-Strogatz, Erdős-Rényi and Barabási-Albert graphs. "Flatten the curve" is one patch cable away, its infection wave driving whatever you route it into.</p>
+        </article>
+        <article class="feat reveal">
+          <div class="feat__k">SPACE · 3 MODULES</div>
+          <h3 class="feat__t">Spatial dynamics</h3>
+          <p class="feat__b">Life · Schelling · Turing. Conway's Game of Life with rule presets, Schelling segregation on a 24 × 24 grid, and Gray-Scott reaction-diffusion traversing spots, stripes and labyrinths.</p>
+        </article>
+        <article class="feat reveal">
+          <div class="feat__k">DECISIONS · 3 MODULES</div>
+          <h3 class="feat__t">Behavioral economics &amp; cognition</h3>
+          <p class="feat__b">Prospect · Bandit · DDM. Kahneman-Tversky prospect theory, K-armed bandits with ε-greedy / UCB1 / Thompson sampling, and the Ratcliff drift-diffusion model of decision timing.</p>
+        </article>
+        <article class="feat reveal">
+          <div class="feat__k">NOT A CLASSROOM TOOL</div>
+          <h3 class="feat__t">This one is for patching</h3>
+          <p class="feat__b">Stochast began as a teaching idea, but what it really is is a box of modular-synth instruments made from real mathematics. If you want statistics as a teaching tool instead, that is the job of the separate, browser-based Empiria app — Stochast is for music.</p>
+        </article>
     </div>
   </section>
 
-  <!-- ─── reproducibility callout ──────────────────────────────────────── -->
-  <section class="border-y border-border bg-panel2 py-16">
-    <div class="max-w-6xl mx-auto px-6">
-      <div class="grid md:grid-cols-3 gap-12">
+  <section class="wrap" style="padding-bottom:clamp(56px,9vh,104px)">
+    <hr class="hair" style="margin-bottom:44px">
+    <div style="max-width:60ch">
+      <h2 class="eyebrow" style="margin:0 0 14px;font-weight:500">Get it</h2>
+      <p class="lead" style="margin-bottom:18px">Free, open source, and correct under the hood. No paid tier, no telemetry, no account.</p>
+      <p class="body" style="margin-bottom:10px">You'll need <strong>VCV Rack 2</strong> — a free download for macOS, Windows and Linux from <a class="link" href="https://vcvrack.com/Rack" target="_blank" rel="noopener">vcvrack.com/Rack</a>. Grab the latest <strong>.vcvplugin</strong> archives from GitHub releases, drop them into Rack's user plugin folder and restart — the modules appear under the <strong>SHLabs</strong> brand. Source is on GitHub under GPL-3.0-or-later, with a full methods manual: read it, build it, or send a fix.</p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:22px">
+        <a class="btn btn--primary" href="https://github.com/shlabs-audio/stochast/releases/latest" target="_blank" rel="noopener">Download the plugins <span class="arw">↓</span></a>
+        <a class="btn btn--ghost" href="https://github.com/shlabs-audio/stochast/blob/main/docs/methods_manual.md" target="_blank" rel="noopener">Read the manual <span class="arw">→</span></a>
+        <a class="btn btn--ghost" href="https://github.com/shlabs-audio/stochast" target="_blank" rel="noopener">Source on GitHub <span class="arw">→</span></a>
+        <a class="btn btn--ghost" href="/#vcv">All VCV modules <span class="arw">→</span></a>
+      </div>
+    </div>
+  </section>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap">
+      <div class="foot__grid">
         <div>
-          <div class="text-cyan-400 text-2xl mb-3">⌗</div>
-          <h3 class="font-semibold mb-2">Deterministic seeding</h3>
-          <p class="text-sm text-muted leading-relaxed">
-            Every random module wraps <span class="codeblock text-xs bg-panel px-1 py-0.5 rounded">std::mt19937</span>
-            with an explicit, on-panel integer seed. Same seed produces
-            byte-identical results on macOS, Windows, and Linux.
-          </p>
+          <div class="foot__word">SH<b>labs</b></div>
+          <p class="foot__blurb">An independent audio-tools studio making instruments for the modular world and the DAW.</p>
         </div>
-        <div>
-          <div class="text-cyan-400 text-2xl mb-3">∫</div>
-          <h3 class="font-semibold mb-2">Exact numerics</h3>
-          <p class="text-sm text-muted leading-relaxed">
-            Two-tailed <em>t</em> uses Lentz continued fractions for the
-            incomplete beta. χ² uses regularized incomplete gamma. Bootstrap
-            CIs are bias-corrected and accelerated (Efron 1987) with on-panel
-            <em>z</em>₀ and <em>â</em> diagnostics.
-          </p>
+        <div class="foot__col">
+          <p class="foot__h">VCV Rack</p>
+          <a href="/stochast/">Stochast</a><a href="/rikoshet/">Rikoshet</a><a href="/mashina/">Mashina</a><a href="/lucida/">Lucida</a><a href="/atmos/">Atmos</a>
         </div>
-        <div>
-          <div class="text-cyan-400 text-2xl mb-3">↗</div>
-          <h3 class="font-semibold mb-2">Portable artefacts</h3>
-          <p class="text-sm text-muted leading-relaxed">
-            <span class="codeblock text-xs bg-panel px-1 py-0.5 rounded">.vcv</span>
-            patches are plain JSON. Tape's right-click <em>Export buffer to
-            CSV</em> bridges Stochast into R / Python / Julia. Reproducible, and
-            identical every time you load it.
-          </p>
+        <div class="foot__col">
+          <p class="foot__h">Instruments</p>
+          <a href="/cell/">Cell</a><a href="/tincture/">Tincture</a><a href="/slicery/">Slicery</a>
+          <p class="foot__h" style="margin-top:18px">Effects</p>
+          <a href="/contour/">Contour</a><a href="/spazio/">Spazio</a>
+        </div>
+        <div class="foot__col">
+          <p class="foot__h">Mastering</p>
+          <a href="/glue/">Glue</a><a href="/stesso/">Stesso</a>
+          <p class="foot__h" style="margin-top:18px">MIDI &amp; Visuals</p>
+          <a href="/tonnetz/">Tonnetz</a><a href="/metro185/">Metro 185</a><a href="/phosphor/">Phosphor</a>
+        </div>
+        <div class="foot__col">
+          <p class="foot__h">Studio</p>
+          <a href="/about/">About SHLabs</a><a href="https://github.com/shlabs-audio" target="_blank" rel="noopener">GitHub &#8599;</a>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- ─── install ──────────────────────────────────────────────────────── -->
-  <section class="max-w-6xl mx-auto px-6 py-16">
-    <h2 class="text-2xl font-bold mb-6">Install</h2>
-    <div class="grid md:grid-cols-3 gap-6">
-      <div class="bg-panel border border-border rounded-lg p-6">
-        <div class="text-sm text-muted mb-2">Step 1</div>
-        <h3 class="font-semibold mb-3">Get VCV Rack 2</h3>
-        <p class="text-sm text-muted leading-relaxed mb-3">Free download for macOS, Windows, Linux.</p>
-        <a href="https://vcvrack.com/Rack" class="text-cyan-400 hover:underline text-sm">vcvrack.com/Rack →</a>
-      </div>
-      <div class="bg-panel border border-border rounded-lg p-6">
-        <div class="text-sm text-muted mb-2">Step 2</div>
-        <h3 class="font-semibold mb-3">Download Stochast</h3>
-        <p class="text-sm text-muted leading-relaxed mb-3">Grab the latest <span class="codeblock text-xs bg-bg px-1 py-0.5 rounded">.vcvplugin</span> archives from GitHub releases.</p>
-        <a href="https://github.com/shlabs-audio/stochast/releases" class="text-cyan-400 hover:underline text-sm">github.com/shlabs-audio/stochast/releases →</a>
-      </div>
-      <div class="bg-panel border border-border rounded-lg p-6">
-        <div class="text-sm text-muted mb-2">Step 3</div>
-        <h3 class="font-semibold mb-3">Drop into Rack</h3>
-        <p class="text-sm text-muted leading-relaxed mb-3">Move the archive into Rack's plugin folder; restart Rack. Modules appear under the <strong>SHLabs</strong> brand.</p>
-        <a href="https://github.com/shlabs-audio/stochast/blob/main/docs/methods_manual.md" class="text-cyan-400 hover:underline text-sm">Full manual →</a>
+      <div class="foot__bar">
+        <span>&copy; <span data-year>2026</span> SHLabs &middot; instruments for the modular world</span>
+        <span class="swiss">
+          <svg width="12" height="12" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="3" fill="#d52b1e"/><rect x="13" y="6" width="6" height="20" fill="#fff"/><rect x="6" y="13" width="20" height="6" fill="#fff"/></svg>
+          Made in Switzerland
+        </span>
       </div>
     </div>
-  </section>
-
-  <!-- ─── cite ─────────────────────────────────────────────────────────── -->
-  <section class="max-w-6xl mx-auto px-6 py-12 border-t border-border">
-    <h2 class="text-2xl font-bold mb-6">Using Stochast in your work</h2>
-    <p class="text-muted mb-4">Stochast is free for music, research, or teaching. If you'd like to credit it, cite the software:</p>
-    <pre class="bg-panel border border-border rounded-lg p-5 text-xs overflow-x-auto codeblock"><code>@software{stochast,
-  author = {SHLabs},
-  title  = {Stochast: Statistical and Social-Science
-            Modules for VCV Rack},
-  year   = {2026},
-  url    = {https://github.com/shlabs-audio/stochast}
-}</code></pre>
-    <p class="text-muted text-sm mt-4">Teaching statistics is the job of the browser-based <a href="https://kevinschoenholzer.com/empiria/" class="text-cyan-400 hover:underline">Empiria web app</a> — a separate, classroom-focused tool.</p>
-  </section>
-
-  <!-- hidden until donations are configured
-  <section class="border-t border-border py-16">
-    <div class="max-w-6xl mx-auto px-6 text-center">
-      <h2 class="text-2xl font-bold mb-3">Free forever. Built by one person.</h2>
-      <p class="text-muted max-w-2xl mx-auto mb-8">
-        Stochast has no paid tier and no commercial sponsor. If it has saved you
-        time, made your teaching land, or just made statistics legible to a
-        student who needed it, consider supporting future development.
-      </p>
-      <a href="/donate/" class="inline-flex px-6 py-3 bg-cyan-400 text-bg font-medium rounded hover:bg-cyan-500 transition">
-        Support the work →
-      </a>
-    </div>
-  </section>
-  -->
-
-  <footer class="max-w-6xl mx-auto px-6 py-12 text-sm text-muted border-t border-border">
-    <p>© 2026 SHLabs · instruments for the modular world · <svg width="11" height="11" viewBox="0 0 32 32" style="display:inline-block;vertical-align:-1px" aria-hidden="true"><rect width="32" height="32" rx="3" fill="#d52b1e"/><rect x="13" y="6" width="6" height="20" fill="#fff"/><rect x="6" y="13" width="20" height="6" fill="#fff"/></svg> Made in Switzerland</p>
   </footer>
 
+  <script src="/js/shlabs.js"></script>
 </body>
 </html>

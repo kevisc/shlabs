@@ -4,153 +4,206 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Atmos — SHLabs</title>
-  <meta name="description" content="Atmos is a family of four VCV Rack modules for tone, space, and time: the Helix ladder filter, the Halo stereo repeater, the Skywave character delay, and the Metro185 step sequencer.">
-  <link rel="icon" type="image/svg+xml" href="../img/favicon.svg">
-  <script src="https://cdn.tailwindcss.com"></script>
+  <meta name="description" content="Atmos is a free family of four VCV Rack 2 modules for tone, space, and time: the Helix ladder filter, the Halo stereo repeater, the Skywave character delay, and the Metro 185 step sequencer. Free download for macOS (Apple Silicon).">
+  <link rel="icon" type="image/svg+xml" href="/img/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/shlabs.css">
   <script>
-    tailwind.config = { theme: { extend: {
-      colors: { bg:'#0a0c12', panel:'#161924', panel2:'#1c1f2a', border:'#23273a',
-                muted:'#9aa0b4', cyan:{ 400:'#6ec8e0' },
-                atmosgold:{ 400:'#f5c842', 500:'#c9a335' } },
-      fontFamily: { sans:['Inter','system-ui','sans-serif'], mono:['JetBrains Mono','ui-monospace','monospace'] },
-    } } };
+    document.documentElement.className += ' js';
+    addEventListener('load', function () { setTimeout(function () {
+      if (!window.__shlabsJS) { var r = document.querySelectorAll('.reveal'); for (var i = 0; i < r.length; i++) r[i].classList.add('in'); }
+    }, 1200); });
   </script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
-  <style>
-    body { font-family:'Inter', system-ui, sans-serif; }
-    .family-stripe { height:3px; opacity:0.85; }
-    .mod-card { transition: transform 120ms ease, border-color 120ms ease; }
-    .mod-card:hover { transform: translateY(-2px); border-color: rgba(245,200,66,0.5); }
-  </style>
 </head>
-<body class="bg-bg text-white antialiased">
+<body style="--accent:#f5c842">
 
-  <nav class="border-b border-border">
-    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-      <a href="/" class="flex items-center gap-3">
-        <span class="font-semibold tracking-widest text-lg">SH<span class="text-cyan-400">labs</span></span>
-        <span class="text-muted text-sm">/ Atmos</span>
+  <nav class="nav">
+    <div class="wrap nav__in">
+      <a class="brand" href="/" aria-label="SHLabs home">
+        <svg class="brand__mark" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <rect x="1" y="1" width="22" height="22" rx="6" fill="#1c1e22" stroke="#3a3f47"/>
+          <rect x="6.4" y="5.5" width="1.8" height="13" rx=".9" fill="#8b929b"/>
+          <rect x="4.8" y="8.5" width="5" height="3" rx="1.5" fill="#ced3da"/>
+          <rect x="11.1" y="5.5" width="1.8" height="13" rx=".9" fill="#8b929b"/>
+          <rect x="9.5" y="12.5" width="5" height="3" rx="1.5" fill="#ced3da"/>
+          <rect x="15.8" y="5.5" width="1.8" height="13" rx=".9" fill="#8b929b"/>
+          <rect x="14.2" y="7.5" width="5" height="3" rx="1.5" fill="#ced3da"/>
+        </svg>
+        <span class="brand__word">SH<b>labs</b></span>
       </a>
-      <div class="flex items-center gap-6 text-sm">
-        <a href="/" class="text-muted hover:text-white">All modules</a>
-        <a href="/about/" class="text-muted hover:text-white">About</a>
-        <a href="/donate/" class="text-muted hover:text-white">Donate</a>
-        <a href="https://github.com/shlabs-audio" class="text-muted hover:text-white">GitHub →</a>
+      <div class="nav__links" id="nav-menu">
+        <div class="menu">
+          <a class="nav__link" href="/#products" data-menu-toggle role="button" aria-haspopup="true" aria-expanded="false">Products &#9662;</a>
+          <div class="menu__panel">
+            <a class="menu__item" href="/#vcv"><span class="dot"></span> VCV Rack 2 modules</a>
+            <div class="menu__head">VST &amp; Standalone</div>
+            <a class="menu__item" href="/#cat-synths"><span class="dot"></span> Synthesizers &amp; instruments</a>
+            <a class="menu__item" href="/#cat-effects"><span class="dot"></span> Effects</a>
+            <a class="menu__item" href="/#cat-mastering"><span class="dot"></span> Mastering tools</a>
+            <a class="menu__item" href="/#cat-midi"><span class="dot"></span> MIDI generators &amp; composers</a>
+            <a class="menu__item" href="/#cat-visuals"><span class="dot"></span> Visuals</a>
+          </div>
+        </div>
+        <a class="nav__link" href="/about/">Studio</a>
+        <a class="nav__cta" href="#get">Download <span class="arw">↓</span></a>
       </div>
+      <button class="nav__burger" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
     </div>
   </nav>
 
-  <header class="max-w-6xl mx-auto px-6 pt-20 pb-12">
-    <div class="flex flex-col md:flex-row md:items-center gap-8">
-      <img src="../img/atmos.png" alt="Atmos" width="120" height="120"
-           class="w-24 h-24 md:w-32 md:h-32 rounded-2xl border border-border shadow-lg shrink-0">
+  <div class="wrap crumb"><a href="/#products">Products</a> &nbsp;/&nbsp; <a href="/#vcv">VCV Rack 2</a> &nbsp;/&nbsp; <span style="color:var(--txt-2)">Atmos</span></div>
+
+  <header class="wrap">
+    <div class="phero__grid">
       <div>
-        <div class="family-stripe rounded mb-6 max-w-xs" style="background:#f5c842"></div>
-        <div class="text-xs tracking-[0.3em] uppercase mb-4" style="color:#f5c842">Tone · space · time</div>
-        <h1 class="text-5xl md:text-6xl font-bold tracking-tight mb-6 leading-tight">Atmos</h1>
-        <p class="text-lg md:text-xl text-muted max-w-3xl leading-relaxed">
-          Four VCV Rack modules for shaping tone, space, and time: the
-          <strong class="text-white">Helix</strong> transistor-ladder filter, the
-          <strong class="text-white">Halo</strong> stereo repeater, the
-          <strong class="text-white">Skywave</strong> character delay with reverb,
-          and the <strong class="text-white">Metro185</strong> step sequencer.
-          A filter, two stereo time effects, and a sequencer to drive them.
-        </p>
+        <img class="phero__logo" src="/img/atmos.png" alt="Atmos" width="76" height="76">
+        <div class="phero__accentline"></div>
+        <div class="eyebrow" style="color:var(--accent);margin-bottom:18px">Tone · space · time</div>
+        <h1 class="phero__title">Atmos</h1>
+        <p class="lead" style="max-width:52ch">Four VCV Rack modules for shaping tone, space, and time: the <strong>Helix</strong> transistor-ladder filter, the <strong>Halo</strong> stereo repeater, the <strong>Skywave</strong> character delay with reverb, and the <strong>Metro 185</strong> step sequencer. A filter, two stereo time effects, and a sequencer to drive them.</p>
+        <div class="phero__meta">
+          <span class="chip chip--free"><span class="led"></span> Free download</span>
+          <span class="mono small muted">4 modules · freeware · macOS (Apple Silicon)</span>
+        </div>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:26px">
+          <a class="btn btn--primary" href="#get">Download the four plugins <span class="arw">↓</span></a>
+        </div>
+        <p class="mono small muted" style="margin-top:14px">macOS (Apple Silicon). Windows, Linux &amp; Intel builds coming via the VCV Library.</p>
+      </div>
+      <div class="phero__panelwrap">
+        <div class="hero-panel">
+          <img class="hero-panel__logo" src="/img/atmos.png" alt="Atmos" width="132" height="132">
+          <div class="mono small" style="color:var(--dim);letter-spacing:.16em;text-transform:uppercase">Helix&nbsp; ·&nbsp; Halo&nbsp; ·&nbsp; Skywave&nbsp; ·&nbsp; Metro 185</div>
+        </div>
       </div>
     </div>
-    <div class="inline-flex items-center gap-2 px-4 py-2 rounded border mt-8" style="border-color:#f5c842;color:#f5c842">
-      <span class="text-sm font-semibold tracking-wide">Coming soon</span>
-    </div>
-    <p class="text-xs text-muted mt-3">Atmos is in final preparation for release. Follow SHLabs for availability.</p>
   </header>
 
-  <section class="max-w-6xl mx-auto px-6 py-12 border-t border-border">
-    <h2 class="text-2xl font-bold mb-8">The four modules</h2>
-    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-
-      <article class="mod-card bg-panel border border-border rounded-lg overflow-hidden">
-        <div class="family-stripe" style="background:#f5c842"></div>
-        <div class="p-5">
-          <div class="text-xs tracking-widest mb-1" style="color:#f5c842">HELIX</div>
-          <h3 class="text-lg font-semibold mb-2">Transistor-ladder filter</h3>
-          <p class="text-sm text-muted leading-relaxed">
-            A 4-pole Moog-style lowpass that self-oscillates and tracks
-            V/oct, so it doubles as a sine source. Three twists go beyond a
-            clone — DRIFT detunes the poles, FRICTION adds per-stage
-            saturation, TURBULENCE feeds noise into the resonance. Simultaneous
-            LP / HP / BP outs, selectable slope, drive, and 16-voice poly.
-          </p>
-        </div>
-      </article>
-
-      <article class="mod-card bg-panel border border-border rounded-lg overflow-hidden">
-        <div class="family-stripe" style="background:#f5c842"></div>
-        <div class="p-5">
-          <div class="text-xs tracking-widest mb-1" style="color:#f5c842">HALO</div>
-          <h3 class="text-lg font-semibold mb-2">Stereo color repeater</h3>
-          <p class="text-sm text-muted leading-relaxed">
-            A modulated multi-tap delay network with two independent zones
-            and polarizing pitch drift, for smeared, gently detuned echoes
-            that spread a sound across the stereo field.
-          </p>
-        </div>
-      </article>
-
-      <article class="mod-card bg-panel border border-border rounded-lg overflow-hidden">
-        <div class="family-stripe" style="background:#f5c842"></div>
-        <div class="p-5">
-          <div class="text-xs tracking-widest mb-1" style="color:#f5c842">METRO185</div>
-          <h3 class="text-lg font-semibold mb-2">Step sequencer</h3>
-          <p class="text-sm text-muted leading-relaxed">
-            An eight-stage sequencer in the M185 / Metropolis tradition: each
-            stage has a pitch, a pulse count, and a gate type. The count and
-            gate-type controls are vertical sliders and patchable over
-            polyphonic CV, so the sequence itself becomes modulatable.
-          </p>
-        </div>
-      </article>
-
-      <article class="mod-card bg-panel border border-border rounded-lg overflow-hidden">
-        <div class="family-stripe" style="background:#f5c842"></div>
-        <div class="p-5">
-          <div class="text-xs tracking-widest mb-1" style="color:#f5c842">SKYWAVE</div>
-          <h3 class="text-lg font-semibold mb-2">Character delay &amp; reverb</h3>
-          <p class="text-sm text-muted leading-relaxed">
-            A multi-model stereo delay with scatter reverb, themed on radio
-            propagation. Three engines — longwave (tape), shortwave
-            (bucket-brigade), and microwave (clean digital) — plus internal
-            modulation, atmospheric hiss and crackle, and clock sync.
-          </p>
-        </div>
-      </article>
-
+  <main>
+  <section class="section wrap">
+    <div class="rule-label"><h2 class="eyebrow" style="margin:0;font-weight:500">The four modules</h2></div>
+    <div class="grid grid-2">
+        <article class="feat reveal">
+          <div class="feat__k">HELIX</div>
+          <h3 class="feat__t">Transistor-ladder filter</h3>
+          <p class="feat__b">A 4-pole Moog-style lowpass that self-oscillates and tracks V/oct, so it doubles as a sine source. Three twists go beyond a clone — DRIFT detunes the poles, FRICTION adds per-stage saturation, TURBULENCE feeds noise into the resonance. Simultaneous LP / HP / BP outs, selectable slope, drive, and 16-voice poly.</p>
+        </article>
+        <article class="feat reveal">
+          <div class="feat__k">HALO</div>
+          <h3 class="feat__t">Stereo color repeater</h3>
+          <p class="feat__b">A modulated multi-tap delay network with two independent zones and polarizing pitch drift, for smeared, gently detuned echoes that spread a sound across the stereo field.</p>
+        </article>
+        <article class="feat reveal">
+          <div class="feat__k">SKYWAVE</div>
+          <h3 class="feat__t">Character delay &amp; reverb</h3>
+          <p class="feat__b">A multi-model stereo delay with scatter reverb, themed on radio propagation. Three engines — longwave (tape), shortwave (bucket-brigade), and microwave (clean digital) — plus internal modulation, atmospheric hiss and crackle, freeze, and clock sync.</p>
+        </article>
+        <article class="feat reveal">
+          <div class="feat__k">METRO 185</div>
+          <h3 class="feat__t">Step sequencer</h3>
+          <p class="feat__b">An eight-stage sequencer in the M185 / Metropolis tradition: each stage has a pitch, a pulse count, and a gate type. The count and gate-type controls are vertical sliders and patchable over polyphonic CV, so the sequence itself becomes modulatable.</p>
+        </article>
     </div>
   </section>
 
-  <section class="max-w-6xl mx-auto px-6 py-12 border-t border-border">
-    <h2 class="text-2xl font-bold mb-4">Design notes</h2>
-    <div class="text-muted leading-relaxed max-w-3xl space-y-4">
-      <p>
-        Atmos modules are designed around the assumption that the
-        listener won't be holding still in front of a knob. They are
-        long-form by default: knob ranges resolve into multi-minute
-        evolutions, modulation depths are calibrated for slow movement,
-        defaults sit at "interesting but not active." Patch one in and
-        leave it.
-      </p>
-      <p>
-        Aesthetically, the family uses a warm-gold family stripe under
-        each panel header (matching the family color on this site), and
-        panel layouts favor large knobs over crowded jack rows — these
-        are tools you set once and listen to, not modules you re-cable
-        every measure.
-      </p>
+  <section class="section wrap" style="padding-top:0">
+    <div class="rule-label"><h2 class="eyebrow" style="margin:0;font-weight:500">Design notes</h2></div>
+    <div class="grid grid-2">
+        <article class="feat reveal">
+          <div class="feat__k">LONG-FORM BY DEFAULT</div>
+          <h3 class="feat__t">Set it and listen</h3>
+          <p class="feat__b">Atmos modules assume the listener won't be holding still in front of a knob. Knob ranges resolve into multi-minute evolutions, modulation depths are calibrated for slow movement, and defaults sit at "interesting but not active." Patch one in and leave it.</p>
+        </article>
+        <article class="feat reveal">
+          <div class="feat__k">AESTHETIC</div>
+          <h3 class="feat__t">Warm-gold, few jacks</h3>
+          <p class="feat__b">The family uses a warm-gold accent under each panel header and layouts that favor large knobs over crowded jack rows — these are tools you set once and listen to, not modules you re-cable every measure.</p>
+        </article>
     </div>
   </section>
 
-  <footer class="max-w-6xl mx-auto px-6 py-12 text-sm text-muted border-t border-border">
-    <p>© 2026 SHLabs · instruments for the modular world · <svg width="11" height="11" viewBox="0 0 32 32" style="display:inline-block;vertical-align:-1px" aria-hidden="true"><rect width="32" height="32" rx="3" fill="#d52b1e"/><rect x="13" y="6" width="6" height="20" fill="#fff"/><rect x="6" y="13" width="20" height="6" fill="#fff"/></svg> Made in Switzerland</p>
+  <section class="wrap" id="get" style="padding-bottom:clamp(56px,9vh,104px)">
+    <hr class="hair" style="margin-bottom:44px">
+    <div style="max-width:64ch">
+      <h2 class="eyebrow" style="margin:0 0 14px;font-weight:500">Get it</h2>
+      <p class="lead" style="margin-bottom:18px">Free, and built to be played. Each module ships as its own plugin — grab the ones you want.</p>
+      <p class="body" style="margin-bottom:10px">You'll need <strong>VCV Rack 2</strong> — a free download for macOS, Windows and Linux from <a class="link" href="https://vcvrack.com/Rack" target="_blank" rel="noopener">vcvrack.com/Rack</a>. Download the <strong>.vcvplugin</strong> files below and drop them into Rack's user plugin folder, then restart — they appear under the <strong>SHLabs</strong> brand.</p>
+    </div>
+    <div class="grid grid-2" style="margin-top:26px">
+        <div class="feat">
+          <div class="feat__k">HELIX</div>
+          <h3 class="feat__t">Transistor-ladder filter</h3>
+          <p class="feat__b" style="margin-bottom:16px">Self-oscillating 4-pole ladder with drift, friction and turbulence.</p>
+          <a class="btn btn--primary" href="/downloads/SHLabs-Helix-2.0.0-mac-arm64.vcvplugin">Download Helix <span class="arw">↓</span></a>
+        </div>
+        <div class="feat">
+          <div class="feat__k">HALO</div>
+          <h3 class="feat__t">Stereo color repeater</h3>
+          <p class="feat__b" style="margin-bottom:16px">Two-zone modulated multi-tap network with polarizing pitch drift.</p>
+          <a class="btn btn--primary" href="/downloads/SHLabs-Halo-2.0.0-mac-arm64.vcvplugin">Download Halo <span class="arw">↓</span></a>
+        </div>
+        <div class="feat">
+          <div class="feat__k">SKYWAVE</div>
+          <h3 class="feat__t">Character delay &amp; reverb</h3>
+          <p class="feat__b" style="margin-bottom:16px">Three-engine stereo delay with scatter reverb, themed on radio propagation.</p>
+          <a class="btn btn--primary" href="/downloads/SHLabs-Skywave-2.0.0-mac-arm64.vcvplugin">Download Skywave <span class="arw">↓</span></a>
+        </div>
+        <div class="feat">
+          <div class="feat__k">METRO 185</div>
+          <h3 class="feat__t">Step sequencer</h3>
+          <p class="feat__b" style="margin-bottom:16px">Eight-stage M185-style CV sequencer with polyphonic count and gate-type CV.</p>
+          <a class="btn btn--primary" href="/downloads/SHLabs-Metro185-2.0.0-mac-arm64.vcvplugin">Download Metro 185 <span class="arw">↓</span></a>
+        </div>
+    </div>
+    <p class="mono small muted" style="margin-top:18px">macOS (Apple Silicon). Windows, Linux &amp; Intel builds coming via the VCV Library.</p>
+    <div style="margin-top:22px">
+      <a class="btn btn--ghost" href="/#vcv">All VCV modules <span class="arw">→</span></a>
+    </div>
+  </section>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap">
+      <div class="foot__grid">
+        <div>
+          <div class="foot__word">SH<b>labs</b></div>
+          <p class="foot__blurb">An independent audio-tools studio making instruments for the modular world and the DAW.</p>
+        </div>
+        <div class="foot__col">
+          <p class="foot__h">VCV Rack</p>
+          <a href="/stochast/">Stochast</a><a href="/rikoshet/">Rikoshet</a><a href="/mashina/">Mashina</a><a href="/lucida/">Lucida</a><a href="/atmos/">Atmos</a>
+        </div>
+        <div class="foot__col">
+          <p class="foot__h">Instruments</p>
+          <a href="/cell/">Cell</a><a href="/tincture/">Tincture</a><a href="/slicery/">Slicery</a>
+          <p class="foot__h" style="margin-top:18px">Effects</p>
+          <a href="/contour/">Contour</a><a href="/spazio/">Spazio</a>
+        </div>
+        <div class="foot__col">
+          <p class="foot__h">Mastering</p>
+          <a href="/glue/">Glue</a><a href="/stesso/">Stesso</a>
+          <p class="foot__h" style="margin-top:18px">MIDI &amp; Visuals</p>
+          <a href="/tonnetz/">Tonnetz</a><a href="/metro185/">Metro 185</a><a href="/phosphor/">Phosphor</a>
+        </div>
+        <div class="foot__col">
+          <p class="foot__h">Studio</p>
+          <a href="/about/">About SHLabs</a><a href="https://github.com/shlabs-audio" target="_blank" rel="noopener">GitHub &#8599;</a>
+        </div>
+      </div>
+      <div class="foot__bar">
+        <span>&copy; <span data-year>2026</span> SHLabs &middot; instruments for the modular world</span>
+        <span class="swiss">
+          <svg width="12" height="12" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="3" fill="#d52b1e"/><rect x="13" y="6" width="6" height="20" fill="#fff"/><rect x="6" y="13" width="20" height="6" fill="#fff"/></svg>
+          Made in Switzerland
+        </span>
+      </div>
+    </div>
   </footer>
 
+  <script src="/js/shlabs.js"></script>
 </body>
 </html>
