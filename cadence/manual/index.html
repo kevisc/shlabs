@@ -1,0 +1,425 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Cadence Manual — SHLabs</title>
+<style>
+:root{
+  --bg:#1e2024; --panel:#26292e; --edge:#32363d; --track:#3a3f47;
+  --txt:#e7e9ec; --dim:#8b929b; --acc:#bcc4cc; --cue:#eca13c; --loop:#35a8f0; --red:#e23b3b; --green:#4caf50;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--txt);font:15px/1.65 -apple-system,system-ui,"Segoe UI",sans-serif}
+a{color:var(--loop);text-decoration:none} a:hover{text-decoration:underline}
+mark{background:var(--cue);color:#1e2024;border-radius:2px;padding:0 1px}
+
+.wrap{display:flex;max-width:1240px;margin:0 auto}
+nav{width:260px;flex:none;position:sticky;top:0;height:100vh;overflow-y:auto;padding:24px 18px;
+    border-right:1px solid var(--edge)}
+nav h2{font-size:11px;letter-spacing:2px;color:var(--dim);margin:18px 0 6px}
+nav a{display:block;color:var(--dim);font-size:13px;padding:3px 8px;border-radius:5px}
+nav a:hover{color:var(--txt);background:var(--panel);text-decoration:none}
+main{flex:1;min-width:0;padding:28px 44px 120px}
+
+.brand{font-size:20px;font-weight:800;letter-spacing:3px;color:var(--txt);margin:0 0 2px}
+.brand small{display:block;font-size:11px;font-weight:400;letter-spacing:1px;color:var(--dim);margin-top:2px}
+#search{width:100%;margin:14px 0 4px;padding:9px 12px;border-radius:7px;border:1px solid var(--edge);
+        background:var(--panel);color:var(--txt);font-size:13px;outline:none}
+#search:focus{border-color:var(--acc)}
+#searchInfo{font-size:11px;color:var(--dim);min-height:16px;margin-bottom:4px}
+
+h1{font-size:30px;letter-spacing:1px;margin:6px 0 4px}
+.sub{color:var(--dim);margin:0 0 28px}
+section{margin-bottom:14px}
+h2{font-size:21px;margin:40px 0 8px;padding-top:14px;border-top:1px solid var(--edge);letter-spacing:0.5px}
+h3{font-size:15.5px;margin:24px 0 6px;color:var(--acc)}
+p,li{color:#cfd4da}
+ul{margin:6px 0 12px;padding-left:22px}
+li{margin:3px 0}
+kbd{background:var(--track);border:1px solid var(--edge);border-bottom-width:2px;border-radius:4px;
+    padding:1px 7px;font:12px ui-monospace,Menlo,monospace;color:var(--txt)}
+.btn{display:inline-block;background:var(--track);border:1px solid var(--edge);border-radius:4px;
+     padding:0 7px;font-size:12.5px;font-weight:600;letter-spacing:0.5px;color:var(--txt)}
+.btn.lit{background:var(--acc);color:#1e2024}
+.btn.blue{color:var(--loop)} .btn.amber{color:var(--cue)}
+table{border-collapse:collapse;margin:10px 0 16px;width:100%;max-width:760px}
+th,td{border:1px solid var(--edge);padding:7px 12px;text-align:left;font-size:13.5px}
+th{background:var(--panel);color:var(--acc);font-weight:600}
+td{color:#cfd4da}
+.tip,.warn{border-left:3px solid var(--loop);background:var(--panel);border-radius:0 7px 7px 0;
+           padding:10px 16px;margin:12px 0;font-size:14px}
+.warn{border-left-color:var(--cue)}
+.tip b,.warn b{color:var(--txt)}
+.muted{color:var(--dim);font-size:13px}
+footer{margin-top:60px;padding-top:16px;border-top:1px solid var(--edge);color:var(--dim);font-size:12.5px}
+.hidden{display:none}
+@media (max-width:900px){ .wrap{flex-direction:column} nav{position:static;width:auto;height:auto;border-right:0;border-bottom:1px solid var(--edge)} main{padding:20px} }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<nav>
+  <div class="brand">CADENCE<small>SHLabs &middot; hybrid performance mixer</small></div>
+  <input id="search" type="search" placeholder="Search the manual...">
+  <div id="searchInfo"></div>
+  <h2>START</h2>
+  <a href="#welcome">Welcome</a>
+  <a href="#quickstart">Quick start</a>
+  <a href="#interface">The interface</a>
+  <h2>PERFORM</h2>
+  <a href="#strips">Channel strips</a>
+  <a href="#master">Master section &amp; macros</a>
+  <a href="#overviews">Track overviews &amp; WAVES</a>
+  <a href="#transport">Transport, sync &amp; quantize</a>
+  <a href="#loops">Loops &amp; loop rolls</a>
+  <a href="#keylock">Key-lock &amp; key matching</a>
+  <h2>LIBRARY</h2>
+  <a href="#collection">Collection</a>
+  <a href="#import">Importing music</a>
+  <a href="#editors">Grid &amp; section editors</a>
+  <h2>CREATE</h2>
+  <a href="#arrange">Arrange</a>
+  <a href="#edit">Edit (samples &amp; strips)</a>
+  <h2>EXPAND</h2>
+  <a href="#plugins">Plugins, chains &amp; macros</a>
+  <a href="#midirouting">MIDI routing &amp; VST jamming</a>
+  <a href="#remote">Remote control</a>
+  <a href="#osc">OSC &amp; the module bus</a>
+  <a href="#midi">MIDI-learn</a>
+  <h2>REFERENCE</h2>
+  <a href="#recording">Recording</a>
+  <a href="#shortcuts">Keyboard shortcuts</a>
+  <a href="#files">Settings &amp; files</a>
+  <a href="#troubleshooting">Troubleshooting</a>
+</nav>
+
+<main id="content">
+
+<h1>Cadence Manual</h1>
+<p class="sub">The SHLabs hybrid performance mixer &mdash; four channels of decks, live inputs, plugins and automation, locked to one clock.</p>
+
+<section id="welcome">
+<h2>Welcome</h2>
+<p>Cadence is a performance mixer built around one idea: <b>everything follows one clock</b>. Four channels each play either a <b>live input</b> (hardware, synths, a eurorack mix) or an internal <b>deck</b> (a track from your collection). Decks beat-match to the master tempo, launches and loops land on the grid, plugins follow the host clock, and partner instruments can even follow the key of the playing track &mdash; so backing tracks, loops, hardware and VST instruments all stay in time and in tune while you mix.</p>
+<ul>
+  <li><b>Perform</b> &mdash; the mixer: four strips, master section, track overviews.</li>
+  <li><b>Collection</b> &mdash; your library: scanning, search, playlists, key-compatible browsing.</li>
+  <li><b>Arrange</b> &mdash; a timeline: lay out a set in advance with automation envelopes.</li>
+  <li><b>Edit</b> &mdash; a sample editor: snip sounds out of tracks, render strip re-edits.</li>
+</ul>
+</section>
+
+<section id="quickstart">
+<h2>Quick start</h2>
+<ul>
+  <li><b>1. Add music.</b> Go to <span class="btn">COLLECTION</span>, click <span class="btn">Add Files</span> (or <span class="btn">Import XML</span> for a rekordbox collection).</li>
+  <li><b>2. Scan.</b> Select tracks and press <span class="btn">Scan</span>. This detects BPM, the beatgrid with its bar downbeat, the musical key, and the loudness (for auto-gain). Several tracks scan in parallel.</li>
+  <li><b>3. Load.</b> Use the <span class="btn">LOAD 1&ndash;4</span> buttons (they glow with the live level of each channel so you don't load over a playing deck), or right-click &rarr; <i>Load playing (fader down)</i> to audition.</li>
+  <li><b>4. Play.</b> Back in <span class="btn">PERFORM</span>, press the master <span class="btn">PLAY</span> (or <kbd>Space</kbd>), then a deck's <span class="btn">PLAY</span> (or keys <kbd>1</kbd>&ndash;<kbd>4</kbd>). The button blinks while armed and fires on the next quantize point.</li>
+  <li><b>5. Mix.</b> <span class="btn">SYNC</span> keeps decks locked to the master tempo (with key-lock, so pitch doesn't bend). Ride the faders and EQs, drop loops, and watch the track overview for the red end-of-track warning.</li>
+</ul>
+<div class="tip"><b>Tip:</b> press <kbd>H</kbd> (or click the <span class="btn">?</span> top right) any time for the shortcut overlay &mdash; it also shows the QR codes for the remote control and this manual.</div>
+</section>
+
+<section id="interface">
+<h2>The interface</h2>
+<h3>Mode tabs (top left)</h3>
+<p><span class="btn">PERFORM</span> <span class="btn">COLLECTION</span> <span class="btn">ARRANGE</span> <span class="btn">EDIT</span> switch the whole surface. The transport bar stays on top in every mode.</p>
+<h3>Transport bar</h3>
+<p><span class="btn">PLAY</span> starts the master clock (and sends MIDI Start). The <b>BPM slider</b> (60&ndash;180) eases to a new tempo gradually instead of snapping. <span class="btn">T</span> is tap-tempo, <span class="btn">M</span> the metronome (right-click it to route the click to master and/or headphones and set its level). <span class="btn">LINK</span> joins an Ableton Link session. The <b>quantize dropdown</b> is the <i>one</i> grid for everything &mdash; see <a href="#transport">Transport &amp; quantize</a>.</p>
+<h3>Top-right utilities</h3>
+<p><span class="btn">OSC</span> <span class="btn">MIDI</span> <span class="btn">AUTO</span> <span class="btn">PLUGINS</span> <span class="btn">FX</span> <span class="btn">COMP</span> <span class="btn">REC</span> <span class="btn">Audio Settings</span> open their panels. Next to them: the <b>engine readout</b> (buffer &middot; output latency &middot; DSP load &mdash; click it for engine options), the <span class="btn">?</span> help overlay, and the <b>SHLabs</b> wordmark (click for About &amp; licenses).</p>
+</section>
+
+<section id="strips">
+<h2>Channel strips</h2>
+<p>Each of the four strips is one channel. The beat dots in its header show the deck's bar phase against the master grid.</p>
+<h3>Player panel</h3>
+<ul>
+  <li><b>Source</b> &mdash; toggles between <span class="btn">INPUT</span> (the audio interface input for this channel) and <span class="btn">PLAYER</span> (the internal deck).</li>
+  <li><b>Clip name</b> &mdash; click to load a file; <b>right-click to eject</b> the track (your cue/loop edits are saved back to the collection first). You can also drag an audio file straight onto the strip.</li>
+  <li><span class="btn">PLAY</span> &mdash; quantized launch: blinks while armed, starts exactly on the grid. Press again to stop (also quantized). De-clicked fades on start/stop.</li>
+  <li><span class="btn">LOOP</span> &mdash; whether the clip loops at its end or plays one-shot.</li>
+  <li><span class="btn">SYNC</span> &mdash; locks the deck's beatgrid to the master clock (beat-matched, phase-snapped). On by default.</li>
+  <li><span class="btn">&rarr;BPM</span> &mdash; glides the <i>master</i> tempo gradually to this track's original BPM (ease the whole set back to native speed, unnoticed).</li>
+  <li><span class="btn">KEY</span> &mdash; key-lock and key shifting; see <a href="#keylock">Key-lock</a>.</li>
+  <li><b>FX chip</b> &mdash; shows the plugin chain ("EQ &gt; Comp"); click it for the plugin menu. See <a href="#plugins">Plugins</a>.</li>
+</ul>
+<h3>Perform panel</h3>
+<ul>
+  <li><b>Hot cues 1&ndash;4</b> &mdash; click to set, click again to jump (quantized), shift-click to clear. Stored with the track.</li>
+  <li><kbd>&lt;</kbd> <kbd>&gt;</kbd> &mdash; beat-jump by the quantize size (shift-click = 4&times;).</li>
+  <li><span class="btn">/2</span> <span class="btn blue">LOOP 4</span> <span class="btn">x2</span> &mdash; the auto-loop: loop N beats from the current beat; halve/double the length live. The button pulses while looping.</li>
+  <li><span class="btn">1/4 1/2 1 2</span> &mdash; <b>loop rolls</b>: hold to stutter, release to snap back in time. See <a href="#loops">Loops &amp; rolls</a>.</li>
+</ul>
+<h3>Sound shaping</h3>
+<p>Three-band EQ (<b>HIGH/MID/LOW</b>, full kill at the bottom), a dual-slope <b>FILTER</b> (low-pass left of centre, high-pass right), and <b>DLY/VERB</b> sends into the built-in tempo delay and reverb (their character is set in the <span class="btn">FX</span> panel). The <b>FX+/FX&minus; VOL+/VOL&minus; FLT+/FLT&minus;</b> chips run gradual automation ramps over bars &mdash; hands-free build-ups and fade-outs.</p>
+<h3>Fader, trim and routing</h3>
+<p>The channel fader tops out at <b>0 dB</b> &mdash; headroom lives on the master only. Under the hood every scanned track also carries an <b>auto-gain trim</b> toward &minus;14 LUFS, so decks come up at comparable loudness. <span class="btn amber">CUE</span> sends the channel pre-fader to your headphones; <span class="btn">ON</span> assigns it to the master bus (quantized mute/unmute).</p>
+</section>
+
+<section id="master">
+<h2>Master section &amp; macros</h2>
+<ul>
+  <li><b>Master fader</b> &mdash; the only fader allowed above 0 dB. Stereo meters beside it.</li>
+  <li><b>LIMIT</b> &mdash; burns red while the brick-wall safety limiter is actually reducing gain. If you see it often, pull the master down.</li>
+  <li><span class="btn">COMP</span> &mdash; the master glue compressor: threshold, ratio, soft <b>knee</b>, attack/release, makeup, and a <b>sidechain high-pass</b> so the kick stops pumping the mix. Live gain-reduction meter with 3/6/12 dB marks.</li>
+  <li><b>MACROS M1&ndash;M8</b> &mdash; eight knobs, each bound to any parameter of any loaded plugin. Right-click a macro &rarr; <i>Learn: touch a control in a plugin editor</i>, then wiggle the knob you want in the plugin window &mdash; bound. Macros are MIDI-learnable like any control, so a hardware knob can drive any plugin parameter. Assignments persist.</li>
+  <li><b>CUE/MIX &amp; PHONES</b> &mdash; headphone blend between the cue bus and the master, and the headphone level.</li>
+</ul>
+</section>
+
+<section id="overviews">
+<h2>Track overviews &amp; WAVES</h2>
+<p>The bottom of PERFORM shows one full-track overview per deck:</p>
+<ul>
+  <li><b>Click</b> anywhere to seek there (quantized) and play. Each lane is tagged <b>CH n</b> with a live level meter so strips and lanes stay linked.</li>
+  <li><b>Sections</b> from the section editor show as coloured, labelled bands; hot cues as amber markers; the loop region in azure with draggable IN/OUT handles.</li>
+  <li><b>End-of-track warning</b> &mdash; the remaining tail pulses red inside 30 seconds and shows a countdown inside 15 (quiet while a loop is engaged).</li>
+  <li><span class="btn">COLOR</span> &mdash; tints the waveforms by frequency content (kick warm, harmony green, air blue). Off = neutral metal, letting the section colours speak.</li>
+  <li><span class="btn">WAVES</span> &mdash; opens the scrolling phase/sync scope under compact overviews, with a zoom control: see at a glance whether two decks' transients line up.</li>
+  <li>A <b>ghost playhead</b> appears during a loop roll &mdash; the real position running underneath the stutter.</li>
+</ul>
+</section>
+
+<section id="transport">
+<h2>Transport, sync &amp; quantize</h2>
+<h3>One quantize grid</h3>
+<p>The quantize dropdown (Off, 1/16 &hellip; 4 Bars) governs <i>everything</i>: clip launches and stops, seeks, beat-jumps, quantized mutes, <b>and loop snapping</b> &mdash; loop in/out points land on the chosen grid, so loop lengths come out quantized automatically. "Off" means immediate timing with beat-snapped loops.</p>
+<h3>Tempo</h3>
+<p>Typed or dragged tempo changes <b>glide</b> over several seconds rather than snapping (SYNC'd decks bend along smoothly). <span class="btn">&rarr;BPM</span> on a strip glides the master to that track's native tempo. Tap with <span class="btn">T</span>. Range 60&ndash;180 BPM.</p>
+<h3>Sync outputs</h3>
+<p>Cadence is a clock <i>source</i>: MIDI clock out (pick the port in the transport bar; free-run keeps clock flowing while stopped), <b>Ableton Link</b> for network tempo+phase, and OSC for visuals and modules (see <a href="#osc">OSC</a>). Hosted plugins read the master playhead, so sequencer plugins run in lockstep.</p>
+</section>
+
+<section id="loops">
+<h2>Loops &amp; loop rolls</h2>
+<h3>Loops</h3>
+<ul>
+  <li><b>Drag</b> across a track overview to set a loop (edges snap to the quantize grid); drag the IN/OUT handles to resize &mdash; changes are adopted on the next beat, the music never jumps mid-cycle.</li>
+  <li><span class="btn blue">LOOP N</span> on the strip loops N beats from the current beat; <span class="btn">/2</span>/<span class="btn">x2</span> resize live, and the counter follows.</li>
+  <li><b>Saved loops</b> (from the section editor or rekordbox import) appear dimmed in the overview and <b>auto-engage when the playhead reaches them</b> &mdash; prepare a "hold here" loop at the end of a track and it can't be missed.</li>
+  <li>If you drag a loop ahead of the playhead, the deck plays <i>into</i> it and then loops &mdash; it never yanks backwards.</li>
+</ul>
+<h3>Loop rolls</h3>
+<p>The <span class="btn">1/4 1/2 1 2</span> pads are momentary: <b>hold</b> to stutter a grid-aligned window while the real position keeps running underneath (watch the ghost playhead); <b>release</b> and the current repeat finishes on its boundary, then playback snaps back exactly in time. The pad stays lit until the release lands.</p>
+</section>
+
+<section id="keylock">
+<h2>Key-lock &amp; key matching</h2>
+<p>When SYNC bends a track's tempo, <b>key-lock</b> keeps its pitch constant &mdash; realtime, full-length tracks, all four decks at once (the engine has been measured at ~5% DSP with all four stretching at a 128-sample buffer).</p>
+<ul>
+  <li><span class="btn">KEY</span> lit = key-lock on (default). Unlit = vinyl-style: pitch follows tempo.</li>
+  <li><b>Right-click KEY</b> &mdash; shift the track's key by semitones (&minus;6&hellip;+6), or <b>Match CH n</b>: Cadence reads both detected keys and applies the shortest shift to make them harmonically compatible (minor keys are compared through their relative major). The button shows the active shift ("KEY+2").</li>
+  <li>The key shift resets when a new track loads.</li>
+</ul>
+<div class="tip"><b>Harmonic browsing:</b> in the COLLECTION, tracks whose key is compatible with the playing deck (same key, relative, or a wheel neighbour) tint green &mdash; pick your next track by colour. The Key column shows both the key name and the wheel code ("Am&nbsp;&nbsp;8A").</div>
+</section>
+
+<section id="collection">
+<h2>Collection</h2>
+<h3>Scanning</h3>
+<p><span class="btn">Scan</span> analyses tracks (several in parallel): tempo and a bar-accurate beatgrid (comb-filtered detection with a kick-weighted downbeat vote), the musical key (tuning-corrected chromagram &mdash; works on A&ne;440 masters), and integrated loudness for auto-gain. The Grid column shows confidence; <i>Verified</i> means a human (or rekordbox) confirmed it.</p>
+<h3>Search</h3>
+<p>The search box filters as you type. Every space-separated term must match: words search title/genre/key, plain numbers match BPM &plusmn;1, and <code>120-126</code> filters a BPM range. Example: <code>techno 7A 122-126</code>. <kbd>Esc</kbd> clears.</p>
+<h3>Playlists &amp; the right-click menu</h3>
+<p>Build playlists with <span class="btn">New Playlist</span>; multi-select tracks and right-click to add them. The right-click menu also offers: <i>Load playing (fader down)</i> (audition: the deck starts, channel on, fader at the bottom &mdash; ride it in by hand), <i>Scan</i>, <i>Edit beatgrid&hellip;</i>, <i>Edit sections&hellip;</i>, <i>Edit track info&hellip;</i>, <i>Open in Editor</i>, and removal options. The <b>LOAD 1&ndash;4</b> buttons glow with each channel's live level so you never load over a playing deck.</p>
+</section>
+
+<section id="import">
+<h2>Importing music</h2>
+<ul>
+  <li><span class="btn">Add Files</span> &mdash; WAV, AIFF, FLAC, MP3, OGG. Metadata tags (genre, key) are read when present.</li>
+  <li><span class="btn">Import XML</span> &mdash; a <b>rekordbox collection export</b> (File &rarr; Export Collection in xml format). Brings in tracks, your curated beatgrids (marked Verified), up to four hot cues, saved loops, and the playlist tree. Existing tracks are updated, not duplicated; a summary reports anything missing on disk.</li>
+</ul>
+<p class="muted">Imported grids are trusted as-is; keys and loudness still benefit from a Cadence scan.</p>
+</section>
+
+<section id="editors">
+<h2>Grid &amp; section editors</h2>
+<h3>Beatgrid editor</h3>
+<p><span class="btn">Grid</span> opens the beatgrid editor: set the tempo and drag the downbeat by eye against the waveform. Applying marks the grid <i>Verified</i> and pushes it live to any loaded deck. The /2 and x2 buttons next to the BPM field fix octave-doubled or halved detections.</p>
+<h3>Section editor</h3>
+<p><span class="btn">Sections</span> opens the section/cue/loop editor (it deliberately never touches the beatgrid). Add any number of coloured, labelled sections snapped to the grid &mdash; they show up in the collection previews, the mixer overviews and the arrange timeline, so you read a track's structure everywhere. Also set up to four hot cues and a saved loop here.</p>
+</section>
+
+<section id="arrange">
+<h2>Arrange</h2>
+<p>A DAW-style timeline for preparing a set. Drag tracks from the docked collection onto a lane &mdash; each becomes a full-length clip so you can see where it ends and line up the next one. When the master playhead crosses a clip, its deck launches.</p>
+<ul>
+  <li><b>Clips:</b> move, trim either edge, split with the <span class="btn">CUT</span> razor. The deck's live position is mirrored on the timeline.</li>
+  <li><b>Future loops:</b> with the <span class="btn">LOOP</span> tool, drag a region on a clip &mdash; when the song reaches it, the deck stays in that loop (it pulses azure while engaged; edits to an engaged loop apply live).</li>
+  <li><b>Automation:</b> the VOL / FILT / DLY / VERB modes draw envelopes per lane &mdash; played back into the channel knobs during the set (value labels show dB etc.; FILT has a centre line; CLEAR wipes the selected parameter's lane).</li>
+  <li><b>Navigation:</b> +/&minus; zoom (or <kbd>&#8984;</kbd>-scroll), <span class="btn">NOW</span> keeps the view following the playhead, lane headers carry a volume slider and a live meter, and each lane glows with its channel's level.</li>
+</ul>
+</section>
+
+<section id="edit">
+<h2>Edit (samples &amp; strips)</h2>
+<p>A non-destructive sample editor &mdash; sources are only read, never modified.</p>
+<ul>
+  <li><b>Open a track:</b> <span class="btn">From Collection</span>, or right-click a track in the COLLECTION &rarr; <i>Open in Editor</i>.</li>
+  <li><b>Select:</b> drag on the zoomable waveform; <span class="btn">SNAP</span> locks edges to the beatgrid; drag the edges to adjust. The readout shows seconds and beats. Wheel zooms, shift-wheel pans.</li>
+  <li><span class="btn">Save Sample</span> &mdash; writes the region as a 24-bit WAV into <code>~/Music/Cadence Samples</code> and adds it to the collection (drum hits, vocals, stabs&hellip;).</li>
+  <li><span class="btn">Audition CH4</span> &mdash; renders the region onto deck 4 to hear it.</li>
+  <li><b>The STRIP:</b> <span class="btn">Add to Strip</span> collects regions in order &mdash; from any number of tracks &mdash; and <span class="btn">Render Strip</span> bounces them into <b>one joint clip</b> (44.1k/24-bit, equal-power crossfades at every join). Your quick re-edit/mashup workflow.</li>
+  <li><b>Save target:</b> the dropdown sends saved samples and rendered strips to the collection plus, optionally, straight into a playlist.</li>
+</ul>
+</section>
+
+<section id="plugins">
+<h2>Plugins, chains &amp; macros</h2>
+<h3>Chains</h3>
+<p>Every channel hosts up to <b>three plugins in series</b> (AU/VST3 effects or instruments). Click the strip's <b>FX chip</b>:</p>
+<ul>
+  <li>Loaded slots get submenus &mdash; open editor, bypass, remove, pin to favorites.</li>
+  <li><b>Favorites</b> (your pinned list, then most-used) and the full manufacturer-grouped list load into the first empty slot; the editor pops open ready to tweak, floating above Cadence even fullscreen.</li>
+  <li><i>Plugin manager / scan&hellip;</i> opens the manager: scan for plugins, double-click favorites onto an exact channel + slot (CH and S1&ndash;S3 selectors).</li>
+</ul>
+<p><b>Chains, plugin settings, bypass states and macro assignments all persist</b> &mdash; quit and relaunch, and your rig rebuilds itself.</p>
+<h3>Macros</h3>
+<p>See <a href="#master">Master section</a> &mdash; M1&ndash;M8 bind to plugin parameters by touch-learn or menu, are MIDI-learnable, and are controllable from the remote.</p>
+<div class="warn"><b>Idle DSP:</b> loaded chains process every block, like DAW tracks &mdash; an idling synth costs real CPU. Bypass or remove chains you're not using (the FX chip menu) to reclaim it. The engine readout shows the average load.</div>
+</section>
+
+<section id="midirouting">
+<h2>MIDI routing &amp; VST jamming</h2>
+<p>MIDI flows <b>through</b> each chain like a DAW track: slot 1's MIDI output feeds slot 2, and so on. That means a sequencer plugin in slot 1 (Tonnetz, Metro 185) plays an instrument in slot 2 (Tincture) on the same channel &mdash; locked to the master clock via the host playhead.</p>
+<ul>
+  <li><b>Cross-channel:</b> the FX menu's <i>MIDI out &rarr; CH n</i> routes a chain's MIDI to another channel &mdash; an empty deck becomes a pure MIDI-send device driving an instrument elsewhere.</li>
+  <li><b>Key-follow:</b> SHLabs modules with a FOLLOW switch (Tonnetz) listen to Cadence's module bus and lock their key/scale to whatever track currently leads the mix &mdash; the reference hands over automatically as the next song takes over. VST jams stay in key with the set.</li>
+  <li>Hardware/performance MIDI (a keyboard) feeds every chain alongside the routed events.</li>
+</ul>
+</section>
+
+<section id="remote">
+<h2>Remote control</h2>
+<p>Cadence serves its own browser remote on your local network &mdash; phone or tablet, no app. Press <kbd>H</kbd> and <b>scan the "remote control" QR</b> (or type the address shown).</p>
+<ul>
+  <li><b>Master:</b> play/stop, BPM, beat dots.</li>
+  <li><b>Per deck:</b> track name, PLAY, LOOP, position bar, a big fader, <b>FADE IN/OUT</b> (gradual 8-beat ramps) and <b>MIX 32 / MIX 8</b> &mdash; auto-transition into that deck from the current lead, slow or fast.</li>
+  <li><b>Macros:</b> all eight, as sliders.</li>
+  <li>Everything is <b>quantized</b> &mdash; remote actions land on the next bar while the clock runs.</li>
+</ul>
+<p class="muted">Requirements: same Wi-Fi network (no guest/isolated VLAN); allow Cadence in the macOS firewall if prompted. Toggle the remote on/off by clicking the engine readout. Prefer a dedicated OSC app? Cadence's OSC-in mapping works with TouchOSC and friends too.</p>
+</section>
+
+<section id="osc">
+<h2>OSC &amp; the module bus</h2>
+<h3>Main OSC out</h3>
+<p>The <span class="btn">OSC</span> panel points a configurable target (host/port) at visualizers or show control &mdash; SHLabs <b>Phosphor</b> locks its visuals to it. Messages include <code>/cadence/bpm</code>, <code>/cadence/beat</code>, <code>/cadence/phase</code>, <code>/cadence/transport</code>, per-channel and master levels, band energies, kick onsets, a section-intensity signal, and the live section's index/type and progress-through.</p>
+<h3>Module bus</h3>
+<p>A second, always-on local feed (<code>127.0.0.1:9009</code>) carries clock, transport and <code>/cadence/key</code> &mdash; the live set's current key, including any key shift. SHLabs modules hosted on the same machine (Tonnetz's FOLLOW) use it without any setup, and without touching your main OSC target. Toggle it in the engine-options menu (click the DSP readout).</p>
+<h3>OSC in</h3>
+<p>Incoming OSC can be mapped generically to controls &mdash; see the OSC panel.</p>
+</section>
+
+<section id="midi">
+<h2>MIDI-learn</h2>
+<p>Open <span class="btn">MIDI</span> and move a hardware control, then click the target &mdash; faders, EQs, filters, cue/on buttons, deck play, sync, the auto-ramp chips and the eight macros are all mappable, with bank support for small controllers. Mappings persist.</p>
+</section>
+
+<section id="recording">
+<h2>Recording</h2>
+<p><span class="btn">REC</span> records the master bus (post compressor and limiter) as a 24-bit WAV into <code>~/Music/Cadence Recordings</code>. Press again to stop.</p>
+</section>
+
+<section id="shortcuts">
+<h2>Keyboard shortcuts</h2>
+<table>
+<tr><th>Key</th><th>Action</th></tr>
+<tr><td><kbd>Space</kbd></td><td>Master play / stop</td></tr>
+<tr><td><kbd>1</kbd>&ndash;<kbd>4</kbd></td><td>Launch / stop deck (quantized)</td></tr>
+<tr><td><kbd>M</kbd></td><td>Metronome</td></tr>
+<tr><td><kbd>H</kbd> or <kbd>?</kbd></td><td>Shortcut overlay + remote &amp; manual QR codes</td></tr>
+<tr><td><kbd>Esc</kbd></td><td>Clear the collection search</td></tr>
+</table>
+<p class="muted">Shortcuts pause while you're typing in a text field. Click any empty surface to re-arm them.</p>
+</section>
+
+<section id="files">
+<h2>Settings &amp; files</h2>
+<table>
+<tr><th>What</th><th>Where</th></tr>
+<tr><td>Collection (tracks, grids, keys, sections, playlists)</td><td><code>~/Library/Application Support/SHLabs/Cadence/</code></td></tr>
+<tr><td>Session (decks, FX chains + plugin state, macros, settings)</td><td><code>session.xml</code> in the same folder</td></tr>
+<tr><td>Arrangement, MIDI map, OSC, plugin list, audio device</td><td>same folder, one file each</td></tr>
+<tr><td>Saved samples &amp; strip renders</td><td><code>~/Music/Cadence Samples</code></td></tr>
+<tr><td>Recordings</td><td><code>~/Music/Cadence Recordings</code></td></tr>
+</table>
+<p class="muted">All settings are written atomically (temp-file + swap) &mdash; a crash can't corrupt them. The session restores your decks, chains and settings on launch.</p>
+<h3>Engine options</h3>
+<p>Click the engine readout (top right) to toggle the browser remote and the OSC module bus. The readout shows buffer size, total output latency and average DSP load.</p>
+</section>
+
+<section id="troubleshooting">
+<h2>Troubleshooting</h2>
+<ul>
+  <li><b>The remote page won't load</b> &mdash; phone and Mac must be on the same Wi-Fi (guest networks often isolate clients); allow Cadence in <i>System Settings &rarr; Network &rarr; Firewall</i>. The QR always encodes the current working address.</li>
+  <li><b>High DSP while idle</b> &mdash; loaded plugin chains run like DAW tracks. Bypass or remove unused plugins via the FX chip.</li>
+  <li><b>Loops/cues don't snap</b> &mdash; the track has no beatgrid yet: scan it, or set the grid by eye in the beatgrid editor.</li>
+  <li><b>Wrong tempo (half/double)</b> &mdash; use /2 or x2 next to the BPM field in the collection.</li>
+  <li><b>SYNC'd track sounds pitched</b> &mdash; KEY (key-lock) is off on that deck; light it up.</li>
+  <li><b>Key column empty</b> &mdash; keys come from scanning (or rekordbox import).</li>
+  <li><b>A deck won't launch</b> &mdash; the master clock must be running; launches are quantized, so they wait for the grid point shown in the quantize dropdown.</li>
+  <li><b>Audio device vanished</b> &mdash; the red banner means the interface disconnected; Cadence reconnects automatically when it returns.</li>
+</ul>
+</section>
+
+<footer>
+Cadence &mdash; &copy; 2026 SHLabs. All rights reserved.<br>
+Open-source components: Signalsmith Stretch &amp; Linear (MIT), QR Code generator &copy; Project Nayuki (MIT), JUCE &copy; Raw Material Software, Ableton Link &copy; Ableton AG. Full texts in the in-app About box (click the SHLabs wordmark).
+</footer>
+
+</main>
+</div>
+
+<script>
+// live search: hides sections without a match and highlights terms
+const input = document.getElementById('search');
+const info  = document.getElementById('searchInfo');
+const sections = Array.from(document.querySelectorAll('main section'));
+const originals = new Map(sections.map(s => [s, s.innerHTML]));
+let timer = null;
+
+input.addEventListener('input', () => { clearTimeout(timer); timer = setTimeout(run, 120); });
+input.addEventListener('keydown', e => { if (e.key === 'Escape') { input.value = ''; run(); } });
+
+function run() {
+  const q = input.value.trim().toLowerCase();
+  let hits = 0;
+  sections.forEach(s => { s.innerHTML = originals.get(s); s.classList.remove('hidden'); });
+  if (!q) { info.textContent = ''; return; }
+  const terms = q.split(/\s+/).filter(t => t.length > 1);
+  if (!terms.length) { info.textContent = ''; return; }
+  sections.forEach(s => {
+    const text = s.textContent.toLowerCase();
+    const match = terms.every(t => text.includes(t));
+    if (!match) { s.classList.add('hidden'); return; }
+    hits++;
+    terms.forEach(t => highlight(s, t));
+  });
+  info.textContent = hits ? hits + ' section' + (hits > 1 ? 's' : '') + ' match' : 'no matches';
+}
+
+function highlight(root, term) {
+  const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+  const nodes = [];
+  while (walker.nextNode()) nodes.push(walker.currentNode);
+  nodes.forEach(n => {
+    const i = n.textContent.toLowerCase().indexOf(term);
+    if (i < 0 || n.parentNode.nodeName === 'MARK') return;
+    const m = document.createElement('mark');
+    const after = n.splitText(i);
+    after.splitText(term.length);
+    m.textContent = after.textContent;
+    after.parentNode.replaceChild(m, after);
+  });
+}
+</script>
+</body>
+</html>
