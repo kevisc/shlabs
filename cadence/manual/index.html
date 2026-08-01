@@ -72,8 +72,13 @@ footer{margin-top:60px;padding-top:16px;border-top:1px solid var(--edge);color:v
   <a href="#interface">The interface</a>
   <h2>PERFORM</h2>
   <a href="#strips">Channel strips</a>
+  <a href="#console">Centre console &amp; MACROS</a>
   <a href="#master">Master section &amp; macros</a>
-  <a href="#overviews">Track overviews &amp; WAVES</a>
+  <a href="#tracksband">TRACKS band</a>
+  <a href="#overviews">Track overviews &amp; WAVEFORM</a>
+  <a href="#sources">Deck sources &amp; radio</a>
+  <a href="#clipgrid">Clip grid</a>
+  <a href="#stems">Stems</a>
   <a href="#transport">Transport, sync &amp; quantize</a>
   <a href="#loops">Loops &amp; loop rolls</a>
   <a href="#keylock">Key-lock &amp; key matching</a>
@@ -83,7 +88,7 @@ footer{margin-top:60px;padding-top:16px;border-top:1px solid var(--edge);color:v
   <a href="#editors">Grid &amp; section editors</a>
   <h2>CREATE</h2>
   <a href="#arrange">Arrange</a>
-  <a href="#edit">Edit (samples &amp; strips)</a>
+  <a href="#edit">Sampler (samples &amp; strips)</a>
   <h2>EXPAND</h2>
   <a href="#plugins">Plugins, chains &amp; macros</a>
   <a href="#midirouting">MIDI routing &amp; VST jamming</a>
@@ -109,7 +114,7 @@ footer{margin-top:60px;padding-top:16px;border-top:1px solid var(--edge);color:v
   <li><b>Perform</b> &mdash; the mixer: four strips, master section, track overviews.</li>
   <li><b>Collection</b> &mdash; your library: scanning, search, playlists, key-compatible browsing.</li>
   <li><b>Arrange</b> &mdash; a timeline: lay out a set in advance with automation envelopes.</li>
-  <li><b>Edit</b> &mdash; a sample editor: snip sounds out of tracks, render strip re-edits.</li>
+  <li><b>Sampler</b> &mdash; a sample editor: snip sounds out of tracks, render strip re-edits.</li>
 </ul>
 </section>
 
@@ -119,20 +124,21 @@ footer{margin-top:60px;padding-top:16px;border-top:1px solid var(--edge);color:v
   <li><b>1. Add music.</b> Go to <span class="btn">COLLECTION</span>, click <span class="btn">Add Files</span> (or <span class="btn">Import XML</span> for a rekordbox collection).</li>
   <li><b>2. Scan.</b> Select tracks and press <span class="btn">Scan</span>. This detects BPM, the beatgrid with its bar downbeat, the musical key, and the loudness (for auto-gain). Several tracks scan in parallel.</li>
   <li><b>3. Load.</b> Use the <span class="btn">LOAD 1&ndash;4</span> buttons (they glow with the live level of each channel so you don't load over a playing deck), or right-click &rarr; <i>Load playing (fader down)</i> to audition.</li>
-  <li><b>4. Play.</b> Back in <span class="btn">PERFORM</span>, press the master <span class="btn">PLAY</span> (or <kbd>Space</kbd>), then a deck's <span class="btn">PLAY</span> (or keys <kbd>1</kbd>&ndash;<kbd>4</kbd>). The button blinks while armed and fires on the next quantize point.</li>
+  <li><b>4. Play.</b> Back in <span class="btn">PERFORM</span>, press the master <span class="btn">PLAY</span>, then a deck's <span class="btn">PLAY</span> (or keys <kbd>Q</kbd> <kbd>W</kbd> <kbd>E</kbd> <kbd>R</kbd>). The button blinks while armed and fires on the next quantize point.</li>
   <li><b>5. Mix.</b> <span class="btn">SYNC</span> keeps decks locked to the master tempo (with key-lock, so pitch doesn't bend). Ride the faders and EQs, drop loops, and watch the track overview for the red end-of-track warning.</li>
 </ul>
-<div class="tip"><b>Tip:</b> press <kbd>H</kbd> (or click the <span class="btn">?</span> top right) any time for the shortcut overlay &mdash; it also shows the QR codes for the remote control and this manual.</div>
+<div class="tip"><b>Tip:</b> press <kbd>H</kbd> any time (or <i>Keyboard shortcuts&hellip;</i> in <span class="btn">SETTINGS</span>) for the shortcut overlay &mdash; it also shows the QR codes for the remote control and this manual. Any key closes it.</div>
 </section>
 
 <section id="interface">
 <h2>The interface</h2>
 <h3>Mode tabs (top left)</h3>
-<p><span class="btn">PERFORM</span> <span class="btn">COLLECTION</span> <span class="btn">ARRANGE</span> <span class="btn">EDIT</span> switch the whole surface. The transport bar stays on top in every mode.</p>
+<p><span class="btn">PERFORM</span> <span class="btn">COLLECTION</span> <span class="btn">ARRANGE</span> <span class="btn">SAMPLER</span> switch the whole surface (keys <kbd>1</kbd>&ndash;<kbd>4</kbd>). The transport bar stays on top in every mode.</p>
 <h3>Transport bar</h3>
 <p><span class="btn">PLAY</span> starts the master clock (and sends MIDI Start). The <b>BPM slider</b> (60&ndash;180) eases to a new tempo gradually instead of snapping. <span class="btn">T</span> is tap-tempo, <span class="btn">M</span> the metronome (right-click it to route the click to master and/or headphones and set its level). <span class="btn">LINK</span> joins an Ableton Link session. The <b>quantize dropdown</b> is the <i>one</i> grid for everything &mdash; see <a href="#transport">Transport &amp; quantize</a>.</p>
-<h3>Top-right utilities</h3>
-<p><span class="btn">OSC</span> <span class="btn">MIDI</span> <span class="btn">AUTO</span> <span class="btn">PLUGINS</span> <span class="btn">FX</span> <span class="btn">COMP</span> <span class="btn">REC</span> <span class="btn">Audio Settings</span> open their panels. Next to them: the <b>engine readout</b> (buffer &middot; output latency &middot; DSP load &mdash; click it for engine options), the <span class="btn">?</span> help overlay, and the <b>SHLabs</b> wordmark (click for About &amp; licenses).</p>
+<h3>Top bar buttons</h3>
+<p>Left to right: <span class="btn">BROWSE</span> (dock the collection under the mixer, also <kbd>C</kbd>), <span class="btn">ASSIST</span> (auto-mixing &mdash; right-click for its options) and <span class="btn">REC</span>. Then, after a gap, the configuration group: <span class="btn">FX</span> (delay &amp; reverb), <span class="btn">COMPRESSOR</span>, <span class="btn">OSC</span>, <span class="btn">MIDI MAP</span> and <span class="btn">SETTINGS</span>. Beside them sit the <b>engine readout</b> (buffer &middot; output latency &middot; DSP load &mdash; click it for engine options) and the <b>CADENCE</b> wordmark (click for About &amp; licenses).</p>
+<p class="muted">The top bar stays deliberately short: the plugin manager, the MIDI mapping list, UI zoom, the waveform colour choice and the shortcut overlay all live inside <span class="btn">SETTINGS</span>.</p>
 </section>
 
 <section id="strips">
@@ -162,28 +168,88 @@ footer{margin-top:60px;padding-top:16px;border-top:1px solid var(--edge);color:v
 <p>The channel fader tops out at <b>0 dB</b> &mdash; headroom lives on the master only. Under the hood every scanned track also carries an <b>auto-gain trim</b> toward &minus;14 LUFS, so decks come up at comparable loudness. <span class="btn amber">CUE</span> sends the channel pre-fader to your headphones; <span class="btn">ON</span> assigns it to the master bus (quantized mute/unmute).</p>
 </section>
 
+<section id="console">
+<h2>Centre console &amp; MACROS</h2>
+<p>The mixer console sits between the deck columns. Its header <b>cycles through three sizes</b> on each click, so you can trade console for deck space mid-set:</p>
+<ul>
+  <li><span class="btn">MIXER</span> &mdash; the full channel strips.</li>
+  <li><span class="btn">MIXER - LEVELS</span> &mdash; bare level strips: meter, fader and PLUGINS only.</li>
+  <li><span class="btn">MIXER - HIDDEN</span> &mdash; no console at all; the decks take the whole width.</li>
+</ul>
+<p>The header row itself always stays, so the console can never get lost. Drag either edge to trade width with the decks &mdash; the full and compact sizes remember their own widths.</p>
+<p><b>MACROS</b> is now its own collapsible band at the bottom of the console (click the header to open or close it): eight knobs, a page navigator when you have more than one page, and the same right-click assignment as before. It hides with the console. See <a href="#master">Master section</a>.</p>
+</section>
+
 <section id="master">
 <h2>Master section &amp; macros</h2>
 <ul>
   <li><b>Master fader</b> &mdash; the only fader allowed above 0 dB. Stereo meters beside it.</li>
   <li><b>LIMIT</b> &mdash; burns red while the brick-wall safety limiter is actually reducing gain. If you see it often, pull the master down.</li>
-  <li><span class="btn">COMP</span> &mdash; the master glue compressor: threshold, ratio, soft <b>knee</b>, attack/release, makeup, and a <b>sidechain high-pass</b> so the kick stops pumping the mix. Live gain-reduction meter with 3/6/12 dB marks.</li>
-  <li><b>MACROS M1&ndash;M8</b> &mdash; eight knobs, each bound to any parameter of any loaded plugin. Right-click a macro &rarr; <i>Learn: touch a control in a plugin editor</i>, then wiggle the knob you want in the plugin window &mdash; bound. Macros are MIDI-learnable like any control, so a hardware knob can drive any plugin parameter. Assignments persist.</li>
+  <li><span class="btn">COMPRESSOR</span> &mdash; the master glue compressor: threshold, ratio, soft <b>knee</b>, attack/release, makeup, and a <b>sidechain high-pass</b> so the kick stops pumping the mix. Live gain-reduction meter with 3/6/12 dB marks.</li>
+  <li><b>MACROS M1&ndash;M8</b> &mdash; eight knobs, each bound to any parameter of any loaded plugin. Two ways to bind: right-click a macro &rarr; <i>Learn: touch a control in a plugin editor</i>, then wiggle the knob you want in the plugin window; or, in the plugin editor, touch a control and press <span class="btn">TO MACRO</span> in its header to send that parameter to the macro knob you pick. Macros are MIDI-learnable like any control, so a hardware knob can drive any plugin parameter. Assignments persist.</li>
   <li><b>CUE/MIX &amp; PHONES</b> &mdash; headphone blend between the cue bus and the master, and the headphone level.</li>
 </ul>
 </section>
 
+<section id="tracksband">
+<h2>TRACKS band</h2>
+<p>Across the top of PERFORM, <span class="btn">TRACKS</span> shows the <b>full-length waveform of every deck side by side</b> &mdash; always frequency-coloured (bass warm, mids green, highs blue), so you read each track's shape and energy at a glance while deciding what comes next.</p>
+<ul>
+  <li><b>Click a lane</b> to seek that deck (quantized). Clicking a stopped deck starts it from that point.</li>
+  <li><b>Drag the divider</b> below the band to make the lanes taller or shorter.</li>
+  <li><b>Click the header</b> to collapse the band to a single row and give the height back to the decks.</li>
+</ul>
+<p class="muted">Cues, loops and section editing stay in the deck overviews &mdash; this band is for seeing and seeking.</p>
+</section>
+
 <section id="overviews">
-<h2>Track overviews &amp; WAVES</h2>
-<p>The bottom of PERFORM shows one full-track overview per deck:</p>
+<h2>Track overviews &amp; WAVEFORM</h2>
+<p>Each deck carries its own overview of the loaded track:</p>
 <ul>
   <li><b>Click</b> anywhere to seek there (quantized) and play. Each lane is tagged <b>CH n</b> with a live level meter so strips and lanes stay linked.</li>
   <li><b>Sections</b> from the section editor show as coloured, labelled bands; hot cues as amber markers; the loop region in azure with draggable IN/OUT handles.</li>
   <li><b>End-of-track warning</b> &mdash; the remaining tail pulses red inside 30 seconds and shows a countdown inside 15 (quiet while a loop is engaged).</li>
-  <li><span class="btn">COLOR</span> &mdash; tints the waveforms by frequency content (kick warm, harmony green, air blue). Off = neutral metal, letting the section colours speak.</li>
-  <li><span class="btn">WAVES</span> &mdash; opens the scrolling phase/sync scope under compact overviews, with a zoom control: see at a glance whether two decks' transients line up.</li>
+  <li><b>Waveform colour</b> &mdash; in <span class="btn">SETTINGS</span>: <i>Song sections</i> (the section colours speak) or <i>Frequency tint</i> (bass warm, mids green, highs blue).</li>
   <li>A <b>ghost playhead</b> appears during a loop roll &mdash; the real position running underneath the stutter.</li>
 </ul>
+<h3>WAVEFORM</h3>
+<p>The <span class="btn">WAVEFORM</span> band at the very bottom is a collapsible section header &mdash; click it to open or close. It scrolls the played audio of every deck against the master grid, with a zoom control, so you can see at a glance whether two decks' transients line up. Its scope panel is titled <b>PHASE</b>. Display only: click-seeking and loop-dragging live in the deck overviews above.</p>
+</section>
+
+<section id="sources">
+<h2>Deck sources &amp; radio</h2>
+<p>Each deck's <span class="btn">SRC</span> button shows what it is playing: <span class="btn">IN</span> (live input), <span class="btn">CLIP</span> (the deck player), <span class="btn">GRID</span> (the clip grid) or <span class="btn">RAD</span> (an internet radio stream). Left-click flips between live input and the player; <b>right-click opens the full source menu</b>:</p>
+<ul>
+  <li><i>LIVE INPUT</i> &mdash; the audio interface input for this channel.</li>
+  <li><i>CLIP PLAYER</i> &mdash; the ordinary deck face.</li>
+  <li><i>CLIP GRID</i> &mdash; the 8-slot pad face; see <a href="#clipgrid">Clip grid</a>.</li>
+  <li><i>RADIO &#9656;</i> &mdash; a submenu listing <b>your saved stations</b> by name (tick = playing here), plus <i>Browse stations&hellip;</i> to find and save more.</li>
+</ul>
+<p class="muted">CLIP PLAYER and CLIP GRID are two faces of one source, so switching between them never disturbs playback, and each deck remembers the face you left it on. Leaving RADIO stops the stream first.</p>
+</section>
+
+<section id="clipgrid">
+<h2>Clip grid</h2>
+<p>Every deck can wear a <b>grid of 8 clip slots</b> instead of its zoomed waveform: right-click <span class="btn">SRC</span> &rarr; <i>CLIP GRID</i>. The slim full-track overview underneath stays live for seeking and loops. The grid is a chooser for the deck's one player, not a second voice &mdash; so a launch is the usual quantized launch.</p>
+<ul>
+  <li><b>Fill a slot</b> &mdash; drag a track onto it, or highlight a track in COLLECTION and tap an empty pad (that only files it, nothing launches, so a mis-tap can't interrupt the deck).</li>
+  <li><b>Tap a filled pad</b> to launch it on the next quantize point; tap again to stop. Tapping during the load cancels the queued launch.</li>
+  <li><b>Right-click a pad</b> for <i>Assign selected library track</i>, <i>Loop on/off</i> (per slot, kept through a reassign), <i>Clear slot</i> and <i>Assign from file&hellip;</i>.</li>
+  <li>Pads outline when they hold the deck's clip, blink while armed and pulse on the beat while playing.</li>
+  <li><b>MIDI-learnable</b> &mdash; every slot on every deck appears in the mapper as <i>CH1 Grid Slot 1</i> &hellip; so a pad controller can fire them.</li>
+</ul>
+<p class="muted">Grids are saved with the session. If a clip's file has moved or been deleted since you last played, the slot is cleared on load (the session reports how many items it couldn't restore), and tapping a pad whose file has vanished warns you without stopping the deck that's playing.</p>
+</section>
+
+<section id="stems">
+<h2>Stems</h2>
+<p>Cadence can split a track into <b>drums, bass, other and vocals</b> and play it back from those four parts &mdash; drop the vocal, keep the drums under the next tune, solo a bassline.</p>
+<ul>
+  <li><b>One-time setup</b> &mdash; open <span class="btn">SETTINGS</span> and press <i>Download model (316 MB)</i>. It fetches once and stays.</li>
+  <li><b>Separate a track</b> &mdash; in COLLECTION, right-click it &rarr; <i>Separate stems</i> (several selected tracks queue up). Results are cached, so a track is only ever separated once. Do it before the gig, not during.</li>
+  <li><b>Play them</b> &mdash; a loaded track that has stems grows a <b>STEMS row</b> on its deck: the <span class="btn">STEMS</span> toggle plus four chips, <span class="btn">DRM</span> <span class="btn">BSS</span> <span class="btn">OTH</span> <span class="btn">VOC</span>. Lit = audible. <b>Click a chip to mute it, right-click to solo</b> (right-click again to release the solo).</li>
+</ul>
+<div class="warn"><b>Two decks at a time.</b> Stems hold all four parts in memory, so Cadence allows them on two decks at once and tells you when you ask for a third. <b>Key-lock steps aside</b> while stems are on for that deck &mdash; a stemmed deck follows tempo the vinyl way.</div>
 </section>
 
 <section id="transport">
@@ -259,7 +325,7 @@ footer{margin-top:60px;padding-top:16px;border-top:1px solid var(--edge);color:v
 </section>
 
 <section id="edit">
-<h2>Edit (samples &amp; strips)</h2>
+<h2>Sampler (samples &amp; strips)</h2>
 <p>A non-destructive sample editor &mdash; sources are only read, never modified.</p>
 <ul>
   <li><b>Open a track:</b> <span class="btn">From Collection</span>, or right-click a track in the COLLECTION &rarr; <i>Open in Editor</i>.</li>
@@ -282,7 +348,7 @@ footer{margin-top:60px;padding-top:16px;border-top:1px solid var(--edge);color:v
 </ul>
 <p><b>Chains, plugin settings, bypass states and macro assignments all persist</b> &mdash; quit and relaunch, and your rig rebuilds itself.</p>
 <h3>Macros</h3>
-<p>See <a href="#master">Master section</a> &mdash; M1&ndash;M8 bind to plugin parameters by touch-learn or menu, are MIDI-learnable, and are controllable from the remote.</p>
+<p>See <a href="#master">Master section</a> &mdash; M1&ndash;M8 bind to plugin parameters by touch-learn or menu, are MIDI-learnable, and are controllable from the remote. Every hosted plugin editor carries a header strip with <span class="btn">TO MACRO</span> (send the last-touched parameter to a macro), <span class="btn">BYPASS</span> and <span class="btn">REMOVE</span>.</p>
 <div class="warn"><b>Idle DSP:</b> loaded chains process every block, like DAW tracks &mdash; an idling synth costs real CPU. Bypass or remove chains you're not using (the FX chip menu) to reclaim it. The engine readout shows the average load.</div>
 </section>
 
@@ -320,7 +386,8 @@ footer{margin-top:60px;padding-top:16px;border-top:1px solid var(--edge);color:v
 
 <section id="midi">
 <h2>MIDI-learn</h2>
-<p>Open <span class="btn">MIDI</span> and move a hardware control, then click the target &mdash; faders, EQs, filters, cue/on buttons, deck play, sync, the auto-ramp chips and the eight macros are all mappable, with bank support for small controllers. Mappings persist.</p>
+<p>Press <span class="btn">MIDI MAP</span> to arm mapping mode: <b>click a control on screen, then move a MIDI control</b> (or send OSC) to bind it. Right-click a control clears its binding, and <kbd>Esc</kbd> ends the session. Faders, EQs, filters, cue/on buttons, deck play, sync, the auto-ramp chips, the eight macros, the stem chips and every clip-grid slot are mappable, with bank support for small controllers. Mappings persist.</p>
+<p class="muted">The full list of bindings, the input device picker and your saved map profiles live in <span class="btn">SETTINGS</span> &rarr; <i>MIDI mapping&hellip;</i>.</p>
 </section>
 
 <section id="recording">
@@ -332,12 +399,22 @@ footer{margin-top:60px;padding-top:16px;border-top:1px solid var(--edge);color:v
 <h2>Keyboard shortcuts</h2>
 <table>
 <tr><th>Key</th><th>Action</th></tr>
-<tr><td><kbd>Space</kbd></td><td>Master play / stop</td></tr>
-<tr><td><kbd>1</kbd>&ndash;<kbd>4</kbd></td><td>Launch / stop deck (quantized)</td></tr>
+<tr><td><kbd>1</kbd>&ndash;<kbd>4</kbd></td><td>View: Perform / Collection / Arrange / Sampler</td></tr>
+<tr><td><kbd>Q</kbd> <kbd>W</kbd> <kbd>E</kbd> <kbd>R</kbd></td><td>Launch / stop deck 1&ndash;4 (quantized)</td></tr>
+<tr><td><kbd>Shift</kbd>+<kbd>Q W E R</kbd></td><td>Headphone CUE on / off, channel 1&ndash;4</td></tr>
+<tr><td><kbd>Shift</kbd>+<kbd>Space</kbd></td><td>Stop everything &mdash; all decks and the clock</td></tr>
+<tr><td><kbd>Space</kbd></td><td>Arrange: start the timeline</td></tr>
+<tr><td><kbd>Shift</kbd>+<kbd>Return</kbd></td><td>Jump a gliding tempo straight to its target</td></tr>
+<tr><td><kbd>C</kbd></td><td>Toggle the docked collection</td></tr>
 <tr><td><kbd>M</kbd></td><td>Metronome</td></tr>
-<tr><td><kbd>H</kbd> or <kbd>?</kbd></td><td>Shortcut overlay + remote &amp; manual QR codes</td></tr>
-<tr><td><kbd>Esc</kbd></td><td>Clear the collection search</td></tr>
+<tr><td><kbd>H</kbd> or <kbd>?</kbd></td><td>Shortcut overlay + remote &amp; manual QR codes (any key closes)</td></tr>
+<tr><td><kbd>&#8984;Z</kbd></td><td>Undo (<kbd>&#8679;&#8984;Z</kbd> redo) &mdash; Arrange or Collection, whichever is open</td></tr>
+<tr><td><kbd>&#8984;D</kbd> <kbd>&#8984;C</kbd> <kbd>&#8984;V</kbd></td><td>Arrange: duplicate / copy / paste the selected block</td></tr>
+<tr><td><kbd>&#8984;E</kbd></td><td>Arrange: split the selected block at the playhead</td></tr>
+<tr><td><kbd>Delete</kbd></td><td>Arrange: delete the selected block</td></tr>
+<tr><td><kbd>Esc</kbd></td><td>Arrange: back to the select tool; in Collection, clear the search</td></tr>
 </table>
+<p class="muted">Deck launch lives on <kbd>Q</kbd>&ndash;<kbd>R</kbd> so the number row is free to switch views. In PERFORM, <kbd>Space</kbd> does nothing on purpose &mdash; the clock is not something to nudge by accident mid-set.</p>
 <p class="muted">Shortcuts pause while you're typing in a text field. Click any empty surface to re-arm them.</p>
 </section>
 
@@ -346,7 +423,8 @@ footer{margin-top:60px;padding-top:16px;border-top:1px solid var(--edge);color:v
 <table>
 <tr><th>What</th><th>Where</th></tr>
 <tr><td>Collection (tracks, grids, keys, sections, playlists)</td><td><code>~/Library/Application Support/SHLabs/Cadence/</code></td></tr>
-<tr><td>Session (decks, FX chains + plugin state, macros, settings)</td><td><code>session.xml</code> in the same folder</td></tr>
+<tr><td>Session (decks, clip grids, FX chains + plugin state, macros, layout)</td><td><code>session.xml</code> in the same folder</td></tr>
+<tr><td>Stems model &amp; separated-stem cache</td><td>same folder (clear the cache in <span class="btn">SETTINGS</span>)</td></tr>
 <tr><td>Arrangement, MIDI map, OSC, plugin list, audio device</td><td>same folder, one file each</td></tr>
 <tr><td>Saved samples &amp; strip renders</td><td><code>~/Music/Cadence Samples</code></td></tr>
 <tr><td>Recordings</td><td><code>~/Music/Cadence Recordings</code></td></tr>
@@ -367,6 +445,9 @@ footer{margin-top:60px;padding-top:16px;border-top:1px solid var(--edge);color:v
   <li><b>Key column empty</b> &mdash; keys come from scanning (or rekordbox import).</li>
   <li><b>A deck won't launch</b> &mdash; the master clock must be running; launches are quantized, so they wait for the grid point shown in the quantize dropdown.</li>
   <li><b>Audio device vanished</b> &mdash; the red banner means the interface disconnected; Cadence reconnects automatically when it returns.</li>
+  <li><b>No STEMS row on the deck</b> &mdash; that track hasn't been separated yet: right-click it in the COLLECTION &rarr; <i>Separate stems</i> (and install the model in SETTINGS first, if you haven't).</li>
+  <li><b>Stems won't turn on</b> &mdash; they run on two decks at a time; turn them off on another deck first.</li>
+  <li><b>The mixer disappeared</b> &mdash; the console header cycles full &rarr; levels &rarr; hidden. Click <span class="btn">MIXER - HIDDEN</span> at the top of the deck area to bring it back.</li>
 </ul>
 </section>
 
