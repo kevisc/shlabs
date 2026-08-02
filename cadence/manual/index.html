@@ -177,7 +177,7 @@ footer{margin-top:60px;padding-top:16px;border-top:1px solid var(--edge);color:v
   <li><span class="btn">MIXER - HIDDEN</span> &mdash; no console at all; the decks take the whole width.</li>
 </ul>
 <p>The header row itself always stays, so the console can never get lost. Drag either edge to trade width with the decks &mdash; the full and compact sizes remember their own widths.</p>
-<p><b>MACROS</b> is now its own collapsible band at the bottom of the console (click the header to open or close it): eight knobs, a page navigator when you have more than one page, and the same right-click assignment as before. It hides with the console. See <a href="#master">Master section</a>.</p>
+<p><b>MACROS</b> is now its own collapsible band at the bottom of the console (click the header to open or close it): eight horizontal bars in two columns &mdash; M1&ndash;M4 down the left, M5&ndash;M8 down the right &mdash; each captioned with the parameter it drives, plus a page navigator when you have more than one page and the same right-click assignment as before. It hides with the console. See <a href="#master">Master section</a>.</p>
 </section>
 
 <section id="master">
@@ -186,14 +186,15 @@ footer{margin-top:60px;padding-top:16px;border-top:1px solid var(--edge);color:v
   <li><b>Master fader</b> &mdash; the only fader allowed above 0 dB. Stereo meters beside it.</li>
   <li><b>LIMIT</b> &mdash; burns red while the brick-wall safety limiter is actually reducing gain. If you see it often, pull the master down.</li>
   <li><span class="btn">COMPRESSOR</span> &mdash; the master glue compressor: threshold, ratio, soft <b>knee</b>, attack/release, makeup, and a <b>sidechain high-pass</b> so the kick stops pumping the mix. Live gain-reduction meter with 3/6/12 dB marks.</li>
-  <li><b>MACROS M1&ndash;M8</b> &mdash; eight knobs, each bound to any parameter of any loaded plugin. Two ways to bind: right-click a macro &rarr; <i>Learn: touch a control in a plugin editor</i>, then wiggle the knob you want in the plugin window; or, in the plugin editor, touch a control and press <span class="btn">TO MACRO</span> in its header to send that parameter to the macro knob you pick. Macros are MIDI-learnable like any control, so a hardware knob can drive any plugin parameter. Assignments persist.</li>
+  <li><b>MACROS M1&ndash;M8</b> &mdash; eight bars, each bound to any parameter of any loaded plugin. Two ways to bind: right-click a macro &rarr; <i>Learn: touch a control in a plugin editor</i>, then wiggle the control you want in the plugin window; or, in the plugin editor, touch a control and press <span class="btn">TO MACRO</span> in its header to send that parameter to the macro you pick. Macros are MIDI-learnable like any control, so a hardware knob can drive any plugin parameter. Assignments persist.</li>
   <li><b>CUE/MIX &amp; PHONES</b> &mdash; headphone blend between the cue bus and the master, and the headphone level.</li>
 </ul>
 </section>
 
 <section id="tracksband">
 <h2>TRACKS band</h2>
-<p>Across the top of PERFORM, <span class="btn">TRACKS</span> shows the <b>full-length waveform of every deck side by side</b> &mdash; always frequency-coloured (bass warm, mids green, highs blue), so you read each track's shape and energy at a glance while deciding what comes next.</p>
+<p>Across the top of PERFORM, <span class="btn">TRACKS</span> shows the <b>full-length waveform of every loaded deck side by side</b> &mdash; always frequency-coloured (bass warm, mids green, highs blue), so you read each track's shape and energy at a glance while deciding what comes next.</p>
+<p>Only decks with something in them get a lane (a track, a radio stream, or a MIDI instrument), so the band is as tall as it has things to show: it grows as you load and shrinks as you eject, and with every deck empty it steps aside to leave just its header.</p>
 <ul>
   <li><b>Click a lane</b> to seek that deck (quantized). Clicking a stopped deck starts it from that point.</li>
   <li><b>Drag the divider</b> below the band to make the lanes taller or shorter.</li>
