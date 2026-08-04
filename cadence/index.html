@@ -144,15 +144,65 @@
 
   <!-- ─── arrange view ────────────────────────────────────────────────────── -->
   <section class="wrap" style="padding-bottom:clamp(48px,7vh,72px)">
-    <div class="rule-label"><h2 class="eyebrow" style="margin:0;font-weight:500">Arrange the set, keep it live</h2><span class="mono small muted">Arrange view</span></div>
-    <div class="frame"><img src="/img/shots/cadence-arrange.jpg" alt="Cadence's Arrange view: four channel lanes of clips on a bar timeline with automation lanes and a live playhead" width="1600" loading="lazy"></div>
-    <p class="mono small muted" style="margin-top:12px">Arrange view — clips on a bar timeline with automation lanes for volume, filter, sends, OSC and macros. Prepare the skeleton of a set, then play over it: every lane stays editable while the transport runs.</p>
+    <div class="rule-label"><h2 class="eyebrow" style="margin:0;font-weight:500">Inside Cadence</h2><span class="mono small muted">Arrange · Collection · Sampler</span></div>
+    <div class="shotcycle frame" id="cad-gallery" aria-roledescription="carousel" aria-label="Cadence view screenshots">
+      <figure class="on" data-cap="Arrange view — clips on a bar timeline with automation lanes for volume, filter, sends, OSC and macros. Prepare the skeleton of a set, then play over it.">
+        <img src="/img/shots/cadence-arrange.jpg" alt="Arrange view: four channel lanes of clips on a bar timeline with automation lanes and a live playhead" width="1600" loading="lazy">
+      </figure>
+      <figure data-cap="Collection — the library analysed and ready: waveform previews, BPM, key and grid for every track, with one-tap loading to any of the four channels.">
+        <img src="/img/shots/cadence-collection.jpg" alt="Collection view: the analysed track library with waveform previews, BPM, key, genre and grid columns" width="1600" loading="lazy">
+      </figure>
+      <figure data-cap="Sampler — pull any track from the collection, drag a beatgrid-snapped selection, audition it, and render it to a strip you can play from the deck.">
+        <img src="/img/shots/cadence-sampler.jpg" alt="Sampler view: a waveform with a beatgrid-snapped selection ready to audition or render to the strip" width="1600" loading="lazy">
+      </figure>
+    </div>
+    <div class="shotbar">
+      <p class="mono small muted shotbar__cap" id="cad-gallery-cap">Arrange view — clips on a bar timeline with automation lanes for volume, filter, sends, OSC and macros. Prepare the skeleton of a set, then play over it.</p>
+      <div class="shotbar__dots" id="cad-gallery-dots" role="tablist" aria-label="Choose screenshot"></div>
+      <div class="shotbar__nav">
+        <button type="button" id="cad-gallery-prev" aria-label="Previous screenshot">&#8592;</button>
+        <button type="button" id="cad-gallery-next" aria-label="Next screenshot">&#8594;</button>
+      </div>
+    </div>
+    <script>
+      (function(){
+        var wrap = document.getElementById('cad-gallery');
+        if (!wrap) return;
+        var slides = Array.prototype.slice.call(wrap.querySelectorAll('figure'));
+        var cap = document.getElementById('cad-gallery-cap');
+        var dots = document.getElementById('cad-gallery-dots');
+        var i = 0, timer = null;
+        var still = matchMedia('(prefers-reduced-motion: reduce)').matches;
+        slides.forEach(function(_, k){
+          var d = document.createElement('button');
+          d.type = 'button';
+          d.setAttribute('aria-label', 'Screenshot ' + (k+1));
+          d.addEventListener('click', function(){ go(k); hold(); });
+          dots.appendChild(d);
+        });
+        function paint(){
+          slides.forEach(function(s, k){ s.classList.toggle('on', k === i); });
+          Array.prototype.forEach.call(dots.children, function(d, k){
+            if (k === i) d.setAttribute('aria-current', 'true'); else d.removeAttribute('aria-current');
+          });
+          cap.textContent = slides[i].getAttribute('data-cap');
+        }
+        function go(k){ i = (k + slides.length) % slides.length; paint(); }
+        function hold(){ if (timer) { clearInterval(timer); timer = null; } start(12000); }
+        function start(ms){ if (still || timer) return; timer = setInterval(function(){ go(i+1); }, ms || 6000); }
+        document.getElementById('cad-gallery-prev').addEventListener('click', function(){ go(i-1); hold(); });
+        document.getElementById('cad-gallery-next').addEventListener('click', function(){ go(i+1); hold(); });
+        wrap.addEventListener('mouseenter', function(){ if (timer) { clearInterval(timer); timer = null; } });
+        wrap.addEventListener('mouseleave', function(){ start(); });
+        paint(); start();
+      })();
+    </script>
   </section>
 
   <!-- ─── bundle ──────────────────────────────────────────────────────────── -->
   <section id="bundle" class="section" style="scroll-margin-top:70px;background:var(--bg-deep);border-top:1px solid var(--edge-soft);border-bottom:1px solid var(--edge-soft)">
     <div class="wrap">
-      <div class="rule-label"><h2 class="eyebrow" style="margin:0;font-weight:500;color:var(--accent)">The bundle</h2><span class="mono small muted">Cadence + Phosphor</span></div>
+      <div class="rule-label"><h2 class="eyebrow" style="margin:0;font-weight:500;color:var(--accent)">The bundle</h2><span class="mono small muted">The full SHLabs studio</span></div>
       <h3 class="h2" style="margin-bottom:18px">Built to perform together</h3>
       <p class="lead" style="max-width:64ch;margin-bottom:34px">
         Phosphor listens to Cadence over OSC and locks the visuals to the clock. Motion lands on the beat,
@@ -173,12 +223,20 @@
         </article>
       </div>
       <p class="body" style="max-width:64ch;margin-bottom:8px">
+        And the bundle is the whole studio: alongside <strong>Cadence</strong> and <strong>Phosphor</strong> it
+        includes <a class="link" href="/cell/">Cell</a>, <a class="link" href="/tincture/">Tincture</a>,
+        <a class="link" href="/contour/">Contour</a>, <a class="link" href="/spazio/">Spazio</a>,
+        <a class="link" href="/glue/">Glue</a>, <a class="link" href="/stesso/">Stesso</a> and
+        <a class="link" href="/tonnetz/">Tonnetz</a> — every instrument, effect and mastering tool in the line.
+      </p>
+      <p class="body" style="max-width:64ch;margin-bottom:8px">
         A Tonnetz link — Cadence following and steering harmony via note-follow over OSC — is planned for the bundle.
       </p>
       <p class="mono small muted" style="margin-bottom:26px">Bundle pricing announced at release.</p>
       <div style="display:flex;flex-wrap:wrap;gap:12px">
         <a class="btn btn--ghost" href="/phosphor/">Phosphor <span class="arw">→</span></a>
         <a class="btn btn--ghost" href="/tonnetz/">Tonnetz <span class="arw">→</span></a>
+        <a class="btn btn--ghost" href="/#products">All plugins <span class="arw">→</span></a>
       </div>
     </div>
   </section>

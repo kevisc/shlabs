@@ -318,6 +318,29 @@ a.card:hover{ transform:translateY(-3px); border-color:var(--silver); background
 .frame{ border:1px solid var(--edge); border-radius:12px; overflow:hidden; background:var(--panel); box-shadow:var(--shadow); }
 .frame img{ width:100%; display:block; }
 
+/* rotating screenshot gallery (crossfade + manual browse) */
+.shotcycle{ position:relative; }
+.shotcycle figure{ margin:0; }
+.shotcycle figure:not(:first-child){ position:absolute; inset:0; }
+.shotcycle figure{ opacity:0; transition:opacity .7s var(--ease); pointer-events:none; }
+.shotcycle figure.on{ opacity:1; pointer-events:auto; }
+.shotbar{ display:flex; align-items:center; gap:14px; margin-top:12px; }
+.shotbar__cap{ flex:1; min-width:0; }
+.shotbar__dots{ display:flex; gap:8px; }
+.shotbar__dots button{
+  width:9px; height:9px; border-radius:99px; border:1px solid var(--edge);
+  background:var(--track); padding:0; cursor:pointer;
+  transition:background .16s var(--ease), border-color .16s var(--ease);
+}
+.shotbar__dots button[aria-current="true"]{ background:var(--accent,var(--silver)); border-color:var(--accent,var(--silver)); }
+.shotbar__nav{ display:flex; gap:6px; }
+.shotbar__nav button{
+  width:30px; height:30px; border-radius:var(--radius-s); border:1px solid var(--edge);
+  background:var(--panel); color:var(--txt-2); cursor:pointer; font-size:.9rem; line-height:1;
+  transition:border-color .16s var(--ease), background .16s var(--ease);
+}
+.shotbar__nav button:hover{ border-color:var(--silver); background:var(--panel-2); }
+
 /* hero collage — overlapping stack of real plugin UIs (normal flow = correct aspect) */
 .hero-rig{ align-self:center; }
 .shotstack{ display:flex; flex-direction:column; width:100%; max-width:440px; margin-inline:auto; }
