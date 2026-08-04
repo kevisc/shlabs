@@ -4,20 +4,39 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Not found — SHLabs</title>
+  <meta name="robots" content="noindex">
   <link rel="icon" type="image/svg+xml" href="/img/favicon.svg">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = { theme: { extend: { colors: {
-      bg:'#0a0c12', muted:'#9aa0b4', cyan:{ 400:'#6ec8e0' }
-    } } } };
-  </script>
-  <style>body { font-family:'Inter', system-ui, sans-serif; }</style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/shlabs.css">
 </head>
-<body class="bg-bg text-white min-h-screen flex items-center justify-center">
-  <main class="text-center px-6">
-    <div class="text-cyan-400 text-6xl font-bold tracking-widest mb-4">404</div>
-    <p class="text-muted mb-8">No module patches to that input.</p>
-    <a href="/" class="text-cyan-400 hover:underline">← Back to SHLabs</a>
+<body style="min-height:100vh;display:flex;align-items:center;justify-content:center">
+
+  <main class="wrap" style="max-width:52ch;text-align:center;padding-top:40px;padding-bottom:40px">
+    <a class="brand" href="/" aria-label="SHLabs home" style="justify-content:center;margin-bottom:34px">
+      <svg class="brand__mark" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <rect x="1" y="1" width="22" height="22" rx="6" fill="#1c1e22" stroke="#3a3f47"/>
+        <rect x="6.4" y="5.5" width="1.8" height="13" rx=".9" fill="#8b929b"/>
+        <rect x="4.8" y="8.5" width="5" height="3" rx="1.5" fill="#ced3da"/>
+        <rect x="11.1" y="5.5" width="1.8" height="13" rx=".9" fill="#8b929b"/>
+        <rect x="9.5" y="12.5" width="5" height="3" rx="1.5" fill="#ced3da"/>
+        <rect x="15.8" y="5.5" width="1.8" height="13" rx=".9" fill="#8b929b"/>
+        <rect x="14.2" y="7.5" width="5" height="3" rx="1.5" fill="#ced3da"/>
+      </svg>
+      <span class="brand__word">SH<b>labs</b></span>
+    </a>
+
+    <div class="eyebrow" style="margin-bottom:18px">Error 404</div>
+    <h1 class="display" style="font-size:clamp(3.4rem,11vw,5.6rem);margin-bottom:20px">404</h1>
+    <div class="phero__accentline" style="margin:0 auto 24px"></div>
+    <p class="lead" style="margin:0 0 34px">No module patches to that input.</p>
+
+    <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center">
+      <a class="btn btn--primary" href="/">Back to SHLabs <span class="arw">→</span></a>
+      <a class="btn btn--ghost" href="/#products">Browse products</a>
+    </div>
   </main>
+
 </body>
 </html>

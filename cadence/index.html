@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cadence — SHLabs</title>
+  <meta name="description" content="Cadence is a hybrid-performance brain from SHLabs: a DJ-style four-channel performance mixer, master clock and sync hub for hardware, files and live inputs. Sample-accurate 24-PPQN MIDI clock, beatgrid players, automatic structure analysis, Ableton Link and OSC. Standalone app, macOS. Coming soon.">
+  <link rel="icon" type="image/svg+xml" href="/img/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/shlabs.css">
+  <script>
+    document.documentElement.className += ' js';
+    addEventListener('load', function () { setTimeout(function () {
+      if (!window.__shlabsJS) { var r = document.querySelectorAll('.reveal'); for (var i = 0; i < r.length; i++) r[i].classList.add('in'); }
+    }, 1200); });
+  </script>
+</head>
+<body style="--accent:#eca13c">
+
+  <nav class="nav">
+    <div class="wrap nav__in">
+      <a class="brand" href="/" aria-label="SHLabs home">
+        <svg class="brand__mark" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <rect x="1" y="1" width="22" height="22" rx="6" fill="#1c1e22" stroke="#3a3f47"/>
+          <rect x="6.4" y="5.5" width="1.8" height="13" rx=".9" fill="#8b929b"/>
+          <rect x="4.8" y="8.5" width="5" height="3" rx="1.5" fill="#ced3da"/>
+          <rect x="11.1" y="5.5" width="1.8" height="13" rx=".9" fill="#8b929b"/>
+          <rect x="9.5" y="12.5" width="5" height="3" rx="1.5" fill="#ced3da"/>
+          <rect x="15.8" y="5.5" width="1.8" height="13" rx=".9" fill="#8b929b"/>
+          <rect x="14.2" y="7.5" width="5" height="3" rx="1.5" fill="#ced3da"/>
+        </svg>
+        <span class="brand__word">SH<b>labs</b></span>
+      </a>
+      <div class="nav__links" id="nav-menu">
+        <div class="menu">
+          <a class="nav__link" href="/#products" data-menu-toggle role="button" aria-haspopup="true" aria-expanded="false">Products &#9662;</a>
+          <div class="menu__panel">
+            <div class="menu__head">Flagships</div>
+            <a class="menu__item" href="/cadence/"><span class="dot" style="background:var(--amber)"></span> Cadence</a>
+            <a class="menu__item" href="/phosphor/"><span class="dot" style="background:var(--amber)"></span> Phosphor</a>
+            <div class="menu__head">VST &amp; Standalone</div>
+            <a class="menu__item" href="/#cat-live"><span class="dot"></span> Performance &amp; live</a>
+            <a class="menu__item" href="/#cat-synths"><span class="dot"></span> Synthesizers &amp; instruments</a>
+            <a class="menu__item" href="/#cat-effects"><span class="dot"></span> Effects</a>
+            <a class="menu__item" href="/#cat-mastering"><span class="dot"></span> Mastering tools</a>
+            <a class="menu__item" href="/#cat-midi"><span class="dot"></span> MIDI generators &amp; composers</a>
+            <a class="menu__item" href="/#cat-visuals"><span class="dot"></span> Visuals</a>
+            <div class="menu__head">Modular</div>
+            <a class="menu__item" href="/#vcv"><span class="dot"></span> VCV Rack 2 modules</a>
+          </div>
+        </div>
+        <a class="nav__link" href="/about/">Studio</a>
+        <a class="nav__cta" href="https://github.com/shlabs-audio" target="_blank" rel="noopener">GitHub &#8599;</a>
+      </div>
+      <button class="nav__burger" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <div class="wrap crumb"><a href="/#products">Products</a> &nbsp;/&nbsp; <a href="/#cat-live">Performance &amp; live</a> &nbsp;/&nbsp; <span style="color:var(--txt-2)">Cadence</span></div>
+
+  <header class="wrap">
+    <div class="phero__grid">
+      <div>
+        <img class="phero__logo" src="/img/cadence.png" alt="Cadence" width="76" height="76">
+        <div class="phero__accentline"></div>
+        <div class="eyebrow" style="color:var(--accent);margin-bottom:18px">Performance mixer · master clock · sync hub</div>
+        <h1 class="phero__title">Cadence</h1>
+        <p class="lead" style="max-width:46ch">A hybrid-performance brain. Four channels of live inputs and beatgrid players under DJ-style hands, a sample-accurate MIDI clock that the rest of your rig follows, and an assist layer that can hold the mix together while you play hardware on top.</p>
+        <div class="phero__meta">
+          <span class="chip chip--soon"><span class="led"></span> Coming soon</span>
+          <span class="mono small muted">Standalone app · macOS — Windows alpha in testing</span>
+        </div>
+      </div>
+      <div class="phero__panelwrap">
+        <div class="hero-panel">
+          <img class="hero-panel__logo" src="/img/cadence.png" alt="Cadence" width="132" height="132">
+          <div class="hero-panel__strip">
+            <div class="rig">
+              <div class="rig__col">
+                <div class="fader" style="--h:110px;--pos:30%"><div class="fader__groove"></div><div class="fader__fill"></div><div class="fader__cap"></div></div>
+                <div class="rig__cap">Ch 1</div>
+              </div>
+              <div class="rig__col">
+                <div class="fader" style="--h:110px;--pos:52%"><div class="fader__groove"></div><div class="fader__fill"></div><div class="fader__cap"></div></div>
+                <div class="rig__cap">Ch 2</div>
+              </div>
+              <div class="rig__col">
+                <div class="fader" style="--h:110px;--pos:22%"><div class="fader__groove"></div><div class="fader__fill"></div><div class="fader__cap"></div></div>
+                <div class="rig__cap">Ch 3</div>
+              </div>
+              <div class="rig__col">
+                <div class="fader" style="--h:110px;--pos:68%"><div class="fader__groove"></div><div class="fader__fill"></div><div class="fader__cap"></div></div>
+                <div class="rig__cap">Ch 4</div>
+              </div>
+              <div class="rig__col">
+                <div class="knob" style="--d:54px;--val:64"><div class="knob__face"></div><div class="knob__disc"></div><div class="knob__ptr"></div></div>
+                <div class="rig__cap">Filter</div>
+              </div>
+              <div class="rig__col">
+                <div class="meter" style="--h:110px"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="pk"></i><i></i><i></i><i></i><i></i></div>
+                <div class="rig__cap">Master</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+  <!-- ─── what it is ──────────────────────────────────────────────────────── -->
+  <section class="section wrap">
+    <div class="rule-label"><h2 class="eyebrow" style="margin:0;font-weight:500">What it is</h2></div>
+    <div class="grid grid-3">
+      <article class="feat reveal">
+        <div class="feat__k">THE BRAIN</div>
+        <h3 class="feat__t">One surface for the whole set</h3>
+        <p class="feat__b">Live inputs, prepared clips and hardware all meet on the same four channels. Cadence holds the tempo, the grid and the structure of the set in one place, so there is a single thing to look at when the room is dark and something needs to change now.</p>
+      </article>
+      <article class="feat reveal">
+        <div class="feat__k">ONE CLOCK</div>
+        <h3 class="feat__t">Everything follows Cadence</h3>
+        <p class="feat__b">A sample-accurate 24-PPQN MIDI clock, phase-locked to the audio clock rather than driven by a timer, with transport start and stop, tap tempo and Ableton Link. Cadence is built to be the one clock in the room, not another device negotiating for sync.</p>
+      </article>
+      <article class="feat reveal">
+        <div class="feat__k">HANDS FREE</div>
+        <h3 class="feat__t">Play hardware on top</h3>
+        <p class="feat__b">The assist layer can carry a transition on its own — key-aware, paced how you like it, looping the build into the drop. That buys you both hands for the modular, the drum machine or the synth, and you take the mix back whenever you want it.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ─── capabilities ────────────────────────────────────────────────────── -->
+  <section class="section wrap" style="padding-top:0">
+    <div class="rule-label"><h2 class="eyebrow" style="margin:0;font-weight:500">Capabilities</h2></div>
+    <div class="grid grid-3">
+      <article class="feat reveal">
+        <div class="feat__k">MIXER</div>
+        <h3 class="feat__t">Four channels, DJ ergonomics</h3>
+        <p class="feat__b">Each channel takes a live input or its own internal player. Three-band EQ with full kills, one HP/LP filter knob per channel in the DJ idiom, a pre-fader cue bus with selectable master and cue output routing, and master metering. Per-channel delay and a shared reverb send sit on the same strip.</p>
+      </article>
+      <article class="feat reveal">
+        <div class="feat__k">CLOCK &amp; SYNC</div>
+        <h3 class="feat__t">Hardware locked to the grid</h3>
+        <p class="feat__b">24-PPQN MIDI clock out, sample-accurate and phase-locked to audio, driving eurorack, Elektron boxes and drum machines with transport start and stop. Tap tempo for anything unclocked, Ableton Link for anything on the network.</p>
+      </article>
+      <article class="feat reveal">
+        <div class="feat__k">PLAYERS</div>
+        <h3 class="feat__t">Beatgrid-native clips</h3>
+        <p class="feat__b">Quantized bar launch, warp and vari-speed sync to the master tempo, flexible grid with key-lock, eight hot cues and cue preview from the browser. Waveform lanes show phase and sync against the beat grid, and an arrange view runs a master playhead over the whole set.</p>
+      </article>
+      <article class="feat reveal">
+        <div class="feat__k">ANALYSIS</div>
+        <h3 class="feat__t">It reads the track</h3>
+        <p class="feat__b">Automatic beatgrid and structure detection marks intro, break, drop and outro, with auto-sections snapped to bars, mood descriptors and clip-safe gain. The library stores the analysis, so a track you prepared once stays prepared.</p>
+      </article>
+      <article class="feat reveal">
+        <div class="feat__k">ASSIST</div>
+        <h3 class="feat__t">An auto-DJ layer you steer</h3>
+        <p class="feat__b">Key-aware transition modes, adjustable pacing, a build-up loop into the drop and FX ramps. Hand it the next stretch and it holds the mix; take it back mid-transition and nothing jumps.</p>
+      </article>
+      <article class="feat reveal">
+        <div class="feat__k">CONTROL</div>
+        <h3 class="feat__t">Mapped to your gear</h3>
+        <p class="feat__b">MIDI-learn on everything, with A/B bank switching so a small controller still reaches the whole surface. A phone remote joins over the local network by QR code. OSC broadcasts clock phase, beat, BPM and transport alongside master band energy, kick onsets and a drop-aware intensity signal.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ─── bundle ──────────────────────────────────────────────────────────── -->
+  <section id="bundle" class="section" style="scroll-margin-top:70px;background:var(--bg-deep);border-top:1px solid var(--edge-soft);border-bottom:1px solid var(--edge-soft)">
+    <div class="wrap">
+      <div class="rule-label"><h2 class="eyebrow" style="margin:0;font-weight:500;color:var(--accent)">The bundle</h2><span class="mono small muted">Cadence + Phosphor</span></div>
+      <h3 class="h2" style="margin-bottom:18px">Built to perform together</h3>
+      <p class="lead" style="max-width:64ch;margin-bottom:34px">
+        Phosphor listens to Cadence over OSC and locks the visuals to the clock. Motion lands on the beat,
+        parameters move with bass, mid and high energy, kicks flash, and the image surges when the drop
+        arrives and settles back through the breakdown. This is how the two apps already behave together,
+        not something on a roadmap.
+      </p>
+      <div class="grid grid-2" style="margin-bottom:30px">
+        <article class="feat reveal">
+          <div class="feat__k">CADENCE SENDS</div>
+          <h3 class="feat__t">Clock, structure, energy</h3>
+          <p class="feat__b">Beat and clock phase, BPM and transport, master band energy across bass, mid and high, kick onsets, and a drop-aware intensity signal — broadcast continuously over OSC while you play.</p>
+        </article>
+        <article class="feat reveal" style="--accent:#5fd6b0">
+          <div class="feat__k">PHOSPHOR ANSWERS</div>
+          <h3 class="feat__t">Visuals on the same grid</h3>
+          <p class="feat__b">Scene motion locks to beat phase, reactive parameters follow the bands, kick onsets fire shockwave ripples, and intensity drives the whole image up into the drop — fullscreen on the projector.</p>
+        </article>
+      </div>
+      <p class="body" style="max-width:64ch;margin-bottom:8px">
+        A Tonnetz link — Cadence following and steering harmony via note-follow over OSC — is planned for the bundle.
+      </p>
+      <p class="mono small muted" style="margin-bottom:26px">Bundle pricing announced at release.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:12px">
+        <a class="btn btn--ghost" href="/phosphor/">Phosphor <span class="arw">→</span></a>
+        <a class="btn btn--ghost" href="/tonnetz/">Tonnetz <span class="arw">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── influences ──────────────────────────────────────────────────────── -->
+  <section class="section wrap">
+    <div class="rule-label"><h2 class="eyebrow" style="margin:0;font-weight:500">Influences</h2></div>
+    <div style="max-width:66ch">
+      <p class="body" style="margin:0 0 16px">
+        Cadence's performance workflow owes an honest debt to deadmau5's Autopilot. Its DAW-style set
+        preparation and hybrid performance thinking pushed us to ask how much of a set can be prepared in
+        advance before it stops being a performance and becomes a playback.
+      </p>
+      <p class="body" style="margin:0">
+        Cadence goes its own way from there: it is a hardware-first brain, putting out a sample-accurate
+        MIDI clock that your modular and drum machines follow; it is open at the edges, broadcasting clock,
+        structure and energy over OSC to a paired video synth that reacts to the shape of your set; and
+        every control on it maps to whatever gear you already own.
+      </p>
+    </div>
+  </section>
+
+  <!-- ─── get it ──────────────────────────────────────────────────────────── -->
+  <section class="wrap" style="padding-bottom:clamp(56px,9vh,104px)">
+    <hr class="hair" style="margin-bottom:44px">
+    <div style="max-width:60ch">
+      <h2 class="eyebrow" style="margin:0 0 14px;font-weight:500">Get it</h2>
+      <p class="lead" style="margin-bottom:18px">Cadence is a premium SHLabs app in active development. This page is an early look.</p>
+      <p class="body">The macOS build is in testing and a Windows alpha is running alongside it. Pricing and availability are announced when it ships. For early access, or if you want to know whether Cadence will clock the specific box on your desk, write to us.</p>
+      <div style="margin-top:26px;display:flex;flex-wrap:wrap;gap:12px">
+        <a class="btn btn--ghost" href="mailto:shlabs.contact@gmail.com">Write us</a>
+        <a class="btn btn--ghost" href="/#products">All products <span class="arw">→</span></a>
+      </div>
+    </div>
+  </section>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap">
+      <div class="foot__grid">
+        <div>
+          <div class="foot__word">SH<b>labs</b></div>
+          <p class="foot__blurb">An independent audio-tools studio making instruments for the modular world and the DAW.</p>
+        </div>
+        <div class="foot__col">
+          <p class="foot__h">VCV Rack</p>
+          <a href="/stochast/">Stochast</a><a href="/rikoshet/">Rikoshet</a><a href="/mashina/">Mashina</a><a href="/lucida/">Lucida</a><a href="/atmos/">Atmos</a>
+        </div>
+        <div class="foot__col">
+          <p class="foot__h">Performance</p>
+          <a href="/cadence/">Cadence</a>
+          <p class="foot__h" style="margin-top:18px">Instruments</p>
+          <a href="/cell/">Cell</a><a href="/tincture/">Tincture</a><a href="/slicery/">Slicery</a>
+          <p class="foot__h" style="margin-top:18px">Effects</p>
+          <a href="/contour/">Contour</a><a href="/spazio/">Spazio</a>
+        </div>
+        <div class="foot__col">
+          <p class="foot__h">Mastering</p>
+          <a href="/glue/">Glue</a><a href="/stesso/">Stesso</a>
+          <p class="foot__h" style="margin-top:18px">MIDI &amp; Visuals</p>
+          <a href="/tonnetz/">Tonnetz</a><a href="/metro185/">Metro 185</a><a href="/phosphor/">Phosphor</a>
+        </div>
+        <div class="foot__col">
+          <p class="foot__h">Studio</p>
+          <a href="/about/">About SHLabs</a><a href="mailto:shlabs.contact@gmail.com">Contact</a><a href="https://github.com/shlabs-audio" target="_blank" rel="noopener">GitHub &#8599;</a>
+        </div>
+      </div>
+      <div class="foot__bar">
+        <span>&copy; <span data-year>2026</span> SHLabs &middot; instruments for the modular world</span>
+        <span class="swiss">
+          <svg width="12" height="12" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="3" fill="#d52b1e"/><rect x="13" y="6" width="6" height="20" fill="#fff"/><rect x="6" y="13" width="20" height="6" fill="#fff"/></svg>
+          Made in Switzerland
+        </span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/shlabs.js"></script>
+</body>
+</html>

@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Phosphor — SHLabs</title>
-  <meta name="description" content="Phosphor is an audio-reactive video synthesiser plugin from SHLabs: it analyses your audio and renders beat-locked visuals you can throw fullscreen onto a second screen. VST3 / AU / Standalone. Coming soon.">
+  <meta name="description" content="Phosphor is a GPU-native audio-reactive video synthesiser from SHLabs: five scene families, a 100k particle system, band envelopes and onset detection, Syphon output and recording. Locks to Cadence over OSC, to the host playhead or to Ableton Link. VST3 / AU / Standalone. Coming soon.">
   <link rel="icon" type="image/svg+xml" href="/img/favicon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -37,13 +37,18 @@
         <div class="menu">
           <a class="nav__link" href="/#products" data-menu-toggle role="button" aria-haspopup="true" aria-expanded="false">Products &#9662;</a>
           <div class="menu__panel">
-            <a class="menu__item" href="/#vcv"><span class="dot"></span> VCV Rack 2 modules</a>
+            <div class="menu__head">Flagships</div>
+            <a class="menu__item" href="/cadence/"><span class="dot" style="background:var(--amber)"></span> Cadence</a>
+            <a class="menu__item" href="/phosphor/"><span class="dot" style="background:var(--amber)"></span> Phosphor</a>
             <div class="menu__head">VST &amp; Standalone</div>
+            <a class="menu__item" href="/#cat-live"><span class="dot"></span> Performance &amp; live</a>
             <a class="menu__item" href="/#cat-synths"><span class="dot"></span> Synthesizers &amp; instruments</a>
             <a class="menu__item" href="/#cat-effects"><span class="dot"></span> Effects</a>
             <a class="menu__item" href="/#cat-mastering"><span class="dot"></span> Mastering tools</a>
             <a class="menu__item" href="/#cat-midi"><span class="dot"></span> MIDI generators &amp; composers</a>
             <a class="menu__item" href="/#cat-visuals"><span class="dot"></span> Visuals</a>
+            <div class="menu__head">Modular</div>
+            <a class="menu__item" href="/#vcv"><span class="dot"></span> VCV Rack 2 modules</a>
           </div>
         </div>
         <a class="nav__link" href="/about/">Studio</a>
@@ -55,7 +60,7 @@
     </div>
   </nav>
 
-  <div class="wrap crumb"><a href="/#products">Products</a> &nbsp;/&nbsp; Visuals &nbsp;/&nbsp; <span style="color:var(--txt-2)">Phosphor</span></div>
+  <div class="wrap crumb"><a href="/#products">Products</a> &nbsp;/&nbsp; <a href="/#cat-visuals">Visuals</a> &nbsp;/&nbsp; <span style="color:var(--txt-2)">Phosphor</span></div>
 
   <header class="wrap">
     <div class="phero__grid">
@@ -64,10 +69,10 @@
         <div class="phero__accentline"></div>
         <div class="eyebrow" style="color:var(--accent);margin-bottom:18px">Audio-reactive video synth · VST</div>
         <h1 class="phero__title">Phosphor</h1>
-        <p class="lead" style="max-width:44ch">A video synthesiser that listens. Drop it on a track and Phosphor analyses the audio — untouched as it passes — and renders a beat-locked visual field you can throw fullscreen onto a second screen. Live visuals that move with the music, straight from your DAW.</p>
+        <p class="lead" style="max-width:46ch">A video synthesiser that listens. A GPU-native GLSL engine with five scene families and a hundred-thousand-particle system, driven by real band envelopes and onset detection, locked to your clock and thrown fullscreen onto the projector. Insert it on a track and the audio passes through untouched.</p>
         <div class="phero__meta">
-          <span class="chip chip--soon">Coming soon</span>
-          <span class="mono small muted">VST3 · AU · Standalone · macOS &amp; Windows</span>
+          <span class="chip chip--soon"><span class="led"></span> Coming soon</span>
+          <span class="mono small muted">Premium · VST3 · AU · Standalone · macOS</span>
         </div>
       </div>
       <div class="phero__panelwrap">
@@ -81,45 +86,64 @@
     <div class="rule-label"><h2 class="eyebrow" style="margin:0;font-weight:500">What it does</h2></div>
     <div class="grid grid-3">
         <article class="feat reveal">
-          <div class="feat__k">AUDIO-REACTIVE</div>
-          <h3 class="feat__t">Visuals driven by sound</h3>
-          <p class="feat__b">The render engine reacts to the audio on the track — level, motion and transients shape the image in real time. Insert it anywhere; the audio passes through untouched.</p>
+          <div class="feat__k">SCENE ENGINE</div>
+          <h3 class="feat__t">Five families of image</h3>
+          <p class="feat__b">Everything renders on the GPU in GLSL. Morphable pattern <strong>Fields</strong> cover more than twelve forms; <strong>Tunnel</strong> is a flythrough; <strong>Fractals</strong> run Julia, Mandelbrot and Burning Ship; <strong>Spectrum</strong> draws bars, radial and spectrograph views from a true FFT; <strong>Ambient</strong> holds nebula, aurora, caustics and lava.</p>
         </article>
         <article class="feat reveal">
-          <div class="feat__k">FIVE FIELDS</div>
-          <h3 class="feat__t">A morphing source</h3>
-          <p class="feat__b">One source control morphs across five visual fields — bands, rings, plasma, moiré and spiral — with spatial frequency, domain warp, and full palette control over hue, spread and brightness.</p>
+          <div class="feat__k">PARTICLES</div>
+          <h3 class="feat__t">A hundred thousand of them</h3>
+          <p class="feat__b">A GPGPU particle system running upward of 100,000 points with trails and reflections, simulated entirely on the graphics card so the count buys you density rather than dropped frames.</p>
         </article>
         <article class="feat reveal">
-          <div class="feat__k">FX PIPELINE</div>
-          <h3 class="feat__t">Feedback &amp; fold</h3>
-          <p class="feat__b">Feedback trails with tunnel zoom and rotation, a mirror-to-kaleidoscope fold, RGB chromatic split, and colour posterise — stack them for anything from subtle motion to full psychedelia.</p>
+          <div class="feat__k">REACTIVITY</div>
+          <h3 class="feat__t">It hears more than level</h3>
+          <p class="feat__b">Separate envelopes for overall level and for bass, mid and high, plus onset detectors for kick, snare and hat. Spectral centroid tilts the colour toward the brightness of the sound. One master REACT control sets how hard all of it pushes.</p>
         </article>
         <article class="feat reveal">
-          <div class="feat__k">LOCKED IN TIME</div>
-          <h3 class="feat__t">Beat-synced motion</h3>
-          <p class="feat__b">Animation locks to your transport — sample-accurate from the host playhead inside the DAW, or over Ableton Link when running standalone alongside Live. Motion stays on the grid.</p>
+          <div class="feat__k">SYNC</div>
+          <h3 class="feat__t">Three ways to stay in time</h3>
+          <p class="feat__b">Lock to <a class="link" href="/cadence/">Cadence</a> over OSC and follow beat, phase, BPM, transport, band energy, onsets and drop intensity. Or take the host playhead inside a DAW. Or run standalone on Ableton Link. Motion stays on the grid either way.</p>
         </article>
         <article class="feat reveal">
-          <div class="feat__k">SECOND SCREEN</div>
-          <h3 class="feat__t">Fullscreen output</h3>
-          <p class="feat__b">Throw the render fullscreen onto a second display or projector for live shows and installations — a visual instrument that runs right next to the sound it's reacting to.</p>
+          <div class="feat__k">PERFORMANCE</div>
+          <h3 class="feat__t">Built for the room</h3>
+          <p class="feat__b">Fullscreen to a second display or projector, <strong>Evolve</strong> for hands-free generative drift, <strong>Auto</strong> for preset roaming and <strong>Flow</strong> to morph between them — cut, smooth or slow. More than 36 presets and 15 colour palettes, layered dual-engine blending, a video-clip layer with reactive blending, and shockwave ripples on the kick.</p>
         </article>
         <article class="feat reveal">
-          <div class="feat__k">ONE ENGINE</div>
-          <h3 class="feat__t">Plugin or standalone</h3>
-          <p class="feat__b">The same host-agnostic render core runs as a VST3/AU insert and as a standalone app, so the look you build in the studio comes with you to the stage.</p>
+          <div class="feat__k">I/O &amp; CONTROL</div>
+          <h3 class="feat__t">Out to the rest of the rig</h3>
+          <p class="feat__b">Syphon output on macOS feeds your VJ software or media server; H.264 recording and PNG snapshots capture the set. MIDI-learn covers every control, and a phone remote joins over the local network by QR code.</p>
         </article>
+    </div>
+    <p class="mono small muted" style="margin-top:24px">VST3 &middot; AU &middot; Standalone. macOS now; a Windows build is in CI with the visuals and reactivity intact &mdash; Syphon and recording stay macOS-only.</p>
+  </section>
+
+  <!-- ─── bundle cross-link ───────────────────────────────────────────────── -->
+  <section id="bundle" class="wrap" style="scroll-margin-top:70px;padding-bottom:clamp(40px,6vh,64px)">
+    <div class="banner reveal" style="--accent:#eca13c">
+      <div style="max-width:66ch">
+        <div class="eyebrow" style="color:var(--accent);margin-bottom:10px">The bundle</div>
+        <h2 class="h3" style="margin-bottom:8px">Made to lock to Cadence</h2>
+        <p class="prod__desc">Cadence broadcasts clock phase, beat, BPM, transport, master band energy, kick onsets and a drop-aware intensity signal over OSC. Phosphor listens and answers: motion on the beat, parameters on the bands, flashes on the kick, and the whole image surging into the drop.</p>
+      </div>
+      <div class="banner__side">
+        <span class="mono small muted">Bundle pricing at release</span>
+        <a class="btn btn--ghost" href="/cadence/#bundle">See the bundle <span class="arw">&rarr;</span></a>
+      </div>
     </div>
   </section>
 
   <section class="wrap" style="padding-bottom:clamp(56px,9vh,104px)">
     <hr class="hair" style="margin-bottom:44px">
     <div style="max-width:60ch">
-      <h2 class="eyebrow" style="margin:0 0 14px;font-weight:500">One studio, one language</h2>
+      <h2 class="eyebrow" style="margin:0 0 14px;font-weight:500">Get it</h2>
       <p class="lead" style="margin-bottom:18px">Phosphor is the SHLabs studio made visible — sound turned into light.</p>
-      <p class="body">A paid, closed-source SHLabs plugin in active development. This page is an early look; pricing and availability will be announced when it ships. Follow SHLabs to hear when it lands.</p>
-      <div style="margin-top:26px"><a class="btn btn--ghost" href="/#products">All products <span class="arw">→</span></a></div>
+      <p class="body">A premium, closed-source SHLabs release in active development. This page is an early look; pricing and availability are announced when it ships. For early access, or questions about a specific host, projector or media server, write to us.</p>
+      <div style="margin-top:26px;display:flex;flex-wrap:wrap;gap:12px">
+        <a class="btn btn--ghost" href="mailto:shlabs.contact@gmail.com">Write us</a>
+        <a class="btn btn--ghost" href="/#products">All products <span class="arw">&rarr;</span></a>
+      </div>
     </div>
   </section>
   </main>
@@ -136,7 +160,9 @@
           <a href="/stochast/">Stochast</a><a href="/rikoshet/">Rikoshet</a><a href="/mashina/">Mashina</a><a href="/lucida/">Lucida</a><a href="/atmos/">Atmos</a>
         </div>
         <div class="foot__col">
-          <p class="foot__h">Instruments</p>
+          <p class="foot__h">Performance</p>
+          <a href="/cadence/">Cadence</a>
+          <p class="foot__h" style="margin-top:18px">Instruments</p>
           <a href="/cell/">Cell</a><a href="/tincture/">Tincture</a><a href="/slicery/">Slicery</a>
           <p class="foot__h" style="margin-top:18px">Effects</p>
           <a href="/contour/">Contour</a><a href="/spazio/">Spazio</a>
@@ -149,7 +175,7 @@
         </div>
         <div class="foot__col">
           <p class="foot__h">Studio</p>
-          <a href="/about/">About SHLabs</a><a href="https://github.com/shlabs-audio" target="_blank" rel="noopener">GitHub &#8599;</a>
+          <a href="/about/">About SHLabs</a><a href="mailto:shlabs.contact@gmail.com">Contact</a><a href="https://github.com/shlabs-audio" target="_blank" rel="noopener">GitHub &#8599;</a>
         </div>
       </div>
       <div class="foot__bar">

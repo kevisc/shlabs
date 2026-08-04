@@ -193,6 +193,32 @@ a.card:hover{ transform:translateY(-3px); border-color:var(--silver); background
 .prod__desc{ font-size:.9rem; color:var(--dim); line-height:1.58; margin:0; }
 .prod__foot{ font-family:var(--mono); font-size:.68rem; letter-spacing:.04em; color:var(--faint); margin-top:14px; }
 
+/* flagship card — a product card with poster weight, used for the two premium apps */
+.card--flag .card__accent{ height:3px; }
+.card--flag .card__body{ padding:30px 30px 28px; }
+.card--flag .prod{ flex-direction:column; gap:22px; }
+.card--flag .prod__logo{ width:72px; height:72px; border-radius:17px; box-shadow:0 10px 26px rgba(0,0,0,.45); }
+.card--flag .prod__top{ align-items:center; margin-bottom:12px; }
+.card--flag .prod__name{ font-size:.76rem; }
+.card--flag .prod__title{ font-size:clamp(1.24rem,1.9vw,1.5rem); margin-bottom:12px; }
+.card--flag .prod__desc{ font-size:.95rem; color:var(--txt-2); }
+
+/* the spec strip inside a flagship card */
+.flagline{
+  display:flex; flex-wrap:wrap; gap:8px 20px; margin-top:18px;
+  font-family:var(--mono); font-size:.66rem; letter-spacing:.1em; text-transform:uppercase; color:var(--faint);
+}
+.flagline span{ display:inline-flex; align-items:center; gap:8px; }
+.flagline span::before{ content:""; width:5px; height:5px; border-radius:1px; background:var(--accent,var(--silver)); flex:none; }
+
+/* slim full-width banner — the bundle strip */
+.banner{
+  display:flex; align-items:center; justify-content:space-between; gap:22px 40px; flex-wrap:wrap;
+  padding:26px 30px; border:1px solid var(--edge); border-radius:var(--radius);
+  background:linear-gradient(180deg,var(--panel),var(--bg-deep));
+}
+.banner__side{ display:flex; flex-direction:column; align-items:flex-start; gap:13px; }
+
 /* feature card (product pages) */
 .feat{ background:var(--panel); border:1px solid var(--edge); border-radius:var(--radius); padding:22px; transition:border-color .18s var(--ease), transform .18s var(--ease); }
 .feat:hover{ border-color:color-mix(in srgb,var(--accent,var(--silver)) 55%, var(--edge)); transform:translateY(-2px); }
