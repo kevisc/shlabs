@@ -491,7 +491,14 @@ h1, h2, h3, h4, p { margin: 0; }
   border: 1px solid var(--ink);
   background: var(--paper-2);
   line-height: 0;
+  /* Screens are 2x. A capture stretched to the full sheet renders below one
+     device pixel per source pixel and reads soft, so a plate is capped to keep
+     the shot above native density. It also sits better: a figure in a
+     catalogue, not a hero banner. Raise the cap only for captures with the
+     pixels to earn it (.plate--hi). */
+  max-width: 960px;
 }
+.plate--hi { max-width: none; }
 .plate img { display: block; width: 100%; }
 .fig figcaption { margin-top: 11px; color: var(--grey); line-height: 1.5; }
 .figs { display: grid; gap: clamp(24px, 3vw, 40px); }
