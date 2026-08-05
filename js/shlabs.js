@@ -1,71 +1,70 @@
-/* SHLabs — the screenshot cycler.
+/* SHLabs — the view explorer.
  *
  * This is the only script on the site. Every page except /cadence/ is static
  * HTML: the nav is CSS-only, nothing reveals on scroll, nothing is measured.
  *
- * Progressive enhancement: without this file the figures render stacked, each
- * with its own caption, and the control bar stays hidden (see .shotbar in
- * css/shlabs.css). The page adds the `js` class itself before this runs, so
- * the two layouts never flash against each other.
+ * Progressive enhancement: without this file the four views render stacked,
+ * each a plate with its own note, and the tab row stays hidden (see
+ * .explore__tabs in css/shlabs.css). The page adds the `js` class itself
+ * before this runs, so the two layouts never flash against each other.
+ *
+ * The ARIA tab roles are stamped on here rather than written into the HTML,
+ * so that with no script there is no tablist and no tabpanel left orphaned
+ * in the accessibility tree — just four figures in document order.
+ *
+ * It is an explorer, not a slideshow: nothing advances on its own.
  */
 (function () {
   'use strict';
 
-  var wrap = document.querySelector('[data-shotcycle]');
+  var wrap = document.querySelector('[data-explore]');
   if (!wrap) return;
 
-  var deck = wrap.querySelector('.shot__slides');
-  if (!deck) return;
+  var bar    = wrap.querySelector('[data-explore-tabs]');
+  var tabs   = Array.prototype.slice.call(wrap.querySelectorAll('[data-explore-tab]'));
+  var panels = Array.prototype.slice.call(wrap.querySelectorAll('[data-explore-panel]'));
+  if (!bar || tabs.length < 2 || tabs.length !== panels.length) return;
 
-  var slides = Array.prototype.slice.call(deck.children);
-  if (slides.length < 2) return;
+  bar.setAttribute('role', 'tablist');
+  bar.setAttribute('aria-label', wrap.getAttribute('data-explore') || 'Views');
 
-  // Only now does the CSS switch from "first plate visible" to "cycler".
-  // If this file never loads, the page keeps the static first plate.
-  deck.classList.add('is-ready');
+  tabs.forEach(function (tab, k) {
+    var panel = panels[k];
+    tab.setAttribute('role', 'tab');
+    tab.setAttribute('aria-controls', panel.id);
+    panel.setAttribute('role', 'tabpanel');
+    panel.setAttribute('aria-labelledby', tab.id);
+    panel.setAttribute('tabindex', '0');   // the panel holds nothing focusable
 
-  var cap  = wrap.querySelector('[data-shot-cap]');
-  var dots = wrap.querySelector('[data-shot-dots]');
-  var prev = wrap.querySelector('[data-shot-prev]');
-  var next = wrap.querySelector('[data-shot-next]');
+    tab.addEventListener('click', function () { select(k); });
 
-  var i = 0;
-  var timer = null;
-  var still = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  function capOf(el) {
-    var fc = el.querySelector('figcaption');
-    return fc ? fc.textContent.trim() : '';
-  }
-
-  slides.forEach(function (slide, k) {
-    var d = document.createElement('button');
-    d.type = 'button';
-    d.setAttribute('aria-label', 'Screenshot ' + (k + 1) + ' of ' + slides.length);
-    d.addEventListener('click', function () { go(k); hold(); });
-    dots.appendChild(d);
+    tab.addEventListener('keydown', function (e) {
+      var to = -1;
+      if (e.key === 'ArrowRight' || e.key === 'Right')     to = (k + 1) % tabs.length;
+      else if (e.key === 'ArrowLeft' || e.key === 'Left')  to = (k - 1 + tabs.length) % tabs.length;
+      else if (e.key === 'Home')                           to = 0;
+      else if (e.key === 'End')                            to = tabs.length - 1;
+      if (to < 0) return;
+      e.preventDefault();
+      select(to);
+      tabs[to].focus();
+    });
   });
 
-  function paint() {
-    slides.forEach(function (s, k) { s.classList.toggle('on', k === i); });
-    Array.prototype.forEach.call(dots.children, function (d, k) {
-      if (k === i) d.setAttribute('aria-current', 'true');
-      else d.removeAttribute('aria-current');
+  /* roving tabindex: only the selected tab is in the tab order, the arrow
+     keys move between them from there */
+  function select(k) {
+    tabs.forEach(function (tab, j) {
+      var on = j === k;
+      tab.setAttribute('aria-selected', on ? 'true' : 'false');
+      tab.tabIndex = on ? 0 : -1;
+      panels[j].classList.toggle('on', on);
     });
-    if (cap) cap.textContent = capOf(slides[i]);
   }
 
-  function go(k) { i = (k + slides.length) % slides.length; paint(); }
-  function stop() { if (timer) { clearInterval(timer); timer = null; } }
-  function start(ms) { if (still || timer) return; timer = setInterval(function () { go(i + 1); }, ms || 6000); }
-  function hold() { stop(); start(12000); }
+  select(0);
 
-  if (prev) prev.addEventListener('click', function () { go(i - 1); hold(); });
-  if (next) next.addEventListener('click', function () { go(i + 1); hold(); });
-  wrap.addEventListener('mouseenter', stop);
-  wrap.addEventListener('mouseleave', function () { start(); });
-  wrap.addEventListener('focusin', stop);
-
-  paint();
-  start();
+  // Only now does the CSS switch from four stacked plates to the explorer.
+  // If this file never loads, the page keeps all four in flow.
+  wrap.classList.add('is-ready');
 })();

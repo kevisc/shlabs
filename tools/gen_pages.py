@@ -37,7 +37,9 @@ design system (see css/shlabs.css).
     * Product sheets carry no logo art — the old app-icon PNGs are built
       for a dark UI. Real screenshots appear as "plates": a single 1px ink
       hairline, no shadow, no gradient, mono caption underneath.
-    * Only /cadence/ loads JavaScript, and only for the screenshot cycler.
+    * Only /cadence/ loads JavaScript, and only for the view explorer — the
+      tab row over Cadence's four views. With no script it degrades to the
+      four plates stacked in flow, each with its own note.
 """
 
 import os
@@ -272,33 +274,39 @@ def render_parts(parts, counter):
             _, src, alt, w, h, cap = part
             out.append('    <div class="band band--tight pad">\n%s\n    </div>'
                        % plate_html(src, alt, w, h, cap))
-        elif kind == "gallery":
+        elif kind == "explore":
             flush()
-            figs = []
-            for src, alt, w, h, cap in part[1]:
-                figs.append(
-                    '          <figure>\n'
-                    '            <div class="plate"><img src="%s" alt="%s" width="%d" height="%d" loading="lazy"></div>\n'
-                    '            <figcaption class="mono dim">%s</figcaption>\n'
-                    '          </figure>' % (src, alt, w, h, cap)
+            # The app's own views, behind a tab row that mirrors the app's own
+            # tab bar. Tab labels are written in sentence case and set upper by
+            # .act, the way every other mono label on the site is. The ARIA tab
+            # roles are added by js/shlabs.js, not written here, so that with no
+            # script the markup is four plain figures and a hidden tab row.
+            _, label, views = part
+            tabs, panels = [], []
+            for n, (slug, tab, src, alt, w, h, note, keys) in enumerate(views):
+                tabs.append(
+                    '          <button class="act explore__tab" type="button" '
+                    'id="view-%s-tab" data-explore-tab>%s</button>' % (slug, tab)
                 )
-            first = part[1][0][4]
+                kw = "".join("<span>%s</span>" % k for k in keys)
+                lazy = "" if n == 0 else ' loading="lazy"'
+                panels.append(
+                    '          <figure class="explore__panel" id="view-%s" data-explore-panel>\n'
+                    '            <figcaption class="explore__note">\n'
+                    '              <p class="body">%s</p>\n'
+                    '              <div class="explore__spec mono">%s</div>\n'
+                    '            </figcaption>\n'
+                    '            <div class="plate plate--hi"><img src="%s" alt="%s" '
+                    'width="%d" height="%d"%s></div>\n'
+                    '          </figure>' % (slug, note, kw, src, alt, w, h, lazy)
+                )
             out.append(
                 '    <div class="band band--tight pad">\n'
-                '      <div data-shotcycle>\n'
-                '        <div class="shot__slides">\n%s\n        </div>\n'
-                '        <div class="shotbar">\n'
-                '          <p class="mono shotbar__cap" data-shot-cap>%s</p>\n'
-                '          <div class="shotbar__side">\n'
-                '            <div class="shotbar__dots" role="group" aria-label="Choose screenshot" data-shot-dots></div>\n'
-                '            <div class="shotbar__nav">\n'
-                '              <button type="button" aria-label="Previous screenshot" data-shot-prev>&#8592;</button>\n'
-                '              <button type="button" aria-label="Next screenshot" data-shot-next>&#8594;</button>\n'
-                '            </div>\n'
-                '          </div>\n'
-                '        </div>\n'
+                '      <div class="explore" data-explore="%s">\n'
+                '        <div class="explore__tabs" data-explore-tabs>\n%s\n        </div>\n'
+                '        <div class="explore__panels">\n%s\n        </div>\n'
                 '      </div>\n'
-                '    </div>' % ("\n".join(figs), first)
+                '    </div>' % (label, "\n".join(tabs), "\n".join(panels))
             )
         else:
             raise ValueError("unknown part %r" % (kind,))
@@ -413,9 +421,47 @@ PRODUCTS["cadence"] = {
     "claim": "A hybrid-performance brain.",
     "lead": """Four channels of live inputs and beatgrid players under DJ-style hands, a sample-accurate MIDI clock that the rest of your rig follows, and an assist layer that can hold the mix together while you play hardware on top.""",
     "spec": ["Standalone app", "macOS — Windows alpha in testing"],
-    "shot": ("/img/shots/cadence.jpg", "The Cadence performance mixer", 1600, 1263),
+    # No hero plate: the Perform shot that used to sit here is the first view
+    # of the explorer below, and one screenshot on a sheet twice is one too
+    # many. The explorer opens the page in its place.
     "script": True,
     "sections": [
+        {"parts": [
+            ("head", "Inside Cadence", "Four views, one surface"),
+            # PERFORM / COLLECTION / ARRANGE / SAMPLER, in the app's own order.
+            # Every claim below is checked against the app: docs/manual/index.html
+            # and TESTERS.md in the hybrid-mixer repo, and the view sources.
+            ("explore", "Cadence views", [
+                ("perform", "Perform",
+                 "/img/shots/cadence.jpg",
+                 "The Perform view: four mixer strips with faders and meters at the centre, a deck waveform either side of them, and the collection docked below",
+                 2360, 1864,
+                 """Perform — the mixer: four strips, each running a live input or a deck from your collection, under one master section.""",
+                 ["3-band EQ with full kill", "Filter per channel",
+                  "Pre-fader cue bus", "Master metering"]),
+                ("collection", "Collection",
+                 "/img/shots/cadence-collection.jpg",
+                 "The Collection view: the track table with waveform, BPM, key, genre, length, grid and stems columns, and Load 1 to 4 buttons above it",
+                 2360, 1864,
+                 """Collection — the library you load from, scanned and sorted: waveform, BPM, key, beatgrid confidence and stems status in the columns.""",
+                 ["Load onto channels 1–4", "Search by key or BPM range",
+                  "Harmonic matches tint green", "rekordbox XML import"]),
+                ("arrange", "Arrange",
+                 "/img/shots/cadence-arrange.jpg",
+                 "The Arrange view: four deck lanes of clips on a numbered bar timeline, under a toolbar of clip and automation tools",
+                 2360, 1864,
+                 """Arrange — a bar timeline where the set is laid out in advance: one lane per deck, each track a full-length clip that launches its deck as the master playhead crosses it.""",
+                 ["Vol / filt / dly / verb / OSC lanes", "Macro envelopes M1–M8",
+                  "Saved as a performance Set"]),
+                ("sampler", "Sampler",
+                 "/img/shots/cadence-sampler.jpg",
+                 "The Sampler view: a zoomed waveform with a beatgrid-snapped selection highlighted, under the save, audition and strip controls",
+                 2360, 1864,
+                 """Sampler — a non-destructive editor for snipping regions out of tracks: select on the beatgrid, then save the piece, or collect regions into a strip and render them as one crossfaded clip.""",
+                 ["Beatgrid-snapped selection", "Audition on an idle deck",
+                  "24-bit WAV, equal-power joins"]),
+            ]),
+        ]},
         {"parts": [
             ("head", "What it is", ""),
             ("rows", [
@@ -454,23 +500,6 @@ PRODUCTS["cadence"] = {
                  """Each stemmed deck grows four mute chips and a solo per part, all quantized to the grid — a queued kill blinks until the bar line and drops exactly on it, or shift-click for an instant stab. Key-lock holds pitch throughout, and every chip is MIDI-learnable."""),
                 ("Assist + stems", "The auto-DJ mixes with the parts",
                  """Transitions become stem-aware when the material allows it: bass swaps trade the actual basslines on the swap bar, the incoming vocal waits until the outgoing one is out of the way, and with both tracks separated it hands over drums first, then bass — the way you would."""),
-            ]),
-        ]},
-        {"parts": [
-            ("head", "Inside Cadence", "Arrange · Collection · Sampler"),
-            ("gallery", [
-                ("/img/shots/cadence-arrange.jpg",
-                 "Arrange view: four channel lanes of clips on a bar timeline with automation lanes and a live playhead",
-                 1600, 1263,
-                 """Arrange view — clips on a bar timeline with automation lanes for volume, filter, sends, OSC and macros. Prepare the skeleton of a set, then play over it."""),
-                ("/img/shots/cadence-collection.jpg",
-                 "Collection view: the analysed track library with waveform previews, BPM, key, genre and grid columns",
-                 1600, 1263,
-                 """Collection — the library analysed and ready: waveform previews, BPM, key and grid for every track, with one-tap loading to any of the four channels."""),
-                ("/img/shots/cadence-sampler.jpg",
-                 "Sampler view: a waveform with a beatgrid-snapped selection ready to audition or render to the strip",
-                 1600, 1263,
-                 """Sampler — pull any track from the collection, drag a beatgrid-snapped selection, audition it, and render it to a strip you can play from the deck."""),
             ]),
         ]},
         {"slab": True, "id": "bundle", "parts": [

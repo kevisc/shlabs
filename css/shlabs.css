@@ -535,53 +535,53 @@ h1, h2, h3, h4, p { margin: 0; }
 /* a second-tone slab for the closing and bundle passages */
 .slab { background: var(--paper-2); border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink); }
 
-/* ─── the screenshot cycler (the only scripted component on the site) ─── */
-/* Without JS every figure renders in flow with its own caption, so all of
-   them stay reachable. With JS they stack and cross-fade under a control
-   bar that only appears once the script has run. */
-.shot__slides > figure { margin: 0; }
-.shot__slides > figure + figure { margin-top: clamp(22px, 3vw, 34px); }
+/* ─── the view explorer (the only scripted component on the site) ─────── */
+/* The four views of an app under a tab row that mirrors the app's own tab
+   bar. It is an explorer, not a slideshow: nothing advances by itself and
+   nothing moves, so there is no motion here for prefers-reduced-motion to
+   suppress. Without JS all four views render in flow, each a plate with its
+   own note, and the tab row never appears — the page never shows a control
+   that does nothing. The script marks the component ready and only then
+   does the CSS switch. */
 
-.js .shot__slides { display: grid; }
-.js .shot__slides > figure {
-  grid-area: 1 / 1;
-  margin-top: 0;
-  opacity: 0;
-  transition: opacity .45s linear;
-  pointer-events: none;
-}
-/* the script marks the container ready; until then — and forever, if the
-   script never arrives — the first plate stays visible with its caption */
-.js .shot__slides:not(.is-ready) > figure:first-child { opacity: 1; pointer-events: auto; }
-.js .shot__slides.is-ready > figure.on { opacity: 1; pointer-events: auto; }
-.js .shot__slides.is-ready figcaption { display: none; }
+/* it sits in a .band--tight, so it carries its own air off the rule under
+   the section head */
+.explore { padding-top: clamp(22px, 2.6vw, 32px); }
 
-.shotbar { display: none; }
-.js .shot__slides.is-ready ~ .shotbar {
-  display: flex; align-items: baseline; justify-content: space-between;
-  gap: 12px 22px; flex-wrap: wrap;
-  margin-top: 11px;
+.explore__panel { margin: 0; }
+.explore__panel + .explore__panel { margin-top: clamp(26px, 3.4vw, 44px); }
+
+/* the note reads first, above the plate, so a tab lands on the sentence
+   rather than on the middle of a 2360px capture. The sentence keeps the
+   measure .body gives it; the keyword strip runs the width of the sheet,
+   the way the specification strip under a product header does. */
+.explore__note { margin-bottom: clamp(15px, 1.8vw, 21px); }
+.explore__spec {
+  display: flex; flex-wrap: wrap; gap: 6px 22px;
+  margin-top: 13px; padding-top: 11px;
+  border-top: 1px solid var(--hair-soft);
+  color: var(--grey);
 }
-.shotbar__cap { color: var(--grey); flex: 1 1 24ch; margin: 0; line-height: 1.5; }
-.shotbar__side { display: flex; align-items: center; gap: 18px; }
-.shotbar__dots { display: flex; gap: 6px; }
-.shotbar__dots button {
-  width: 11px; height: 11px; padding: 0;
-  border: 1px solid var(--grey); background: transparent;
+
+/* the tab row is the .act box, and the selected tab takes the ink fill the
+   system already gives a chosen action — no new visual device, no amber */
+.explore__tabs { display: none; }
+.js .explore.is-ready > .explore__tabs {
+  display: flex; flex-wrap: wrap; gap: 8px;
+  margin-bottom: clamp(20px, 2.6vw, 30px);
+}
+.explore__tab {
+  line-height: 1.5;
+  background: transparent;
+  border-radius: 0;
+  -webkit-appearance: none;
+  appearance: none;
   cursor: pointer;
-  transition: background-color .12s linear, border-color .12s linear;
 }
-.shotbar__dots button:hover { border-color: var(--ink); }
-.shotbar__dots button[aria-current="true"] { background: var(--ink); border-color: var(--ink); }
-.shotbar__nav { display: flex; gap: 6px; }
-.shotbar__nav button {
-  font-family: var(--mono); font-size: .72rem; line-height: 1;
-  padding: 7px 11px;
-  border: 1px solid var(--ink); background: transparent; color: var(--ink);
-  cursor: pointer;
-  transition: background-color .12s linear, color .12s linear;
-}
-.shotbar__nav button:hover { background: var(--ink); color: var(--paper); }
+.explore__tab[aria-selected="true"] { background: var(--ink); color: var(--paper); }
+
+.js .explore.is-ready .explore__panel { display: none; margin-top: 0; }
+.js .explore.is-ready .explore__panel.on { display: block; }
 
 /* ─── footer ─────────────────────────────────────────────────────────── */
 .foot { border-top: 1px solid var(--ink); background: var(--paper-2); }

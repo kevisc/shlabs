@@ -50,14 +50,54 @@
     <div class="psheet__spec mono"><span>Standalone app</span><span>macOS — Windows alpha in testing</span></div>
   </header>
 
-  <div class="band band--tight pad">
-    <figure class="fig">
-      <div class="plate plate--hi"><img src="/img/shots/cadence.jpg" alt="The Cadence performance mixer" width="2360" height="1864" loading="lazy"></div>
-      <figcaption class="mono">The Cadence performance mixer.</figcaption>
-    </figure>
-  </div>
-
   <div class="rule--ink"></div>
+
+  <section class="sec">
+    <div class="group__head group__head--first">
+      <h2 class="mono">Inside Cadence</h2>
+      <span class="mono dim-2">Four views, one surface</span>
+    </div>
+    <div class="band band--tight pad">
+      <div class="explore" data-explore="Cadence views">
+        <div class="explore__tabs" data-explore-tabs>
+          <button class="act explore__tab" type="button" id="view-perform-tab" data-explore-tab>Perform</button>
+          <button class="act explore__tab" type="button" id="view-collection-tab" data-explore-tab>Collection</button>
+          <button class="act explore__tab" type="button" id="view-arrange-tab" data-explore-tab>Arrange</button>
+          <button class="act explore__tab" type="button" id="view-sampler-tab" data-explore-tab>Sampler</button>
+        </div>
+        <div class="explore__panels">
+          <figure class="explore__panel" id="view-perform" data-explore-panel>
+            <figcaption class="explore__note">
+              <p class="body">Perform — the mixer: four strips, each running a live input or a deck from your collection, under one master section.</p>
+              <div class="explore__spec mono"><span>3-band EQ with full kill</span><span>Filter per channel</span><span>Pre-fader cue bus</span><span>Master metering</span></div>
+            </figcaption>
+            <div class="plate plate--hi"><img src="/img/shots/cadence.jpg" alt="The Perform view: four mixer strips with faders and meters at the centre, a deck waveform either side of them, and the collection docked below" width="2360" height="1864"></div>
+          </figure>
+          <figure class="explore__panel" id="view-collection" data-explore-panel>
+            <figcaption class="explore__note">
+              <p class="body">Collection — the library you load from, scanned and sorted: waveform, BPM, key, beatgrid confidence and stems status in the columns.</p>
+              <div class="explore__spec mono"><span>Load onto channels 1–4</span><span>Search by key or BPM range</span><span>Harmonic matches tint green</span><span>rekordbox XML import</span></div>
+            </figcaption>
+            <div class="plate plate--hi"><img src="/img/shots/cadence-collection.jpg" alt="The Collection view: the track table with waveform, BPM, key, genre, length, grid and stems columns, and Load 1 to 4 buttons above it" width="2360" height="1864" loading="lazy"></div>
+          </figure>
+          <figure class="explore__panel" id="view-arrange" data-explore-panel>
+            <figcaption class="explore__note">
+              <p class="body">Arrange — a bar timeline where the set is laid out in advance: one lane per deck, each track a full-length clip that launches its deck as the master playhead crosses it.</p>
+              <div class="explore__spec mono"><span>Vol / filt / dly / verb / OSC lanes</span><span>Macro envelopes M1–M8</span><span>Saved as a performance Set</span></div>
+            </figcaption>
+            <div class="plate plate--hi"><img src="/img/shots/cadence-arrange.jpg" alt="The Arrange view: four deck lanes of clips on a numbered bar timeline, under a toolbar of clip and automation tools" width="2360" height="1864" loading="lazy"></div>
+          </figure>
+          <figure class="explore__panel" id="view-sampler" data-explore-panel>
+            <figcaption class="explore__note">
+              <p class="body">Sampler — a non-destructive editor for snipping regions out of tracks: select on the beatgrid, then save the piece, or collect regions into a strip and render them as one crossfaded clip.</p>
+              <div class="explore__spec mono"><span>Beatgrid-snapped selection</span><span>Audition on an idle deck</span><span>24-bit WAV, equal-power joins</span></div>
+            </figcaption>
+            <div class="plate plate--hi"><img src="/img/shots/cadence-sampler.jpg" alt="The Sampler view: a zoomed waveform with a beatgrid-snapped selection highlighted, under the save, audition and strip controls" width="2360" height="1864" loading="lazy"></div>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <section class="sec">
     <div class="group__head group__head--first">
@@ -138,41 +178,6 @@
       <span class="row__no">12</span>
       <span class="row__id"><span class="row__cat">Assist + stems</span><h3 class="row__name">The auto-DJ mixes with the parts</h3></span>
       <p class="row__desc">Transitions become stem-aware when the material allows it: bass swaps trade the actual basslines on the swap bar, the incoming vocal waits until the outgoing one is out of the way, and with both tracks separated it hands over drums first, then bass — the way you would.</p>
-    </div>
-  </section>
-
-  <section class="sec">
-    <div class="group__head group__head--first">
-      <h2 class="mono">Inside Cadence</h2>
-      <span class="mono dim-2">Arrange · Collection · Sampler</span>
-    </div>
-    <div class="band band--tight pad">
-      <div data-shotcycle>
-        <div class="shot__slides">
-          <figure>
-            <div class="plate plate--hi"><img src="/img/shots/cadence-arrange.jpg" alt="Arrange view: four channel lanes of clips on a bar timeline with automation lanes and a live playhead" width="2360" height="1864" loading="lazy"></div>
-            <figcaption class="mono dim">Arrange view — clips on a bar timeline with automation lanes for volume, filter, sends, OSC and macros. Prepare the skeleton of a set, then play over it.</figcaption>
-          </figure>
-          <figure>
-            <div class="plate plate--hi"><img src="/img/shots/cadence-collection.jpg" alt="Collection view: the analysed track library with waveform previews, BPM, key, genre and grid columns" width="2360" height="1864" loading="lazy"></div>
-            <figcaption class="mono dim">Collection — the library analysed and ready: waveform previews, BPM, key and grid for every track, with one-tap loading to any of the four channels.</figcaption>
-          </figure>
-          <figure>
-            <div class="plate plate--hi"><img src="/img/shots/cadence-sampler.jpg" alt="Sampler view: a waveform with a beatgrid-snapped selection ready to audition or render to the strip" width="2360" height="1864" loading="lazy"></div>
-            <figcaption class="mono dim">Sampler — pull any track from the collection, drag a beatgrid-snapped selection, audition it, and render it to a strip you can play from the deck.</figcaption>
-          </figure>
-        </div>
-        <div class="shotbar">
-          <p class="mono shotbar__cap" data-shot-cap>Arrange view — clips on a bar timeline with automation lanes for volume, filter, sends, OSC and macros. Prepare the skeleton of a set, then play over it.</p>
-          <div class="shotbar__side">
-            <div class="shotbar__dots" role="group" aria-label="Choose screenshot" data-shot-dots></div>
-            <div class="shotbar__nav">
-              <button type="button" aria-label="Previous screenshot" data-shot-prev>&#8592;</button>
-              <button type="button" aria-label="Next screenshot" data-shot-next>&#8594;</button>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   </section>
 
