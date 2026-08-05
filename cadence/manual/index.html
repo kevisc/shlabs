@@ -249,8 +249,9 @@ footer{margin-top:60px;padding-top:16px;border-top:1px solid var(--edge);color:v
   <li><b>One-time setup</b> &mdash; open <span class="btn">SETTINGS</span> and press <i>Download model (316 MB)</i>. It fetches once and stays.</li>
   <li><b>Separate a track</b> &mdash; in COLLECTION, right-click it &rarr; <i>Separate stems</i> (several selected tracks queue up). Results are cached, so a track is only ever separated once. Do it before the gig, not during.</li>
   <li><b>Play them</b> &mdash; a loaded track that has stems grows a <b>STEMS row</b> on its deck: the <span class="btn">STEMS</span> toggle plus four chips, <span class="btn">DRM</span> <span class="btn">BSS</span> <span class="btn">OTH</span> <span class="btn">VOC</span>. Lit = audible. <b>Click a chip to mute it, right-click to solo</b> (right-click again to release the solo).</li>
+  <li><b>Tune the cost</b> &mdash; <span class="btn">SETTINGS</span> &rarr; <i>Stems</i>. <b>Stems on up to</b> caps how many decks may hold stems at once (<i>Auto</i> reads your installed RAM and names the number it chose). <b>Separation speed</b> &mdash; Gentle / Balanced / Fast &mdash; is how many cores an <i>offline</i> separation may use; it never touches playback. On Apple Silicon there is also an experimental <b>CoreML acceleration</b> toggle, off by default: where CoreML will not take the model Cadence separates on the CPU and says so, so it can never make a separation fail.</li>
 </ul>
-<div class="warn"><b>Two decks at a time.</b> Stems hold all four parts in memory, so Cadence allows them on two decks at once and tells you when you ask for a third. <b>Key-lock steps aside</b> while stems are on for that deck &mdash; a stemmed deck follows tempo the vinyl way.</div>
+<div class="warn"><b>Memory, not magic.</b> A stems deck keeps the whole track's four parts in RAM &mdash; around 210 MB for a 5-minute track &mdash; so the number of stems decks is capped, and asking for one past the cap is refused with a toast that names it. Change it under <span class="btn">SETTINGS</span> &rarr; <i>Stems</i>. <b>Key-lock works with stems</b>: a stemmed deck holds its pitch under SYNC exactly like any other.</div>
 </section>
 
 <section id="transport">
@@ -379,6 +380,8 @@ footer{margin-top:60px;padding-top:16px;border-top:1px solid var(--edge);color:v
 <h2>OSC &amp; the module bus</h2>
 <h3>Main OSC out</h3>
 <p>The <span class="btn">OSC</span> panel points a configurable target (host/port) at visualizers or show control &mdash; SHLabs <b>Phosphor</b> locks its visuals to it. Messages include <code>/cadence/bpm</code>, <code>/cadence/beat</code>, <code>/cadence/phase</code>, <code>/cadence/transport</code>, per-channel and master levels, band energies, kick onsets, a section-intensity signal, and the live section's index/type and progress-through.</p>
+<h3>Stem bus</h3>
+<p>When a deck is playing separated stems, Cadence also broadcasts what the mix is <i>made of</i>: <code>/cadence/stems/drums</code>, <code>/bass</code>, <code>/other</code> and <code>/cadence/stems/vocals</code> (0..1 levels of the audible mix, taken <b>after</b> the per-stem gains and mutes, so killing the drums takes them out of the feed) plus <code>/cadence/stems/drums/onset</code>, a per-hit spike from the drum stem alone that no bassline can trigger. Several stem decks are combined by taking the loudest, not by adding. <code>/cadence/stems/active</code> (0/1) says whether any audible deck is on stems &mdash; it repeats about twice a second so a module can join mid-set; the levels are sent only while it is 1.</p>
 <h3>Module bus</h3>
 <p>A second, always-on local feed (<code>127.0.0.1:9009</code>) carries clock, transport and <code>/cadence/key</code> &mdash; the live set's current key, including any key shift. SHLabs modules hosted on the same machine (Tonnetz's FOLLOW) use it without any setup, and without touching your main OSC target. Toggle it in the engine-options menu (click the DSP readout).</p>
 <h3>OSC in</h3>
@@ -447,7 +450,7 @@ footer{margin-top:60px;padding-top:16px;border-top:1px solid var(--edge);color:v
   <li><b>A deck won't launch</b> &mdash; the master clock must be running; launches are quantized, so they wait for the grid point shown in the quantize dropdown.</li>
   <li><b>Audio device vanished</b> &mdash; the red banner means the interface disconnected; Cadence reconnects automatically when it returns.</li>
   <li><b>No STEMS row on the deck</b> &mdash; that track hasn't been separated yet: right-click it in the COLLECTION &rarr; <i>Separate stems</i> (and install the model in SETTINGS first, if you haven't).</li>
-  <li><b>Stems won't turn on</b> &mdash; they run on two decks at a time; turn them off on another deck first.</li>
+  <li><b>Stems won't turn on</b> &mdash; you are at the deck cap; turn them off on another deck, or raise <span class="btn">SETTINGS</span> &rarr; <i>Stems</i> &rarr; <i>Stems on up to</i>.</li>
   <li><b>The mixer disappeared</b> &mdash; the console header cycles full &rarr; levels &rarr; hidden. Click <span class="btn">MIXER - HIDDEN</span> at the top of the deck area to bring it back.</li>
 </ul>
 </section>
