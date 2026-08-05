@@ -5,212 +5,183 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Mashina — SHLabs</title>
   <meta name="description" content="Mashina is a free family of eight VCV Rack 2 modules pairing Soviet-era analog character with West-Coast synthesis: drum voices, oscillators, a master clock, a plate reverb, and generative sequencers. Free download for macOS (Apple Silicon).">
+  <meta name="theme-color" content="#f3f2ee">
   <link rel="icon" type="image/svg+xml" href="/img/favicon.svg">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/shlabs.css">
-  <script>
-    document.documentElement.className += ' js';
-    addEventListener('load', function () { setTimeout(function () {
-      if (!window.__shlabsJS) { var r = document.querySelectorAll('.reveal'); for (var i = 0; i < r.length; i++) r[i].classList.add('in'); }
-    }, 1200); });
-  </script>
+  <meta property="og:title" content="Mashina — SHLabs">
+  <meta property="og:description" content="Mashina is a free family of eight VCV Rack 2 modules pairing Soviet-era analog character with West-Coast synthesis: drum voices, oscillators, a master clock, a plate reverb, and generative sequencers. Free download for macOS (Apple Silicon).">
+  <meta property="og:type" content="website">
 </head>
-<body style="--accent:#cf4a4a">
-
+<body>
+  <a class="skip" href="#main">Skip to content</a>
   <nav class="nav">
-    <div class="wrap nav__in">
-      <a class="brand" href="/" aria-label="SHLabs home">
-        <svg class="brand__mark" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <rect x="1" y="1" width="22" height="22" rx="6" fill="#1c1e22" stroke="#3a3f47"/>
-          <rect x="6.4" y="5.5" width="1.8" height="13" rx=".9" fill="#8b929b"/>
-          <rect x="4.8" y="8.5" width="5" height="3" rx="1.5" fill="#ced3da"/>
-          <rect x="11.1" y="5.5" width="1.8" height="13" rx=".9" fill="#8b929b"/>
-          <rect x="9.5" y="12.5" width="5" height="3" rx="1.5" fill="#ced3da"/>
-          <rect x="15.8" y="5.5" width="1.8" height="13" rx=".9" fill="#8b929b"/>
-          <rect x="14.2" y="7.5" width="5" height="3" rx="1.5" fill="#ced3da"/>
-        </svg>
-        <span class="brand__word">SH<b>labs</b></span>
-      </a>
-      <div class="nav__links" id="nav-menu">
-        <div class="menu">
-          <a class="nav__link" href="/#products" data-menu-toggle role="button" aria-haspopup="true" aria-expanded="false">Products &#9662;</a>
-          <div class="menu__panel">
-            <div class="menu__head">Flagships</div>
-            <a class="menu__item" href="/cadence/"><span class="dot" style="background:var(--amber)"></span> Cadence</a>
-            <a class="menu__item" href="/phosphor/"><span class="dot" style="background:var(--amber)"></span> Phosphor</a>
-            <div class="menu__head">VST &amp; Standalone</div>
-            <a class="menu__item" href="/#cat-live"><span class="dot"></span> Performance &amp; live</a>
-            <a class="menu__item" href="/#cat-synths"><span class="dot"></span> Synthesizers &amp; instruments</a>
-            <a class="menu__item" href="/#cat-effects"><span class="dot"></span> Effects</a>
-            <a class="menu__item" href="/#cat-mastering"><span class="dot"></span> Mastering tools</a>
-            <a class="menu__item" href="/#cat-midi"><span class="dot"></span> MIDI generators &amp; composers</a>
-            <a class="menu__item" href="/#cat-visuals"><span class="dot"></span> Visuals</a>
-            <div class="menu__head">Modular</div>
-            <a class="menu__item" href="/#vcv"><span class="dot"></span> VCV Rack 2 modules</a>
-          </div>
-        </div>
-        <a class="nav__link" href="/about/">Studio</a>
-        <a class="nav__cta" href="#get">Download <span class="arw">↓</span></a>
+    <div class="nav__in pad">
+      <a class="wordmark" href="/">SH<i>labs</i></a>
+      <div class="nav__links mono">
+      <a href="/#flagships">Flagships</a>
+      <a href="/#index">Index</a>
+      <a href="/#studio" class="nav-hide">Studio</a>
+      <a href="https://github.com/shlabs-audio" class="is-accent" rel="noopener">GitHub</a>
       </div>
-      <button class="nav__burger" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-menu">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
-      </button>
     </div>
   </nav>
 
-  <div class="wrap crumb"><a href="/#products">Products</a> &nbsp;/&nbsp; <a href="/#vcv">VCV Rack 2</a> &nbsp;/&nbsp; <span style="color:var(--txt-2)">Mashina</span></div>
+  <div class="sheet">
 
-  <header class="wrap">
-    <div class="phero__grid">
-      <div>
-        <img class="phero__logo" src="/img/mashina.png" alt="Mashina" width="76" height="76">
-        <div class="phero__accentline"></div>
-        <div class="eyebrow" style="color:var(--accent);margin-bottom:18px">Soviet machines meet the West Coast</div>
-        <h1 class="phero__title">Mashina</h1>
-        <p class="lead" style="max-width:52ch">A family of eight VCV Rack modules that pair the gritty, idiosyncratic character of mid-century Soviet synthesizers — the Polivoks, the ANS, the Aelita — with the patch-cable, function-generator tradition of West Coast synthesis. Drum voices, oscillators, a master clock, a plate reverb, and generative sequencers, all in one rack.</p>
-        <div class="phero__meta">
-          <span class="chip chip--free"><span class="led"></span> Free download</span>
-          <span class="mono small muted">8 modules · freeware · macOS (Apple Silicon)</span>
-        </div>
-        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:26px">
-          <a class="btn btn--primary" href="/downloads/SHLabs-Mashina-2.0.0-mac-arm64.vcvplugin">Download for VCV Rack 2 <span class="arw">↓</span></a>
-        </div>
-        <p class="mono small muted" style="margin-top:14px">macOS (Apple Silicon). Windows, Linux &amp; Intel builds coming via the VCV Library.</p>
-      </div>
-      <div class="phero__panelwrap">
-        <div class="hero-panel">
-          <img class="hero-panel__logo" src="/img/mashina.png" alt="Mashina" width="132" height="132">
-          <div class="mono small" style="color:var(--dim);letter-spacing:.16em;text-transform:uppercase">Udar&nbsp; ·&nbsp; Klubok&nbsp; ·&nbsp; Bochka&nbsp; ·&nbsp; Takt&nbsp; ·&nbsp; Otzvuk&nbsp; ·&nbsp; Strela&nbsp; ·&nbsp; Volna&nbsp; ·&nbsp; Podton</div>
-        </div>
-      </div>
+  <nav class="crumb pad mono" aria-label="Breadcrumb">
+    <a href="/#index">Index</a>
+    <span class="sep" aria-hidden="true">/</span>
+    <a href="/#vcv">VCV Rack 2</a>
+    <span class="sep" aria-hidden="true">/</span>
+    <span aria-current="page">Mashina</span>
+  </nav>
+
+  <header class="psheet pad" id="main">
+    <div class="psheet__meta mono">
+      <span class="dim">8 modules</span>
+      <span class="is-free">Free download</span>
     </div>
+    <h1 class="psheet__name">Mashina</h1>
+    <div class="psheet__grid">
+      <div class="psheet__claim"><p>Soviet machines meet the West Coast.</p></div>
+      <div class="psheet__desc"><p class="body">A family of eight VCV Rack modules that pair the gritty, idiosyncratic character of mid-century Soviet synthesizers — the Polivoks, the ANS, the Aelita — with the patch-cable, function-generator tradition of West Coast synthesis. Drum voices, oscillators, a master clock, a plate reverb, and generative sequencers, all in one rack.</p></div>
+    </div>
+    <div class="psheet__spec mono"><span>8 modules</span><span>Freeware</span><span>macOS (Apple Silicon)</span></div>
   </header>
 
-  <main>
-  <section class="section wrap">
-    <div class="rule-label"><h2 class="eyebrow" style="margin:0;font-weight:500">What it is</h2></div>
-    <div class="grid grid-3">
-        <article class="feat reveal">
-          <div class="feat__k">WHY SOVIET</div>
-          <h3 class="feat__t">Character from constraint</h3>
-          <p class="feat__b">The Eastern-bloc synthesizer tradition worked under tight component constraints, which produced characterful nonlinearities — overdriven envelopes, drifty VCOs, idiosyncratic filters — that became part of the instrument's voice. Mashina treats that voice as a design ideal, not as kitsch. Each module's name is its Russian function.</p>
-        </article>
-        <article class="feat reveal">
-          <div class="feat__k">WHY WEST COAST</div>
-          <h3 class="feat__t">Synthesis as patching</h3>
-          <p class="feat__b">Buchla, Serge, Make Noise: synthesis as patching rather than playing, timbre as a parametric space rather than a preset library. Mashina inherits that grammar — open-ended, parameter-rich modules that reward exploration. Soviet machines met the West Coast nowhere in real life; Mashina puts them together.</p>
-        </article>
-        <article class="feat reveal">
-          <div class="feat__k">ONE FAMILY</div>
-          <h3 class="feat__t">A shared panel language</h3>
-          <p class="feat__b">A consistent SHLabs panel grammar — a gunmetal field, a red family stripe under each header, and clear left-to-right signal flow — shared with the other SHLabs series so a Mashina module reads as part of one instrument family.</p>
-        </article>
+  <div class="rule--ink"></div>
+
+  <section class="sec">
+    <div class="group__head group__head--first">
+      <h2 class="mono">What it is</h2>
+    </div>
+    <div class="spec">
+      <span class="row__no">01</span>
+      <span class="row__id"><span class="row__cat">Why Soviet</span><h3 class="row__name">Character from constraint</h3></span>
+      <p class="row__desc">The Eastern-bloc synthesizer tradition worked under tight component constraints, which produced characterful nonlinearities — overdriven envelopes, drifty VCOs, idiosyncratic filters — that became part of the instrument's voice. Mashina treats that voice as a design ideal, not as kitsch. Each module's name is its Russian function.</p>
+    </div>
+    <div class="spec">
+      <span class="row__no">02</span>
+      <span class="row__id"><span class="row__cat">Why West Coast</span><h3 class="row__name">Synthesis as patching</h3></span>
+      <p class="row__desc">Buchla, Serge, Make Noise: synthesis as patching rather than playing, timbre as a parametric space rather than a preset library. Mashina inherits that grammar — open-ended, parameter-rich modules that reward exploration. Soviet machines met the West Coast nowhere in real life; Mashina puts them together.</p>
+    </div>
+    <div class="spec">
+      <span class="row__no">03</span>
+      <span class="row__id"><span class="row__cat">One family</span><h3 class="row__name">A shared panel language</h3></span>
+      <p class="row__desc">A consistent SHLabs panel grammar — a gunmetal field, a red family stripe under each header, and clear left-to-right signal flow — shared with the other SHLabs series so a Mashina module reads as part of one instrument family.</p>
     </div>
   </section>
 
-  <section class="section wrap" style="padding-top:0">
-    <div class="rule-label"><h2 class="eyebrow" style="margin:0;font-weight:500">The eight modules</h2></div>
-    <div class="grid grid-2">
-        <article class="feat reveal">
-          <div class="feat__k">UDAR · удар</div>
-          <h3 class="feat__t">Percussion voice + sequencer</h3>
-          <p class="feat__b">Analog-style drum voice with an 8-step sequencer, a DFAM homage: two VCOs, noise, a tanh-saturated ladder filter, per-step pitch / velocity / gate modes, conditional triggers, and polyphonic per-step trigger and velocity outputs to drive poly VCAs and envelopes.</p>
-        </article>
-        <article class="feat reveal">
-          <div class="feat__k">KLUBOK · клубок</div>
-          <h3 class="feat__t">Generative dual sequencer + voice</h3>
-          <p class="feat__b">A Labyrinth-style pair of step engines with per-step probability, length, divergence, and feedback for evolving patterns — feeding their own VCO, filter, wavefolder and plate-reverb voice, or any other module via 1V/oct and gate streams.</p>
-        </article>
-        <article class="feat reveal">
-          <div class="feat__k">BOCHKA · бочка</div>
-          <h3 class="feat__t">Techno kick voice</h3>
-          <p class="feat__b">A punchy kick: pitch-swept sine, filtered click, sub layer, transient punch, tanh drive, tilt EQ, and a choke input. KIT MODE turns one polyphonic trigger cable into kick / snare / hat / clap — a mini drum kit in one module.</p>
-        </article>
-        <article class="feat reveal">
-          <div class="feat__k">TAKT · такт</div>
-          <h3 class="feat__t">Master clock</h3>
-          <p class="feat__b">A Pamela-style master clock with eight independent divided / multiplied outputs (/64 to ×64), tap tempo, run / stop, reset, global swing, pulse width, and BPM CV, plus a master beat output for syncing the rest of the rack.</p>
-        </article>
-        <article class="feat reveal">
-          <div class="feat__k">OTZVUK · отзвук</div>
-          <h3 class="feat__t">Plate reverb</h3>
-          <p class="feat__b">A warm Dattorro-style plate with shimmer, a self-ducker, modulation, tilt EQ, and tape drive in the feedback path. CHARACTER morphs ROOM → PLATE → HALL → SHIMMER, and pre-delay can be tempo-synced from a clock input.</p>
-        </article>
-        <article class="feat reveal">
-          <div class="feat__k">STRELA · стрела</div>
-          <h3 class="feat__t">Register additive VCO</h3>
-          <p class="feat__b">A register-driven additive oscillator inspired by 1950s Soviet console computers: a 16-bit switch register controls 16 harmonics, a clock shifts the register, and a polyphonic bit-CV input combines via OR / AND / XOR. Spectral thinning, tilt, per-partial phase distortion, and drive.</p>
-        </article>
-        <article class="feat reveal">
-          <div class="feat__k">VOLNA · волна</div>
-          <h3 class="feat__t">Polyphonic analog VCO</h3>
-          <p class="feat__b">A polyphonic oscillator with four simultaneous band-limited outputs (sine, triangle, saw, pulse), PolyBLEP anti-aliasing, CV-able PWM, hard sync, FM with a LIN / EXP switch, per-voice drift for natural chorus, and a warmth control.</p>
-        </article>
-        <article class="feat reveal">
-          <div class="feat__k">PODTON · подтон</div>
-          <h3 class="feat__t">Subharmonic synth</h3>
-          <p class="feat__b">A Subharmonicon-style polyrhythmic voice: two VCOs each with two integer-divided sub-oscillators, dual 4-step sequencers on independent clock divisions, a ladder filter, per-step gate modes, conditional triggers, and a drone mode.</p>
-        </article>
+  <section class="sec">
+    <div class="group__head group__head--first">
+      <h2 class="mono">The eight modules</h2>
+    </div>
+    <div class="spec">
+      <span class="row__no">04</span>
+      <span class="row__id"><span class="row__cat">Udar · удар</span><h3 class="row__name">Percussion voice + sequencer</h3></span>
+      <p class="row__desc">Analog-style drum voice with an 8-step sequencer, a DFAM homage: two VCOs, noise, a tanh-saturated ladder filter, per-step pitch / velocity / gate modes, conditional triggers, and polyphonic per-step trigger and velocity outputs to drive poly VCAs and envelopes.</p>
+    </div>
+    <div class="spec">
+      <span class="row__no">05</span>
+      <span class="row__id"><span class="row__cat">Klubok · клубок</span><h3 class="row__name">Generative dual sequencer + voice</h3></span>
+      <p class="row__desc">A Labyrinth-style pair of step engines with per-step probability, length, divergence, and feedback for evolving patterns — feeding their own VCO, filter, wavefolder and plate-reverb voice, or any other module via 1V/oct and gate streams.</p>
+    </div>
+    <div class="spec">
+      <span class="row__no">06</span>
+      <span class="row__id"><span class="row__cat">Bochka · бочка</span><h3 class="row__name">Techno kick voice</h3></span>
+      <p class="row__desc">A punchy kick: pitch-swept sine, filtered click, sub layer, transient punch, tanh drive, tilt EQ, and a choke input. KIT MODE turns one polyphonic trigger cable into kick / snare / hat / clap — a mini drum kit in one module.</p>
+    </div>
+    <div class="spec">
+      <span class="row__no">07</span>
+      <span class="row__id"><span class="row__cat">Takt · такт</span><h3 class="row__name">Master clock</h3></span>
+      <p class="row__desc">A Pamela-style master clock with eight independent divided / multiplied outputs (/64 to ×64), tap tempo, run / stop, reset, global swing, pulse width, and BPM CV, plus a master beat output for syncing the rest of the rack.</p>
+    </div>
+    <div class="spec">
+      <span class="row__no">08</span>
+      <span class="row__id"><span class="row__cat">Otzvuk · отзвук</span><h3 class="row__name">Plate reverb</h3></span>
+      <p class="row__desc">A warm Dattorro-style plate with shimmer, a self-ducker, modulation, tilt EQ, and tape drive in the feedback path. CHARACTER morphs ROOM → PLATE → HALL → SHIMMER, and pre-delay can be tempo-synced from a clock input.</p>
+    </div>
+    <div class="spec">
+      <span class="row__no">09</span>
+      <span class="row__id"><span class="row__cat">Strela · стрела</span><h3 class="row__name">Register additive VCO</h3></span>
+      <p class="row__desc">A register-driven additive oscillator inspired by 1950s Soviet console computers: a 16-bit switch register controls 16 harmonics, a clock shifts the register, and a polyphonic bit-CV input combines via OR / AND / XOR. Spectral thinning, tilt, per-partial phase distortion, and drive.</p>
+    </div>
+    <div class="spec">
+      <span class="row__no">10</span>
+      <span class="row__id"><span class="row__cat">Volna · волна</span><h3 class="row__name">Polyphonic analog VCO</h3></span>
+      <p class="row__desc">A polyphonic oscillator with four simultaneous band-limited outputs (sine, triangle, saw, pulse), PolyBLEP anti-aliasing, CV-able PWM, hard sync, FM with a LIN / EXP switch, per-voice drift for natural chorus, and a warmth control.</p>
+    </div>
+    <div class="spec">
+      <span class="row__no">11</span>
+      <span class="row__id"><span class="row__cat">Podton · подтон</span><h3 class="row__name">Subharmonic synth</h3></span>
+      <p class="row__desc">A Subharmonicon-style polyrhythmic voice: two VCOs each with two integer-divided sub-oscillators, dual 4-step sequencers on independent clock divisions, a ladder filter, per-step gate modes, conditional triggers, and a drone mode.</p>
     </div>
   </section>
 
-  <section class="wrap" id="get" style="padding-bottom:clamp(56px,9vh,104px)">
-    <hr class="hair" style="margin-bottom:44px">
-    <div style="max-width:60ch">
-      <h2 class="eyebrow" style="margin:0 0 14px;font-weight:500">Get it</h2>
-      <p class="lead" style="margin-bottom:18px">Free, and built to be played. No account, no nag screen.</p>
-      <p class="body" style="margin-bottom:10px">You'll need <strong>VCV Rack 2</strong> — a free download for macOS, Windows and Linux from <a class="link" href="https://vcvrack.com/Rack" target="_blank" rel="noopener">vcvrack.com/Rack</a>. Download the <strong>.vcvplugin</strong> below and drop it into Rack's user plugin folder, then restart — the modules appear under the <strong>SHLabs</strong> brand.</p>
-      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:22px">
-        <a class="btn btn--primary" href="/downloads/SHLabs-Mashina-2.0.0-mac-arm64.vcvplugin">Download the plugin <span class="arw">↓</span></a>
-        <a class="btn btn--ghost" href="/#vcv">All VCV modules <span class="arw">→</span></a>
+  <section class="sec" id="get">
+    <div class="group__head group__head--first">
+      <h2 class="mono">Get it</h2>
+    </div>
+    <div class="blk pad">
+      <p class="lead">Free, and built to be played. No account, no nag screen.</p>
+      <p class="body">You'll need <strong>VCV Rack 2</strong> — a free download for macOS, Windows and Linux from <a class="link" href="https://vcvrack.com/Rack" target="_blank" rel="noopener">vcvrack.com/Rack</a>. Download the <strong>.vcvplugin</strong> below and drop it into Rack's user plugin folder, then restart — the modules appear under the <strong>SHLabs</strong> brand.</p>
+      <p class="mono dim">macOS (Apple Silicon). Windows, Linux &amp; Intel builds coming via the VCV Library.</p>
+      <div class="acts">
+        <a class="act act--fill" href="/downloads/SHLabs-Mashina-2.0.0-mac-arm64.vcvplugin">Download the plugin &darr;</a>
+        <a class="act" href="/#vcv">All VCV modules &rarr;</a>
       </div>
-      <p class="mono small muted" style="margin-top:14px">macOS (Apple Silicon). Windows, Linux &amp; Intel builds coming via the VCV Library.</p>
     </div>
   </section>
-  </main>
 
   <footer class="foot">
-    <div class="wrap">
-      <div class="foot__grid">
-        <div>
-          <div class="foot__word">SH<b>labs</b></div>
-          <p class="foot__blurb">An independent audio-tools studio making instruments for the modular world and the DAW.</p>
-        </div>
-        <div class="foot__col">
-          <p class="foot__h">VCV Rack</p>
-          <a href="/stochast/">Stochast</a><a href="/rikoshet/">Rikoshet</a><a href="/mashina/">Mashina</a><a href="/lucida/">Lucida</a><a href="/atmos/">Atmos</a>
-        </div>
-        <div class="foot__col">
-          <p class="foot__h">Performance</p>
-          <a href="/cadence/">Cadence</a>
-          <p class="foot__h" style="margin-top:18px">Instruments</p>
-          <a href="/cell/">Cell</a><a href="/tincture/">Tincture</a><a href="/slicery/">Slicery</a>
-          <p class="foot__h" style="margin-top:18px">Effects</p>
-          <a href="/contour/">Contour</a><a href="/spazio/">Spazio</a>
-        </div>
-        <div class="foot__col">
-          <p class="foot__h">Mastering</p>
-          <a href="/glue/">Glue</a><a href="/stesso/">Stesso</a>
-          <p class="foot__h" style="margin-top:18px">MIDI &amp; Visuals</p>
-          <a href="/tonnetz/">Tonnetz</a><a href="/metro185/">Metro 185</a><a href="/phosphor/">Phosphor</a>
-        </div>
-        <div class="foot__col">
-          <p class="foot__h">Studio</p>
-          <a href="/about/">About SHLabs</a><a href="mailto:shlabs.contact@gmail.com">Contact</a><a href="https://github.com/shlabs-audio" target="_blank" rel="noopener">GitHub &#8599;</a>
-        </div>
+    <div class="foot__cols pad">
+      <div class="foot__col">
+        <span class="mono">Flagships</span>
+        <a href="/cadence/">Cadence</a>
+        <a href="/phosphor/">Phosphor</a>
       </div>
-      <div class="foot__bar">
-        <span>&copy; <span data-year>2026</span> SHLabs &middot; instruments for the modular world</span>
-        <span class="swiss">
-          <svg width="12" height="12" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="3" fill="#d52b1e"/><rect x="13" y="6" width="6" height="20" fill="#fff"/><rect x="6" y="13" width="20" height="6" fill="#fff"/></svg>
-          Made in Switzerland
-        </span>
+      <div class="foot__col">
+        <span class="mono">Instruments &amp; effects</span>
+        <a href="/cell/">Cell</a>
+        <a href="/tincture/">Tincture</a>
+        <a href="/slicery/">Slicery</a>
+        <a href="/contour/">Contour</a>
+        <a href="/spazio/">Spazio</a>
+      </div>
+      <div class="foot__col">
+        <span class="mono">Mastering &amp; MIDI</span>
+        <a href="/glue/">Glue</a>
+        <a href="/stesso/">Stesso</a>
+        <a href="/tonnetz/">Tonnetz</a>
+        <a href="/metro185/">Metro 185</a>
+      </div>
+      <div class="foot__col">
+        <span class="mono">VCV Rack</span>
+        <a href="/stochast/">Stochast</a>
+        <a href="/mashina/">Mashina</a>
+        <a href="/lucida/">Lucida</a>
+        <a href="/rikoshet/">Rikoshet</a>
+        <a href="/atmos/">Atmos</a>
+      </div>
+      <div class="foot__col">
+        <span class="mono">Studio</span>
+        <a href="/about/">About SHLabs</a>
+        <a href="mailto:shlabs.contact@gmail.com">Contact</a>
+        <a href="/donate/">Support the studio</a>
+        <a href="https://github.com/shlabs-audio" rel="noopener">GitHub</a>
       </div>
     </div>
-  </footer>
 
-  <script src="/js/shlabs.js"></script>
+    <div class="pad">
+      <div class="foot__word">SH<i>labs</i></div>
+    </div>
+
+    <div class="foot__bar pad mono">
+      <span>&copy; 2026 SHLabs &middot; Instruments for the modular world</span>
+      <span class="swiss"><svg width="12" height="12" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect width="32" height="32" fill="#d52b1e"/><rect x="13" y="6" width="6" height="20" fill="#fff"/><rect x="6" y="13" width="20" height="6" fill="#fff"/></svg> Made in Switzerland</span>
+      <span class="dim-2">Set in Helvetica</span>
+    </div>
+  </footer>
+</div>
 </body>
 </html>

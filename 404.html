@@ -5,38 +5,95 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Not found — SHLabs</title>
   <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#f3f2ee">
   <link rel="icon" type="image/svg+xml" href="/img/favicon.svg">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/shlabs.css">
 </head>
-<body style="min-height:100vh;display:flex;align-items:center;justify-content:center">
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <nav class="nav">
+    <div class="nav__in pad">
+      <a class="wordmark" href="/">SH<i>labs</i></a>
+      <div class="nav__links mono">
+      <a href="/#flagships">Flagships</a>
+      <a href="/#index">Index</a>
+      <a href="/#studio" class="nav-hide">Studio</a>
+      <a href="https://github.com/shlabs-audio" class="is-accent" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </nav>
 
-  <main class="wrap" style="max-width:52ch;text-align:center;padding-top:40px;padding-bottom:40px">
-    <a class="brand" href="/" aria-label="SHLabs home" style="justify-content:center;margin-bottom:34px">
-      <svg class="brand__mark" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <rect x="1" y="1" width="22" height="22" rx="6" fill="#1c1e22" stroke="#3a3f47"/>
-        <rect x="6.4" y="5.5" width="1.8" height="13" rx=".9" fill="#8b929b"/>
-        <rect x="4.8" y="8.5" width="5" height="3" rx="1.5" fill="#ced3da"/>
-        <rect x="11.1" y="5.5" width="1.8" height="13" rx=".9" fill="#8b929b"/>
-        <rect x="9.5" y="12.5" width="5" height="3" rx="1.5" fill="#ced3da"/>
-        <rect x="15.8" y="5.5" width="1.8" height="13" rx=".9" fill="#8b929b"/>
-        <rect x="14.2" y="7.5" width="5" height="3" rx="1.5" fill="#ced3da"/>
-      </svg>
-      <span class="brand__word">SH<b>labs</b></span>
-    </a>
-
-    <div class="eyebrow" style="margin-bottom:18px">Error 404</div>
-    <h1 class="display" style="font-size:clamp(3.4rem,11vw,5.6rem);margin-bottom:20px">404</h1>
-    <div class="phero__accentline" style="margin:0 auto 24px"></div>
-    <p class="lead" style="margin:0 0 34px">No module patches to that input.</p>
-
-    <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center">
-      <a class="btn btn--primary" href="/">Back to SHLabs <span class="arw">→</span></a>
-      <a class="btn btn--ghost" href="/#products">Browse products</a>
+  <div class="sheet">
+  <main class="mid pad" id="main">
+    <div class="hero__meta mono">
+      <span class="dim">Error 404</span>
+      <span class="dim-2">Page not found</span>
+    </div>
+    <h1 class="display">404</h1>
+    <div class="psheet__grid">
+      <div class="psheet__claim"><p>No module patches to that input.</p></div>
+      <div class="psheet__desc">
+        <p class="body">
+          The page you asked for is not on this sheet. The full catalogue —
+          plugins, standalone apps and VCV Rack modules — is one link away.
+        </p>
+        <div class="acts" style="margin-top:26px">
+          <a class="act act--fill" href="/">Back to SHLabs</a>
+          <a class="act" href="/#index">Browse the index &rarr;</a>
+        </div>
+      </div>
     </div>
   </main>
 
+  <footer class="foot">
+    <div class="foot__cols pad">
+      <div class="foot__col">
+        <span class="mono">Flagships</span>
+        <a href="/cadence/">Cadence</a>
+        <a href="/phosphor/">Phosphor</a>
+      </div>
+      <div class="foot__col">
+        <span class="mono">Instruments &amp; effects</span>
+        <a href="/cell/">Cell</a>
+        <a href="/tincture/">Tincture</a>
+        <a href="/slicery/">Slicery</a>
+        <a href="/contour/">Contour</a>
+        <a href="/spazio/">Spazio</a>
+      </div>
+      <div class="foot__col">
+        <span class="mono">Mastering &amp; MIDI</span>
+        <a href="/glue/">Glue</a>
+        <a href="/stesso/">Stesso</a>
+        <a href="/tonnetz/">Tonnetz</a>
+        <a href="/metro185/">Metro 185</a>
+      </div>
+      <div class="foot__col">
+        <span class="mono">VCV Rack</span>
+        <a href="/stochast/">Stochast</a>
+        <a href="/mashina/">Mashina</a>
+        <a href="/lucida/">Lucida</a>
+        <a href="/rikoshet/">Rikoshet</a>
+        <a href="/atmos/">Atmos</a>
+      </div>
+      <div class="foot__col">
+        <span class="mono">Studio</span>
+        <a href="/about/">About SHLabs</a>
+        <a href="mailto:shlabs.contact@gmail.com">Contact</a>
+        <a href="/donate/">Support the studio</a>
+        <a href="https://github.com/shlabs-audio" rel="noopener">GitHub</a>
+      </div>
+    </div>
+
+    <div class="pad">
+      <div class="foot__word">SH<i>labs</i></div>
+    </div>
+
+    <div class="foot__bar pad mono">
+      <span>&copy; 2026 SHLabs &middot; Instruments for the modular world</span>
+      <span class="swiss"><svg width="12" height="12" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect width="32" height="32" fill="#d52b1e"/><rect x="13" y="6" width="6" height="20" fill="#fff"/><rect x="6" y="13" width="20" height="6" fill="#fff"/></svg> Made in Switzerland</span>
+      <span class="dim-2">Set in Helvetica</span>
+    </div>
+  </footer>
+</div>
 </body>
 </html>
