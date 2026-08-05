@@ -132,12 +132,35 @@
       <article class="feat reveal">
         <div class="feat__k">ASSIST</div>
         <h3 class="feat__t">An auto-DJ layer you steer</h3>
-        <p class="feat__b">Key-aware transition modes, adjustable pacing, a build-up loop into the drop and FX ramps. Hand it the next stretch and it holds the mix; take it back mid-transition and nothing jumps.</p>
+        <p class="feat__b">Key-aware transition modes, adjustable pacing, a build-up loop into the drop and FX ramps. When tracks are separated, transitions use the stems themselves — real bass swaps and vocal handovers, not just EQ moves. Hand it the next stretch and it holds the mix; take it back mid-transition and nothing jumps.</p>
       </article>
       <article class="feat reveal">
         <div class="feat__k">CONTROL</div>
         <h3 class="feat__t">Mapped to your gear</h3>
-        <p class="feat__b">MIDI-learn on everything, with A/B bank switching so a small controller still reaches the whole surface. A phone remote joins over the local network by QR code. OSC broadcasts clock phase, beat, BPM and transport alongside master band energy, kick onsets and a drop-aware intensity signal.</p>
+        <p class="feat__b">MIDI-learn on everything, with A/B bank switching so a small controller still reaches the whole surface. A phone remote joins over the local network by QR code. OSC broadcasts clock phase, beat, BPM and transport alongside master band energy, kick onsets, per-stem levels and a drop-aware intensity signal.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ─── stems ───────────────────────────────────────────────────────────── -->
+  <section class="section wrap" style="padding-top:0">
+    <div class="rule-label"><h2 class="eyebrow" style="margin:0;font-weight:500;color:var(--accent)">Stems</h2><span class="mono small muted">Drums · Bass · Other · Vocals</span></div>
+    <p class="lead" style="max-width:64ch;margin:0 0 22px">Cadence separates a track into its four parts on your machine — no cloud, no upload — and then treats them as performance surface: kill a vocal, keep the drums under the next tune, solo a bassline, and let the auto-DJ trade basslines instead of EQ bands.</p>
+    <div class="grid grid-3">
+      <article class="feat reveal">
+        <div class="feat__k">SEPARATE</div>
+        <h3 class="feat__t">Four parts, on your machine</h3>
+        <p class="feat__b">One right-click separates a track into drums, bass, other and vocals with a state-of-the-art neural model running locally — around forty seconds for a club track on Apple Silicon. Results live in the library cache, so a track is only ever separated once.</p>
+      </article>
+      <article class="feat reveal">
+        <div class="feat__k">PERFORM</div>
+        <h3 class="feat__t">Kills that land on the bar</h3>
+        <p class="feat__b">Each stemmed deck grows four mute chips and a solo per part, all quantized to the grid — a queued kill blinks until the bar line and drops exactly on it, or shift-click for an instant stab. Key-lock holds pitch throughout, and every chip is MIDI-learnable.</p>
+      </article>
+      <article class="feat reveal">
+        <div class="feat__k">ASSIST + STEMS</div>
+        <h3 class="feat__t">The auto-DJ mixes with the parts</h3>
+        <p class="feat__b">Transitions become stem-aware when the material allows it: bass swaps trade the actual basslines on the swap bar, the incoming vocal waits until the outgoing one is out of the way, and with both tracks separated it hands over drums first, then bass — the way you would.</p>
       </article>
     </div>
   </section>
@@ -214,7 +237,7 @@
         <article class="feat reveal">
           <div class="feat__k">CADENCE SENDS</div>
           <h3 class="feat__t">Clock, structure, energy</h3>
-          <p class="feat__b">Beat and clock phase, BPM and transport, master band energy across bass, mid and high, kick onsets, and a drop-aware intensity signal — broadcast continuously over OSC while you play.</p>
+          <p class="feat__b">Beat and clock phase, BPM and transport, master band energy across bass, mid and high, kick onsets, and a drop-aware intensity signal — plus live per-stem levels and drum-stem onsets when a deck plays separated stems. Broadcast continuously over OSC while you play.</p>
         </article>
         <article class="feat reveal" style="--accent:#5fd6b0">
           <div class="feat__k">PHOSPHOR ANSWERS</div>
