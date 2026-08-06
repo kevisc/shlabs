@@ -87,7 +87,7 @@ footer{margin-top:60px;padding-top:16px;border-top:1px solid var(--edge);color:v
   <a href="#import">Importing music</a>
   <a href="#editors">Grid &amp; section editors</a>
   <h2>CREATE</h2>
-  <a href="#arrange">Arrange</a>
+  <a href="#arrange">Composer</a>
   <a href="#edit">Sampler (samples &amp; strips)</a>
   <h2>EXPAND</h2>
   <a href="#plugins">Plugins, chains &amp; macros</a>
@@ -113,7 +113,7 @@ footer{margin-top:60px;padding-top:16px;border-top:1px solid var(--edge);color:v
 <ul>
   <li><b>Perform</b> &mdash; the mixer: four strips, master section, track overviews.</li>
   <li><b>Collection</b> &mdash; your library: scanning, search, playlists, key-compatible browsing.</li>
-  <li><b>Arrange</b> &mdash; a timeline: lay out a set in advance with automation envelopes.</li>
+  <li><b>Composer</b> &mdash; a timeline: lay out a set in advance with automation envelopes.</li>
   <li><b>Sampler</b> &mdash; a sample editor: snip sounds out of tracks, render strip re-edits.</li>
 </ul>
 </section>
@@ -124,7 +124,7 @@ footer{margin-top:60px;padding-top:16px;border-top:1px solid var(--edge);color:v
   <li><b>1. Add music.</b> Go to <span class="btn">COLLECTION</span>, click <span class="btn">Add Files</span> (or <span class="btn">Import XML</span> for a rekordbox collection).</li>
   <li><b>2. Scan.</b> Select tracks and press <span class="btn">Scan</span>. This detects BPM, the beatgrid with its bar downbeat, the musical key, and the loudness (for auto-gain). Several tracks scan in parallel.</li>
   <li><b>3. Load.</b> Use the <span class="btn">LOAD 1&ndash;4</span> buttons (they glow with the live level of each channel so you don't load over a playing deck), or right-click &rarr; <i>Load playing (fader down)</i> to audition.</li>
-  <li><b>4. Play.</b> Back in <span class="btn">PERFORM</span>, press the master <span class="btn">PLAY</span>, then a deck's <span class="btn">PLAY</span> (or keys <kbd>Q</kbd> <kbd>W</kbd> <kbd>E</kbd> <kbd>R</kbd>). The button blinks while armed and fires on the next quantize point.</li>
+  <li><b>4. Play.</b> Back in <span class="btn">PERFORM</span>, press a deck's <span class="btn">PLAY</span> (or keys <kbd>Q</kbd> <kbd>W</kbd> <kbd>E</kbd> <kbd>R</kbd>). The button blinks while armed and fires on the next quantize point. A deck starts the master clock itself, so there is nothing to press first &mdash; the master <span class="btn">PLAY</span> lives in <span class="btn">COMPOSER</span>, for running the timeline.</li>
   <li><b>5. Mix.</b> <span class="btn">SYNC</span> keeps decks locked to the master tempo (with key-lock, so pitch doesn't bend). Ride the faders and EQs, drop loops, and watch the track overview for the red end-of-track warning.</li>
 </ul>
 <div class="tip"><b>Tip:</b> press <kbd>H</kbd> any time (or <i>Keyboard shortcuts&hellip;</i> in <span class="btn">SETTINGS</span>) for the shortcut overlay &mdash; it also shows the QR codes for the remote control and this manual. Any key closes it.</div>
@@ -133,11 +133,11 @@ footer{margin-top:60px;padding-top:16px;border-top:1px solid var(--edge);color:v
 <section id="interface">
 <h2>The interface</h2>
 <h3>Mode tabs (top left)</h3>
-<p><span class="btn">PERFORM</span> <span class="btn">COLLECTION</span> <span class="btn">ARRANGE</span> <span class="btn">SAMPLER</span> switch the whole surface (keys <kbd>1</kbd>&ndash;<kbd>4</kbd>). The transport bar stays on top in every mode.</p>
+<p><span class="btn">PERFORM</span> <span class="btn">COMPOSER</span> <span class="btn">COLLECTION</span> <span class="btn">SAMPLER</span> switch the whole surface (keys <kbd>1</kbd>&ndash;<kbd>4</kbd>, left to right). The transport bar stays on top in every mode.</p>
 <h3>Transport bar</h3>
-<p><span class="btn">PLAY</span> starts the master clock (and sends MIDI Start). The <b>BPM slider</b> (60&ndash;180) eases to a new tempo gradually instead of snapping. <span class="btn">T</span> is tap-tempo, <span class="btn">M</span> the metronome (right-click it to route the click to master and/or headphones and set its level). <span class="btn">LINK</span> joins an Ableton Link session. The <b>quantize dropdown</b> is the <i>one</i> grid for everything &mdash; see <a href="#transport">Transport &amp; quantize</a>.</p>
+<p><span class="btn">PLAY</span> starts the master clock (and sends MIDI Start). The <b>BPM slider</b> (60&ndash;180) eases to a new tempo gradually instead of snapping. <span class="btn">T</span> is tap-tempo, <span class="btn">M</span> the metronome (right-click it to route the click to master and/or headphones and set its level). <span class="btn">LINK</span> joins an Ableton Link session. Quantize &mdash; the <i>one</i> grid for everything &mdash; lives in <span class="btn">SETTINGS</span>; see <a href="#transport">Transport &amp; quantize</a>.</p>
 <h3>Top bar buttons</h3>
-<p>Left to right: <span class="btn">BROWSE</span> (dock the collection under the mixer, also <kbd>C</kbd>), <span class="btn">ASSIST</span> (auto-mixing &mdash; right-click for its options) and <span class="btn">REC</span>. Then, after a gap, the configuration group: <span class="btn">FX</span> (delay &amp; reverb), <span class="btn">COMPRESSOR</span>, <span class="btn">OSC</span>, <span class="btn">MIDI MAP</span> and <span class="btn">SETTINGS</span>. Beside them sit the <b>engine readout</b> (buffer &middot; output latency &middot; DSP load &mdash; click it for engine options) and the <b>CADENCE</b> wordmark (click for About &amp; licenses).</p>
+<p>Left to right: <span class="btn">BROWSE</span> (dock the collection into PERFORM, COMPOSER or SAMPLER, also <kbd>C</kbd>), <span class="btn">ASSIST</span> (auto-mixing &mdash; right-click for its options) and <span class="btn">REC</span>. Then, after a gap, the configuration group: <span class="btn">FX</span> (delay &amp; reverb), <span class="btn">COMPRESSOR</span>, <span class="btn">OSC</span>, <span class="btn">MIDI</span> (mapping mode &mdash; PERFORM only) and <span class="btn">SETTINGS</span>. Beside them sit the <b>engine readout</b> (buffer &middot; output latency &middot; DSP load &mdash; click it for engine options) and the <b>CADENCE</b> wordmark (click for About &amp; licenses).</p>
 <p class="muted">The top bar stays deliberately short: the plugin manager, the MIDI mapping list, UI zoom, the waveform colour choice and the shortcut overlay all live inside <span class="btn">SETTINGS</span>.</p>
 </section>
 
@@ -249,6 +249,8 @@ footer{margin-top:60px;padding-top:16px;border-top:1px solid var(--edge);color:v
   <li><b>One-time setup</b> &mdash; open <span class="btn">SETTINGS</span> and press <i>Download model (316 MB)</i>. It fetches once and stays.</li>
   <li><b>Separate a track</b> &mdash; in COLLECTION, right-click it &rarr; <i>Separate stems</i> (several selected tracks queue up). Results are cached, so a track is only ever separated once. Do it before the gig, not during.</li>
   <li><b>Play them</b> &mdash; a loaded track that has stems grows a <b>STEMS row</b> on its deck: the <span class="btn">STEMS</span> toggle plus four chips, <span class="btn">DRM</span> <span class="btn">BSS</span> <span class="btn">OTH</span> <span class="btn">VOC</span>. Lit = audible. <b>Click a chip to mute it, right-click to solo</b> (right-click again to release the solo). Stem edits are <b>quantized</b>: a chip click, a solo and the <span class="btn">STEMS</span> toggle itself all land on the next <i>QUANT</i> boundary and blink until they do, so a kill drops on the bar and not half a beat late &mdash; <b>shift-click for instant</b>, and a second click on a blinking chip takes it back out of the queue.</li>
+  <li><b>Read the STEMS button</b> &mdash; it fills solid the moment you ask for stems, not when they finish loading, and the small square in its corner says where the deck actually is: <b>hollow</b> = off, <b>blinking</b> = the stems are still being read from disk, <b>solid</b> = they are playing. Off, the button is an outline; on, it is a filled block, so which state a deck is in reads across the booth.</li>
+  <li><b>Set the chips up before you switch stems on</b> &mdash; on a track that has stems, clicking a chip with <span class="btn">STEMS</span> off switches stems on for that deck <i>and</i> records the mute, which lands with the stems the moment they are ready. While stems are off the chips are drawn quietly: the mute state is still readable, and the absence of the lit fill is what tells you nothing is affecting the audio yet. If the deck cap refuses, the click does nothing at all beyond the toast that says so. <b>The mute set survives switching stems off and on</b> &mdash; kill the vocal, drop stems for a bar, bring them back and the vocal is still killed. Loading another track or ejecting clears it, and it is never written to disk, so a fresh launch always starts all-audible.</li>
   <li><b>Let Assist use them</b> &mdash; when <i>Stem transitions</i> is on (the ASSIST features menu, on by default), the auto-DJ mixes with the parts instead of only the EQ: a bass swap trades the actual basslines on the swap bar, the incoming vocal is held back until the outgoing track is out of the way, a build-up strips the outgoing tune down to drums and bass under the riser, and when both tracks are separated it can hand over drums first, then bass &mdash; the way you would. Decks without stems simply get the normal EQ transition; nothing needs arming, and your own chip mutes always win.</li>
   <li><b>Tune the cost</b> &mdash; <span class="btn">SETTINGS</span> &rarr; <i>Stems</i>. <b>Stems on up to</b> caps how many decks may hold stems at once (<i>Auto</i> reads your installed RAM and names the number it chose). <b>Separation speed</b> &mdash; Gentle / Balanced / Fast &mdash; is how many cores an <i>offline</i> separation may use; it never touches playback. On Apple Silicon there is also an experimental <b>CoreML acceleration</b> toggle, off by default: where CoreML will not take the model Cadence separates on the CPU and says so, so it can never make a separation fail.</li>
 </ul>
@@ -258,7 +260,7 @@ footer{margin-top:60px;padding-top:16px;border-top:1px solid var(--edge);color:v
 <section id="transport">
 <h2>Transport, sync &amp; quantize</h2>
 <h3>One quantize grid</h3>
-<p>The quantize dropdown (Off, 1/16 &hellip; 4 Bars) governs <i>everything</i>: clip launches and stops, seeks, beat-jumps, quantized mutes, <b>and loop snapping</b> &mdash; loop in/out points land on the chosen grid, so loop lengths come out quantized automatically. "Off" means immediate timing with beat-snapped loops.</p>
+<p>The quantize setting (<span class="btn">SETTINGS</span> &rarr; Interface &rarr; <b>Quantize</b>: Off, 1/16 &hellip; 4 Bars) governs <i>everything</i>: clip launches and stops, seeks, beat-jumps, quantized mutes, <b>and loop snapping</b> &mdash; loop in/out points land on the chosen grid, so loop lengths come out quantized automatically. "Off" means immediate timing with beat-snapped loops.</p>
 <h3>Tempo</h3>
 <p>Typed or dragged tempo changes <b>glide</b> over several seconds rather than snapping (SYNC'd decks bend along smoothly). <span class="btn">&rarr;BPM</span> on a strip glides the master to that track's native tempo. Tap with <span class="btn">T</span>. Range 60&ndash;180 BPM.</p>
 <h3>Sync outputs</h3>
@@ -313,11 +315,11 @@ footer{margin-top:60px;padding-top:16px;border-top:1px solid var(--edge);color:v
 <h3>Beatgrid editor</h3>
 <p><span class="btn">Grid</span> opens the beatgrid editor: set the tempo and drag the downbeat by eye against the waveform. Applying marks the grid <i>Verified</i> and pushes it live to any loaded deck. The /2 and x2 buttons next to the BPM field fix octave-doubled or halved detections.</p>
 <h3>Section editor</h3>
-<p><span class="btn">Sections</span> opens the section/cue/loop editor (it deliberately never touches the beatgrid). Add any number of coloured, labelled sections snapped to the grid &mdash; they show up in the collection previews, the mixer overviews and the arrange timeline, so you read a track's structure everywhere. Also set up to four hot cues and a saved loop here.</p>
+<p><span class="btn">Sections</span> opens the section/cue/loop editor (it deliberately never touches the beatgrid). Add any number of coloured, labelled sections snapped to the grid &mdash; they show up in the collection previews, the mixer overviews and the Composer timeline, so you read a track's structure everywhere. Also set up to four hot cues and a saved loop here.</p>
 </section>
 
 <section id="arrange">
-<h2>Arrange</h2>
+<h2>Composer</h2>
 <p>A DAW-style timeline for preparing a set. Drag tracks from the docked collection onto a lane &mdash; each becomes a full-length clip so you can see where it ends and line up the next one. When the master playhead crosses a clip, its deck launches.</p>
 <ul>
   <li><b>Clips:</b> move, trim either edge, split with the <span class="btn">CUT</span> razor. The deck's live position is mirrored on the timeline.</li>
@@ -331,12 +333,14 @@ footer{margin-top:60px;padding-top:16px;border-top:1px solid var(--edge);color:v
 <h2>Sampler (samples &amp; strips)</h2>
 <p>A non-destructive sample editor &mdash; sources are only read, never modified.</p>
 <ul>
-  <li><b>Open a track:</b> <span class="btn">From Collection</span>, or right-click a track in the COLLECTION &rarr; <i>Open in Editor</i>.</li>
+  <li><b>Open a track:</b> press <span class="btn">BROWSE</span> (or <kbd>C</kbd>) to dock the Collection under the editor, then double-click a track &mdash; or drag one onto the waveform. Right-clicking a track anywhere in the COLLECTION &rarr; <i>Open in Sampler</i> works too.</li>
   <li><b>Select:</b> drag on the zoomable waveform; <span class="btn">SNAP</span> locks edges to the beatgrid; drag the edges to adjust. The readout shows seconds and beats. Wheel zooms, shift-wheel pans.</li>
   <li><span class="btn">Save Sample</span> &mdash; writes the region as a 24-bit WAV into <code>~/Music/Cadence Samples</code> and adds it to the collection (drum hits, vocals, stabs&hellip;).</li>
-  <li><span class="btn">Audition CH4</span> &mdash; renders the region onto deck 4 to hear it.</li>
+  <li><b>Monitor it:</b> <span class="btn">PLAY</span> plays the selection through the Sampler's own preview voice &mdash; instantly, straight from memory, with <b>no deck involved</b>. With nothing selected it plays the whole loaded track, so a file you just dragged in can be heard right away. <span class="btn">LOOP</span> repeats the region (the wrap is a hard splice, so you hear exactly what the saved sample will sound like), and a white playhead tracks the voice across the waveform.</li>
+  <li><b>Where it goes, and how loud:</b> <span class="btn">CUE</span> and <span class="btn">MAIN</span> are two <i>independent</i> switches, not a choice of one &mdash; cue is your headphones, main is the room, and both can be on at once (or neither). <b>CUE is on and MAIN is off by default</b>, so pressing PLAY can never surprise a dance floor. <b>VOL</b> is the preview's own level; nothing on the mixer moves when you change it. Routing and level are remembered between sessions.</li>
+  <li><b>It is not a deck:</b> the preview has no EQ, no filter, no FX and no channel fader, and it cannot take a deck away from you mid-set. (It replaces the old <i>Audition CH4</i> button, which loaded a rendered temp file onto a deck &mdash; sometimes one that was live on the master.)</li>
   <li><b>The STRIP:</b> <span class="btn">Add to Strip</span> collects regions in order &mdash; from any number of tracks &mdash; and <span class="btn">Render Strip</span> bounces them into <b>one joint clip</b> (44.1k/24-bit, equal-power crossfades at every join). Your quick re-edit/mashup workflow.</li>
-  <li><b>Save target:</b> the dropdown sends saved samples and rendered strips to the collection plus, optionally, straight into a playlist.</li>
+  <li><b>Where they land:</b> saved samples and rendered strips go to <code>~/Music/Cadence/Sampler Out</code> and into the collection, tagged <i>Sampler Out</i>; the docked Collection below picks them up straight away.</li>
 </ul>
 </section>
 
@@ -404,20 +408,20 @@ footer{margin-top:60px;padding-top:16px;border-top:1px solid var(--edge);color:v
 <h2>Keyboard shortcuts</h2>
 <table>
 <tr><th>Key</th><th>Action</th></tr>
-<tr><td><kbd>1</kbd>&ndash;<kbd>4</kbd></td><td>View: Perform / Collection / Arrange / Sampler</td></tr>
+<tr><td><kbd>1</kbd>&ndash;<kbd>4</kbd></td><td>View: Perform / Composer / Collection / Sampler</td></tr>
 <tr><td><kbd>Q</kbd> <kbd>W</kbd> <kbd>E</kbd> <kbd>R</kbd></td><td>Launch / stop deck 1&ndash;4 (quantized)</td></tr>
 <tr><td><kbd>Shift</kbd>+<kbd>Q W E R</kbd></td><td>Headphone CUE on / off, channel 1&ndash;4</td></tr>
 <tr><td><kbd>Shift</kbd>+<kbd>Space</kbd></td><td>Stop everything &mdash; all decks and the clock</td></tr>
-<tr><td><kbd>Space</kbd></td><td>Arrange: start the timeline</td></tr>
+<tr><td><kbd>Space</kbd></td><td>Composer: start the timeline</td></tr>
 <tr><td><kbd>Shift</kbd>+<kbd>Return</kbd></td><td>Jump a gliding tempo straight to its target</td></tr>
 <tr><td><kbd>C</kbd></td><td>Toggle the docked collection</td></tr>
 <tr><td><kbd>M</kbd></td><td>Metronome</td></tr>
 <tr><td><kbd>H</kbd> or <kbd>?</kbd></td><td>Shortcut overlay + remote &amp; manual QR codes (any key closes)</td></tr>
-<tr><td><kbd>&#8984;Z</kbd></td><td>Undo (<kbd>&#8679;&#8984;Z</kbd> redo) &mdash; Arrange or Collection, whichever is open</td></tr>
-<tr><td><kbd>&#8984;D</kbd> <kbd>&#8984;C</kbd> <kbd>&#8984;V</kbd></td><td>Arrange: duplicate / copy / paste the selected block</td></tr>
-<tr><td><kbd>&#8984;E</kbd></td><td>Arrange: split the selected block at the playhead</td></tr>
-<tr><td><kbd>Delete</kbd></td><td>Arrange: delete the selected block</td></tr>
-<tr><td><kbd>Esc</kbd></td><td>Arrange: back to the select tool; in Collection, clear the search</td></tr>
+<tr><td><kbd>&#8984;Z</kbd></td><td>Undo (<kbd>&#8679;&#8984;Z</kbd> redo) &mdash; Composer or Collection, whichever is open</td></tr>
+<tr><td><kbd>&#8984;D</kbd> <kbd>&#8984;C</kbd> <kbd>&#8984;V</kbd></td><td>Composer: duplicate / copy / paste the selected block</td></tr>
+<tr><td><kbd>&#8984;E</kbd></td><td>Composer: split the selected block at the playhead</td></tr>
+<tr><td><kbd>Delete</kbd></td><td>Composer: delete the selected block</td></tr>
+<tr><td><kbd>Esc</kbd></td><td>Composer: back to the select tool; in Collection, clear the search</td></tr>
 </table>
 <p class="muted">Deck launch lives on <kbd>Q</kbd>&ndash;<kbd>R</kbd> so the number row is free to switch views. In PERFORM, <kbd>Space</kbd> does nothing on purpose &mdash; the clock is not something to nudge by accident mid-set.</p>
 <p class="muted">Shortcuts pause while you're typing in a text field. Click any empty surface to re-arm them.</p>
@@ -448,7 +452,7 @@ footer{margin-top:60px;padding-top:16px;border-top:1px solid var(--edge);color:v
   <li><b>Wrong tempo (half/double)</b> &mdash; use /2 or x2 next to the BPM field in the collection.</li>
   <li><b>SYNC'd track sounds pitched</b> &mdash; KEY (key-lock) is off on that deck; light it up.</li>
   <li><b>Key column empty</b> &mdash; keys come from scanning (or rekordbox import).</li>
-  <li><b>A deck won't launch</b> &mdash; the master clock must be running; launches are quantized, so they wait for the grid point shown in the quantize dropdown.</li>
+  <li><b>A deck won't launch</b> &mdash; the master clock must be running; launches are quantized, so they wait for the grid point set by <b>Quantize</b> in SETTINGS.</li>
   <li><b>Audio device vanished</b> &mdash; the red banner means the interface disconnected; Cadence reconnects automatically when it returns.</li>
   <li><b>No STEMS row on the deck</b> &mdash; that track hasn't been separated yet: right-click it in the COLLECTION &rarr; <i>Separate stems</i> (and install the model in SETTINGS first, if you haven't).</li>
   <li><b>Stems won't turn on</b> &mdash; you are at the deck cap; turn them off on another deck, or raise <span class="btn">SETTINGS</span> &rarr; <i>Stems</i> &rarr; <i>Stems on up to</i>.</li>
