@@ -512,7 +512,7 @@ PRODUCTS["cadence"] = {
                 ("Phosphor answers", "Visuals on the same grid",
                  """Scene motion locks to beat phase, reactive parameters follow the bands, kick onsets fire shockwave ripples, and intensity drives the whole image up into the drop — fullscreen on the projector."""),
             ]),
-            ("body", """And the bundle is the whole studio: alongside <strong>Cadence</strong> and <strong>Phosphor</strong> it includes <a class="link" href="/cell/">Cell</a>, <a class="link" href="/tincture/">Tincture</a>, <a class="link" href="/contour/">Contour</a>, <a class="link" href="/spazio/">Spazio</a>, <a class="link" href="/glue/">Glue</a>, <a class="link" href="/stesso/">Stesso</a> and <a class="link" href="/tonnetz/">Tonnetz</a> — every instrument, effect and mastering tool in the line."""),
+            ("body", """And the bundle is the whole studio: alongside <strong>Cadence</strong> and <strong>Phosphor</strong> it includes <a class="link" href="/cell/">Cell</a>, <a class="link" href="/contour/">Contour</a>, <a class="link" href="/spazio/">Spazio</a>, <a class="link" href="/glue/">Glue</a>, <a class="link" href="/stesso/">Stesso</a> and <a class="link" href="/tonnetz/">Tonnetz</a> — every instrument, effect and mastering tool in the line."""),
             ("body", """A Tonnetz link — Cadence following and steering harmony via note-follow over OSC — is planned for the bundle."""),
             ("mono", "Bundle pricing announced at release."),
             ("acts", [("/phosphor/", "Phosphor &rarr;", ""),
@@ -1325,8 +1325,8 @@ def homepage():
         <p class="body">
           The two lock over OSC: Phosphor follows Cadence's clock and beat phase,
           reads master band energy and kick onsets, and surges when the drop lands.
-          The bundle is the whole studio, with Cell, Tincture, Contour, Spazio,
-          Glue, Stesso and Tonnetz included.
+          The bundle is the whole studio, with Cell, Contour, Spazio, Glue,
+          Stesso and Tonnetz included.
         </p>
         <p class="mono dim-2" style="margin-top:12px"><a class="link" href="/cadence/#bundle">Bundle pricing at release</a></p>
       </div>
