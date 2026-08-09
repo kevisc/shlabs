@@ -624,7 +624,7 @@ PRODUCTS["tincture"] = vst(
     shot=("/img/shots/tincture.jpg", "The Tincture plugin interface", 1280, 1170),
     rows=[
         ("Wavetables", "Morph without the fizz",
-         """Two wavetable oscillators on a band-limited mip-mapped engine — clean at any pitch, no aliasing. Morph across frames on a live waterfall display, browse the factory bank or drop any Serum-format WAV straight onto it."""),
+         """Two wavetable oscillators on a band-limited mip-mapped engine — clean at any pitch, no aliasing. Morph across frames on a live waterfall display, browse the factory bank or drop any 2048-sample single-cycle wavetable WAV straight onto it."""),
         ("Warp", "Bend every table further",
          """Per-oscillator warp multiplies the timbral space of every table: hard sync, bend, PWM, mirror — plus FM and ring modulation from oscillator two. Warp amount is a modulation target like everything else."""),
         ("Modulation", "Drag it onto anything",
