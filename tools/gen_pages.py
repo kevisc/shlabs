@@ -13,7 +13,7 @@ design system (see css/shlabs.css).
 
         index.html   404.html
         about/  donate/  downloads/  empiria/
-        cadence/  phosphor/  cell/  tincture/  slicery/  contour/  spazio/
+        cadence/  phosphor/  cell/  tincture/  contour/  spazio/
         glue/  stesso/  tonnetz/  metro185/
         stochast/  mashina/  lucida/  rikoshet/  atmos/  terra/
 
@@ -70,7 +70,6 @@ FOOTER_COLS = [
     ("Instruments &amp; effects", [
         ("Cell", "/cell/"),
         ("Tincture", "/tincture/"),
-        ("Slicery", "/slicery/"),
         ("Contour", "/contour/"),
         ("Spazio", "/spazio/"),
     ]),
@@ -638,32 +637,6 @@ PRODUCTS["tincture"] = vst(
     ],
 )
 
-# ─── Slicery ──────────────────────────────────────────────────────────
-PRODUCTS["slicery"] = vst(
-    name="Slicery",
-    title="Slicery — SHLabs",
-    desc="""Slicery is a slice instrument from SHLabs: drop in a loop, chop it into playable slices across the keyboard, shape each one, and grab the keepers to your library. VST3 / AU / Standalone. Coming soon.""",
-    crumb=("Synthesizers &amp; instruments", "/#cat-synths"),
-    cat="Slice instrument",
-    claim="""The chop-and-play workflow you actually repeat, in one focused instrument.""",
-    lead="""Drop in a song or a loop and Slicery chops it into slices, maps them across the keyboard, and lets you play them back — then save the ones you love out to your sample library.""",
-    shot=("/img/shots/slicery.jpg", "The Slicery plugin interface", 1280, 921),
-    rows=[
-        ("Chop", "Transient or grid",
-         """Slice by onset detection with a sensitivity control, or divide cleanly by note value at a set tempo. Markers are drawn right over the waveform, ready to nudge."""),
-        ("Playable", "Across the keyboard",
-         """Every slice maps chromatically from C1 upward, so the chop is instantly playable from your host or a controller — audition a slice with a click, or perform the whole loop by hand."""),
-        ("Per-slice voice", "Shape every hit",
-         """Gain, pitch (±24), reverse, anti-click fades, gate vs one-shot, and choke groups for hi-hat-style mutual exclusivity — each slice tuned to sit exactly how you want."""),
-        ("Library", "Keep the good ones",
-         """Found a one-shot you love? Name it and grab it straight to your sample library. Slicery is as much a sample-prep tool as an instrument."""),
-        ("Launch clips", "Loop &amp; sync",
-         """Turn a slice into a looping launch clip locked to a shared clock — Slicery doubles as a clip launcher for hybrid performance rigs."""),
-        ("Workflow", "Fast and focused",
-         """Drag-and-drop loading, a clear waveform with slice pads, and a workflow centred on the loop you repeat: chop, play, keep. Think ReCycle × Serato Sample, distilled."""),
-    ],
-)
-
 # ─── Contour ──────────────────────────────────────────────────────────
 PRODUCTS["contour"] = vst(
     name="Contour",
@@ -1136,58 +1109,55 @@ INDEX_GROUPS = [
         ("03", "/tincture/", "Wavetable synthesizer", "Tincture",
          """Modulation you can touch: morphing wavetables, warp into FM and ring-mod, drawable LFOs and a 48-slot matrix.""",
          "Soon", "is-soon"),
-        ("04", "/slicery/", "Slice instrument", "Slicery",
-         """Chop a loop into playable slices across the keyboard, shape each hit and grab the keepers to your library.""",
-         "Soon", "is-soon"),
     ]),
     ("cat-effects", "Effects", "Modulation · space", [
-        ("05", "/contour/", "Multi-LFO modulation rack", "Contour",
+        ("04", "/contour/", "Multi-LFO modulation rack", "Contour",
          """Draw modulation on a curve editor and lock it to the beat. Four curve-LFOs over volume, pan and filter, with MIDI out.""",
          "Soon", "is-soon"),
-        ("06", "/spazio/", "Reverb and delay continuum", "Spazio",
+        ("05", "/spazio/", "Reverb and delay continuum", "Spazio",
          """Studio delay, modulated reverb and everything between on one CONTINUUM control. Echoes that smear and bloom into tails.""",
          "Soon", "is-soon"),
     ]),
     ("cat-mastering", "Mastering tools", "The last mile of a mix", [
-        ("07", "/glue/", "Mastering bus compressor", "Glue",
+        ("06", "/glue/", "Mastering bus compressor", "Glue",
          """SSL-style glue with stepped controls, program-dependent release, sidechain high-pass, Mid/Side and a parallel mix.""",
          "Soon", "is-soon"),
-        ("08", "/stesso/", "Mastering equaliser", "Stesso",
+        ("07", "/stesso/", "Mastering equaliser", "Stesso",
          """A draggable curve over a live spectrum. Up to 24 bands, eight filter types, per-band Left/Right or Mid/Side.""",
          "Soon", "is-soon"),
     ]),
     ("cat-midi", "MIDI generators &amp; composers", "Sequencing &amp; harmony brains", [
-        ("09", "/tonnetz/", "MIDI harmony conductor", "Tonnetz",
+        ("08", "/tonnetz/", "MIDI harmony conductor", "Tonnetz",
          """Master key and scale, an interactive Tonnetz lattice, three quantizers, chords, arp, bass and drone, driving your synths.""",
          "Soon", "is-soon"),
-        ("10", "/metro185/", "MIDI step sequencer", "Metro 185",
+        ("09", "/metro185/", "MIDI step sequencer", "Metro 185",
          """Eight deep steps in the RYK M-185 and System 100m lineage, reimagined for the DAW. Ratchets, 34 scales, gate modes.""",
          "Soon", "is-soon"),
     ]),
     ("cat-visuals", "Visuals", "Sound you can see", [
-        ("11", "/phosphor/", "Audio-reactive video synth", "Phosphor",
+        ("10", "/phosphor/", "Audio-reactive video synth", "Phosphor",
          """Beat-locked GPU scenes you throw fullscreen onto a projector. Fields, tunnel, fractals, spectrum, ambient, plus Syphon out.""",
          "Soon", "is-soon"),
     ]),
 ]
 
 VCV_ROWS = [
-    ("12", "/stochast/", "5 plugins · 28 modules", "Stochast",
+    ("11", "/stochast/", "5 plugins · 28 modules", "Stochast",
      """Statistics and emergence as patchable CV: sampling distributions, the bootstrap, agent-based cascades, epidemics, reaction-diffusion.""",
      "Free", "is-free"),
-    ("13", "/mashina/", "8 modules", "Mashina",
+    ("12", "/mashina/", "8 modules", "Mashina",
      """Soviet machines meet the West Coast. Drum voices, oscillators, a master clock, a plate reverb and generative sequencers.""",
      "Free", "is-free"),
-    ("14", "/lucida/", "2 modules · Colony, Turing", "Lucida",
+    ("13", "/lucida/", "2 modules · Colony, Turing", "Lucida",
      """Generative systems made visible. A cellular-automaton grid and a probabilistic shift-register sequencer with a built-in quantizer.""",
      "Free", "is-free"),
-    ("15", "/rikoshet/", "4 modules · Gate, PingPong, MultiTap, Blend", "Rikoshet",
+    ("14", "/rikoshet/", "4 modules · Gate, PingPong, MultiTap, Blend", "Rikoshet",
      """Rhythmic delay and gate effects, tempo-synced. Lock them to your clock for movement in time and across the stereo field.""",
      "Free", "is-free"),
-    ("16", "/atmos/", "4 modules · Helix, Halo, Metro185, Skywave", "Atmos",
+    ("15", "/atmos/", "4 modules · Helix, Halo, Metro185, Skywave", "Atmos",
      """Tone, space and time. A transistor-ladder filter, a stereo colour repeater, a character delay with reverb and an eight-stage sequencer.""",
      "Free", "is-free"),
-    ("17", "/downloads/SHLabs-Phosphor-2.0.0-mac-arm64.vcvplugin",
+    ("16", "/downloads/SHLabs-Phosphor-2.0.0-mac-arm64.vcvplugin",
      "3 modules · Beam, Chroma, Cathode", "Phosphor for VCV Rack",
      """An LZX-style video chain that passes a lo-fi RGB frame over an expander bus, turning luma and motion back into CV.""",
      "Free &darr;", "is-free"),
