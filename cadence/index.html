@@ -4,12 +4,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Cadence — SHLabs</title>
-  <meta name="description" content="Cadence is a hybrid-performance brain from SHLabs: a DJ-style four-channel performance mixer, master clock and sync hub for hardware, files and live inputs. Sample-accurate 24-PPQN MIDI clock, beatgrid players, automatic structure analysis, Ableton Link and OSC. Standalone app, macOS. Coming soon.">
+  <meta name="description" content="Cadence is a hybrid-performance brain from SHLabs: a DJ-style four-channel performance mixer, master clock and sync hub for hardware, files and live inputs. Sample-accurate 24-PPQN MIDI clock, beatgrid players, automatic structure analysis, on-device stem separation, a Composer timeline with a piano roll, MIDI and audio take recording, Ableton Link and OSC. Standalone app for macOS, Windows and Linux. Coming soon.">
   <meta name="theme-color" content="#f3f2ee">
   <link rel="icon" type="image/svg+xml" href="/img/favicon.svg">
   <link rel="stylesheet" href="/css/shlabs.css">
   <meta property="og:title" content="Cadence — SHLabs">
-  <meta property="og:description" content="Cadence is a hybrid-performance brain from SHLabs: a DJ-style four-channel performance mixer, master clock and sync hub for hardware, files and live inputs. Sample-accurate 24-PPQN MIDI clock, beatgrid players, automatic structure analysis, Ableton Link and OSC. Standalone app, macOS. Coming soon.">
+  <meta property="og:description" content="Cadence is a hybrid-performance brain from SHLabs: a DJ-style four-channel performance mixer, master clock and sync hub for hardware, files and live inputs. Sample-accurate 24-PPQN MIDI clock, beatgrid players, automatic structure analysis, on-device stem separation, a Composer timeline with a piano roll, MIDI and audio take recording, Ableton Link and OSC. Standalone app for macOS, Windows and Linux. Coming soon.">
   <meta property="og:type" content="website">
   <script>document.documentElement.className+=" js";</script>
 </head>
@@ -45,9 +45,9 @@
     <h1 class="psheet__name">Cadence</h1>
     <div class="psheet__grid">
       <div class="psheet__claim"><p>A hybrid-performance brain.</p></div>
-      <div class="psheet__desc"><p class="body">Four channels of live inputs and beatgrid players under DJ-style hands, a sample-accurate MIDI clock that the rest of your rig follows, and an assist layer that can hold the mix together while you play hardware on top.</p></div>
+      <div class="psheet__desc"><p class="body">Four channels of live inputs and beatgrid players under DJ-style hands, a sample-accurate MIDI clock that the rest of your rig follows, and an assist layer that can hold the mix together while you play hardware on top. Whatever you play over it, a keyboard or the synth on the desk, records back onto the channel it came from as a loop.</p></div>
     </div>
-    <div class="psheet__spec mono"><span>Standalone app</span><span>macOS — Windows alpha in testing</span></div>
+    <div class="psheet__spec mono"><span>Standalone app</span><span>macOS — Windows and Linux alpha in testing</span></div>
   </header>
 
   <div class="rule--ink"></div>
@@ -69,16 +69,16 @@
           <figure class="explore__panel" id="view-perform" data-explore-panel>
             <figcaption class="explore__note">
               <p class="body">Perform — the mixer: four strips, each running a live input or a deck from your collection, under one master section.</p>
-              <div class="explore__spec mono"><span>3-band EQ with full kill</span><span>Filter per channel</span><span>Pre-fader cue bus</span><span>Master metering</span></div>
+              <div class="explore__spec mono"><span>3-band EQ with full kill</span><span>Filter per channel</span><span>Pre-fader cue bus</span><span>Stem chips per deck</span><span>REC chip per deck</span></div>
             </figcaption>
             <div class="plate plate--hi"><img src="/img/shots/cadence.jpg" alt="The Perform view: four mixer strips with faders and meters at the centre, a deck waveform either side of them, and the collection docked below" width="2360" height="1864"></div>
           </figure>
           <figure class="explore__panel" id="view-composer" data-explore-panel>
             <figcaption class="explore__note">
-              <p class="body">Composer — a bar timeline where the set is laid out in advance: one lane per deck, each track a full-length clip that launches its deck as the master playhead crosses it.</p>
-              <div class="explore__spec mono"><span>Vol / filt / dly / verb / OSC lanes</span><span>Macro envelopes M1–M8</span><span>Saved as a performance Set</span></div>
+              <p class="body">Composer — a bar timeline where the set is laid out in advance: one lane per channel, audio clips and MIDI blocks on the lanes, automation drawn underneath, and its own PLAY as the transport for the arrangement.</p>
+              <div class="explore__spec mono"><span>Whole set to sixteenth-note zoom</span><span>Piano roll with marquee editing</span><span>Vol / filt / dly / verb / OSC / macro and stem lanes</span><span>Saved as a Composition</span></div>
             </figcaption>
-            <div class="plate plate--hi"><img src="/img/shots/cadence-arrange.jpg" alt="The Composer view: four deck lanes of clips on a numbered bar timeline, under a toolbar of clip and automation tools" width="2360" height="1864" loading="lazy"></div>
+            <div class="plate plate--hi"><img src="/img/shots/cadence-arrange.jpg" alt="The Composer view: four channel lanes carrying audio clips and MIDI blocks on a numbered bar timeline, with automation curves under the lanes and a toolbar of clip and automation tools above them" width="2360" height="1864" loading="lazy"></div>
           </figure>
           <figure class="explore__panel" id="view-collection" data-explore-panel>
             <figcaption class="explore__note">
@@ -89,8 +89,8 @@
           </figure>
           <figure class="explore__panel" id="view-sampler" data-explore-panel>
             <figcaption class="explore__note">
-              <p class="body">Sampler — a non-destructive editor for snipping regions out of tracks: select on the beatgrid, then save the piece, or collect regions into a strip and render them as one crossfaded clip.</p>
-              <div class="explore__spec mono"><span>Beatgrid-snapped selection</span><span>Cue or main monitoring, own level</span><span>24-bit WAV, equal-power joins</span></div>
+              <p class="body">Sampler — a non-destructive editor for snipping regions out of tracks: select on the beatgrid, audition through the Sampler's own voice, then save the piece, or collect regions into a strip and render them as one crossfaded clip.</p>
+              <div class="explore__spec mono"><span>Beatgrid-snapped selection</span><span>Its own preview voice, no deck borrowed</span><span>Cue and main are independent</span><span>24-bit WAV, equal-power joins</span></div>
             </figcaption>
             <div class="plate plate--hi"><img src="/img/shots/cadence-sampler.jpg" alt="The Sampler view: a zoomed waveform with a beatgrid-snapped selection highlighted, under the save, monitor and strip controls" width="2360" height="1864" loading="lazy"></div>
           </figure>
@@ -137,22 +137,32 @@
     <div class="spec">
       <span class="row__no">06</span>
       <span class="row__id"><span class="row__cat">Players</span><h3 class="row__name">Beatgrid-native clips</h3></span>
-      <p class="row__desc">Quantized bar launch, warp and vari-speed sync to the master tempo, flexible grid with key-lock, eight hot cues and cue preview from the browser. Waveform lanes show phase and sync against the beat grid, and a composer view runs a master playhead over the whole set.</p>
+      <p class="row__desc">Quantized bar launch, warp and vari-speed sync to the master tempo, flexible grid with key-lock, eight hot cues and cue preview from the browser. Waveform lanes show phase and sync against the beat grid, so you can see whether two decks land together.</p>
     </div>
     <div class="spec">
       <span class="row__no">07</span>
+      <span class="row__id"><span class="row__cat">Composer</span><h3 class="row__name">A set laid out in advance</h3></span>
+      <p class="row__desc">A bar timeline with one lane per channel: full-length clips, MIDI blocks and hand-drawn automation, under its own PLAY. Zoom runs from a whole set on one screen down to a sixteenth note, the piano roll selects and edits notes in bulk, and the rows of the key the app has resolved are lit as you write. Saved and reloaded as a Composition.</p>
+    </div>
+    <div class="spec">
+      <span class="row__no">08</span>
       <span class="row__id"><span class="row__cat">Analysis</span><h3 class="row__name">It reads the track</h3></span>
       <p class="row__desc">Automatic beatgrid and structure detection marks intro, break, drop and outro, with auto-sections snapped to bars, mood descriptors and clip-safe gain. The library stores the analysis, so a track you prepared once stays prepared.</p>
     </div>
     <div class="spec">
-      <span class="row__no">08</span>
+      <span class="row__no">09</span>
       <span class="row__id"><span class="row__cat">Assist</span><h3 class="row__name">An auto-DJ layer you steer</h3></span>
       <p class="row__desc">Key-aware transition modes, adjustable pacing, a build-up loop into the drop and FX ramps. When tracks are separated, transitions use the stems themselves — real bass swaps and vocal handovers, not just EQ moves. Hand it the next stretch and it holds the mix; take it back mid-transition and nothing jumps.</p>
     </div>
     <div class="spec">
-      <span class="row__no">09</span>
+      <span class="row__no">10</span>
       <span class="row__id"><span class="row__cat">Control</span><h3 class="row__name">Mapped to your gear</h3></span>
       <p class="row__desc">MIDI-learn on everything, with A/B bank switching so a small controller still reaches the whole surface. A phone remote joins over the local network by QR code. OSC broadcasts clock phase, beat, BPM and transport alongside master band energy, kick onsets, per-stem levels and a drop-aware intensity signal.</p>
+    </div>
+    <div class="spec">
+      <span class="row__no">11</span>
+      <span class="row__id"><span class="row__cat">The look</span><h3 class="row__name">Two surfaces, one switch</h3></span>
+      <p class="row__desc">Cadence comes up in the Index look: the design language of this site turned dark, square and ruled rather than boxed, with type set by role instead of by whatever height a control happened to have. Classic, the surface Cadence had before it, is still a setting, and the switch is instant with nothing dropping out of the mix.</p>
     </div>
   </section>
 
@@ -165,19 +175,49 @@
       <p class="lead">Cadence separates a track into its four parts on your machine — no cloud, no upload — and then treats them as performance surface: kill a vocal, keep the drums under the next tune, solo a bassline, and let the auto-DJ trade basslines instead of EQ bands.</p>
     </div>
     <div class="spec">
-      <span class="row__no">10</span>
+      <span class="row__no">12</span>
       <span class="row__id"><span class="row__cat">Separate</span><h3 class="row__name">Four parts, on your machine</h3></span>
       <p class="row__desc">One right-click separates a track into drums, bass, other and vocals with a state-of-the-art neural model running locally — around forty seconds for a club track on Apple Silicon. Results live in the library cache, so a track is only ever separated once.</p>
     </div>
     <div class="spec">
-      <span class="row__no">11</span>
+      <span class="row__no">13</span>
       <span class="row__id"><span class="row__cat">Perform</span><h3 class="row__name">Kills that land on the bar</h3></span>
       <p class="row__desc">Each stemmed deck grows four mute chips and a solo per part, all quantized to the grid — a queued kill blinks until the bar line and drops exactly on it, or shift-click for an instant stab. Key-lock holds pitch throughout, and every chip is MIDI-learnable.</p>
     </div>
     <div class="spec">
-      <span class="row__no">12</span>
+      <span class="row__no">14</span>
       <span class="row__id"><span class="row__cat">Assist + stems</span><h3 class="row__name">The auto-DJ mixes with the parts</h3></span>
       <p class="row__desc">Transitions become stem-aware when the material allows it: bass swaps trade the actual basslines on the swap bar, the incoming vocal waits until the outgoing one is out of the way, and with both tracks separated it hands over drums first, then bass — the way you would.</p>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="group__head group__head--first">
+      <h2 class="mono">Recording</h2>
+      <span class="mono dim-2">The mix · MIDI takes · audio takes</span>
+    </div>
+    <div class="blk pad">
+      <p class="lead">Cadence records the mix that leaves it, and it records into itself: a part played on a keyboard, or a synth standing on the desk, is captured on the channel it arrived on and left looping there.</p>
+    </div>
+    <div class="spec">
+      <span class="row__no">15</span>
+      <span class="row__id"><span class="row__cat">The take</span><h3 class="row__name">Count in, play, it loops</h3></span>
+      <p class="row__desc">Arm a channel and the count-in starts on the next bar line rather than under your finger, because a loop that began where the mouse landed could never come back in phase. The click is forced audible for the count, the recording stops itself at the loop length you chose, and the loop starts immediately in the phase you played it. One shared menu sets loop length and count-in bars for every kind of take.</p>
+    </div>
+    <div class="spec">
+      <span class="row__no">16</span>
+      <span class="row__id"><span class="row__cat">MIDI</span><h3 class="row__name">Three places to record into</h3></span>
+      <p class="row__desc">Record a MIDI device onto a Perform channel, onto a Composer lane, or into the clip open in the note editor. Quantize is a sensitivity rather than a switch: it moves note starts and leaves the durations you played alone, so a take tightens without losing its phrasing. Snap to key moves an off-key note to the nearest one in the key the app has resolved, and does nothing at all when no key resolves.</p>
+    </div>
+    <div class="spec">
+      <span class="row__no">17</span>
+      <span class="row__id"><span class="row__cat">Audio</span><h3 class="row__name">The synth in the room, on the grid</h3></span>
+      <p class="row__desc">Record a hardware synth on a live input, or a hosted instrument you are playing, as a looping clip on the channel or as a clip in a composition. The tap sits after the channel has made its sound and before it shapes it, ahead of the EQ, the filter and the sends, so the loop is still yours to tweak afterwards. The take is latency-compensated, with a manual trim for interfaces that misreport, and it is born on the master grid rather than handed to a beat detector.</p>
+    </div>
+    <div class="spec">
+      <span class="row__no">18</span>
+      <span class="row__id"><span class="row__cat">The mix</span><h3 class="row__name">The set, as it went out</h3></span>
+      <p class="row__desc">The master button records the master bus, after the compressor and the limiter, as a 24-bit WAV. It runs independently of the channel takes, so recording the night and recording a loop into channel 3 are not a choice.</p>
     </div>
   </section>
 
@@ -192,12 +232,12 @@
       <p class="lead">Phosphor listens to Cadence over OSC and locks the visuals to the clock. Motion lands on the beat, parameters move with bass, mid and high energy, kicks flash, and the image surges when the drop arrives and settles back through the breakdown. This is how the two apps already behave together, not something on a roadmap.</p>
     </div>
     <div class="spec">
-      <span class="row__no">13</span>
+      <span class="row__no">19</span>
       <span class="row__id"><span class="row__cat">Cadence sends</span><h3 class="row__name">Clock, structure, energy</h3></span>
       <p class="row__desc">Beat and clock phase, BPM and transport, master band energy across bass, mid and high, kick onsets, and a drop-aware intensity signal — plus live per-stem levels and drum-stem onsets when a deck plays separated stems. Broadcast continuously over OSC while you play.</p>
     </div>
     <div class="spec">
-      <span class="row__no">14</span>
+      <span class="row__no">20</span>
       <span class="row__id"><span class="row__cat">Phosphor answers</span><h3 class="row__name">Visuals on the same grid</h3></span>
       <p class="row__desc">Scene motion locks to beat phase, reactive parameters follow the bands, kick onsets fire shockwave ripples, and intensity drives the whole image up into the drop — fullscreen on the projector.</p>
     </div>
@@ -230,7 +270,7 @@
     </div>
     <div class="blk pad">
       <p class="lead">Cadence is a premium SHLabs app in active development. This page is an early look.</p>
-      <p class="body">The macOS build is in testing and a Windows alpha is running alongside it. Pricing and availability are announced when it ships. For early access, or if you want to know whether Cadence will clock the specific box on your desk, write to us.</p>
+      <p class="body">The macOS build is in testing, with Windows and Linux alphas alongside it. Pricing and availability are announced when it ships. For early access, or if you want to know whether Cadence will clock the specific box on your desk, write to us.</p>
       <div class="acts">
         <a class="act act--fill" href="mailto:shlabs.contact@gmail.com">Write us</a>
         <a class="act" href="/#index">All products &rarr;</a>

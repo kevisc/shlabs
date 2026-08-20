@@ -412,14 +412,14 @@ PRODUCTS = {}
 PRODUCTS["cadence"] = {
     "name": "Cadence",
     "title": "Cadence — SHLabs",
-    "desc": """Cadence is a hybrid-performance brain from SHLabs: a DJ-style four-channel performance mixer, master clock and sync hub for hardware, files and live inputs. Sample-accurate 24-PPQN MIDI clock, beatgrid players, automatic structure analysis, Ableton Link and OSC. Standalone app, macOS. Coming soon.""",
+    "desc": """Cadence is a hybrid-performance brain from SHLabs: a DJ-style four-channel performance mixer, master clock and sync hub for hardware, files and live inputs. Sample-accurate 24-PPQN MIDI clock, beatgrid players, automatic structure analysis, on-device stem separation, a Composer timeline with a piano roll, MIDI and audio take recording, Ableton Link and OSC. Standalone app for macOS, Windows and Linux. Coming soon.""",
     "crumb": ("Performance &amp; live", "/#cat-live"),
     "cat": "Performance mixer &amp; master clock",
     "status": "Coming soon",
     "soon": True,
     "claim": "A hybrid-performance brain.",
-    "lead": """Four channels of live inputs and beatgrid players under DJ-style hands, a sample-accurate MIDI clock that the rest of your rig follows, and an assist layer that can hold the mix together while you play hardware on top.""",
-    "spec": ["Standalone app", "macOS — Windows alpha in testing"],
+    "lead": """Four channels of live inputs and beatgrid players under DJ-style hands, a sample-accurate MIDI clock that the rest of your rig follows, and an assist layer that can hold the mix together while you play hardware on top. Whatever you play over it, a keyboard or the synth on the desk, records back onto the channel it came from as a loop.""",
+    "spec": ["Standalone app", "macOS — Windows and Linux alpha in testing"],
     # No hero plate: the Perform shot that used to sit here is the first view
     # of the explorer below, and one screenshot on a sheet twice is one too
     # many. The explorer opens the page in its place.
@@ -427,7 +427,8 @@ PRODUCTS["cadence"] = {
     "sections": [
         {"parts": [
             ("head", "Inside Cadence", "Four views, one surface"),
-            # PERFORM / COLLECTION / ARRANGE / SAMPLER, in the app's own order.
+            # PERFORM / COMPOSER / COLLECTION / SAMPLER, in the app's own order,
+            # which is also the order of the number keys that switch them.
             # Every claim below is checked against the app: docs/manual/index.html
             # and TESTERS.md in the hybrid-mixer repo, and the view sources.
             ("explore", "Cadence views", [
@@ -437,14 +438,15 @@ PRODUCTS["cadence"] = {
                  2360, 1864,
                  """Perform — the mixer: four strips, each running a live input or a deck from your collection, under one master section.""",
                  ["3-band EQ with full kill", "Filter per channel",
-                  "Pre-fader cue bus", "Master metering"]),
+                  "Pre-fader cue bus", "Stem chips per deck", "REC chip per deck"]),
                 ("composer", "Composer",
                  "/img/shots/cadence-arrange.jpg",
-                 "The Composer view: four deck lanes of clips on a numbered bar timeline, under a toolbar of clip and automation tools",
+                 "The Composer view: four channel lanes carrying audio clips and MIDI blocks on a numbered bar timeline, with automation curves under the lanes and a toolbar of clip and automation tools above them",
                  2360, 1864,
-                 """Composer — a bar timeline where the set is laid out in advance: one lane per deck, each track a full-length clip that launches its deck as the master playhead crosses it.""",
-                 ["Vol / filt / dly / verb / OSC lanes", "Macro envelopes M1–M8",
-                  "Saved as a performance Set"]),
+                 """Composer — a bar timeline where the set is laid out in advance: one lane per channel, audio clips and MIDI blocks on the lanes, automation drawn underneath, and its own PLAY as the transport for the arrangement.""",
+                 ["Whole set to sixteenth-note zoom", "Piano roll with marquee editing",
+                  "Vol / filt / dly / verb / OSC / macro and stem lanes",
+                  "Saved as a Composition"]),
                 ("collection", "Collection",
                  "/img/shots/cadence-collection.jpg",
                  "The Collection view: the track table with waveform, BPM, key, genre, length, grid and stems columns, and Load 1 to 4 buttons above it",
@@ -456,9 +458,9 @@ PRODUCTS["cadence"] = {
                  "/img/shots/cadence-sampler.jpg",
                  "The Sampler view: a zoomed waveform with a beatgrid-snapped selection highlighted, under the save, monitor and strip controls",
                  2360, 1864,
-                 """Sampler — a non-destructive editor for snipping regions out of tracks: select on the beatgrid, then save the piece, or collect regions into a strip and render them as one crossfaded clip.""",
-                 ["Beatgrid-snapped selection", "Cue or main monitoring, own level",
-                  "24-bit WAV, equal-power joins"]),
+                 """Sampler — a non-destructive editor for snipping regions out of tracks: select on the beatgrid, audition through the Sampler's own voice, then save the piece, or collect regions into a strip and render them as one crossfaded clip.""",
+                 ["Beatgrid-snapped selection", "Its own preview voice, no deck borrowed",
+                  "Cue and main are independent", "24-bit WAV, equal-power joins"]),
             ]),
         ]},
         {"parts": [
@@ -480,13 +482,17 @@ PRODUCTS["cadence"] = {
                 ("Clock &amp; sync", "Hardware locked to the grid",
                  """24-PPQN MIDI clock out, sample-accurate and phase-locked to audio, driving eurorack, Elektron boxes and drum machines with transport start and stop. Tap tempo for anything unclocked, Ableton Link for anything on the network."""),
                 ("Players", "Beatgrid-native clips",
-                 """Quantized bar launch, warp and vari-speed sync to the master tempo, flexible grid with key-lock, eight hot cues and cue preview from the browser. Waveform lanes show phase and sync against the beat grid, and a composer view runs a master playhead over the whole set."""),
+                 """Quantized bar launch, warp and vari-speed sync to the master tempo, flexible grid with key-lock, eight hot cues and cue preview from the browser. Waveform lanes show phase and sync against the beat grid, so you can see whether two decks land together."""),
+                ("Composer", "A set laid out in advance",
+                 """A bar timeline with one lane per channel: full-length clips, MIDI blocks and hand-drawn automation, under its own PLAY. Zoom runs from a whole set on one screen down to a sixteenth note, the piano roll selects and edits notes in bulk, and the rows of the key the app has resolved are lit as you write. Saved and reloaded as a Composition."""),
                 ("Analysis", "It reads the track",
                  """Automatic beatgrid and structure detection marks intro, break, drop and outro, with auto-sections snapped to bars, mood descriptors and clip-safe gain. The library stores the analysis, so a track you prepared once stays prepared."""),
                 ("Assist", "An auto-DJ layer you steer",
                  """Key-aware transition modes, adjustable pacing, a build-up loop into the drop and FX ramps. When tracks are separated, transitions use the stems themselves — real bass swaps and vocal handovers, not just EQ moves. Hand it the next stretch and it holds the mix; take it back mid-transition and nothing jumps."""),
                 ("Control", "Mapped to your gear",
                  """MIDI-learn on everything, with A/B bank switching so a small controller still reaches the whole surface. A phone remote joins over the local network by QR code. OSC broadcasts clock phase, beat, BPM and transport alongside master band energy, kick onsets, per-stem levels and a drop-aware intensity signal."""),
+                ("The look", "Two surfaces, one switch",
+                 """Cadence comes up in the Index look: the design language of this site turned dark, square and ruled rather than boxed, with type set by role instead of by whatever height a control happened to have. Classic, the surface Cadence had before it, is still a setting, and the switch is instant with nothing dropping out of the mix."""),
             ]),
         ]},
         {"parts": [
@@ -499,6 +505,20 @@ PRODUCTS["cadence"] = {
                  """Each stemmed deck grows four mute chips and a solo per part, all quantized to the grid — a queued kill blinks until the bar line and drops exactly on it, or shift-click for an instant stab. Key-lock holds pitch throughout, and every chip is MIDI-learnable."""),
                 ("Assist + stems", "The auto-DJ mixes with the parts",
                  """Transitions become stem-aware when the material allows it: bass swaps trade the actual basslines on the swap bar, the incoming vocal waits until the outgoing one is out of the way, and with both tracks separated it hands over drums first, then bass — the way you would."""),
+            ]),
+        ]},
+        {"parts": [
+            ("head", "Recording", "The mix · MIDI takes · audio takes"),
+            ("lead", """Cadence records the mix that leaves it, and it records into itself: a part played on a keyboard, or a synth standing on the desk, is captured on the channel it arrived on and left looping there."""),
+            ("rows", [
+                ("The take", "Count in, play, it loops",
+                 """Arm a channel and the count-in starts on the next bar line rather than under your finger, because a loop that began where the mouse landed could never come back in phase. The click is forced audible for the count, the recording stops itself at the loop length you chose, and the loop starts immediately in the phase you played it. One shared menu sets loop length and count-in bars for every kind of take."""),
+                ("MIDI", "Three places to record into",
+                 """Record a MIDI device onto a Perform channel, onto a Composer lane, or into the clip open in the note editor. Quantize is a sensitivity rather than a switch: it moves note starts and leaves the durations you played alone, so a take tightens without losing its phrasing. Snap to key moves an off-key note to the nearest one in the key the app has resolved, and does nothing at all when no key resolves."""),
+                ("Audio", "The synth in the room, on the grid",
+                 """Record a hardware synth on a live input, or a hosted instrument you are playing, as a looping clip on the channel or as a clip in a composition. The tap sits after the channel has made its sound and before it shapes it, ahead of the EQ, the filter and the sends, so the loop is still yours to tweak afterwards. The take is latency-compensated, with a manual trim for interfaces that misreport, and it is born on the master grid rather than handed to a beat detector."""),
+                ("The mix", "The set, as it went out",
+                 """The master button records the master bus, after the compressor and the limiter, as a 24-bit WAV. It runs independently of the channel takes, so recording the night and recording a loop into channel 3 are not a choice."""),
             ]),
         ]},
         {"slab": True, "id": "bundle", "parts": [
@@ -526,7 +546,7 @@ PRODUCTS["cadence"] = {
         {"parts": [
             ("head", "Get it", ""),
             ("lead", """Cadence is a premium SHLabs app in active development. This page is an early look."""),
-            ("body", """The macOS build is in testing and a Windows alpha is running alongside it. Pricing and availability are announced when it ships. For early access, or if you want to know whether Cadence will clock the specific box on your desk, write to us."""),
+            ("body", """The macOS build is in testing, with Windows and Linux alphas alongside it. Pricing and availability are announced when it ships. For early access, or if you want to know whether Cadence will clock the specific box on your desk, write to us."""),
             ("acts", [(MAIL, "Write us", "fill"), ALL_PRODUCTS]),
         ]},
     ],
@@ -1251,7 +1271,9 @@ def homepage():
           A four-channel performance mixer, master clock and sync hub in one
           standalone app. Beatgrid clip players with quantized launch, automatic
           structure detection, on-device stem separation with quantized stem kills,
-          and an assist layer that can carry a transition. A sample-accurate MIDI
+          and an assist layer that can carry a transition. A Composer timeline
+          lays a whole set out in advance, and what you play over it, MIDI or
+          audio, records back onto its channel as a loop. A sample-accurate MIDI
           clock keeps your modular, drum machines and grooveboxes following you,
           not the other way round.
         </p>
@@ -1260,7 +1282,7 @@ def homepage():
           <span>24-PPQN MIDI clock</span>
           <span>Ableton Link</span>
           <span>OSC broadcast</span>
-          <span class="dim-2">macOS · Windows alpha in testing</span>
+          <span class="dim-2">macOS · Windows and Linux alpha in testing</span>
         </div>
       </div>
     </div>

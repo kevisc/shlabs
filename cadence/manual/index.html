@@ -88,6 +88,7 @@ footer{margin-top:60px;padding-top:16px;border-top:1px solid var(--edge);color:v
   <a href="#editors">Grid &amp; section editors</a>
   <h2>CREATE</h2>
   <a href="#arrange">Composer</a>
+  <a href="#takes">Recording takes</a>
   <a href="#edit">Sampler (samples &amp; strips)</a>
   <h2>EXPAND</h2>
   <a href="#plugins">Plugins, chains &amp; macros</a>
@@ -113,7 +114,7 @@ footer{margin-top:60px;padding-top:16px;border-top:1px solid var(--edge);color:v
 <ul>
   <li><b>Perform</b> &mdash; the mixer: four strips, master section, track overviews.</li>
   <li><b>Collection</b> &mdash; your library: scanning, search, playlists, key-compatible browsing.</li>
-  <li><b>Composer</b> &mdash; a timeline: lay out a set in advance with automation envelopes.</li>
+  <li><b>Composer</b> &mdash; a timeline: lay out a set in advance, with clips, MIDI and automation envelopes.</li>
   <li><b>Sampler</b> &mdash; a sample editor: snip sounds out of tracks, render strip re-edits.</li>
 </ul>
 </section>
@@ -136,6 +137,9 @@ footer{margin-top:60px;padding-top:16px;border-top:1px solid var(--edge);color:v
 <p><span class="btn">PERFORM</span> <span class="btn">COMPOSER</span> <span class="btn">COLLECTION</span> <span class="btn">SAMPLER</span> switch the whole surface (keys <kbd>1</kbd>&ndash;<kbd>4</kbd>, left to right). The transport bar stays on top in every mode.</p>
 <h3>Transport bar</h3>
 <p><span class="btn">PLAY</span> starts the master clock (and sends MIDI Start). The <b>BPM slider</b> (60&ndash;180) eases to a new tempo gradually instead of snapping. <span class="btn">T</span> is tap-tempo, <span class="btn">M</span> the metronome (right-click it to route the click to master and/or headphones and set its level). <span class="btn">LINK</span> joins an Ableton Link session. Quantize &mdash; the <i>one</i> grid for everything &mdash; lives in <span class="btn">SETTINGS</span>; see <a href="#transport">Transport &amp; quantize</a>.</p>
+<h3>Appearance: Index and Classic</h3>
+<p>Cadence ships two looks, both dark, and the switch between them is instant: nothing restarts, and nothing drops out of the mix while it happens. <b>Index</b> is what a fresh install comes up in, the SHLabs typographic look: square corners, no gradients or drop shadows, structure drawn as rules rather than boxes, and type set by role rather than by whatever height a control happened to have. <b>Classic</b> is the surface Cadence had before it, unchanged. Switch either way in <span class="btn">SETTINGS</span> &rarr; <i>Appearance</i> &rarr; <i>Theme</i>.</p>
+<p class="muted">An install that has run Cadence before comes up in the look its session recorded, so an upgrade never re-skins the app behind your back. Only a machine that has never run Cadence gets Index automatically; flip it once in SETTINGS and it sticks.</p>
 <h3>Top bar buttons</h3>
 <p>Left to right: <span class="btn">BROWSE</span> (dock the collection into PERFORM, COMPOSER or SAMPLER, also <kbd>C</kbd>), <span class="btn">ASSIST</span> (auto-mixing &mdash; right-click for its options, among them <b>Hold</b>: taken while a mix is running it freezes that transition &mdash; faders, EQ, filters and stem moves together &mdash; where it stands, and releasing it carries on from exactly that point) and <span class="btn">REC</span>. Then, after a gap, the configuration group: <span class="btn">FX</span> (delay &amp; reverb), <span class="btn">COMPRESSOR</span>, <span class="btn">OSC</span>, <span class="btn">MIDI</span> (mapping mode &mdash; PERFORM only) and <span class="btn">SETTINGS</span>. Beside them sit the <b>engine readout</b> (buffer &middot; output latency &middot; DSP load &mdash; click it for engine options) and the <b>CADENCE</b> wordmark (click for About &amp; licenses).</p>
 <p class="muted">The top bar stays deliberately short: the plugin manager, the MIDI mapping list, UI zoom, the waveform colour choice and the shortcut overlay all live inside <span class="btn">SETTINGS</span>.</p>
@@ -154,6 +158,7 @@ footer{margin-top:60px;padding-top:16px;border-top:1px solid var(--edge);color:v
   <li><span class="btn">&rarr;BPM</span> &mdash; glides the <i>master</i> tempo gradually to this track's original BPM (ease the whole set back to native speed, unnoticed).</li>
   <li><span class="btn">KEY</span> &mdash; key-lock and key shifting; see <a href="#keylock">Key-lock</a>.</li>
   <li><b>FX chip</b> &mdash; shows the plugin chain ("EQ &gt; Comp"); click it for the plugin menu. See <a href="#plugins">Plugins</a>.</li>
+  <li><span class="btn">REC</span> &mdash; in the deck header beside <span class="btn">SRC</span> and eject: record a loop <i>into</i> this channel, from a MIDI device or from whatever it is making sound with. It appears only on a channel that can record something. See <a href="#takes">Recording takes</a>.</li>
 </ul>
 <h3>Perform panel</h3>
 <ul>
@@ -254,6 +259,7 @@ footer{margin-top:60px;padding-top:16px;border-top:1px solid var(--edge);color:v
   <li><b>Play them</b> &mdash; a loaded track that has stems grows a <b>STEMS row</b> on its deck: the <span class="btn">STEMS</span> toggle plus four chips, <span class="btn">DRM</span> <span class="btn">BSS</span> <span class="btn">OTH</span> <span class="btn">VOC</span>. Lit = audible. <b>Click a chip to mute it, right-click to solo</b> (right-click again to release the solo). Stem edits are <b>quantized</b>: a chip click, a solo and the <span class="btn">STEMS</span> toggle itself all land on the next <i>QUANT</i> boundary and blink until they do, so a kill drops on the bar and not half a beat late &mdash; <b>shift-click for instant</b>, and a second click on a blinking chip takes it back out of the queue.</li>
   <li><b>Read the STEMS button</b> &mdash; it fills solid the moment you ask for stems, not when they finish loading, and the small square in its corner says where the deck actually is: <b>hollow</b> = off, <b>blinking</b> = the stems are still being read from disk, <b>solid</b> = they are playing. Off, the button is an outline; on, it is a filled block, so which state a deck is in reads across the booth.</li>
   <li><b>With stems off, the chips are a preset</b> &mdash; on a track that has stems, clicking a chip while <span class="btn">STEMS</span> is off only mutes or un-mutes that stem. It does not switch stems on, decode anything or consult the deck cap: dial in which stems you want and then press <span class="btn">STEMS</span>, and they launch together exactly as the row showed them. Nothing is audible yet, so these edits apply instantly instead of waiting for a bar &mdash; the row always reads as what the next <span class="btn">STEMS</span> press will sound like. While stems are off the chips are drawn quietly: the mute state is still readable, and the absence of the lit fill is what tells you nothing is affecting the audio yet. <b>The mute set survives switching stems off and on</b> &mdash; kill the vocal, drop stems for a bar, bring them back and the vocal is still killed. Loading another track or ejecting clears it, and it is never written to disk, so a fresh launch always starts all-audible.</li>
+  <li><b>Draw them in the Composer</b> &mdash; the Composer toolbar has a <span class="btn">STEMS</span> button beside MACRO: click it to cycle DRM / BSS / OTH / VOC (right-click to pick one), then draw an envelope in a lane exactly as you would for VOL. During playback that curve drives the stem's level on the lane's deck. Three things to know: the stem follows the curve <b>between your first and last point only</b> and sits at full level outside them, so a curve that ends at zero can never leave a deck ducked; the lane's stems are decoded automatically eight bars before the playhead reaches the clip; and while the Composer transport runs these envelopes own the stems on their lanes, so Assist leaves those decks alone rather than fighting the curve. Your mute chips still win over everything. Stem envelopes save and load with the arrangement.</li>
   <li><b>Let Assist use them</b> &mdash; when <i>Stem transitions</i> is on (the ASSIST features menu, on by default), the auto-DJ mixes with the parts instead of only the EQ: a bass swap trades the actual basslines on the swap bar, the incoming vocal is held back until the outgoing track is out of the way, a build-up strips the outgoing tune down to drums and bass under the riser, and when both tracks are separated it can hand over drums first, then bass &mdash; the way you would. Decks without stems simply get the normal EQ transition; nothing needs arming, and your own chip mutes always win.</li>
   <li><b>Tune the cost</b> &mdash; <span class="btn">SETTINGS</span> &rarr; <i>Stems</i>. <b>Stems on up to</b> caps how many decks may hold stems at once (<i>Auto</i> reads your installed RAM and names the number it chose). <b>Separation speed</b> &mdash; Gentle / Balanced / Fast &mdash; is how many cores an <i>offline</i> separation may use; it never touches playback. On Apple Silicon there is also an experimental <b>CoreML acceleration</b> toggle, off by default: where CoreML will not take the model Cadence separates on the CPU and says so, so it can never make a separation fail.</li>
 </ul>
@@ -323,12 +329,70 @@ footer{margin-top:60px;padding-top:16px;border-top:1px solid var(--edge);color:v
 
 <section id="arrange">
 <h2>Composer</h2>
-<p>A DAW-style timeline for preparing a set. Drag tracks from the docked collection onto a lane &mdash; each becomes a full-length clip so you can see where it ends and line up the next one. When the master playhead crosses a clip, its deck launches.</p>
+<p>A DAW-style timeline for preparing a set, on key <kbd>2</kbd>. (It was called Arrange in earlier builds.) Drag tracks from the docked collection onto a lane &mdash; each becomes a full-length clip so you can see where it ends and line up the next one. When the master playhead crosses a clip, its deck launches. The Composer's own <span class="btn">PLAY</span> is the master transport for the arrangement.</p>
 <ul>
+  <li><b>Compositions:</b> <span class="btn">COMPOSITIONS</span>, the first chip on the toolbar, saves and loads whole arrangements. A loaded composition lands fully in view rather than at whatever pan and zoom you left behind.</li>
   <li><b>Clips:</b> move, trim either edge, split with the <span class="btn">CUT</span> razor. The deck's live position is mirrored on the timeline.</li>
+  <li><b>MIDI blocks:</b> with the <span class="btn">MIDI</span> tool, click an empty lane to create a MIDI clip and the piano-roll editor opens for its notes; double-click, or right-click &rarr; <i>Edit MIDI notes</i>, re-opens it later. The block plays the instrument on that lane's channel.</li>
+  <li><b>Editing notes in bulk:</b> drag on empty space for a marquee, hold shift to add to the selection, <kbd>&#8984;A</kbd> takes everything. <kbd>Delete</kbd> removes the selection, dragging a selected note moves the whole group rigidly, and dragging a selected note's right edge gives <i>every</i> note in the selection that same length (the gesture means "make them all 1/8"). With nothing selected, a click on empty space still adds one note as before.</li>
+  <li><b>In-key rows:</b> grid rows and gutter keys that belong to the current key are lit a shade brighter, so the notes that fit the set are the easy ones to hit; out-of-key rows are simply not tinted. The key is the one <span class="btn">ASSIST</span> resolves &mdash; the live key of the mix with key-follow on, your manual pick with it off &mdash; and with follow on and nothing playing, nothing is tinted rather than a default key being invented.</li>
   <li><b>Future loops:</b> with the <span class="btn">LOOP</span> tool, drag a region on a clip &mdash; when the song reaches it, the deck stays in that loop (it pulses azure while engaged; edits to an engaged loop apply live).</li>
-  <li><b>Automation:</b> the VOL / FILT / DLY / VERB modes draw envelopes per lane &mdash; played back into the channel knobs during the set (value labels show dB etc.; FILT has a centre line; CLEAR wipes the selected parameter's lane).</li>
-  <li><b>Navigation:</b> +/&minus; zoom (or <kbd>&#8984;</kbd>-scroll), <span class="btn">NOW</span> keeps the view following the playhead, lane headers carry a volume slider and a live meter, and each lane glows with its channel's level.</li>
+  <li><b>Automation:</b> the VOL / FILT / DLY / VERB / OSC modes, the <span class="btn">MACRO</span> button and the four <span class="btn">STEMS</span> curves each draw an envelope per lane, played back into the channel during the set: click to add a point, drag to move one, right-click one to delete it, <span class="btn">CURVE</span> to smooth, <span class="btn">CLEAR</span> to wipe the selected parameter's lane. Value labels show dB and the like; FILT has a centre line. <span class="btn">WRITE</span> latch-records a <i>macro</i> envelope while the transport runs; the per-lane curves are drawn by hand.</li>
+  <li><b>Recording:</b> a lane whose channel routes MIDI somewhere carries a <span class="btn">REC</span> chip in its header, first in the row of send marks. See <a href="#takes">Recording takes</a>.</li>
+  <li><b>Send marks:</b> a lane header shows a DIN-socket mark while its channel is sending MIDI and a node-and-arcs mark while it is sending OSC. They are dark until something actually flows and brighten with the level. The same two marks sit on the deck headers in PERFORM.</li>
+  <li><b>Navigation:</b> +/&minus; zoom (or <kbd>&#8984;</kbd>-scroll) runs from a 2h40 set on one screen down to a 1/16 note 40&nbsp;px wide, so the same view arranges a night and nudges one note. <span class="btn">NOW</span> keeps the view following the playhead, lane headers carry a volume slider and a live meter, and each lane glows with its channel's level.</li>
+</ul>
+</section>
+
+<section id="takes">
+<h2>Recording takes (MIDI &amp; audio)</h2>
+<p>Cadence records <i>into</i> itself: play a part on a MIDI keyboard, or on a synth standing on the desk, and it is captured as a loop on the channel it arrived on. This is not the master <span class="btn">REC</span> in the top right, which records the whole mix and is unchanged (see <a href="#recording">Recording</a>). It is a per-channel <span class="btn">REC</span> chip that appears wherever a take is possible.</p>
+
+<h3>Where the chip is</h3>
+<ul>
+  <li><b>PERFORM</b> &mdash; in the deck header, beside <span class="btn">SRC</span> and the eject button. It appears on any channel that can record something: an instrument mounted or MIDI routed out (a MIDI take), or a live input or an instrument actually making sound (an audio take). The take lands on the channel and starts looping there.</li>
+  <li><b>COMPOSER</b> &mdash; in the lane header, first in the row of send marks, on lanes whose channel routes MIDI somewhere. The take becomes a block on that lane, on the bar the count-in ended on rather than at the playhead, and an audio take is an ordinary clip block that saves, drags, trims and splits like any other.</li>
+  <li><b>The note editor</b> &mdash; a toolbar chip left of Clear / Apply / Cancel. The take replaces the clip you have open, and undoes exactly like a generate does.</li>
+</ul>
+
+<h3>How a take runs</h3>
+<p>Click <span class="btn">REC</span> to arm. The count-in starts on the <b>next bar line</b>, not under your finger, because a take that began wherever the mouse landed could never loop in phase. You then get exactly the loop length you chose, the recording <b>stops itself</b>, and the target starts looping immediately <b>in the phase you played it</b> rather than re-anchoring to the launch grid. The chip says which phase you are in: hollow is idle, blinking red is counting in, solid red is recording. <kbd>Esc</kbd>, or a click on a hot chip, aborts and commits nothing.</p>
+<p>The count-in click is <b>forced audible</b> for its duration whatever the metronome toggle says, and if the click is routed nowhere it goes to the master for the count only. A take also keeps the master clock running, so you can record on a rig where nothing else is playing.</p>
+
+<h3>The record menu</h3>
+<p>The menu opens from the chip itself, and every entry point shares the same one. Its settings are remembered between sessions.</p>
+<table>
+<tr><th>Row</th><th>Choices</th><th>What it sets</th></tr>
+<tr><td><b>SOURCE</b></td><td>MIDI / audio</td><td>Which kind of take. Offered only where both are possible: a live input with no instrument has no MIDI to record, and a Composer lane or the note editor is MIDI by nature.</td></tr>
+<tr><td><b>LOOP</b></td><td>1 / 2 / 4 / 8 bars</td><td>The length of the recording window, counted from the bar the count-in ends on. The loop is exactly this long.</td></tr>
+<tr><td><b>COUNT</b></td><td>0 / 1 / 2 bars</td><td>Bars of count-in on the metronome before recording starts.</td></tr>
+<tr><td><b>QUANT</b></td><td>0&ndash;100% (MIDI)</td><td>Quantize sensitivity, not a switch &mdash; see below.</td></tr>
+<tr><td><b>SNAP</b></td><td>GRID / KEY (MIDI)</td><td>Tidy note ends onto the grid, and pitches into the key &mdash; see below.</td></tr>
+<tr><td><b>TRIM</b></td><td>&minus;30 / &minus;15 / 0 / +15 / +30&nbsp;ms (audio)</td><td>Manual latency trim &mdash; see below.</td></tr>
+</table>
+<p class="muted">Defaults: a 4-bar loop, a 1-bar count-in, quantize 50%, snap-to-grid on, snap-to-key off. In audio mode QUANT and SNAP give their rows to TRIM: there is nothing to move onto a grid but the whole waveform, which is already on it.</p>
+
+<h3>Quantize is a sensitivity</h3>
+<p><b>QUANT</b> at 0% leaves the take raw, at 100% it snaps hard to the 1/16 grid, and in between it pulls. It moves note <b>starts</b> only: the durations you played survive, so a take keeps its phrasing while its grid tightens, and a chord held for three beats is still three beats long once its start has been pulled onto the line. <b>SNAP to GRID</b> works on the other end, and only where it is already close: a note whose tail sits within a hair of a gridline is tidied onto it, and one that does not is left where you played it.</p>
+
+<h3>Snap to key, and when it does nothing</h3>
+<p><b>SNAP to KEY</b> moves an off-key note to the nearest in-key pitch and breaks ties downward, because the flat side sits better under a melody than the sharp side pushes above it. The key is the one the app has already resolved, the same one that lights the in-key rows in the note editor, so the tint and the snap can never disagree. <b>If no key resolves, snap-to-key does nothing at all</b> rather than transposing your playing into a key nobody chose.</p>
+<div class="tip"><b>Mapped controls cannot become notes.</b> A pad you learned to CUE, or a CC64 learned to a knob, arrives in the same stream a take reads and is filtered out of it. The sustain pedal is the one special case: it is not stored (playback has no CC lane) but it <i>is</i> read, so pedalled notes keep their real lengths.</div>
+
+<h3>Audio takes: where the recorder taps the channel</h3>
+<p>An audio take is taken at the point where the channel has finished <b>making</b> sound and has not yet started <b>shaping</b> it: after the source and the whole pre-fader plugin chain, so a mounted instrument is in it, and before the EQ, the filter, the built-in delay, the channel limiter, the fader, the post-fader inserts and the sends. The committed clip plays back through that same chain, so recording ahead of it is what stops the processing being baked in twice: the loop is still yours to filter, EQ and send afterwards. One tap covers both cases, a hardware synth arriving on a live input and a hosted instrument you are jamming.</p>
+<p class="muted">What that point cannot do is separate an instrument from a pre-fader insert. The chain is one serial list and an FX slot may sit either side of the synth, so "after the instrument, before the FX" is not a place that exists.</p>
+
+<h3>Audio takes: latency and the TRIM dial</h3>
+<p>A take is latency-compensated automatically, and the compensation can be wrong. A <b>live input</b> is shifted back by the full round trip, because the player heard the click through the outputs and played against what they heard. An <b>instrument</b> generated its audio inside the block that carried its MIDI, so only the plugin's own latency applies. Drivers under-report and over-report, and an aggregate device describes a path the audio does not actually take, so <b>TRIM</b> is there to fix it by ear. If a take sounds a hair early or late against the click, that is the dial.</p>
+
+<h3>What a take is afterwards</h3>
+<ul>
+  <li><b>An audio take is born on the grid.</b> It was recorded at master tempo starting from a bar line, so its BPM and downbeat are arithmetic rather than detected, and it is marked grid-verified: nothing runs a beat detector over it. From there it rides master tempo changes like any other clip.</li>
+  <li><b>A recorded clip has no stems</b> (nothing has separated it), so its deck shows no STEMS row.</li>
+  <li><b>A channel with no input records a full-length silent take, on purpose.</b> You know whether you played, and a recorder that quietly discarded a sparse loop would eat a deliberate one.</li>
+  <li><b>A take replaces its target.</b> Recording is single-pass: no overdub, no comping, no punch-in yet, and a second take over the same target overwrites the first.</li>
+  <li><b>Audio takes are files.</b> They are written as 24-bit WAVs into <code>SHLabs/Cadence/takes</code> in your app data folder the instant the take commits, whether or not you ever save the set; a composition saved later simply names the file. Budget roughly a normal stereo WAV per take.</li>
 </ul>
 </section>
 
@@ -338,7 +402,7 @@ footer{margin-top:60px;padding-top:16px;border-top:1px solid var(--edge);color:v
 <ul>
   <li><b>Open a track:</b> press <span class="btn">BROWSE</span> (or <kbd>C</kbd>) to dock the Collection under the editor, then double-click a track &mdash; or drag one onto the waveform. Right-clicking a track anywhere in the COLLECTION &rarr; <i>Open in Sampler</i> works too.</li>
   <li><b>Select:</b> drag on the zoomable waveform; <span class="btn">SNAP</span> locks edges to the beatgrid; drag the edges to adjust. The readout shows seconds and beats. Wheel zooms, shift-wheel pans.</li>
-  <li><span class="btn">Save Sample</span> &mdash; writes the region as a 24-bit WAV into <code>~/Music/Cadence Samples</code> and adds it to the collection (drum hits, vocals, stabs&hellip;).</li>
+  <li><span class="btn">Save Sample</span> &mdash; writes the region as a 24-bit WAV into the Sampler Out folder and adds it to the collection (drum hits, vocals, stabs&hellip;).</li>
   <li><b>Monitor it:</b> <span class="btn">PLAY</span> plays the selection through the Sampler's own preview voice &mdash; instantly, straight from memory, with <b>no deck involved</b>. With nothing selected it plays the whole loaded track, so a file you just dragged in can be heard right away. <span class="btn">LOOP</span> repeats the region (the wrap is a hard splice, so you hear exactly what the saved sample will sound like), and a white playhead tracks the voice across the waveform.</li>
   <li><b>Where it goes, and how loud:</b> <span class="btn">CUE</span> and <span class="btn">MAIN</span> are two <i>independent</i> switches, not a choice of one &mdash; cue is your headphones, main is the room, and both can be on at once (or neither). <b>CUE is on and MAIN is off by default</b>, so pressing PLAY can never surprise a dance floor. <b>VOL</b> is the preview's own level; nothing on the mixer moves when you change it. Routing and level are remembered between sessions.</li>
   <li><b>It is not a deck:</b> the preview has no EQ, no filter, no FX and no channel fader, and it cannot take a deck away from you mid-set. (It replaces the old <i>Audition CH4</i> button, which loaded a rendered temp file onto a deck &mdash; sometimes one that was live on the master.)</li>
@@ -404,7 +468,8 @@ footer{margin-top:60px;padding-top:16px;border-top:1px solid var(--edge);color:v
 
 <section id="recording">
 <h2>Recording</h2>
-<p><span class="btn">REC</span> records the master bus (post compressor and limiter) as a 24-bit WAV into <code>~/Music/Cadence Recordings</code>. Press again to stop.</p>
+<p><span class="btn">REC</span> in the top right records the master bus (post compressor and limiter) as a 24-bit WAV into <code>~/Music/Cadence Recordings</code>. Press again to stop.</p>
+<p>That is the whole mix. To record a loop <i>into</i> one channel, from a MIDI device or from whatever the channel is making sound with, use that channel's own <span class="btn">REC</span> chip: see <a href="#takes">Recording takes</a>. The two are independent captures and run happily at the same time.</p>
 </section>
 
 <section id="shortcuts">
@@ -423,8 +488,9 @@ footer{margin-top:60px;padding-top:16px;border-top:1px solid var(--edge);color:v
 <tr><td><kbd>&#8984;Z</kbd></td><td>Undo (<kbd>&#8679;&#8984;Z</kbd> redo) &mdash; Composer or Collection, whichever is open</td></tr>
 <tr><td><kbd>&#8984;D</kbd> <kbd>&#8984;C</kbd> <kbd>&#8984;V</kbd></td><td>Composer: duplicate / copy / paste the selected block. The duplicate keeps everything the clip carries &mdash; trim, loop region, end behaviour, MIDI notes &mdash; and lands immediately after the original on the QUANT grid; paste lands at the playhead</td></tr>
 <tr><td><kbd>&#8984;E</kbd></td><td>Composer: split the selected block at the playhead</td></tr>
-<tr><td><kbd>Delete</kbd></td><td>Composer: delete the selected block</td></tr>
-<tr><td><kbd>Esc</kbd></td><td>Composer: back to the select tool; in Collection, clear the search</td></tr>
+<tr><td><kbd>&#8984;A</kbd></td><td>Note editor: select every note in the clip</td></tr>
+<tr><td><kbd>Delete</kbd></td><td>Composer: delete the selected block; in the note editor, the selected notes</td></tr>
+<tr><td><kbd>Esc</kbd></td><td>Aborts a recording take, anywhere. Otherwise: Composer, back to the select tool; Collection, clear the search</td></tr>
 </table>
 <p class="muted">Deck launch lives on <kbd>Q</kbd>&ndash;<kbd>R</kbd> so the number row is free to switch views. In PERFORM, <kbd>Space</kbd> does nothing on purpose &mdash; the clock is not something to nudge by accident mid-set.</p>
 <p class="muted">Shortcuts pause while you're typing in a text field. Click any empty surface to re-arm them.</p>
@@ -438,7 +504,8 @@ footer{margin-top:60px;padding-top:16px;border-top:1px solid var(--edge);color:v
 <tr><td>Session (decks, clip grids, FX chains + plugin state, macros, layout)</td><td><code>session.xml</code> in the same folder</td></tr>
 <tr><td>Stems model &amp; separated-stem cache</td><td>same folder (clear the cache in <span class="btn">SETTINGS</span>)</td></tr>
 <tr><td>Arrangement, MIDI map, OSC, plugin list, audio device</td><td>same folder, one file each</td></tr>
-<tr><td>Saved samples &amp; strip renders</td><td><code>~/Music/Cadence Samples</code></td></tr>
+<tr><td>Saved samples &amp; strip renders</td><td><code>~/Music/Cadence/Sampler Out</code></td></tr>
+<tr><td>Recorded audio takes</td><td><code>takes/</code> in the settings folder above</td></tr>
 <tr><td>Recordings</td><td><code>~/Music/Cadence Recordings</code></td></tr>
 </table>
 <p class="muted">All settings are written atomically (temp-file + swap) &mdash; a crash can't corrupt them. The session restores your decks, chains and settings on launch.</p>
@@ -459,6 +526,9 @@ footer{margin-top:60px;padding-top:16px;border-top:1px solid var(--edge);color:v
   <li><b>Audio device vanished</b> &mdash; the red banner means the interface disconnected; Cadence reconnects automatically when it returns.</li>
   <li><b>No STEMS row on the deck</b> &mdash; that track hasn't been separated yet: right-click it in the COLLECTION &rarr; <i>Separate stems</i> (and install the model in SETTINGS first, if you haven't).</li>
   <li><b>Stems won't turn on</b> &mdash; you are at the deck cap; turn them off on another deck, or raise <span class="btn">SETTINGS</span> &rarr; <i>Stems</i> &rarr; <i>Stems on up to</i>.</li>
+  <li><b>No REC chip on the deck</b> &mdash; the channel cannot record anything yet. A MIDI take needs an instrument mounted on the channel or MIDI routed out of it; an audio take needs a live input or an instrument that is actually making sound.</li>
+  <li><b>A take sits early or late against the click</b> &mdash; the audio device under- or over-reported its latency (aggregate devices are the usual culprit). Correct it by ear with <b>TRIM</b> in the record menu.</li>
+  <li><b>Snap-to-key did nothing</b> &mdash; no key had resolved, so the take was left as played rather than transposed into a guessed key. See <a href="#keylock">Key-lock &amp; key matching</a>.</li>
   <li><b>The mixer disappeared</b> &mdash; the console header cycles full &rarr; levels &rarr; hidden. Click <span class="btn">MIXER - HIDDEN</span> at the top of the deck area to bring it back.</li>
 </ul>
 </section>
