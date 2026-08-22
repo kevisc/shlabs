@@ -3,14 +3,14 @@
  * This is the only script on the site. Every page except /cadence/ is static
  * HTML: the nav is CSS-only, nothing reveals on scroll, nothing is measured.
  *
- * Progressive enhancement: without this file the four views render stacked,
+ * Progressive enhancement: without this file the views render stacked,
  * each a plate with its own note, and the tab row stays hidden (see
  * .explore__tabs in css/shlabs.css). The page adds the `js` class itself
  * before this runs, so the two layouts never flash against each other.
  *
  * The ARIA tab roles are stamped on here rather than written into the HTML,
  * so that with no script there is no tablist and no tabpanel left orphaned
- * in the accessibility tree — just four figures in document order.
+ * in the accessibility tree — just the figures in document order.
  *
  * It is an explorer, not a slideshow: nothing advances on its own.
  */
@@ -64,7 +64,7 @@
 
   select(0);
 
-  // Only now does the CSS switch from four stacked plates to the explorer.
-  // If this file never loads, the page keeps all four in flow.
+  // Only now does the CSS switch from stacked plates to the explorer.
+  // If this file never loads, the page keeps them all in flow.
   wrap.classList.add('is-ready');
 })();

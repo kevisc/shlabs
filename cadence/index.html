@@ -62,7 +62,6 @@
         <div class="explore__tabs" data-explore-tabs>
           <button class="act explore__tab" type="button" id="view-perform-tab" data-explore-tab>Perform</button>
           <button class="act explore__tab" type="button" id="view-composer-tab" data-explore-tab>Composer</button>
-          <button class="act explore__tab" type="button" id="view-collection-tab" data-explore-tab>Collection</button>
           <button class="act explore__tab" type="button" id="view-sampler-tab" data-explore-tab>Sampler</button>
         </div>
         <div class="explore__panels">
@@ -80,13 +79,6 @@
             </figcaption>
             <div class="plate plate--hi"><img src="/img/shots/cadence-arrange.jpg" alt="The Composer view: four channel lanes carrying audio clips and MIDI blocks on a numbered bar timeline, with automation curves under the lanes and a toolbar of clip and automation tools above them" width="2360" height="1864" loading="lazy"></div>
           </figure>
-          <figure class="explore__panel" id="view-collection" data-explore-panel>
-            <figcaption class="explore__note">
-              <p class="body">Collection — the library you load from, scanned and sorted: waveform, BPM, key, beatgrid confidence and stems status in the columns.</p>
-              <div class="explore__spec mono"><span>Load onto channels 1–4</span><span>Search by key or BPM range</span><span>Harmonic matches tint green</span><span>rekordbox XML import</span></div>
-            </figcaption>
-            <div class="plate plate--hi"><img src="/img/shots/cadence-collection.jpg" alt="The Collection view: the track table with waveform, BPM, key, genre, length, grid and stems columns, and Load 1 to 4 buttons above it" width="2360" height="1864" loading="lazy"></div>
-          </figure>
           <figure class="explore__panel" id="view-sampler" data-explore-panel>
             <figcaption class="explore__note">
               <p class="body">Sampler — a non-destructive editor for snipping regions out of tracks: select on the beatgrid, audition through the Sampler's own voice, then save the piece, or collect regions into a strip and render them as one crossfaded clip.</p>
@@ -96,6 +88,9 @@
           </figure>
         </div>
       </div>
+    </div>
+    <div class="blk pad">
+      <p class="body">The fourth view is the Collection, the library you load from. Scanning reads tempo, a bar-accurate beatgrid, the musical key and the loudness the auto-gain works from. The table then carries a waveform, BPM, key, genre, length, grid confidence and stems status for every track. Search filters as you type on a word, a key or a BPM range, and while a deck plays the tracks in a compatible key tint green. LOAD 1 to 4 above the table put the selected track on a channel, each button lit by that channel's live level so you never load over a playing deck. Music comes in through Add Files, or through Import XML for a rekordbox collection with its playlists, curated beatgrids and hot cues.</p>
     </div>
   </section>
 

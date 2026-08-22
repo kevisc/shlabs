@@ -38,8 +38,8 @@ design system (see css/shlabs.css).
       for a dark UI. Real screenshots appear as "plates": a single 1px ink
       hairline, no shadow, no gradient, mono caption underneath.
     * Only /cadence/ loads JavaScript, and only for the view explorer — the
-      tab row over Cadence's four views. With no script it degrades to the
-      four plates stacked in flow, each with its own note.
+      tab row over the Cadence screenshots. With no script it degrades to
+      those plates stacked in flow, each with its own note.
 """
 
 import os
@@ -427,8 +427,13 @@ PRODUCTS["cadence"] = {
     "sections": [
         {"parts": [
             ("head", "Inside Cadence", "Four views, one surface"),
-            # PERFORM / COMPOSER / COLLECTION / SAMPLER, in the app's own order,
-            # which is also the order of the number keys that switch them.
+            # PERFORM / COMPOSER / SAMPLER, in the app's own order, which is
+            # also the order of the number keys that switch them. The app's
+            # fourth view, COLLECTION, is described in the paragraph under the
+            # explorer instead of shown: the whole subject of that shot is the
+            # track table, and the licensed titles in it have to be blurred,
+            # which leaves the widest column a ladder of grey beside crisp BPM
+            # and key columns.
             # Every claim below is checked against the app: docs/manual/index.html
             # and TESTERS.md in the hybrid-mixer repo, and the view sources.
             ("explore", "Cadence views", [
@@ -447,13 +452,6 @@ PRODUCTS["cadence"] = {
                  ["Whole set to sixteenth-note zoom", "Piano roll with marquee editing",
                   "Vol / filt / dly / verb / OSC / macro and stem lanes",
                   "Saved as a Composition"]),
-                ("collection", "Collection",
-                 "/img/shots/cadence-collection.jpg",
-                 "The Collection view: the track table with waveform, BPM, key, genre, length, grid and stems columns, and Load 1 to 4 buttons above it",
-                 2360, 1864,
-                 """Collection — the library you load from, scanned and sorted: waveform, BPM, key, beatgrid confidence and stems status in the columns.""",
-                 ["Load onto channels 1–4", "Search by key or BPM range",
-                  "Harmonic matches tint green", "rekordbox XML import"]),
                 ("sampler", "Sampler",
                  "/img/shots/cadence-sampler.jpg",
                  "The Sampler view: a zoomed waveform with a beatgrid-snapped selection highlighted, under the save, monitor and strip controls",
@@ -462,6 +460,7 @@ PRODUCTS["cadence"] = {
                  ["Beatgrid-snapped selection", "Its own preview voice, no deck borrowed",
                   "Cue and main are independent", "24-bit WAV, equal-power joins"]),
             ]),
+            ("body", """The fourth view is the Collection, the library you load from. Scanning reads tempo, a bar-accurate beatgrid, the musical key and the loudness the auto-gain works from. The table then carries a waveform, BPM, key, genre, length, grid confidence and stems status for every track. Search filters as you type on a word, a key or a BPM range, and while a deck plays the tracks in a compatible key tint green. LOAD 1 to 4 above the table put the selected track on a channel, each button lit by that channel's live level so you never load over a playing deck. Music comes in through Add Files, or through Import XML for a rekordbox collection with its playlists, curated beatgrids and hot cues."""),
         ]},
         {"parts": [
             ("head", "What it is", ""),

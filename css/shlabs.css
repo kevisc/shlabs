@@ -536,10 +536,10 @@ h1, h2, h3, h4, p { margin: 0; }
 .slab { background: var(--paper-2); border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink); }
 
 /* ─── the view explorer (the only scripted component on the site) ─────── */
-/* The four views of an app under a tab row that mirrors the app's own tab
+/* The views of an app under a tab row that mirrors the app's own tab
    bar. It is an explorer, not a slideshow: nothing advances by itself and
    nothing moves, so there is no motion here for prefers-reduced-motion to
-   suppress. Without JS all four views render in flow, each a plate with its
+   suppress. Without JS every view renders in flow, each a plate with its
    own note, and the tab row never appears — the page never shows a control
    that does nothing. The script marks the component ready and only then
    does the CSS switch. */
