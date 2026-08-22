@@ -13,7 +13,7 @@ design system (see css/shlabs.css).
 
         index.html   404.html
         about/  donate/  downloads/  empiria/
-        cadence/  phosphor/  cell/  tincture/  contour/  spazio/
+        cadence/  phosphor/  cell/  contour/  spazio/
         glue/  stesso/  tonnetz/  metro185/
         stochast/  mashina/  lucida/  rikoshet/  atmos/  terra/
 
@@ -69,7 +69,6 @@ FOOTER_COLS = [
     ]),
     ("Instruments &amp; effects", [
         ("Cell", "/cell/"),
-        ("Tincture", "/tincture/"),
         ("Contour", "/contour/"),
         ("Spazio", "/spazio/"),
     ]),
@@ -592,7 +591,7 @@ PRODUCTS["phosphor"] = {
         {"slab": True, "id": "bundle", "parts": [
             ("head", "The bundle", "Bundle pricing at release"),
             ("h3", "Made to lock to Cadence"),
-            ("body", """Cadence broadcasts clock phase, beat, BPM, transport, master band energy, kick onsets and a drop-aware intensity signal over OSC. Phosphor listens and answers: motion on the beat, parameters on the bands, flashes on the kick, and the whole image surging into the drop. The bundle includes the full plugin line too — Cell, Tincture, Contour, Spazio, Glue, Stesso and Tonnetz."""),
+            ("body", """Cadence broadcasts clock phase, beat, BPM, transport, master band energy, kick onsets and a drop-aware intensity signal over OSC. Phosphor listens and answers: motion on the beat, parameters on the bands, flashes on the kick, and the whole image surging into the drop. The bundle includes the full plugin line too — Cell, Contour, Spazio, Glue, Stesso and Tonnetz."""),
             ("acts", [("/cadence/#bundle", "See the bundle &rarr;", "")]),
         ]},
         {"parts": [
@@ -627,32 +626,6 @@ PRODUCTS["cell"] = vst(
          """A built-in rack — drive, chorus, ping-pong delay and reverb — that bypasses itself completely when off, so a dry Cell stays as cheap as it gets."""),
         ("Featherweight", "Stack it everywhere",
          """Band-limited PolyBLEP oscillators and control-rate modulation keep it clean and almost free — around one percent of a CPU core for eight voices — so you can run one on every track. Thirty presets to start."""),
-    ],
-)
-
-# ─── Tincture ─────────────────────────────────────────────────────────
-PRODUCTS["tincture"] = vst(
-    name="Tincture",
-    title="Tincture — SHLabs",
-    desc="""Tincture is a wavetable synthesizer built around modulation you can touch: band-limited morphing wavetables, warp into FM and ring-mod, drawable LFOs, a 48-slot matrix and a studio FX rack. VST3 / AU / Standalone. Coming soon.""",
-    crumb=("Synthesizers &amp; instruments", "/#cat-synths"),
-    cat="Wavetable synthesizer",
-    claim="""A wavetable synthesizer built around one idea: modulation you can touch.""",
-    lead="""Morph band-limited wavetables, warp them into sync, FM and ring-mod territory, then drag an LFO straight onto any knob and watch the sound move — drawable LFOs, live modulation rings and a studio FX rack included.""",
-    shot=("/img/shots/tincture.jpg", "The Tincture plugin interface", 1280, 1170),
-    rows=[
-        ("Wavetables", "Morph without the fizz",
-         """Two wavetable oscillators on a band-limited mip-mapped engine — clean at any pitch, no aliasing. Morph across frames on a live waterfall display, browse the factory bank or drop any 2048-sample single-cycle wavetable WAV straight onto it."""),
-        ("Warp", "Bend every table further",
-         """Per-oscillator warp multiplies the timbral space of every table: hard sync, bend, PWM, mirror — plus FM and ring modulation from oscillator two. Warp amount is a modulation target like everything else."""),
-        ("Modulation", "Drag it onto anything",
-         """Grab an LFO, envelope or macro chip and drop it on any knob — every valid target glows on the way. Coloured rings show depth, live markers show the actual moving values, and a 48-slot matrix keeps the overview."""),
-        ("Drawable LFOs", "Draw the movement",
-         """Four LFOs with a drawable curve editor: click to add points, snap to the grid, bend each segment by dragging it. Tempo-sync them for pumps and gates, or run them free for slow drift."""),
-        ("Voice", "Wide, thick, playable",
-         """Up to 16-voice unison per oscillator with detune, blend and stereo spread; sub and coloured noise; dual state-variable filter with drive; poly, mono and legato modes with glide and velocity response."""),
-        ("Studio FX", "Finished sound, in the box",
-         """A seven-stage rack: distortion, chorus, tempo-synced ping-pong delay, a Dattorro plate reverb, EQ, an SSL-style bus compressor and a maximizer on the output — the same engines as the SHLabs mastering plugins."""),
     ],
 )
 
@@ -1125,58 +1098,55 @@ INDEX_GROUPS = [
         ("02", "/cell/", "Subtractive synthesizer", "Cell",
          """The essential analog voice, built to stack. Two band-limited oscillators, sub and noise into one clean state-variable filter. Featherweight on the CPU.""",
          "Soon", "is-soon"),
-        ("03", "/tincture/", "Wavetable synthesizer", "Tincture",
-         """Modulation you can touch: morphing wavetables, warp into FM and ring-mod, drawable LFOs and a 48-slot matrix.""",
-         "Soon", "is-soon"),
     ]),
     ("cat-effects", "Effects", "Modulation · space", [
-        ("04", "/contour/", "Multi-LFO modulation rack", "Contour",
+        ("03", "/contour/", "Multi-LFO modulation rack", "Contour",
          """Draw modulation on a curve editor and lock it to the beat. Four curve-LFOs over volume, pan and filter, with MIDI out.""",
          "Soon", "is-soon"),
-        ("05", "/spazio/", "Reverb and delay continuum", "Spazio",
+        ("04", "/spazio/", "Reverb and delay continuum", "Spazio",
          """Studio delay, modulated reverb and everything between on one CONTINUUM control. Echoes that smear and bloom into tails.""",
          "Soon", "is-soon"),
     ]),
     ("cat-mastering", "Mastering tools", "The last mile of a mix", [
-        ("06", "/glue/", "Mastering bus compressor", "Glue",
+        ("05", "/glue/", "Mastering bus compressor", "Glue",
          """SSL-style glue with stepped controls, program-dependent release, sidechain high-pass, Mid/Side and a parallel mix.""",
          "Soon", "is-soon"),
-        ("07", "/stesso/", "Mastering equaliser", "Stesso",
+        ("06", "/stesso/", "Mastering equaliser", "Stesso",
          """A draggable curve over a live spectrum. Up to 24 bands, eight filter types, per-band Left/Right or Mid/Side.""",
          "Soon", "is-soon"),
     ]),
     ("cat-midi", "MIDI generators &amp; composers", "Sequencing &amp; harmony brains", [
-        ("08", "/tonnetz/", "MIDI harmony conductor", "Tonnetz",
+        ("07", "/tonnetz/", "MIDI harmony conductor", "Tonnetz",
          """Master key and scale, an interactive Tonnetz lattice, three quantizers, chords, arp, bass and drone, driving your synths.""",
          "Soon", "is-soon"),
-        ("09", "/metro185/", "MIDI step sequencer", "Metro 185",
+        ("08", "/metro185/", "MIDI step sequencer", "Metro 185",
          """Eight deep steps in the RYK M-185 and System 100m lineage, reimagined for the DAW. Ratchets, 34 scales, gate modes.""",
          "Soon", "is-soon"),
     ]),
     ("cat-visuals", "Visuals", "Sound you can see", [
-        ("10", "/phosphor/", "Audio-reactive video synth", "Phosphor",
+        ("09", "/phosphor/", "Audio-reactive video synth", "Phosphor",
          """Beat-locked GPU scenes you throw fullscreen onto a projector. Fields, tunnel, fractals, spectrum, ambient, plus Syphon out.""",
          "Soon", "is-soon"),
     ]),
 ]
 
 VCV_ROWS = [
-    ("11", "/stochast/", "5 plugins · 28 modules", "Stochast",
+    ("10", "/stochast/", "5 plugins · 28 modules", "Stochast",
      """Statistics and emergence as patchable CV: sampling distributions, the bootstrap, agent-based cascades, epidemics, reaction-diffusion.""",
      "Free", "is-free"),
-    ("12", "/mashina/", "8 modules", "Mashina",
+    ("11", "/mashina/", "8 modules", "Mashina",
      """Soviet machines meet the West Coast. Drum voices, oscillators, a master clock, a plate reverb and generative sequencers.""",
      "Free", "is-free"),
-    ("13", "/lucida/", "2 modules · Colony, Turing", "Lucida",
+    ("12", "/lucida/", "2 modules · Colony, Turing", "Lucida",
      """Generative systems made visible. A cellular-automaton grid and a probabilistic shift-register sequencer with a built-in quantizer.""",
      "Free", "is-free"),
-    ("14", "/rikoshet/", "4 modules · Gate, PingPong, MultiTap, Blend", "Rikoshet",
+    ("13", "/rikoshet/", "4 modules · Gate, PingPong, MultiTap, Blend", "Rikoshet",
      """Rhythmic delay and gate effects, tempo-synced. Lock them to your clock for movement in time and across the stereo field.""",
      "Free", "is-free"),
-    ("15", "/atmos/", "4 modules · Helix, Halo, Metro185, Skywave", "Atmos",
+    ("14", "/atmos/", "4 modules · Helix, Halo, Metro185, Skywave", "Atmos",
      """Tone, space and time. A transistor-ladder filter, a stereo colour repeater, a character delay with reverb and an eight-stage sequencer.""",
      "Free", "is-free"),
-    ("16", "/downloads/SHLabs-Phosphor-2.0.0-mac-arm64.vcvplugin",
+    ("15", "/downloads/SHLabs-Phosphor-2.0.0-mac-arm64.vcvplugin",
      "3 modules · Beam, Chroma, Cathode", "Phosphor for VCV Rack",
      """An LZX-style video chain that passes a lo-fi RGB frame over an expander bus, turning luma and motion back into CV.""",
      "Free &darr;", "is-free"),
@@ -1339,7 +1309,7 @@ def homepage():
 %s
 
       <div class="index__foot mono">
-        <span>Eleven titles · one design language</span>
+        <span>Nine titles · one design language</span>
         <span>Soon = pre-release</span>
       </div>
     </div>
