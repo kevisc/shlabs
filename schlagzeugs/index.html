@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Glue — SHLabs</title>
-  <meta name="description" content="Glue is an SSL-style mastering bus compressor: program-dependent glue with stepped controls, a sidechain high-pass, Mid/Side, parallel mix and a big gain-reduction meter. VST3 / AU / Standalone. Coming soon.">
+  <title>Schlagzeugs — SHLabs</title>
+  <meta name="description" content="Schlagzeugs is a generative drum machine and MIDI source: six lanes of DFAM-style step sequencing with Labyrinth-style registers that corrupt and lock, polymeter and polyrhythm per lane, and six voices: an analog kick, a snare that becomes a clap, an 808 hat cluster and two Rings-style modal resonators. Every lane also sends MIDI. VST3 / AU / Standalone. Coming soon.">
   <meta name="theme-color" content="#f3f2ee">
   <link rel="icon" type="image/svg+xml" href="/img/favicon.svg">
   <link rel="stylesheet" href="/css/shlabs.css">
-  <meta property="og:title" content="Glue — SHLabs">
-  <meta property="og:description" content="Glue is an SSL-style mastering bus compressor: program-dependent glue with stepped controls, a sidechain high-pass, Mid/Side, parallel mix and a big gain-reduction meter. VST3 / AU / Standalone. Coming soon.">
+  <meta property="og:title" content="Schlagzeugs — SHLabs">
+  <meta property="og:description" content="Schlagzeugs is a generative drum machine and MIDI source: six lanes of DFAM-style step sequencing with Labyrinth-style registers that corrupt and lock, polymeter and polyrhythm per lane, and six voices: an analog kick, a snare that becomes a clap, an 808 hat cluster and two Rings-style modal resonators. Every lane also sends MIDI. VST3 / AU / Standalone. Coming soon.">
   <meta property="og:type" content="website">
 </head>
 <body>
@@ -31,28 +31,28 @@
   <nav class="crumb pad mono" aria-label="Breadcrumb">
     <a href="/#index">Index</a>
     <span class="sep" aria-hidden="true">/</span>
-    <a href="/#cat-mastering">Mastering tools</a>
+    <a href="/#cat-synths">Synthesizers &amp; instruments</a>
     <span class="sep" aria-hidden="true">/</span>
-    <span aria-current="page">Glue</span>
+    <span aria-current="page">Schlagzeugs</span>
   </nav>
 
   <header class="psheet pad" id="main">
     <div class="psheet__meta mono">
-      <span class="dim">Mastering bus compressor</span>
+      <span class="dim">Generative drum machine</span>
       <span class="is-soon">Coming soon</span>
     </div>
-    <h1 class="psheet__name">Glue</h1>
+    <h1 class="psheet__name">Schlagzeugs</h1>
     <div class="psheet__grid">
-      <div class="psheet__claim"><p>The compressor that does what its name says: it glues a mix together.</p></div>
-      <div class="psheet__desc"><p class="body">An SSL G-series-style bus compressor with a clean VCA core, program-dependent release and the mastering essentials — gentle, musical gain riding across the whole stereo image, on your mix bus or master.</p></div>
+      <div class="psheet__claim"><p>Kicks, hats and toms that drift against each other.</p></div>
+      <div class="psheet__desc"><p class="body">Six lanes, each a small clocked sequencer with its own length and rate, so polymeter and polyrhythm are the starting point rather than a mode. The step registers mutate at a rate you set and freeze when you like what you hear. Six voices play the result, and every lane sends a MIDI note as well, so the same groove can drive a Syntakt, a Cycles or a eurorack drum module instead.</p></div>
     </div>
     <div class="psheet__spec mono"><span>VST3 · AU · Standalone</span><span>macOS &amp; Windows</span></div>
   </header>
 
   <div class="band band--tight pad">
     <figure class="fig">
-      <div class="plate"><img src="/img/shots/glue.jpg" alt="The Glue plugin interface" width="1280" height="759" loading="lazy"></div>
-      <figcaption class="mono">The Glue plugin interface.</figcaption>
+      <div class="plate"><img src="/img/shots/schlagzeugs.jpg" alt="The Schlagzeugs plugin interface" width="2364" height="1376" loading="lazy"></div>
+      <figcaption class="mono">The Schlagzeugs plugin interface.</figcaption>
     </figure>
   </div>
 
@@ -64,33 +64,33 @@
     </div>
     <div class="spec">
       <span class="row__no">01</span>
-      <span class="row__id"><span class="row__cat">The glue</span><h3 class="row__name">Bus compression, done right</h3></span>
-      <p class="row__desc">A feed-forward VCA compressor in the spirit of the SSL G-series — the sound that holds a mix together. Subtle, cohesive gain movement that makes a busy arrangement feel like one performance.</p>
+      <span class="row__id"><span class="row__cat">Registers</span><h3 class="row__name">Patterns that corrupt and lock</h3></span>
+      <p class="row__desc">Each lane's steps are a Labyrinth-style register. CORRUPT mutates them once per cycle, DENSITY decides what a mutated step becomes, LOCK freezes every register and ROLL redraws them all from a seed. The kick's downbeat survives any amount of corruption.</p>
     </div>
     <div class="spec">
       <span class="row__no">02</span>
-      <span class="row__id"><span class="row__cat">SSL controls</span><h3 class="row__name">Stepped &amp; program-dependent</h3></span>
-      <p class="row__desc">The classic stepped ratio, attack and release, plus an Auto release that adapts to the music — brief peaks recover fast, sustained passages breathe slowly.</p>
+      <span class="row__id"><span class="row__cat">Polymeter</span><h3 class="row__name">Six lengths, six rates</h3></span>
+      <p class="row__desc">Lane lengths from 1 to 32 steps and rates from quarter notes to 1/16 triplets. One POLYMETER control morphs the six lengths toward a coprime set, so the lanes drift out of phase and back over a long cycle.</p>
     </div>
     <div class="spec">
       <span class="row__no">03</span>
-      <span class="row__id"><span class="row__cat">Sidechain HPF</span><h3 class="row__name">Stop the low-end pump</h3></span>
-      <p class="row__desc">A high-pass on the detector keeps kick and bass from triggering the whole bus, so the compression follows the music instead of riding the sub. The single most important control for mastering glue.</p>
+      <span class="row__id"><span class="row__cat">Steps</span><h3 class="row__name">DFAM rows, per step</h3></span>
+      <p class="row__desc">Gate, velocity, pitch, probability and ratchets on every step, plus two modulation rows that reach the voice: one to tune, one to decay or tone. Euclidean fills per lane, swing and humanize for the whole kit.</p>
     </div>
     <div class="spec">
       <span class="row__no">04</span>
-      <span class="row__id"><span class="row__cat">Mid / Side</span><h3 class="row__name">Centre and sides, apart</h3></span>
-      <p class="row__desc">Switch the detector into Mid/Side and compress the centre and the stereo sides independently — tighten the middle without squashing the width, or vice versa. Adjustable stereo link from dual-mono to fully linked.</p>
+      <span class="row__id"><span class="row__cat">Voices</span><h3 class="row__name">DFAM and Rings, in one kit</h3></span>
+      <p class="row__desc">An analog-style kick with a pitch envelope and FM click. A snare that morphs into a clap. Closed and open hats from a six-oscillator 808 cluster, the closed hat choking the open. A tom and a metal percussion voice on Rings-style modal resonators whose ratios morph from membrane to metal.</p>
     </div>
     <div class="spec">
       <span class="row__no">05</span>
-      <span class="row__id"><span class="row__cat">Parallel mix</span><h3 class="row__name">New-York blend</h3></span>
-      <p class="row__desc">A wet/dry Mix control for parallel compression — slam the compressed path and dial it back under the dry signal for density and punch without losing the transients.</p>
+      <span class="row__id"><span class="row__cat">MIDI</span><h3 class="row__name">An instrument and a sequencer</h3></span>
+      <p class="row__desc">Every lane sends a note on its own number and channel, on the General MIDI drum map by default. A note in on a lane's number plays that voice, so a drum clip from Cadence's Beats assist, or from any DAW, plays the kit.</p>
     </div>
     <div class="spec">
       <span class="row__no">06</span>
-      <span class="row__id"><span class="row__cat">Metering</span><h3 class="row__name">See the gain ride</h3></span>
-      <p class="row__desc">A large gain-reduction meter anchors the panel, flanked by input and output levels, with a soft knee, makeup and an auto-gain option so the level stays matched while you dial in the feel.</p>
+      <span class="row__id"><span class="row__cat">Clock</span><h3 class="row__name">Host or free-running</h3></span>
+      <p class="row__desc">Follows the host transport sample-accurately, or free-runs at its own tempo in the standalone. The engine is deterministic per seed and split-invariant, so a groove sounds the same live and bounced.</p>
     </div>
   </section>
 

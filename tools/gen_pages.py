@@ -13,7 +13,7 @@ design system (see css/shlabs.css).
 
         index.html   404.html
         about/  donate/  downloads/  empiria/
-        cadence/  phosphor/  cell/  contour/  spazio/
+        cadence/  phosphor/  cell/  schlagzeugs/  contour/  spazio/
         glue/  stesso/  tonnetz/  metro185/
         stochast/  mashina/  lucida/  rikoshet/  atmos/  terra/
 
@@ -69,6 +69,7 @@ FOOTER_COLS = [
     ]),
     ("Instruments &amp; effects", [
         ("Cell", "/cell/"),
+        ("Schlagzeugs", "/schlagzeugs/"),
         ("Contour", "/contour/"),
         ("Spazio", "/spazio/"),
     ]),
@@ -529,7 +530,8 @@ PRODUCTS["cadence"] = {
                 ("Phosphor answers", "Visuals on the same grid",
                  """Scene motion locks to beat phase, reactive parameters follow the bands, kick onsets fire shockwave ripples, and intensity drives the whole image up into the drop — fullscreen on the projector."""),
             ]),
-            ("body", """And the bundle is the whole studio: alongside <strong>Cadence</strong> and <strong>Phosphor</strong> it includes <a class="link" href="/cell/">Cell</a>, <a class="link" href="/contour/">Contour</a>, <a class="link" href="/spazio/">Spazio</a>, <a class="link" href="/glue/">Glue</a>, <a class="link" href="/stesso/">Stesso</a> and <a class="link" href="/tonnetz/">Tonnetz</a> — every instrument, effect and mastering tool in the line."""),
+            ("body", """And the bundle is the whole studio: alongside <strong>Cadence</strong> and <strong>Phosphor</strong> it includes <a class="link" href="/cell/">Cell</a>, <a class="link" href="/schlagzeugs/">Schlagzeugs</a>, <a class="link" href="/contour/">Contour</a>, <a class="link" href="/spazio/">Spazio</a>, <a class="link" href="/glue/">Glue</a>, <a class="link" href="/stesso/">Stesso</a> and <a class="link" href="/tonnetz/">Tonnetz</a> — every instrument, effect and mastering tool in the line."""),
+            ("body", """Schlagzeugs already speaks Cadence's language: the Beats assist writes a drum clip on the General MIDI drum map, which is the map Schlagzeugs plays by default."""),
             ("body", """A Tonnetz link — Cadence following and steering harmony via note-follow over OSC — is planned for the bundle."""),
             ("mono", "Bundle pricing announced at release."),
             ("acts", [("/phosphor/", "Phosphor &rarr;", ""),
@@ -591,7 +593,7 @@ PRODUCTS["phosphor"] = {
         {"slab": True, "id": "bundle", "parts": [
             ("head", "The bundle", "Bundle pricing at release"),
             ("h3", "Made to lock to Cadence"),
-            ("body", """Cadence broadcasts clock phase, beat, BPM, transport, master band energy, kick onsets and a drop-aware intensity signal over OSC. Phosphor listens and answers: motion on the beat, parameters on the bands, flashes on the kick, and the whole image surging into the drop. The bundle includes the full plugin line too — Cell, Contour, Spazio, Glue, Stesso and Tonnetz."""),
+            ("body", """Cadence broadcasts clock phase, beat, BPM, transport, master band energy, kick onsets and a drop-aware intensity signal over OSC. Phosphor listens and answers: motion on the beat, parameters on the bands, flashes on the kick, and the whole image surging into the drop. The bundle includes the full plugin line too — Cell, Schlagzeugs, Contour, Spazio, Glue, Stesso and Tonnetz."""),
             ("acts", [("/cadence/#bundle", "See the bundle &rarr;", "")]),
         ]},
         {"parts": [
@@ -626,6 +628,32 @@ PRODUCTS["cell"] = vst(
          """A built-in rack — drive, chorus, ping-pong delay and reverb — that bypasses itself completely when off, so a dry Cell stays as cheap as it gets."""),
         ("Featherweight", "Stack it everywhere",
          """Band-limited PolyBLEP oscillators and control-rate modulation keep it clean and almost free — around one percent of a CPU core for eight voices — so you can run one on every track. Thirty presets to start."""),
+    ],
+)
+
+# ─── Schlagzeugs ──────────────────────────────────────────────────────
+PRODUCTS["schlagzeugs"] = vst(
+    name="Schlagzeugs",
+    title="Schlagzeugs — SHLabs",
+    desc="""Schlagzeugs is a generative drum machine and MIDI source: six lanes of DFAM-style step sequencing with Labyrinth-style registers that corrupt and lock, polymeter and polyrhythm per lane, and six voices: an analog kick, a snare that becomes a clap, an 808 hat cluster and two Rings-style modal resonators. Every lane also sends MIDI. VST3 / AU / Standalone. Coming soon.""",
+    crumb=("Synthesizers &amp; instruments", "/#cat-synths"),
+    cat="Generative drum machine",
+    claim="""Kicks, hats and toms that drift against each other.""",
+    lead="""Six lanes, each a small clocked sequencer with its own length and rate, so polymeter and polyrhythm are the starting point rather than a mode. The step registers mutate at a rate you set and freeze when you like what you hear. Six voices play the result, and every lane sends a MIDI note as well, so the same groove can drive a Syntakt, a Cycles or a eurorack drum module instead.""",
+    shot=("/img/shots/schlagzeugs.jpg", "The Schlagzeugs plugin interface", 2364, 1376),
+    rows=[
+        ("Registers", "Patterns that corrupt and lock",
+         """Each lane's steps are a Labyrinth-style register. CORRUPT mutates them once per cycle, DENSITY decides what a mutated step becomes, LOCK freezes every register and ROLL redraws them all from a seed. The kick's downbeat survives any amount of corruption."""),
+        ("Polymeter", "Six lengths, six rates",
+         """Lane lengths from 1 to 32 steps and rates from quarter notes to 1/16 triplets. One POLYMETER control morphs the six lengths toward a coprime set, so the lanes drift out of phase and back over a long cycle."""),
+        ("Steps", "DFAM rows, per step",
+         """Gate, velocity, pitch, probability and ratchets on every step, plus two modulation rows that reach the voice: one to tune, one to decay or tone. Euclidean fills per lane, swing and humanize for the whole kit."""),
+        ("Voices", "DFAM and Rings, in one kit",
+         """An analog-style kick with a pitch envelope and FM click. A snare that morphs into a clap. Closed and open hats from a six-oscillator 808 cluster, the closed hat choking the open. A tom and a metal percussion voice on Rings-style modal resonators whose ratios morph from membrane to metal."""),
+        ("MIDI", "An instrument and a sequencer",
+         """Every lane sends a note on its own number and channel, on the General MIDI drum map by default. A note in on a lane's number plays that voice, so a drum clip from Cadence's Beats assist, or from any DAW, plays the kit."""),
+        ("Clock", "Host or free-running",
+         """Follows the host transport sample-accurately, or free-runs at its own tempo in the standalone. The engine is deterministic per seed and split-invariant, so a groove sounds the same live and bounced."""),
     ],
 )
 
@@ -1098,55 +1126,58 @@ INDEX_GROUPS = [
         ("02", "/cell/", "Subtractive synthesizer", "Cell",
          """The essential analog voice, built to stack. Two band-limited oscillators, sub and noise into one clean state-variable filter. Featherweight on the CPU.""",
          "Soon", "is-soon"),
+        ("03", "/schlagzeugs/", "Generative drum machine", "Schlagzeugs",
+         """Six lanes that corrupt, lock and drift against each other. DFAM sequencing, Labyrinth registers, Rings-style toms, and MIDI out on every lane.""",
+         "Soon", "is-soon"),
     ]),
     ("cat-effects", "Effects", "Modulation · space", [
-        ("03", "/contour/", "Multi-LFO modulation rack", "Contour",
+        ("04", "/contour/", "Multi-LFO modulation rack", "Contour",
          """Draw modulation on a curve editor and lock it to the beat. Four curve-LFOs over volume, pan and filter, with MIDI out.""",
          "Soon", "is-soon"),
-        ("04", "/spazio/", "Reverb and delay continuum", "Spazio",
+        ("05", "/spazio/", "Reverb and delay continuum", "Spazio",
          """Studio delay, modulated reverb and everything between on one CONTINUUM control. Echoes that smear and bloom into tails.""",
          "Soon", "is-soon"),
     ]),
     ("cat-mastering", "Mastering tools", "The last mile of a mix", [
-        ("05", "/glue/", "Mastering bus compressor", "Glue",
+        ("06", "/glue/", "Mastering bus compressor", "Glue",
          """SSL-style glue with stepped controls, program-dependent release, sidechain high-pass, Mid/Side and a parallel mix.""",
          "Soon", "is-soon"),
-        ("06", "/stesso/", "Mastering equaliser", "Stesso",
+        ("07", "/stesso/", "Mastering equaliser", "Stesso",
          """A draggable curve over a live spectrum. Up to 24 bands, eight filter types, per-band Left/Right or Mid/Side.""",
          "Soon", "is-soon"),
     ]),
     ("cat-midi", "MIDI generators &amp; composers", "Sequencing &amp; harmony brains", [
-        ("07", "/tonnetz/", "MIDI harmony conductor", "Tonnetz",
+        ("08", "/tonnetz/", "MIDI harmony conductor", "Tonnetz",
          """Master key and scale, an interactive Tonnetz lattice, three quantizers, chords, arp, bass and drone, driving your synths.""",
          "Soon", "is-soon"),
-        ("08", "/metro185/", "MIDI step sequencer", "Metro 185",
+        ("09", "/metro185/", "MIDI step sequencer", "Metro 185",
          """Eight deep steps in the RYK M-185 and System 100m lineage, reimagined for the DAW. Ratchets, 34 scales, gate modes.""",
          "Soon", "is-soon"),
     ]),
     ("cat-visuals", "Visuals", "Sound you can see", [
-        ("09", "/phosphor/", "Audio-reactive video synth", "Phosphor",
+        ("10", "/phosphor/", "Audio-reactive video synth", "Phosphor",
          """Beat-locked GPU scenes you throw fullscreen onto a projector. Fields, tunnel, fractals, spectrum, ambient, plus Syphon out.""",
          "Soon", "is-soon"),
     ]),
 ]
 
 VCV_ROWS = [
-    ("10", "/stochast/", "5 plugins · 28 modules", "Stochast",
+    ("11", "/stochast/", "5 plugins · 28 modules", "Stochast",
      """Statistics and emergence as patchable CV: sampling distributions, the bootstrap, agent-based cascades, epidemics, reaction-diffusion.""",
      "Free", "is-free"),
-    ("11", "/mashina/", "8 modules", "Mashina",
+    ("12", "/mashina/", "8 modules", "Mashina",
      """Soviet machines meet the West Coast. Drum voices, oscillators, a master clock, a plate reverb and generative sequencers.""",
      "Free", "is-free"),
-    ("12", "/lucida/", "2 modules · Colony, Turing", "Lucida",
+    ("13", "/lucida/", "2 modules · Colony, Turing", "Lucida",
      """Generative systems made visible. A cellular-automaton grid and a probabilistic shift-register sequencer with a built-in quantizer.""",
      "Free", "is-free"),
-    ("13", "/rikoshet/", "4 modules · Gate, PingPong, MultiTap, Blend", "Rikoshet",
+    ("14", "/rikoshet/", "4 modules · Gate, PingPong, MultiTap, Blend", "Rikoshet",
      """Rhythmic delay and gate effects, tempo-synced. Lock them to your clock for movement in time and across the stereo field.""",
      "Free", "is-free"),
-    ("14", "/atmos/", "4 modules · Helix, Halo, Metro185, Skywave", "Atmos",
+    ("15", "/atmos/", "4 modules · Helix, Halo, Metro185, Skywave", "Atmos",
      """Tone, space and time. A transistor-ladder filter, a stereo colour repeater, a character delay with reverb and an eight-stage sequencer.""",
      "Free", "is-free"),
-    ("15", "/downloads/SHLabs-Phosphor-2.0.0-mac-arm64.vcvplugin",
+    ("16", "/downloads/SHLabs-Phosphor-2.0.0-mac-arm64.vcvplugin",
      "3 modules · Beam, Chroma, Cathode", "Phosphor for VCV Rack",
      """An LZX-style video chain that passes a lo-fi RGB frame over an expander bus, turning luma and motion back into CV.""",
      "Free &darr;", "is-free"),
@@ -1286,8 +1317,8 @@ def homepage():
         <p class="body">
           The two lock over OSC: Phosphor follows Cadence's clock and beat phase,
           reads master band energy and kick onsets, and surges when the drop lands.
-          The bundle is the whole studio, with Cell, Contour, Spazio, Glue,
-          Stesso and Tonnetz included.
+          The bundle is the whole studio, with Cell, Schlagzeugs, Contour,
+          Spazio, Glue, Stesso and Tonnetz included.
         </p>
         <p class="mono dim-2" style="margin-top:12px"><a class="link" href="/cadence/#bundle">Bundle pricing at release</a></p>
       </div>
