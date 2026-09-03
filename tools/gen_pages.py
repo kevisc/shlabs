@@ -1777,6 +1777,69 @@ def empiria_page():
     )
 
 
+def cadence_beta_page():
+    """Unlisted beta download page. Not in the nav, not in the index, noindex for robots.
+    Testers reach it by link only. The file table is generated from
+    downloads/beta/SHA256SUMS.txt when the beta artifacts are in place; until then the
+    page says the build is in preparation, so a stale link never serves a stale file."""
+    sums = os.path.join(ROOT, "downloads", "beta", "SHA256SUMS.txt")
+    rows = []
+    if os.path.isfile(sums):
+        for line in open(sums, encoding="utf-8"):
+            parts = line.split()
+            if len(parts) >= 2:
+                digest, name = parts[0], parts[-1].lstrip("*")
+                path = os.path.join(ROOT, "downloads", "beta", name)
+                size = os.path.getsize(path) if os.path.isfile(path) else 0
+                mb = "%.1f MB" % (size / 1e6) if size else "missing"
+                rows.append((name, mb, digest))
+    if rows:
+        table = "\n".join(
+            '        <tr><td><a class="link" href="/downloads/beta/%s">%s</a></td>'
+            '<td class="mono dim">%s</td><td class="mono dim-2">%s</td></tr>' % (n, n, mb, d[:16] + "…")
+            for n, mb, d in rows)
+        files = ('      <table class="tbl">\n        <tr><th>File</th><th>Size</th><th>sha256</th></tr>\n'
+                 + table + '\n      </table>\n'
+                 '      <p class="mono dim">Full checksums: <a class="link" href="/downloads/beta/SHA256SUMS.txt">SHA256SUMS.txt</a></p>')
+    else:
+        files = '      <p class="body">The 0.5.0 beta build is in preparation. This page fills in when it is cut.</p>'
+    return (
+        head("Cadence beta — SHLabs", "Cadence 0.5.0 beta downloads for invited testers.",
+             robots="noindex, nofollow", og=(None, None))
+        + nav()
+        + """
+  <div class="sheet">
+  <main class="mid pad" id="main">
+    <div class="hero__meta mono">
+      <span class="dim">Cadence</span>
+      <span class="dim-2">0.5.0 beta, invited testers</span>
+    </div>
+    <h1 class="display">Cadence beta</h1>
+    <div class="psheet__grid">
+      <div class="psheet__claim"><p>Apple Silicon and Windows. Unsigned, so each system asks once before the first launch. The install card in the zip explains the one step.</p></div>
+      <div class="psheet__desc">
+""" + files + """
+        <p class="body" style="margin-top:22px">
+          Apple Silicon Macs need macOS 14 or newer. Intel Macs are not supported in this beta.
+          Windows shows "Windows protected your PC" on first run: choose More info, then Run anyway.
+          Anyone hosting Cell in Cadence needs the Cell in the plugin bundle.
+        </p>
+        <p class="body">
+          Bugs, impressions and questions to
+          <a class="link" href="mailto:shlabs.contact@gmail.com">shlabs.contact@gmail.com</a>.
+          Most useful: what you did, what you expected, what happened, and the log
+          (CADENCE wordmark, About, Show log file).
+        </p>
+      </div>
+    </div>
+  </main>
+
+"""
+        + footer()
+        + '</div>\n</body>\n</html>\n'
+    )
+
+
 # ═══════════════════════════════════════════════════════════════════════
 #  main
 # ═══════════════════════════════════════════════════════════════════════
@@ -1792,9 +1855,10 @@ def main():
     write("donate/index.html", donate_page())
     write("downloads/index.html", downloads_page())
     write("empiria/index.html", empiria_page())
+    write("cadence/beta/index.html", cadence_beta_page())   # unlisted, noindex
     for slug, p in PRODUCTS.items():
         write("%s/index.html" % slug, product_page(p))
-    print("done — %d pages" % (6 + len(PRODUCTS)))
+    print("done — %d pages" % (7 + len(PRODUCTS)))
 
 
 if __name__ == "__main__":
