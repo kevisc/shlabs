@@ -1822,7 +1822,12 @@ def cadence_beta_page():
                 digest, name = parts[0], parts[-1].lstrip("*")
                 path = os.path.join(ROOT, "downloads", "beta", name)
                 size = os.path.getsize(path) if os.path.isfile(path) else 0
-                mb = "%.1f MB" % (size / 1e6) if size else "missing"
+                if not size:
+                    mb = "missing"
+                elif size < 1e6:
+                    mb = "%.0f KB" % (size / 1e3)
+                else:
+                    mb = "%.1f MB" % (size / 1e6)
                 rows.append((name, mb, digest))
     if rows:
         table = "\n".join(
@@ -1853,7 +1858,13 @@ def cadence_beta_page():
         <p class="body" style="margin-top:22px">
           Apple Silicon Macs need macOS 14 or newer. Intel Macs are not supported in this beta.
           Windows shows "Windows protected your PC" on first run: choose More info, then Run anyway.
-          Anyone hosting Cell in Cadence needs the Cell in the plugin bundle.
+          Anyone hosting Cell in Cadence needs the Cell above: the looping-note fix was a fix on
+          both sides, so take this build of it alongside Cadence.
+        </p>
+        <p class="body">
+          The full seven-plugin bundle is not hosted here. At 86 MB it is larger than the rest of
+          this site put together, and it carries no change since the alpha. Ask us and we will send
+          you a link.
         </p>
         <p class="body">
           Bugs, impressions and questions to

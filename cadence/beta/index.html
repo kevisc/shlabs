@@ -34,11 +34,25 @@
     <div class="psheet__grid">
       <div class="psheet__claim"><p>Apple Silicon and Windows. Unsigned, so each system asks once before the first launch. The install card in the zip explains the one step.</p></div>
       <div class="psheet__desc">
-      <p class="body">The 0.5.0 beta build is in preparation. This page fills in when it is cut.</p>
+      <table class="tbl">
+        <tr><th>File</th><th>Size</th><th>sha256</th></tr>
+        <tr><td><a class="link" href="/downloads/beta/Cadence-macOS-arm64.zip">Cadence-macOS-arm64.zip</a></td><td class="mono dim">16.2 MB</td><td class="mono dim-2">65b0a1263df158f0…</td></tr>
+        <tr><td><a class="link" href="/downloads/beta/Cadence-Windows-Setup.exe">Cadence-Windows-Setup.exe</a></td><td class="mono dim">9.5 MB</td><td class="mono dim-2">df9d51a702d294da…</td></tr>
+        <tr><td><a class="link" href="/downloads/beta/Cell-0.1.1-macOS-universal.zip">Cell-0.1.1-macOS-universal.zip</a></td><td class="mono dim">8.1 MB</td><td class="mono dim-2">61d4b61ba7b01cb3…</td></tr>
+        <tr><td><a class="link" href="/downloads/beta/RELEASE-NOTES.md">RELEASE-NOTES.md</a></td><td class="mono dim">27 KB</td><td class="mono dim-2">1d836cc276bb8c37…</td></tr>
+        <tr><td><a class="link" href="/downloads/beta/INSTALL.txt">INSTALL.txt</a></td><td class="mono dim">5 KB</td><td class="mono dim-2">bfe078c735b4bdc3…</td></tr>
+      </table>
+      <p class="mono dim">Full checksums: <a class="link" href="/downloads/beta/SHA256SUMS.txt">SHA256SUMS.txt</a></p>
         <p class="body" style="margin-top:22px">
           Apple Silicon Macs need macOS 14 or newer. Intel Macs are not supported in this beta.
           Windows shows "Windows protected your PC" on first run: choose More info, then Run anyway.
-          Anyone hosting Cell in Cadence needs the Cell in the plugin bundle.
+          Anyone hosting Cell in Cadence needs the Cell above: the looping-note fix was a fix on
+          both sides, so take this build of it alongside Cadence.
+        </p>
+        <p class="body">
+          The full seven-plugin bundle is not hosted here. At 86 MB it is larger than the rest of
+          this site put together, and it carries no change since the alpha. Ask us and we will send
+          you a link.
         </p>
         <p class="body">
           Bugs, impressions and questions to

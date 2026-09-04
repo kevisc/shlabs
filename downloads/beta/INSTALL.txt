@@ -1,0 +1,101 @@
+Cadence 0.5.0 beta - install / first launch
+============================================
+
+This beta is ad-hoc signed but NOT notarized, so your OS will warn on first
+launch. It is safe - this is a one-time "trust this app" step. Do it once.
+
+macOS
+-----
+The Mac build:
+  Cadence-macOS-arm64.zip      Apple Silicon (M1 or newer), full app.
+                               Needs macOS 14 (Sonoma) or newer.
+                               Intel Macs are not supported in this beta.
+
+1. Unzip and drag Cadence.app to Applications (or run it in place).
+2. First launch is blocked by Gatekeeper. Either:
+   - Right-click the app -> Open -> Open, OR
+   - If macOS still refuses: System Settings -> Privacy & Security ->
+     scroll down -> "Open Anyway" (this is the reliable path on recent macOS).
+   The message you should see says Cadence is from an unidentified developer.
+   That one is normal for an alpha, and the steps above clear it.
+3. Grant Microphone access ONLY if you pick a live input in Audio Settings
+   (not needed for playing tracks).
+
+If macOS says the app is damaged
+--------------------------------
+A message like "Cadence.app is damaged and can't be opened" means something
+different, and right-click Open will not get past it. Nothing is actually
+damaged and the download is not corrupt. Early copies of the 0.4.0 alpha were
+packaged in a way macOS reads as a broken app, and it refuses outright rather
+than asking you.
+
+Two ways out. Easiest first: download the current zip again, because the
+packaging is fixed and the new one opens with the normal right-click step.
+
+If you would rather use the copy you already have, open Terminal
+(Applications -> Utilities -> Terminal), type this, and press Return:
+
+  xattr -cr /Applications/Cadence.app
+
+Nothing prints when it works. If you kept Cadence somewhere other than
+Applications, drag the app onto the Terminal window after typing "xattr -cr "
+and a space, and Terminal fills in the path for you. Then launch it with
+right-click -> Open as above.
+
+Windows
+-------
+1. Run Cadence-Windows-Setup.exe.
+2. SmartScreen blocks it, because the installer is not code-signed. The dialog
+   is titled "Windows protected your PC" and at first shows only a "Don't run"
+   button. Click "More info" - the text then names Cadence-Windows-Setup.exe as
+   the app and an unknown publisher - and click "Run anyway".
+3. Accept the install location, then launch Cadence from the Start menu.
+   It installs to Program Files\SHLabs\Cadence and asks for admin rights to
+   write there. A desktop icon is offered but off by default.
+
+Windows audio - which driver, and what latency to expect
+--------------------------------------------------------
+This build has NO ASIO support. ASIO needs Steinberg's SDK compiled in, and it
+is not, so your interface's own ASIO driver will not appear in the device list
+even if you have it installed. What you get instead:
+
+  Windows Audio            WASAPI shared mode. Sound is mixed with the rest of
+                           Windows. Round-trip latency is roughly 20-40 ms.
+                           Fine for auditioning and mixing recorded material.
+  Windows Audio            WASAPI exclusive mode. Cadence takes the device and
+  (Exclusive Mode)         nothing else can use it. Roughly 8-15 ms. THIS IS
+                           THE ONE TO PICK for anything played live.
+  DirectSound              The legacy fallback. Highest latency of the three.
+                           Use it only if neither WASAPI mode lists your device.
+
+Pick the driver type first in Settings -> Audio, then the device, then lower
+the buffer size until you hear crackle and step back up one. If live playing
+still feels late, the fix is exclusive mode rather than a smaller buffer.
+
+The 4-output note below applies here too: most Windows laptops expose their
+built-in audio as one stereo pair, so the cue bus has nowhere to go. An
+interface with four or more outputs is what makes pre-listening work.
+
+Linux (x86_64)
+--------------
+The 0.5.0 beta ships macOS and Windows only. These steps are here for the
+Linux build from the previous drop, and for the next one that carries Linux.
+1. tar -xzf Cadence-linux-x86_64.tar.gz
+2. cd Cadence && chmod +x Cadence && ./Cadence
+3. If it won't start, install the runtime libs:
+     sudo apt-get install libasound2 libcurl4 libfreetype6 libfontconfig1 \
+                          libgtk-3-0 libx11-6 libgl1
+   (PipeWire / PulseAudio via ALSA both work; JACK optional.)
+
+Audio setup (all platforms)
+---------------------------
+Cadence wants a device with 4+ OUTPUT channels so it can send the master to
+your speakers AND the cue/pre-listen to your headphones.
+- On a laptop's built-in 2-output audio you WILL hear the master, but the
+  headphone CUE will be silent - that's expected, not a bug.
+- To get cue: make an Aggregate / loopback device combining your interface +
+  built-in output, pick it in Settings, and set Master = Out 1-2, Cue = Out 3-4.
+- If you hear NOTHING: open Settings -> Audio and choose a device that actually
+  has output channels.
+
+See TESTERS.md for known issues and how to report bugs (shlabs.contact@gmail.com).
