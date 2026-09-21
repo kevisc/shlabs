@@ -1,4 +1,4 @@
-0ba04e5da07bf1fcfeb78ebbbda9c55196bac170b60ed2416f5287975ccb8a3c  Cadence-macOS-arm64.zip
+0b5dde481a6d2b23ac62c23199e8778aba385b48c3d8a35f50b7963876ee0881  Cadence-macOS-arm64.zip
 afd60f8614be56ca59d99145cf0c84a7eec4777e6884b270e12cf7924a619394  Cadence-Windows-Setup.exe
 61d4b61ba7b01cb3697fefceef60b2d51cd194d6799a761e7f679b17353ba438  Cell-0.1.1-macOS-universal.zip
 929d005e69ca33e8f7b002ab4a4a158f140a51f59d7bd96208c832c3cff96982  Cell-0.1.1-Windows.zip
