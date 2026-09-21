@@ -1838,9 +1838,9 @@ def cadence_beta_page():
                  + table + '\n      </table>\n'
                  '      <p class="mono dim">Full checksums: <a class="link" href="/downloads/beta/SHA256SUMS.txt">SHA256SUMS.txt</a></p>')
     else:
-        files = '      <p class="body">The 0.5.0 beta build is in preparation. This page fills in when it is cut.</p>'
+        files = '      <p class="body">The 0.6.0 beta build is in preparation. This page fills in when it is cut.</p>'
     return (
-        head("Cadence beta — SHLabs", "Cadence 0.5.0 beta downloads for invited testers.",
+        head("Cadence beta — SHLabs", "Cadence 0.6.0 beta downloads for invited testers.",
              robots="noindex, nofollow", og=(None, None))
         + nav()
         + """
@@ -1848,7 +1848,7 @@ def cadence_beta_page():
   <main class="mid pad" id="main">
     <div class="hero__meta mono">
       <span class="dim">Cadence</span>
-      <span class="dim-2">0.5.0 beta, invited testers</span>
+      <span class="dim-2">0.6.0 beta, invited testers</span>
     </div>
     <h1 class="display">Cadence beta</h1>
     <div class="psheet__grid">
@@ -1858,13 +1858,10 @@ def cadence_beta_page():
         <p class="body" style="margin-top:22px">
           Apple Silicon Macs need macOS 14 or newer. Intel Macs are not supported in this beta.
           Windows shows "Windows protected your PC" on first run: choose More info, then Run anyway.
-          Anyone hosting Cell in Cadence needs the Cell above: the looping-note fix was a fix on
-          both sides, so take this build of it alongside Cadence.
-        </p>
-        <p class="body">
-          The full seven-plugin bundle is not hosted here. At 86 MB it is larger than the rest of
-          this site put together, and it carries no change since the alpha. Ask us and we will send
-          you a link.
+          The seven SHLabs plugins are listed above one by one, so you can take only the ones
+          you host in Cadence. Each zip holds the AU and the VST3 and its own install card. Cell,
+          Contour, Glue, Spazio, Stesso and Tonnetz are universal builds; Phosphor 0.3.0 is Apple
+          Silicon only. All are ad-hoc signed like Cadence, so the first launch asks once.
         </p>
         <p class="body">
           Bugs, impressions and questions to

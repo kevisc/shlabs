@@ -1,3 +1,81 @@
+# Cadence 0.6.0 beta - release note
+
+What changed since the 0.5.0 beta. That build was mostly crashes, stalls and
+data loss. This one is mostly new surface: seven feature rounds that each
+landed with their own tests, then a review pass over all of them. Mac and
+Windows both move.
+
+## Which files to take
+
+- **Cadence-macOS-arm64.zip** is the app, Apple Silicon only, macOS 14 or newer.
+- **Cadence-Windows-Setup.exe** is the Windows installer.
+- The seven SHLabs plugins sit beside it, one zip each, so you can take only
+  the ones you host. Cell, Contour, Glue, Spazio, Stesso and Tonnetz are
+  universal builds. Phosphor 0.3.0 is Apple Silicon only.
+
+Everything is ad-hoc signed and not notarized, so each system asks once
+before the first launch. INSTALL.txt has the one step.
+
+## New in 0.6.0
+
+**Controller feel.** A mapped knob no longer jumps when you pick it up. Every
+mapping row has a MODE that says how the control takes over the value, a
+catch-up badge shows how far the knob still is from it, and the mapper has an
+output port, so LED rings and motor faders follow what the app does.
+
+**Takes as an instrument.** A recorded take can be overdubbed with one level of
+undo. Its loop length can be re-cut after the fact. Retro-record keeps a bar of
+history per channel, so the phrase you just played can become the take even if
+you pressed record late.
+
+**Assist as co-pilot.** Assist keeps a setlist of tonight, readable and
+exportable from the Assist menu. A gig pre-flight checks the rig before the
+set: device, cue routing, tracks, controller, remote, disk and clock. On an
+empty rig, Assist picks an opener instead of waiting for a lead deck.
+
+**Composer as set builder.** Section blocks group clips and move together. An
+envelope can be copied across lanes. A transition can be rehearsed as a loop
+without touching the arrangement.
+
+**Stems beyond mute.** Each stem has its own send into the channel delay and
+the shared reverb. A deck has a one-button bass swap on Assist's own curve. A
+draft separation is available for a quick look, and a full pass replaces it.
+
+**Remote.** You choose which features the phone remote exposes, and the
+server enforces the choice. The page lays itself out for a tablet. A guest
+link lets the room request tracks into a list you accept from, on the app or
+on your own phone. Guests cannot touch the mix.
+
+**Polish.** Narrow deck columns give way in a fixed order so the clock is
+never clipped. Titles drop a whole word rather than half of one. Settings is
+regrouped with REMOTE, CONTROL SURFACES and HELP as their own groups.
+
+## Fixed since 0.5.0
+
+- Generator plugins such as Metro185 light the deck's roll again when they
+  play through a chain.
+- Eject on a clip and eject on the MIDI layer are independent, and ejecting
+  a clip ends its MIDI.
+- The MIDI and OSC marks on a deck show only while that protocol is flowing,
+  and only on the deck that received it.
+- Remote settings migrate from 0.5.0 without a reset.
+- The help overlay and the remote are reachable from Settings.
+
+## Looks
+
+The app icon is new: a black chrome plate with a chrome C, drawn in house.
+
+## Still true
+
+Intel Macs are not supported. Windows is WASAPI only. Both builds are unsigned
+in the eyes of the OS, so the first launch asks once.
+
+Bugs, impressions and questions to shlabs.contact@gmail.com. Most useful:
+what you did, what you expected, what happened, and the log (CADENCE
+wordmark, About, Show log file).
+
+---
+
 # Cadence 0.5.0 beta - release note
 
 What changed since the 0.4.0 alpha you have been running. This is the first
