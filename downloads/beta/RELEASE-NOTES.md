@@ -1,3 +1,41 @@
+# Cadence 0.6.1 beta - release note
+
+Two fixes on top of 0.6.0, both from a tester's Windows report, both
+reproduced on the Mac and fixed at the source. Take this build instead of
+0.6.0; everything else in it is the same. The plugin zips are unchanged.
+
+**Windows, for now, is still the 0.6.0 installer.** The 0.6.1 Windows build
+is queued behind a build-minutes limit on our side and follows as soon as
+that clears. Until then the Windows installer below still has both bugs.
+
+## Stems no longer change pitch
+
+Turning stems on used to shift the pitch by the tempo bend whenever the
+deck was playing a pitch-preserving render: a synced clip of twenty
+seconds or less, or a warped track. The stem read followed the original
+timeline while the main audio held its native pitch. Stems now go through
+the same key-lock stretcher on those decks, and a test matrix of 48
+combinations of device rate, file rate, clip length, sync, key lock and
+warp reads 0 cents between stems on and stems off in every cell. The
+switch itself is a short crossfade with no click and no pitch step.
+
+One exception stays open: a deck playing a warp render (flexible grid on,
+a drifting track, SYNC on) now HOLDS its stems rather than bending them.
+The STEMS square goes hollow and the tooltip says why. Restoring stems on
+that one configuration is a design decision, not a patch.
+
+## The waveform no longer stutters at the playhead
+
+The scrolling waveform read the play position once per audio block, so
+each frame was a different amount stale, and its grid lines could land one
+pixel either side of a playhead that did not move. The audio thread now
+stamps every position with a clock and a rate, the view extrapolates
+between blocks and never runs ahead of a stop, a seek or a loop end, and
+both deck views redraw on the display's own refresh rather than a timer.
+Playhead, grid and waveform share one pixel by construction.
+
+---
+
 # Cadence 0.6.0 beta - release note
 
 What changed since the 0.5.0 beta. That build was mostly crashes, stalls and

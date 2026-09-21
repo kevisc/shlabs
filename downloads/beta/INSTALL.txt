@@ -1,4 +1,4 @@
-Cadence 0.6.0 beta - install / first launch
+Cadence 0.6.1 beta - install / first launch
 ============================================
 
 This beta is ad-hoc signed but NOT notarized, so your OS will warn on first
@@ -78,7 +78,7 @@ interface with four or more outputs is what makes pre-listening work.
 
 Linux (x86_64)
 --------------
-The 0.6.0 beta ships macOS and Windows only. These steps are here for the
+The 0.6.1 beta ships macOS and Windows only. These steps are here for the
 Linux build from the previous drop, and for the next one that carries Linux.
 1. tar -xzf Cadence-linux-x86_64.tar.gz
 2. cd Cadence && chmod +x Cadence && ./Cadence

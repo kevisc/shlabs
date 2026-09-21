@@ -1838,9 +1838,9 @@ def cadence_beta_page():
                  + table + '\n      </table>\n'
                  '      <p class="mono dim">Full checksums: <a class="link" href="/downloads/beta/SHA256SUMS.txt">SHA256SUMS.txt</a></p>')
     else:
-        files = '      <p class="body">The 0.6.0 beta build is in preparation. This page fills in when it is cut.</p>'
+        files = '      <p class="body">The 0.6.1 beta build is in preparation. This page fills in when it is cut.</p>'
     return (
-        head("Cadence beta — SHLabs", "Cadence 0.6.0 beta downloads for invited testers.",
+        head("Cadence beta — SHLabs", "Cadence 0.6.1 beta downloads for invited testers.",
              robots="noindex, nofollow", og=(None, None))
         + nav()
         + """
@@ -1848,7 +1848,7 @@ def cadence_beta_page():
   <main class="mid pad" id="main">
     <div class="hero__meta mono">
       <span class="dim">Cadence</span>
-      <span class="dim-2">0.6.0 beta, invited testers</span>
+      <span class="dim-2">0.6.1 beta, invited testers</span>
     </div>
     <h1 class="display">Cadence beta</h1>
     <div class="psheet__grid">
@@ -1856,6 +1856,9 @@ def cadence_beta_page():
       <div class="psheet__desc">
 """ + files + """
         <p class="body" style="margin-top:22px">
+          The Mac zip is 0.6.1: stems hold their pitch and the waveform no longer stutters at the
+          playhead. The Windows installer is still 0.6.0 until our build minutes clear; the release
+          note says what it still gets wrong.
           Apple Silicon Macs need macOS 14 or newer. Intel Macs are not supported in this beta.
           Windows shows "Windows protected your PC" on first run: choose More info, then Run anyway.
           The seven SHLabs plugins are listed above one by one and per platform, so you can take
