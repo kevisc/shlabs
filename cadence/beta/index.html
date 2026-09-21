@@ -39,23 +39,32 @@
         <tr><td><a class="link" href="/downloads/beta/Cadence-macOS-arm64.zip">Cadence-macOS-arm64.zip</a></td><td class="mono dim">15.3 MB</td><td class="mono dim-2">0ba04e5da07bf1fc…</td></tr>
         <tr><td><a class="link" href="/downloads/beta/Cadence-Windows-Setup.exe">Cadence-Windows-Setup.exe</a></td><td class="mono dim">9.5 MB</td><td class="mono dim-2">afd60f8614be56ca…</td></tr>
         <tr><td><a class="link" href="/downloads/beta/Cell-0.1.1-macOS-universal.zip">Cell-0.1.1-macOS-universal.zip</a></td><td class="mono dim">8.1 MB</td><td class="mono dim-2">61d4b61ba7b01cb3…</td></tr>
+        <tr><td><a class="link" href="/downloads/beta/Cell-0.1.1-Windows.zip">Cell-0.1.1-Windows.zip</a></td><td class="mono dim">6.5 MB</td><td class="mono dim-2">929d005e69ca33e8…</td></tr>
         <tr><td><a class="link" href="/downloads/beta/Contour-1.0.0-macOS-universal.zip">Contour-1.0.0-macOS-universal.zip</a></td><td class="mono dim">9.6 MB</td><td class="mono dim-2">a541aa5465f75d17…</td></tr>
+        <tr><td><a class="link" href="/downloads/beta/Contour-1.0.0-Windows.zip">Contour-1.0.0-Windows.zip</a></td><td class="mono dim">7.2 MB</td><td class="mono dim-2">a30a5705acb0b5cf…</td></tr>
         <tr><td><a class="link" href="/downloads/beta/Glue-1.0.0-macOS-universal.zip">Glue-1.0.0-macOS-universal.zip</a></td><td class="mono dim">9.3 MB</td><td class="mono dim-2">87271abc09d31f41…</td></tr>
+        <tr><td><a class="link" href="/downloads/beta/Glue-1.0.0-Windows.zip">Glue-1.0.0-Windows.zip</a></td><td class="mono dim">6.7 MB</td><td class="mono dim-2">fdaf63bdea07dcc9…</td></tr>
         <tr><td><a class="link" href="/downloads/beta/Phosphor-0.3.0-macOS-arm64.zip">Phosphor-0.3.0-macOS-arm64.zip</a></td><td class="mono dim">15.9 MB</td><td class="mono dim-2">50214bedb2ca7b89…</td></tr>
+        <tr><td><a class="link" href="/downloads/beta/Phosphor-0.3.0-Windows.zip">Phosphor-0.3.0-Windows.zip</a></td><td class="mono dim">9.3 MB</td><td class="mono dim-2">b18fc1acb5e82700…</td></tr>
         <tr><td><a class="link" href="/downloads/beta/Spazio-0.1.0-macOS-universal.zip">Spazio-0.1.0-macOS-universal.zip</a></td><td class="mono dim">16.0 MB</td><td class="mono dim-2">461c528d8a9c1880…</td></tr>
+        <tr><td><a class="link" href="/downloads/beta/Spazio-0.1.0-Windows.zip">Spazio-0.1.0-Windows.zip</a></td><td class="mono dim">9.0 MB</td><td class="mono dim-2">28b37e3018b5913a…</td></tr>
         <tr><td><a class="link" href="/downloads/beta/Stesso-0.1.0-macOS-universal.zip">Stesso-0.1.0-macOS-universal.zip</a></td><td class="mono dim">8.6 MB</td><td class="mono dim-2">433db00b8952cdcd…</td></tr>
+        <tr><td><a class="link" href="/downloads/beta/Stesso-0.1.0-Windows.zip">Stesso-0.1.0-Windows.zip</a></td><td class="mono dim">7.0 MB</td><td class="mono dim-2">8f1485f91967178d…</td></tr>
         <tr><td><a class="link" href="/downloads/beta/Tonnetz-0.1.0-macOS-universal.zip">Tonnetz-0.1.0-macOS-universal.zip</a></td><td class="mono dim">13.8 MB</td><td class="mono dim-2">69022298c3d1153c…</td></tr>
-        <tr><td><a class="link" href="/downloads/beta/RELEASE-NOTES.md">RELEASE-NOTES.md</a></td><td class="mono dim">31 KB</td><td class="mono dim-2">2a5c95f165b6f328…</td></tr>
+        <tr><td><a class="link" href="/downloads/beta/Tonnetz-0.1.0-Windows.zip">Tonnetz-0.1.0-Windows.zip</a></td><td class="mono dim">6.5 MB</td><td class="mono dim-2">5c442d38ef3402bb…</td></tr>
+        <tr><td><a class="link" href="/downloads/beta/RELEASE-NOTES.md">RELEASE-NOTES.md</a></td><td class="mono dim">31 KB</td><td class="mono dim-2">8b7b866138794beb…</td></tr>
         <tr><td><a class="link" href="/downloads/beta/INSTALL.txt">INSTALL.txt</a></td><td class="mono dim">5 KB</td><td class="mono dim-2">018319e7ae07b786…</td></tr>
       </table>
       <p class="mono dim">Full checksums: <a class="link" href="/downloads/beta/SHA256SUMS.txt">SHA256SUMS.txt</a></p>
         <p class="body" style="margin-top:22px">
           Apple Silicon Macs need macOS 14 or newer. Intel Macs are not supported in this beta.
           Windows shows "Windows protected your PC" on first run: choose More info, then Run anyway.
-          The seven SHLabs plugins are listed above one by one, so you can take only the ones
-          you host in Cadence. Each zip holds the AU and the VST3 and its own install card. Cell,
-          Contour, Glue, Spazio, Stesso and Tonnetz are universal builds; Phosphor 0.3.0 is Apple
-          Silicon only. All are ad-hoc signed like Cadence, so the first launch asks once.
+          The seven SHLabs plugins are listed above one by one and per platform, so you can take
+          only the ones you host in Cadence. A Mac zip holds the AU and the VST3; a Windows zip
+          holds the VST3 and a standalone exe. Each has its own install card. On the Mac, Cell,
+          Contour, Glue, Spazio, Stesso and Tonnetz are universal builds and Phosphor 0.3.0 is
+          Apple Silicon only. Nothing is code-signed for Windows, so the standalone exe asks once;
+          a host loading the VST3 does not.
         </p>
         <p class="body">
           Bugs, impressions and questions to

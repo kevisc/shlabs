@@ -9,9 +9,11 @@ Windows both move.
 
 - **Cadence-macOS-arm64.zip** is the app, Apple Silicon only, macOS 14 or newer.
 - **Cadence-Windows-Setup.exe** is the Windows installer.
-- The seven SHLabs plugins sit beside it, one zip each, so you can take only
-  the ones you host. Cell, Contour, Glue, Spazio, Stesso and Tonnetz are
-  universal builds. Phosphor 0.3.0 is Apple Silicon only.
+- The seven SHLabs plugins sit beside it, one zip each and per platform, so
+  you can take only the ones you host. On the Mac, Cell, Contour, Glue,
+  Spazio, Stesso and Tonnetz are universal builds and Phosphor 0.3.0 is Apple
+  Silicon only. The `-Windows.zip` of each holds the VST3 and a standalone
+  exe, with its own install card.
 
 Everything is ad-hoc signed and not notarized, so each system asks once
 before the first launch. INSTALL.txt has the one step.

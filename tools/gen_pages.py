@@ -1858,10 +1858,12 @@ def cadence_beta_page():
         <p class="body" style="margin-top:22px">
           Apple Silicon Macs need macOS 14 or newer. Intel Macs are not supported in this beta.
           Windows shows "Windows protected your PC" on first run: choose More info, then Run anyway.
-          The seven SHLabs plugins are listed above one by one, so you can take only the ones
-          you host in Cadence. Each zip holds the AU and the VST3 and its own install card. Cell,
-          Contour, Glue, Spazio, Stesso and Tonnetz are universal builds; Phosphor 0.3.0 is Apple
-          Silicon only. All are ad-hoc signed like Cadence, so the first launch asks once.
+          The seven SHLabs plugins are listed above one by one and per platform, so you can take
+          only the ones you host in Cadence. A Mac zip holds the AU and the VST3; a Windows zip
+          holds the VST3 and a standalone exe. Each has its own install card. On the Mac, Cell,
+          Contour, Glue, Spazio, Stesso and Tonnetz are universal builds and Phosphor 0.3.0 is
+          Apple Silicon only. Nothing is code-signed for Windows, so the standalone exe asks once;
+          a host loading the VST3 does not.
         </p>
         <p class="body">
           Bugs, impressions and questions to
