@@ -412,14 +412,14 @@ PRODUCTS = {}
 PRODUCTS["cadence"] = {
     "name": "Cadence",
     "title": "Cadence — SHLabs",
-    "desc": """Cadence is a hybrid-performance brain from SHLabs: a DJ-style four-channel performance mixer, master clock and sync hub for hardware, files and live inputs. Sample-accurate 24-PPQN MIDI clock, beatgrid players, automatic structure analysis, on-device stem separation, a Composer timeline with a piano roll, MIDI and audio take recording, Ableton Link and OSC. Standalone app for macOS, Windows and Linux. Coming soon.""",
+    "desc": """Cadence is a hybrid-performance brain from SHLabs: a DJ-style four-channel performance mixer, master clock and sync hub for hardware, files and live inputs. Sample-accurate 24-PPQN MIDI clock, beatgrid players, automatic structure analysis, on-device stem separation, a Composer timeline with a piano roll, MIDI and audio take recording, and an OSC broadcast. Standalone app for macOS and Windows. Coming soon.""",
     "crumb": ("Performance &amp; live", "/#cat-live"),
     "cat": "Performance mixer &amp; master clock",
     "status": "Coming soon",
     "soon": True,
     "claim": "A hybrid-performance brain.",
     "lead": """Four channels of live inputs and beatgrid players under DJ-style hands, a sample-accurate MIDI clock that the rest of your rig follows, and an assist layer that can hold the mix together while you play hardware on top. Whatever you play over it, a keyboard or the synth on the desk, records back onto the channel it came from as a loop.""",
-    "spec": ["Standalone app", "macOS — Windows and Linux alpha in testing"],
+    "spec": ["Standalone app", "macOS and Windows, beta in testing"],
     # No hero plate: the Perform shot that used to sit here is the first view
     # of the explorer below, and one screenshot on a sheet twice is one too
     # many. The explorer opens the page in its place.
@@ -468,7 +468,7 @@ PRODUCTS["cadence"] = {
                 ("The brain", "One surface for the whole set",
                  """Live inputs, prepared clips and hardware all meet on the same four channels. Cadence holds the tempo, the grid and the structure of the set in one place, so there is a single thing to look at when the room is dark and something needs to change now."""),
                 ("One clock", "Everything follows Cadence",
-                 """A sample-accurate 24-PPQN MIDI clock, phase-locked to the audio clock rather than driven by a timer, with transport start and stop, tap tempo and Ableton Link. Cadence is built to be the one clock in the room, not another device negotiating for sync."""),
+                 """A sample-accurate 24-PPQN MIDI clock, phase-locked to the audio clock rather than driven by a timer, with transport start and stop and tap tempo. Cadence is built to be the one clock in the room, not another device negotiating for sync."""),
                 ("Hands free", "Play hardware on top",
                  """The assist layer can carry a transition on its own — key-aware, paced how you like it, looping the build into the drop. That buys you both hands for the modular, the drum machine or the synth, and you take the mix back whenever you want it."""),
             ]),
@@ -479,7 +479,7 @@ PRODUCTS["cadence"] = {
                 ("Mixer", "Four channels, DJ ergonomics",
                  """Each channel takes a live input or its own internal player. Three-band EQ with full kills, one HP/LP filter knob per channel in the DJ idiom, a pre-fader cue bus with selectable master and cue output routing, and master metering. Per-channel delay and a shared reverb send sit on the same strip."""),
                 ("Clock &amp; sync", "Hardware locked to the grid",
-                 """24-PPQN MIDI clock out, sample-accurate and phase-locked to audio, driving eurorack, Elektron boxes and drum machines with transport start and stop. Tap tempo for anything unclocked, Ableton Link for anything on the network."""),
+                 """24-PPQN MIDI clock out, sample-accurate and phase-locked to audio, driving eurorack, Elektron boxes and drum machines with transport start and stop. Tap tempo for anything unclocked, and an OSC broadcast of beat, phase and tempo for software on the network."""),
                 ("Players", "Beatgrid-native clips",
                  """Quantized bar launch, warp and vari-speed sync to the master tempo, flexible grid with key-lock, eight hot cues and cue preview from the browser. Waveform lanes show phase and sync against the beat grid, so you can see whether two decks land together."""),
                 ("Composer", "A set laid out in advance",
@@ -547,7 +547,7 @@ PRODUCTS["cadence"] = {
         {"parts": [
             ("head", "Get it", ""),
             ("lead", """Cadence is a premium SHLabs app in active development. This page is an early look."""),
-            ("body", """The macOS build is in testing, with Windows and Linux alphas alongside it. Pricing and availability are announced when it ships. For early access, or if you want to know whether Cadence will clock the specific box on your desk, write to us."""),
+            ("body", """The macOS and Windows builds are in beta testing. Pricing and availability are announced when it ships. For early access, or if you want to know whether Cadence will clock the specific box on your desk, write to us."""),
             ("acts", [(MAIL, "Write us", "fill"), ALL_PRODUCTS]),
         ]},
     ],
@@ -557,7 +557,7 @@ PRODUCTS["cadence"] = {
 PRODUCTS["phosphor"] = {
     "name": "Phosphor",
     "title": "Phosphor — SHLabs",
-    "desc": """Phosphor is a GPU-native audio-reactive video synthesiser from SHLabs: five scene families, a 100k particle system, band envelopes and onset detection, Syphon output and recording. Locks to Cadence over OSC, to the host playhead or to Ableton Link. VST3 / AU / Standalone. Coming soon.""",
+    "desc": """Phosphor is a GPU-native audio-reactive video synthesiser from SHLabs: five scene families, a 100k particle system, band envelopes and onset detection, Syphon output and recording. Locks to Cadence over OSC or to the host playhead. VST3 / AU / Standalone. Coming soon.""",
     "crumb": ("Visuals", "/#cat-visuals"),
     "cat": "Audio-reactive video synth",
     "status": "Coming soon",
@@ -577,7 +577,7 @@ PRODUCTS["phosphor"] = {
                 ("Reactivity", "It hears more than level",
                  """Separate envelopes for overall level and for bass, mid and high, plus onset detectors for kick, snare and hat. Spectral centroid tilts the colour toward the brightness of the sound. One master REACT control sets how hard all of it pushes."""),
                 ("Sync", "Three ways to stay in time",
-                 """Lock to <a class="link" href="/cadence/">Cadence</a> over OSC and follow beat, phase, BPM, transport, band energy, onsets and drop intensity. Or take the host playhead inside a DAW. Or run standalone on Ableton Link. Motion stays on the grid either way."""),
+                 """Lock to <a class="link" href="/cadence/">Cadence</a> over OSC and follow beat, phase, BPM, transport, band energy, onsets and drop intensity. Or take the host playhead inside a DAW. Motion stays on the grid either way."""),
                 ("Performance", "Built for the room",
                  """Fullscreen to a second display or projector, <strong>Evolve</strong> for hands-free generative drift, <strong>Auto</strong> for preset roaming and <strong>Flow</strong> to morph between them — cut, smooth or slow. More than 36 presets and 15 colour palettes, layered dual-engine blending, a video-clip layer with reactive blending, and shockwave ripples on the kick."""),
                 ("I/O &amp; control", "Out to the rest of the rig",
@@ -1313,9 +1313,8 @@ def homepage():
         <div class="flag__spec mono">
           <span>4-channel mixer</span>
           <span>24-PPQN MIDI clock</span>
-          <span>Ableton Link</span>
           <span>OSC broadcast</span>
-          <span class="dim-2">macOS · Windows and Linux alpha in testing</span>
+          <span class="dim-2">macOS · Windows beta in testing</span>
         </div>
       </div>
     </div>
@@ -1331,7 +1330,7 @@ def homepage():
           A GPU-native visual instrument with five scene families (morphing fields,
           tunnel, fractals, spectrum, ambient) and a hundred-thousand-particle
           system on top. Band envelopes and onset detectors drive the image, and it
-          locks to Cadence, to your host playhead or to Ableton Link before going
+          locks to Cadence or to your host playhead before going
           fullscreen on the projector.
         </p>
         <div class="flag__spec mono">
