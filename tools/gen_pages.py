@@ -13,7 +13,7 @@ design system (see css/shlabs.css).
 
         index.html   404.html
         about/  donate/  downloads/  empiria/
-        cadence/  phosphor/  cell/  schlagzeugs/  contour/  spazio/
+        cadence/  phosphor/  cell/  schlagzeugs/  contour/  spazio/  lacuna/
         glue/  stesso/  tonnetz/  metro185/
         stochast/  mashina/  lucida/  rikoshet/  atmos/  terra/
 
@@ -530,8 +530,9 @@ PRODUCTS["cadence"] = {
                 ("Phosphor answers", "Visuals on the same grid",
                  """Scene motion locks to beat phase, reactive parameters follow the bands, kick onsets fire shockwave ripples, and intensity drives the whole image up into the drop — fullscreen on the projector."""),
             ]),
-            ("body", """And the bundle is the whole studio: alongside <strong>Cadence</strong> and <strong>Phosphor</strong> it includes <a class="link" href="/cell/">Cell</a>, <a class="link" href="/schlagzeugs/">Schlagzeugs</a>, <a class="link" href="/contour/">Contour</a>, <a class="link" href="/spazio/">Spazio</a>, <a class="link" href="/glue/">Glue</a>, <a class="link" href="/stesso/">Stesso</a> and <a class="link" href="/tonnetz/">Tonnetz</a> — every instrument, effect and mastering tool in the line."""),
+            ("body", """And the bundle is the whole studio: alongside <strong>Cadence</strong> and <strong>Phosphor</strong> it includes <a class="link" href="/cell/">Cell</a>, <a class="link" href="/schlagzeugs/">Schlagzeugs</a>, <a class="link" href="/contour/">Contour</a>, <a class="link" href="/spazio/">Spazio</a>, <a class="link" href="/lacuna/">Lacuna</a>, <a class="link" href="/glue/">Glue</a>, <a class="link" href="/stesso/">Stesso</a> and <a class="link" href="/tonnetz/">Tonnetz</a> — every instrument, effect and mastering tool in the line."""),
             ("body", """Schlagzeugs already speaks Cadence's language: the Beats assist writes a drum clip on the General MIDI drum map, which is the map Schlagzeugs plays by default."""),
+            ("body", """Lacuna follows Cadence's key: with Follow on, its six resonances retune to the key of the deck Cadence plays, in whatever host Lacuna runs on the same computer."""),
             ("body", """A Tonnetz link — Cadence following and steering harmony via note-follow over OSC — is planned for the bundle."""),
             ("mono", "Bundle pricing announced at release."),
             ("acts", [("/phosphor/", "Phosphor &rarr;", ""),
@@ -706,6 +707,35 @@ PRODUCTS["spazio"] = vst(
          """The display renders the actual impulse response of your current settings — tap spikes, bloom, tail — recomputed live as you turn knobs. Not a stock animation: the real engine, rendered ahead of time."""),
         ("Control", "Mix-ready by design",
          """Program-dependent ducking keeps the space behind the performance, width runs from mono to extra-wide, a tilt tone darkens or opens the wet path — thirty-six parameters, zero latency, click-free time glides (crossfade or tape repitch), factory and user presets."""),
+    ],
+)
+
+# ─── Lacuna ───────────────────────────────────────────────────────────
+# Every claim below is checked against the 0.2.0 build: README, QUICKSTART and docs/ in the
+# lacuna-vst repo, and its in-process test suites (docs/VALIDATION.md there).
+PRODUCTS["lacuna"] = vst(
+    name="Lacuna",
+    title="Lacuna · SHLabs",
+    desc="""Lacuna is a harmonic resonator: six tuned resonances that take their energy from the sound you feed them and answer in the space it leaves. Gap, Bloom and Ripple shape the answer, Hold and Strike keep and test it, MIDI notes move the root, and Follow tracks the key Cadence is playing. VST3 / AU / Standalone. Coming soon.""",
+    crumb=("Effects", "/#cat-effects"),
+    cat="Harmonic resonator",
+    claim="""Six tuned resonances that answer your sound in the space it leaves.""",
+    lead="""Feed it a drum loop, a pluck or a voice. Six resonators tuned to a chord take their energy from it and ring. Gap keeps them out of the way while the source plays, Bloom sets how gently they return, and Ripple lets the six voices enter one after another, so a hit gets a short harmonic reply.""",
+    spec=["VST3 · AU · Standalone", "macOS · Windows to follow"],
+    shot=("/img/shots/lacuna.jpg", "The Lacuna plugin interface", 1280, 886),
+    rows=[
+        ("Resonators", "Six voices, tuned",
+         """Six resonators ring at the pitches of a chord: fifths, minor or major ninth, suspended, or the exact harmonic series. Set the root on the panel, or play it: a held MIDI note moves it, and the last note held wins."""),
+        ("Gap &amp; Bloom", "Room for the source",
+         """Gap pulls the response down while the source is loud, so the hit stays clear. Bloom sets how the answer returns once the sound falls away, from twenty milliseconds to more than a second."""),
+        ("Ripple", "An answer in turn",
+         """After each hit the six voices can enter one after another instead of all at once. At full Ripple they arrive a sixteenth note apart, at the host's tempo."""),
+        ("Hold &amp; Strike", "Keep a moment",
+         """Hold stops new sound from exciting the resonators and sustains what is ringing, for as long as you leave it on. Strike sends one short burst, to hear a chord or a decay without routing any audio."""),
+        ("Follow", "In Cadence's key",
+         """With Follow on, Lacuna tracks the key Cadence is playing on the same computer, inside Cadence or in another host. The root moves to the key, and the ninth voicings turn major or minor with it. When the feed stops, the last key holds."""),
+        ("Clean", "Nothing added",
+         """No oscillator and no noise in the signal path: silence in is silence out. Zero latency, the same level from 44.1 to 192 kHz, and a display of the input, the response and each voice as it rings."""),
     ],
 )
 
@@ -1130,54 +1160,57 @@ INDEX_GROUPS = [
          """Six lanes that corrupt, lock and drift against each other. DFAM sequencing, Labyrinth registers, Rings-style toms, and MIDI out on every lane.""",
          "Soon", "is-soon"),
     ]),
-    ("cat-effects", "Effects", "Modulation · space", [
+    ("cat-effects", "Effects", "Modulation · space · resonance", [
         ("04", "/contour/", "Multi-LFO modulation rack", "Contour",
          """Draw modulation on a curve editor and lock it to the beat. Four curve-LFOs over volume, pan and filter, with MIDI out.""",
          "Soon", "is-soon"),
         ("05", "/spazio/", "Reverb and delay continuum", "Spazio",
          """Studio delay, modulated reverb and everything between on one CONTINUUM control. Echoes that smear and bloom into tails.""",
          "Soon", "is-soon"),
+        ("06", "/lacuna/", "Harmonic resonator", "Lacuna",
+         """Six tuned resonances answer your sound in the gaps it leaves. Gap, Bloom and Ripple shape the reply, and Follow tracks Cadence's key.""",
+         "Soon", "is-soon"),
     ]),
     ("cat-mastering", "Mastering tools", "The last mile of a mix", [
-        ("06", "/glue/", "Mastering bus compressor", "Glue",
+        ("07", "/glue/", "Mastering bus compressor", "Glue",
          """SSL-style glue with stepped controls, program-dependent release, sidechain high-pass, Mid/Side and a parallel mix.""",
          "Soon", "is-soon"),
-        ("07", "/stesso/", "Mastering equaliser", "Stesso",
+        ("08", "/stesso/", "Mastering equaliser", "Stesso",
          """A draggable curve over a live spectrum. Up to 24 bands, eight filter types, per-band Left/Right or Mid/Side.""",
          "Soon", "is-soon"),
     ]),
     ("cat-midi", "MIDI generators &amp; composers", "Sequencing &amp; harmony brains", [
-        ("08", "/tonnetz/", "MIDI harmony conductor", "Tonnetz",
+        ("09", "/tonnetz/", "MIDI harmony conductor", "Tonnetz",
          """Master key and scale, an interactive Tonnetz lattice, three quantizers, chords, arp, bass and drone, driving your synths.""",
          "Soon", "is-soon"),
-        ("09", "/metro185/", "MIDI step sequencer", "Metro 185",
+        ("10", "/metro185/", "MIDI step sequencer", "Metro 185",
          """Eight deep steps in the RYK M-185 and System 100m lineage, reimagined for the DAW. Ratchets, 34 scales, gate modes.""",
          "Soon", "is-soon"),
     ]),
     ("cat-visuals", "Visuals", "Sound you can see", [
-        ("10", "/phosphor/", "Audio-reactive video synth", "Phosphor",
+        ("11", "/phosphor/", "Audio-reactive video synth", "Phosphor",
          """Beat-locked GPU scenes you throw fullscreen onto a projector. Fields, tunnel, fractals, spectrum, ambient, plus Syphon out.""",
          "Soon", "is-soon"),
     ]),
 ]
 
 VCV_ROWS = [
-    ("11", "/stochast/", "5 plugins · 28 modules", "Stochast",
+    ("12", "/stochast/", "5 plugins · 28 modules", "Stochast",
      """Statistics and emergence as patchable CV: sampling distributions, the bootstrap, agent-based cascades, epidemics, reaction-diffusion.""",
      "Free", "is-free"),
-    ("12", "/mashina/", "8 modules", "Mashina",
+    ("13", "/mashina/", "8 modules", "Mashina",
      """Soviet machines meet the West Coast. Drum voices, oscillators, a master clock, a plate reverb and generative sequencers.""",
      "Free", "is-free"),
-    ("13", "/lucida/", "2 modules · Colony, Turing", "Lucida",
+    ("14", "/lucida/", "2 modules · Colony, Turing", "Lucida",
      """Generative systems made visible. A cellular-automaton grid and a probabilistic shift-register sequencer with a built-in quantizer.""",
      "Free", "is-free"),
-    ("14", "/rikoshet/", "4 modules · Gate, PingPong, MultiTap, Blend", "Rikoshet",
+    ("15", "/rikoshet/", "4 modules · Gate, PingPong, MultiTap, Blend", "Rikoshet",
      """Rhythmic delay and gate effects, tempo-synced. Lock them to your clock for movement in time and across the stereo field.""",
      "Free", "is-free"),
-    ("15", "/atmos/", "4 modules · Helix, Halo, Metro185, Skywave", "Atmos",
+    ("16", "/atmos/", "4 modules · Helix, Halo, Metro185, Skywave", "Atmos",
      """Tone, space and time. A transistor-ladder filter, a stereo colour repeater, a character delay with reverb and an eight-stage sequencer.""",
      "Free", "is-free"),
-    ("16", "/downloads/SHLabs-Phosphor-2.0.0-mac-arm64.vcvplugin",
+    ("17", "/downloads/SHLabs-Phosphor-2.0.0-mac-arm64.vcvplugin",
      "3 modules · Beam, Chroma, Cathode", "Phosphor for VCV Rack",
      """An LZX-style video chain that passes a lo-fi RGB frame over an expander bus, turning luma and motion back into CV.""",
      "Free &darr;", "is-free"),
@@ -1318,7 +1351,7 @@ def homepage():
           The two lock over OSC: Phosphor follows Cadence's clock and beat phase,
           reads master band energy and kick onsets, and surges when the drop lands.
           The bundle is the whole studio, with Cell, Schlagzeugs, Contour,
-          Spazio, Glue, Stesso and Tonnetz included.
+          Spazio, Lacuna, Glue, Stesso and Tonnetz included.
         </p>
         <p class="mono dim-2" style="margin-top:12px"><a class="link" href="/cadence/#bundle">Bundle pricing at release</a></p>
       </div>
@@ -1340,7 +1373,7 @@ def homepage():
 %s
 
       <div class="index__foot mono">
-        <span>Nine titles · one design language</span>
+        <span>Eleven titles · one design language</span>
         <span>Soon = pre-release</span>
       </div>
     </div>
