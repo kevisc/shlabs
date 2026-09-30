@@ -1870,9 +1870,9 @@ def cadence_beta_page():
                  + table + '\n      </table>\n'
                  '      <p class="mono dim">Full checksums: <a class="link" href="/downloads/beta/SHA256SUMS.txt">SHA256SUMS.txt</a></p>')
     else:
-        files = '      <p class="body">The 0.6.1 beta build is in preparation. This page fills in when it is cut.</p>'
+        files = '      <p class="body">The 0.7.0 beta build is in preparation. This page fills in when it is cut.</p>'
     return (
-        head("Cadence beta — SHLabs", "Cadence 0.6.1 beta downloads for invited testers.",
+        head("Cadence beta — SHLabs", "Cadence 0.7.0 beta downloads for invited testers.",
              robots="noindex, nofollow", og=(None, None))
         + nav()
         + """
@@ -1880,7 +1880,7 @@ def cadence_beta_page():
   <main class="mid pad" id="main">
     <div class="hero__meta mono">
       <span class="dim">Cadence</span>
-      <span class="dim-2">0.6.1 beta, invited testers</span>
+      <span class="dim-2">0.7.0 beta, invited testers</span>
     </div>
     <h1 class="display">Cadence beta</h1>
     <div class="psheet__grid">
@@ -1888,13 +1888,16 @@ def cadence_beta_page():
       <div class="psheet__desc">
 """ + files + """
         <p class="body" style="margin-top:22px">
-          The Mac zip is 0.6.1: stems hold their pitch and the waveform no longer stutters at the
-          playhead. The Windows installer is still 0.6.0 until our build minutes clear; the release
-          note says what it still gets wrong.
+          The Mac zip is 0.7.0, the biggest round since the first beta: plugin delay compensation,
+          an external mixer mode, controller profiles and jog wheels, stems on demand, SLIP and pitch
+          play, takes on any channel, a draggable plugin chain, macros as your own control panel,
+          mashup finding, rekordbox export and VoiceOver support. The release note has the whole list.
+          The Windows installer is still 0.6.0 until our build minutes clear.
           Apple Silicon Macs need macOS 14 or newer. Intel Macs are not supported in this beta.
           Windows shows "Windows protected your PC" on first run: choose More info, then Run anyway.
-          The seven SHLabs plugins are listed above one by one and per platform, so you can take
-          only the ones you host in Cadence. A Mac zip holds the AU and the VST3; a Windows zip
+          The SHLabs plugins are listed above one by one and per platform, so you can take
+          only the ones you host in Cadence. New in this drop for the Mac: Lacuna 0.2.0 and
+          Schlagzeugs 0.2.0, both universal. A Mac zip holds the AU and the VST3; a Windows zip
           holds the VST3 and a standalone exe. Each has its own install card. On the Mac, Cell,
           Contour, Glue, Spazio, Stesso and Tonnetz are universal builds and Phosphor 0.3.0 is
           Apple Silicon only. Nothing is code-signed for Windows, so the standalone exe asks once;
@@ -1903,8 +1906,8 @@ def cadence_beta_page():
         <p class="body">
           Bugs, impressions and questions to
           <a class="link" href="mailto:shlabs.contact@gmail.com">shlabs.contact@gmail.com</a>.
-          Most useful: what you did, what you expected, what happened, and the log
-          (CADENCE wordmark, About, Show log file).
+          Most useful: what you did, what you expected, what happened, and the diagnostics file
+          (CADENCE wordmark, About, Save diagnostics file).
         </p>
       </div>
     </div>

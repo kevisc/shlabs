@@ -1,3 +1,104 @@
+# Cadence 0.7.0 beta - release note
+
+The biggest round since the first beta. Fifteen feature rounds and two bug
+passes landed after 0.6.1, each with its own tests; the whole net of 43
+suites passes on this build. **This drop is Mac only.** Windows stays on the
+0.6.0 installer until our build minutes return; the Windows notice will not
+offer 0.7.0 until then.
+
+## Which files to take
+
+- **Cadence-macOS-arm64.zip** is the app, Apple Silicon only, macOS 14 or newer.
+- The SHLabs plugins sit beside it, one zip each. New in this drop:
+  **Lacuna 0.2.0**, a six-voice harmonic resonator that can follow the key
+  Cadence is playing, and **Schlagzeugs 0.2.0**, a generative drum engine.
+  Both are universal builds for the Mac.
+- The Windows files are the 0.6.x ones, unchanged.
+
+Everything is ad-hoc signed and not notarized, so macOS asks once before the
+first launch. INSTALL.txt has the one step.
+
+## New in 0.7.0
+
+**Plugin delay compensation.** A latent plugin on one channel no longer puts
+it behind the others: every channel waits for the slowest chain, and the cue
+lands with the room.
+
+**External mixer mode.** Each deck can leave on its own output pair, after
+its plugins and before Cadence's EQ, filter and fader, for a hardware mixer.
+
+**Controllers.** A profile library with a factory profile for the M-Audio
+Xsession Pro, a jog wheel per deck (nudge while playing, fine seek while
+stopped), and browse and load from the controller. A plugged-in controller
+with a profile is offered in the System check.
+
+**MIDI clock in.** Cadence can follow an external MIDI clock, tempo and phase.
+
+**Stems on demand.** A track separates as it loads when you choose it, and a
+deck plays what is done while the rest arrives. Stems are only made for the
+tracks you pick, at import, scan or by hand; nothing separates by itself.
+
+**Stem moves.** Per stem: solo, an echo-out, and a one-stem roll, from the
+chip's menu or a MIDI control.
+
+**SLIP and pitch play.** Slip mode keeps the track running underneath a held
+cue, jump or roll, and pitch play turns the cue pads into semitones.
+
+**Composer.** Stem automation is shown and heard in Perform, lane letters
+switch what you draw, CLEAR is scoped, ruler clicks jump in whole bars on the
+bar line, clips draw readable waveforms with their own FREQ view, and a
+playing clip you drag moves in whole bars and joins on the next bar line.
+
+**Collection.** A Recordings entry lists every take and master recording. A
+track's own MIDI and OSC layers are shown and can be removed. **Find
+mashups** (right-click a track) ranks partners by key, tempo and the vocal
+lane, and loads a pair onto two decks, synced. **Export to rekordbox XML**
+(PLAYLIST menu) takes the Collection, its grids, hot cues, loops, sections
+and playlists to rekordbox and from there to CDJs.
+
+**Takes on any channel.** The REC chip records a MIDI take on any live or
+clip channel, instrument or not, and says M or A while it records. A deck's
+MIDI layer is kept with the session, and every take is also a .mid file.
+A live channel names the input it hears, so CH 3 and CH 4 can record from
+input 1 on a laptop.
+
+**The plugin chain.** Drag a plugin chip to reorder a channel's chain, across
+the FADER line to make it post-fader. The strip numbers the chain, draws its
+path and shows each plugin's latency. A move never clicks.
+
+**Macros as your own control panel.** A macro can drive up to eight targets
+at once: any Cadence control or plugin parameter, each with its own range
+and invert. A macro can be a fader, a knob, a button, a toggle, a hold pad or
+a row of radio stops. Press LEARN and click the controls you want.
+
+**Accessibility.** Every control has a VoiceOver name, Tab reaches every
+control, and a focus ring shows while you move with the keyboard.
+
+**Also:** an update notice in Settings and About, a diagnostics file one
+click from the crash dialog, the System check inside Settings, and a live key
+file other SHLabs plugins read.
+
+## Fixed since 0.6.1
+
+- A deck switched from CLIP to LIVE and back no longer returns off the beat:
+  it parks, and comes back on the next bar line.
+- A Composer clip of a track longer than ten minutes no longer runs ahead of
+  the master.
+- The filter and EQ no longer click when moved fast.
+- A deck loading a track when you quit keeps that track in the session.
+- The REC menu's input can be switched off again.
+
+## Still true
+
+Intel Macs are not supported. Everything is unsigned in the eyes of the OS,
+so the first launch asks once.
+
+Bugs, impressions and questions to shlabs.contact@gmail.com. Most useful:
+what you did, what you expected, what happened, and the diagnostics file
+(CADENCE wordmark, About, Save diagnostics file).
+
+---
+
 # Cadence 0.6.1 beta - release note
 
 Two fixes on top of 0.6.0, both from a tester's Windows report, both
