@@ -1,0 +1,13 @@
+{
+  "schema": 1,
+  "mac": {
+    "version": "0.7.0",
+    "url": "https://shlabs.ch/cadence/beta/",
+    "notes": "Delay compensation, controller profiles, stems on demand, a draggable plugin chain, macros as your own panel, and more."
+  },
+  "win": {
+    "version": "0.6.0",
+    "url": "https://shlabs.ch/cadence/beta/",
+    "notes": "Controller feel, take overdubs, a setlist and a system check."
+  }
+}
