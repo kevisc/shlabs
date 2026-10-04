@@ -1,3 +1,90 @@
+# Cadence 0.8.0 beta - release note
+
+Twenty-three rounds landed after 0.7.0: two new ways to finish a set (export
+audio and set capture), a guided tour, a reworked Composer and simpler macros.
+Each round has its own tests; the whole net of 46 suites passes on this build.
+**This drop is Mac only.** Windows stays on the 0.6.0 installer until our
+build minutes return; the Windows notice will not offer 0.8.0 until then.
+
+## Which files to take
+
+- **Cadence-macOS-arm64.zip** is the app, Apple Silicon only, macOS 14 or newer.
+- The SHLabs plugins beside it are the ones from 0.7.0, unchanged.
+- The Windows files are the 0.6.x ones, unchanged.
+
+Everything is ad-hoc signed and not notarized, so macOS asks once before the
+first launch. INSTALL.txt has the one step.
+
+## New in 0.8.0
+
+**Export audio.** COMPOSITIONS > Export audio renders the Composer's set
+offline, faster than real time: the full mix, each channel as its own file
+with the FX returns, and a .cue tracklist, as WAV, FLAC or AAC, for the whole
+set, a section or a loop. A loudness target (LUFS) and a pre-master file
+(before the master compressor and limiter) are one click each.
+
+**Set capture.** Turn on Settings > LIBRARY > Also save REC as a set, and REC
+writes what you play into a Composer set as it goes: clips at every cue, jump,
+loop lap and new track, your fader, filter, send, EQ and stem moves as curves,
+and a live input or an instrument as an audio take.
+
+**A guided tour.** Settings > HELP > Guided tour, or TAKE THE TOUR on the
+welcome card. The window dims, one part lights up at a time, and a card says
+what it does. Pick a chapter (Perform, Collection, Composer, Sampler,
+Mapping and macros) or the whole tour; NEXT and BACK step it, AUTO plays it.
+
+**Cues and loop cues in the Composer.** A track's hot cues show on its clips
+as flags and its saved loops as bands. Drag them on the grid, rename them,
+colour them or delete them, from either view. The MARKS tool (the flag) adds
+a cue with a click and a loop cue with a drag.
+
+**A smoother Composer.** A dragged clip moves on screen first and the music
+follows on release, it catches the edges of other clips, and the view scrolls
+at its edge. A deck playing in Perform shows as a live clip. The grid follows
+QUANT, a loop drawn across a song section takes its edges, and a loop set in
+Perform shows on its clip and follows it. MIDI clips show their notes, a
+track's own MIDI and OSC layers show on its clips, and a lane header's plugins
+drag to change the signal flow. EQ automation has its own lanes.
+
+**Simpler macros.** A macro is a slider, an on/off or a radio of steps. Each
+macro that drives a plugin also shows under that plugin in its strip, as the
+same control. TO MACRO in a plugin window makes a new macro of the kind you
+pick. MAP has three switches: MIDI, MACRO and OSC.
+
+**MIDI.** A take records what a plugin on the channel plays (Tonnetz, an
+arpeggiator), not only an external keyboard. MIDI passes through an effect to
+the instrument after it, so Cell plays behind Glue. A sequencer such as
+Metro 185 no longer mutes the clip on its channel.
+
+**Live input.** A deck on IN shows the input's own scrolling waveform and its
+level before the fader, instead of the parked clip's frozen wave.
+
+**Also new.** Library folders (+ ADD) find new, duplicate and missing files in
+the folders you choose. A deck's key is a macro target. Each deck's song map
+is sent to Phosphor.
+
+## Fixed since 0.7.0
+
+- Loading a plugin while clips play no longer makes them click or stutter,
+  and saving the session no longer interrupts any plugin.
+- GOT IT on the welcome card works again, and Settings no longer stays on top
+  of the window or overlay it opens.
+- A saved loop A is no longer replaced by whatever loop the deck played.
+- The live waveforms scroll steadily instead of shimmering.
+- A macro's menu opens where you click, not in the corner of the screen.
+- The macro panel's buttons no longer show through the Composer.
+
+## Still true
+
+Intel Macs are not supported. Everything is unsigned in the eyes of the OS,
+so the first launch asks once.
+
+Bugs, impressions and questions to shlabs.contact@gmail.com. Most useful:
+what you did, what you expected, what happened, and the diagnostics file
+(CADENCE wordmark, About, Save diagnostics file).
+
+---
+
 # Cadence 0.7.0 beta - release note
 
 The biggest round since the first beta. Fifteen feature rounds and two bug
