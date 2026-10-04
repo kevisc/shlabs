@@ -1,9 +1,9 @@
 {
   "schema": 1,
   "mac": {
-    "version": "0.7.0",
+    "version": "0.8.0",
     "url": "https://shlabs.ch/cadence/beta/",
-    "notes": "Delay compensation, controller profiles, stems on demand, a draggable plugin chain, macros as your own panel, and more."
+    "notes": "Export audio, set capture, a guided tour, cues and loop cues in the Composer, simpler macros, and clean plugin loads."
   },
   "win": {
     "version": "0.6.0",
