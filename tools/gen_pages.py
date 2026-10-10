@@ -14,7 +14,7 @@ design system (see css/shlabs.css).
         index.html   404.html
         about/  donate/  downloads/  empiria/
         cadence/  phosphor/  cell/  schlagzeugs/  contour/  spazio/  lacuna/
-        glue/  stesso/  tonnetz/  metro185/
+        legato/  stesso/  tonnetz/  metro185/   (glue/ redirects to legato/)
         stochast/  mashina/  lucida/  rikoshet/  atmos/  terra/
 
     It never touches: cadence/manual/ (the product manual deliberately
@@ -74,7 +74,7 @@ FOOTER_COLS = [
         ("Spazio", "/spazio/"),
     ]),
     ("Mastering &amp; MIDI", [
-        ("Glue", "/glue/"),
+        ("Legato", "/legato/"),
         ("Stesso", "/stesso/"),
         ("Tonnetz", "/tonnetz/"),
         ("Metro 185", "/metro185/"),
@@ -530,7 +530,7 @@ PRODUCTS["cadence"] = {
                 ("Phosphor answers", "Visuals on the same grid",
                  """Scene motion locks to beat phase, reactive parameters follow the bands, kick onsets fire shockwave ripples, and intensity drives the whole image up into the drop — fullscreen on the projector."""),
             ]),
-            ("body", """And the bundle is the whole studio: alongside <strong>Cadence</strong> and <strong>Phosphor</strong> it includes <a class="link" href="/cell/">Cell</a>, <a class="link" href="/schlagzeugs/">Schlagzeugs</a>, <a class="link" href="/contour/">Contour</a>, <a class="link" href="/spazio/">Spazio</a>, <a class="link" href="/lacuna/">Lacuna</a>, <a class="link" href="/glue/">Glue</a>, <a class="link" href="/stesso/">Stesso</a> and <a class="link" href="/tonnetz/">Tonnetz</a> — every instrument, effect and mastering tool in the line."""),
+            ("body", """And the bundle is the whole studio: alongside <strong>Cadence</strong> and <strong>Phosphor</strong> it includes <a class="link" href="/cell/">Cell</a>, <a class="link" href="/schlagzeugs/">Schlagzeugs</a>, <a class="link" href="/contour/">Contour</a>, <a class="link" href="/spazio/">Spazio</a>, <a class="link" href="/lacuna/">Lacuna</a>, <a class="link" href="/legato/">Legato</a>, <a class="link" href="/stesso/">Stesso</a> and <a class="link" href="/tonnetz/">Tonnetz</a> — every instrument, effect and mastering tool in the line."""),
             ("body", """Schlagzeugs already speaks Cadence's language: the Beats assist writes a drum clip on the General MIDI drum map, which is the map Schlagzeugs plays by default."""),
             ("body", """Lacuna follows Cadence's key: with Follow on, its six resonances retune to the key of the deck Cadence plays, in whatever host Lacuna runs on the same computer."""),
             ("body", """A Tonnetz link — Cadence following and steering harmony via note-follow over OSC — is planned for the bundle."""),
@@ -594,7 +594,7 @@ PRODUCTS["phosphor"] = {
         {"slab": True, "id": "bundle", "parts": [
             ("head", "The bundle", "Bundle pricing at release"),
             ("h3", "Made to lock to Cadence"),
-            ("body", """Cadence broadcasts clock phase, beat, BPM, transport, master band energy, kick onsets and a drop-aware intensity signal over OSC. Phosphor listens and answers: motion on the beat, parameters on the bands, flashes on the kick, and the whole image surging into the drop. The bundle includes the full plugin line too — Cell, Schlagzeugs, Contour, Spazio, Glue, Stesso and Tonnetz."""),
+            ("body", """Cadence broadcasts clock phase, beat, BPM, transport, master band energy, kick onsets and a drop-aware intensity signal over OSC. Phosphor listens and answers: motion on the beat, parameters on the bands, flashes on the kick, and the whole image surging into the drop. The bundle includes the full plugin line too — Cell, Schlagzeugs, Contour, Spazio, Legato, Stesso and Tonnetz."""),
             ("acts", [("/cadence/#bundle", "See the bundle &rarr;", "")]),
         ]},
         {"parts": [
@@ -739,16 +739,16 @@ PRODUCTS["lacuna"] = vst(
     ],
 )
 
-# ─── Glue ─────────────────────────────────────────────────────────────
-PRODUCTS["glue"] = vst(
-    name="Glue",
-    title="Glue — SHLabs",
-    desc="""Glue is an SSL-style mastering bus compressor: program-dependent glue with stepped controls, a sidechain high-pass, Mid/Side, parallel mix and a big gain-reduction meter. VST3 / AU / Standalone. Coming soon.""",
+# ─── Legato (called Glue until 1.0.0) ─────────────────────────────────
+PRODUCTS["legato"] = vst(
+    name="Legato",
+    title="Legato — SHLabs",
+    desc="""Legato is an SSL-style mastering bus compressor: program-dependent glue with stepped controls, a sidechain high-pass, Mid/Side, parallel mix and a big gain-reduction meter. VST3 / AU / Standalone. Coming soon.""",
     crumb=("Mastering tools", "/#cat-mastering"),
     cat="Mastering bus compressor",
-    claim="""The compressor that does what its name says: it glues a mix together.""",
+    claim="""The compressor that holds a mix together. Legato is Italian for bound together. Until 1.0.0 it was called Glue.""",
     lead="""An SSL G-series-style bus compressor with a clean VCA core, program-dependent release and the mastering essentials — gentle, musical gain riding across the whole stereo image, on your mix bus or master.""",
-    shot=("/img/shots/glue.jpg", "The Glue plugin interface", 1280, 759),
+    shot=("/img/shots/glue.jpg", "The Legato plugin interface (1.0.0, as Glue)", 1280, 759),
     rows=[
         ("The glue", "Bus compression, done right",
          """A feed-forward VCA compressor in the spirit of the SSL G-series — the sound that holds a mix together. Subtle, cohesive gain movement that makes a busy arrangement feel like one performance."""),
@@ -1172,7 +1172,7 @@ INDEX_GROUPS = [
          "Soon", "is-soon"),
     ]),
     ("cat-mastering", "Mastering tools", "The last mile of a mix", [
-        ("07", "/glue/", "Mastering bus compressor", "Glue",
+        ("07", "/legato/", "Mastering bus compressor", "Legato",
          """SSL-style glue with stepped controls, program-dependent release, sidechain high-pass, Mid/Side and a parallel mix.""",
          "Soon", "is-soon"),
         ("08", "/stesso/", "Mastering equaliser", "Stesso",
@@ -1350,7 +1350,7 @@ def homepage():
           The two lock over OSC: Phosphor follows Cadence's clock and beat phase,
           reads master band energy and kick onsets, and surges when the drop lands.
           The bundle is the whole studio, with Cell, Schlagzeugs, Contour,
-          Spazio, Lacuna, Glue, Stesso and Tonnetz included.
+          Spazio, Lacuna, Legato, Stesso and Tonnetz included.
         </p>
         <p class="mono dim-2" style="margin-top:12px"><a class="link" href="/cadence/#bundle">Bundle pricing at release</a></p>
       </div>
@@ -1898,7 +1898,7 @@ def cadence_beta_page():
           only the ones you host in Cadence. The plugins are the ones from 0.7.0; on the Mac, Lacuna
           0.2.0 and Schlagzeugs 0.2.0 are universal too. A Mac zip holds the AU and the VST3; a Windows zip
           holds the VST3 and a standalone exe. Each has its own install card. On the Mac, Cell,
-          Contour, Glue, Spazio, Stesso and Tonnetz are universal builds and Phosphor 0.3.0 is
+          Contour, Legato (as Glue 1.0.0), Spazio, Stesso and Tonnetz are universal builds and Phosphor 0.3.0 is
           Apple Silicon only. Nothing is code-signed for Windows, so the standalone exe asks once;
           a host loading the VST3 does not.
         </p>
