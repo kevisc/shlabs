@@ -1870,9 +1870,9 @@ def cadence_beta_page():
                  + table + '\n      </table>\n'
                  '      <p class="mono dim">Full checksums: <a class="link" href="/downloads/beta/SHA256SUMS.txt">SHA256SUMS.txt</a></p>')
     else:
-        files = '      <p class="body">The 0.8.0 beta build is in preparation. This page fills in when it is cut.</p>'
+        files = '      <p class="body">The 0.9.0 beta build is in preparation. This page fills in when it is cut.</p>'
     return (
-        head("Cadence beta — SHLabs", "Cadence 0.8.0 beta downloads for invited testers.",
+        head("Cadence beta — SHLabs", "Cadence 0.9.0 beta downloads for invited testers.",
              robots="noindex, nofollow", og=(None, None))
         + nav()
         + """
@@ -1880,7 +1880,7 @@ def cadence_beta_page():
   <main class="mid pad" id="main">
     <div class="hero__meta mono">
       <span class="dim">Cadence</span>
-      <span class="dim-2">0.8.0 beta, invited testers</span>
+      <span class="dim-2">0.9.0 beta, invited testers</span>
     </div>
     <h1 class="display">Cadence beta</h1>
     <div class="psheet__grid">
@@ -1888,15 +1888,17 @@ def cadence_beta_page():
       <div class="psheet__desc">
 """ + files + """
         <p class="body" style="margin-top:22px">
-          The Mac zip is 0.8.0: export audio from the Composer, set capture from REC, a guided tour,
-          cues and loop cues on the Composer's clips, simpler macros, MIDI takes from plugins, a live
-          view for inputs, and plugin loads that no longer click the music. The release note has the
+          The Mac zip is 0.9.0: the Sampler's pads in Perform with a step sequencer, MATCH, tags,
+          ratings and relink in the Collection, stems and grid-aware samples in the Sampler, a Composer
+          with multi-select, a cycle and a tempo lane, plugins with a long look-ahead that no longer
+          move the mix, mono and sidechain plugins, and true-peak meters. The release note has the
           whole list. The Windows installer is still 0.6.0 until our build minutes clear.
           Apple Silicon Macs need macOS 14 or newer. Intel Macs are not supported in this beta.
           Windows shows "Windows protected your PC" on first run: choose More info, then Run anyway.
           The SHLabs plugins are listed above one by one and per platform, so you can take
-          only the ones you host in Cadence. The plugins are the ones from 0.7.0; on the Mac, Lacuna
-          0.2.0 and Schlagzeugs 0.2.0 are universal too. A Mac zip holds the AU and the VST3; a Windows zip
+          only the ones you host in Cadence. The Mac plugin zips are fresh cuts for the launch: each
+          carries its licence and third-party notices and passed an in-process smoke test; Glue is
+          now Legato. Lacuna 0.2.0 and Schlagzeugs 0.2.0 are universal too. A Mac zip holds the AU and the VST3; a Windows zip
           holds the VST3 and a standalone exe. Each has its own install card. On the Mac, Cell,
           Contour, Legato (1.1.0, called Glue until 1.0.0; the Windows zip is still Glue 1.0.0), Spazio, Stesso and Tonnetz are universal builds and Phosphor 0.3.0 is
           Apple Silicon only. Nothing is code-signed for Windows, so the standalone exe asks once;

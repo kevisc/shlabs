@@ -1,9 +1,9 @@
 {
   "schema": 1,
   "mac": {
-    "version": "0.8.0",
+    "version": "0.9.0",
     "url": "https://shlabs.ch/cadence/beta/",
-    "notes": "Export audio, set capture, a guided tour, cues and loop cues in the Composer, simpler macros, and clean plugin loads."
+    "notes": "Pads in Perform with a step sequencer, MATCH and relink in the Collection, stems in the Sampler, a Composer cycle and tempo lane, true-peak meters."
   },
   "win": {
     "version": "0.6.0",

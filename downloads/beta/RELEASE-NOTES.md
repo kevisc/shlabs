@@ -1,3 +1,94 @@
+# Cadence 0.9.0 beta - release note
+
+Twenty-six rounds landed after 0.8.0, in two weeks: the Composer became a
+place to edit, the Collection and the Sampler got the audit they were owed,
+the Sampler's pads moved into Perform with a sequencer, and the engine
+learned to host a plugin with a long look-ahead without moving the mix.
+Each round has its own tests; the whole net of 46 suites passes on this
+build. **This drop is Mac only.** Windows stays on the 0.6.0 installer
+until our build minutes return; the Windows notice will not offer 0.9.0
+until then.
+
+## Which files to take
+
+- **Cadence-macOS-arm64.zip** is the app, Apple Silicon only, macOS 14 or newer.
+- The SHLabs plugins beside it are fresh cuts: each zip now carries its
+  licence (EULA.txt) and its third-party notices (NOTICES.txt), and every
+  build passed a new in-process smoke test. **Glue is now called Legato**
+  (1.1.0); it keeps Glue's plugin ID, so sessions that hold Glue open with
+  Legato in its place. Delete the Glue bundles before you install it.
+- The Windows files are the 0.6.x ones, unchanged.
+
+Everything is ad-hoc signed and not notarized, so macOS asks once before the
+first launch. INSTALL.txt has the one step.
+
+## New in 0.9.0
+
+**Pads in Perform.** Click PADS above WAVEFORM: the Sampler's eight pads,
+played from the band or keys 1 to 8. A pad takes a deck's loop or a
+Collection track, keeps its own tempo and follows the master, plays through
+any channel's plugins and EQ, repeats a chosen length (an eighth of a beat
+to eight beats) at half or double time, and has a level. STEPS turns the
+band into a step sequencer: sixteen steps per pad, RUN on the master clock,
+REC writes what you play.
+
+**The Collection.** MATCH shows only what mixes with the deck on air. The
+tracks played tonight are dimmed, and a Tonight view lists the night in
+order. Rating, colour, comment and an Energy column, all going to and from
+rekordbox. Real tags are read from the files. Library folders find new,
+duplicate and missing files and relink the moved ones; the Composer's clips
+and the grid's pads follow. A click on the Wave cell previews from there; a
+drag carries the whole selection.
+
+**The Sampler.** A selection either way and inside the track, SNAP to finer
+steps, SYNC that plays a loop on the master's bar, samples cut from a
+track's separated stems, saved samples that keep their grid and key, slices
+onto the pads or the strip, and the strip as a lane of blocks you drag,
+open and remove, with PLAY STRIP before the render.
+
+**The Composer.** Space and STOP stop everything; a padlock holds the
+playhead; multi-select with a box, Shift and Cmd, group moves, Alt-drag
+copies and arrow nudges; Home; a cycle on the ruler that repeats whole bars;
+a tempo lane; a Perform click jumps the composition with the deck. Cmd+S
+saves the set.
+
+**The master tempo is mappable**: by macro, MIDI or OSC, with a glide.
+
+**Plugins.** A plugin with a long look-ahead (Sway's 160 ms) no longer
+moves every channel when it is added: its own deck runs ahead and dips
+once. Mono and sidechain plugins work on a channel: the chain adapts the
+stereo pair to whatever layout the plugin accepts. Plugin loads no longer
+click the music.
+
+**Meters** read the true peak, the signal between the samples; a Settings
+toggle turns it off.
+
+**Live-deck safety.** A Collection preview never takes a deck on air, and
+every load over a playing deck asks first.
+
+## Fixed since 0.8.0
+
+- The Collection: undo per panel and per edit, a selection that follows its
+  tracks through a sort, locked grids that hold, Camelot and "major" keys
+  that parse, import counts, AppleDouble files skipped.
+- The Sampler: the selection, the snap, strips that are exact in length,
+  saves and renders off the message thread with honest failures, PLAY that
+  waits for its file.
+- Keys, menus and undo across the Collection and the Sampler: Esc, Cmd+F,
+  Return, one delete question, a Camelot sort, kept column widths.
+- A pad on KEY LOCK no longer shifts the deck's key.
+
+## Still true
+
+Intel Macs are not supported. Everything is unsigned in the eyes of the OS,
+so the first launch asks once.
+
+Bugs, impressions and questions to shlabs.contact@gmail.com. Most useful:
+what you did, what you expected, what happened, and the diagnostics file
+(CADENCE wordmark, About, Save diagnostics file).
+
+---
+
 # Cadence 0.8.0 beta - release note
 
 Twenty-three rounds landed after 0.7.0: two new ways to finish a set (export
