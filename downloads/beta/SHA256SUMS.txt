@@ -4,7 +4,7 @@ afd60f8614be56ca59d99145cf0c84a7eec4777e6884b270e12cf7924a619394  Cadence-Window
 929d005e69ca33e8f7b002ab4a4a158f140a51f59d7bd96208c832c3cff96982  Cell-0.1.1-Windows.zip
 a541aa5465f75d177adbe4727cd8235fe44eb4b6c624c8f044cf5eeb8bca34f9  Contour-1.0.0-macOS-universal.zip
 a30a5705acb0b5cf5732d28246ebcfe53154ad7f29d578a81574408ce5f1696d  Contour-1.0.0-Windows.zip
-87271abc09d31f41d2c6fafeaa0cb3fc2aa94fffff1802ec19fae932e6a559e0  Glue-1.0.0-macOS-universal.zip
+08ce2be2db0172dcc17e3f3b2317310756e8c89fd9aa28daced932c3edda2f50  Legato-1.1.0-macOS-universal.zip
 fdaf63bdea07dcc9e15100ea3f85a225c631ad15b5b05ff28173812b7dd3eda8  Glue-1.0.0-Windows.zip
 efbc085b3e1cb59104f6d76df38cd0cb7b526efaf9ff5b97bc8eec473ccc8354  Lacuna-0.2.0-macOS-universal.zip
 50214bedb2ca7b89bd7b585e4b6ce30d088789854d4432e1e74bc63e6be16766  Phosphor-0.3.0-macOS-arm64.zip

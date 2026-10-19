@@ -1898,7 +1898,7 @@ def cadence_beta_page():
           only the ones you host in Cadence. The plugins are the ones from 0.7.0; on the Mac, Lacuna
           0.2.0 and Schlagzeugs 0.2.0 are universal too. A Mac zip holds the AU and the VST3; a Windows zip
           holds the VST3 and a standalone exe. Each has its own install card. On the Mac, Cell,
-          Contour, Legato (as Glue 1.0.0), Spazio, Stesso and Tonnetz are universal builds and Phosphor 0.3.0 is
+          Contour, Legato (1.1.0, called Glue until 1.0.0; the Windows zip is still Glue 1.0.0), Spazio, Stesso and Tonnetz are universal builds and Phosphor 0.3.0 is
           Apple Silicon only. Nothing is code-signed for Windows, so the standalone exe asks once;
           a host loading the VST3 does not.
         </p>
