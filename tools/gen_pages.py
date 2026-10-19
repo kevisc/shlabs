@@ -557,13 +557,13 @@ PRODUCTS["cadence"] = {
 PRODUCTS["phosphor"] = {
     "name": "Phosphor",
     "title": "Phosphor — SHLabs",
-    "desc": """Phosphor is a GPU-native audio-reactive video synthesiser from SHLabs: five scene families, a 100k particle system, band envelopes and onset detection, Syphon output and recording. Locks to Cadence over OSC or to the host playhead. VST3 / AU / Standalone. Coming soon.""",
+    "desc": """Phosphor is a GPU-native audio-reactive video synthesiser from SHLabs: thirty-two scenes, a 100k particle system, band envelopes and onset detection, Syphon output and recording. Locks to Cadence over OSC, to the host playhead, or to the beat it finds in the audio, and on a Mac it listens to whatever is playing. VST3 / AU / Standalone. Coming soon.""",
     "crumb": ("Visuals", "/#cat-visuals"),
     "cat": "Audio-reactive video synth",
     "status": "Coming soon",
     "soon": True,
     "claim": "A video synthesiser that listens.",
-    "lead": """A GPU-native GLSL engine with five scene families and a hundred-thousand-particle system, driven by real band envelopes and onset detection, locked to your clock and thrown fullscreen onto the projector. Insert it on a track and the audio passes through untouched.""",
+    "lead": """A GPU-native GLSL engine with thirty-two scenes and a hundred-thousand-particle system, driven by real band envelopes and onset detection, locked to your clock or to the beat it hears, and thrown fullscreen onto the projector or floated over the music you play. Insert it on a track and the audio passes through untouched.""",
     "spec": ["Premium · VST3 · AU · Standalone", "macOS"],
     "shot": ("/img/shots/phosphor.jpg", "The Phosphor plugin interface", 1280, 1040),
     "sections": [
@@ -576,8 +576,10 @@ PRODUCTS["phosphor"] = {
                  """A GPGPU particle system running upward of 100,000 points with trails and reflections, simulated entirely on the graphics card so the count buys you density rather than dropped frames."""),
                 ("Reactivity", "It hears more than level",
                  """Separate envelopes for overall level and for bass, mid and high, plus onset detectors for kick, snare and hat. Spectral centroid tilts the colour toward the brightness of the sound. One master REACT control sets how hard all of it pushes."""),
-                ("Sync", "Three ways to stay in time",
-                 """Lock to <a class="link" href="/cadence/">Cadence</a> over OSC and follow beat, phase, BPM, transport, band energy, onsets and drop intensity. Or take the host playhead inside a DAW. Motion stays on the grid either way."""),
+                ("Sync", "Four ways to stay in time",
+                 """Lock to <a class="link" href="/cadence/">Cadence</a> over OSC and follow beat, phase, BPM, transport, band energy, onsets and drop intensity. Take the host playhead inside a DAW. Or let Phosphor find the beat in the audio itself, for a stream or a record with no clock at all. Motion stays on the grid whichever way."""),
+                ("Just listen", "A visualiser for the music you play",
+                 """On a Mac, Phosphor captures what any app plays, Spotify, Apple Music, a browser, with no cable and no loopback driver, and runs a hands-free director over it. Float it over the player, or put it on the desktop as a live wallpaper with a menu bar icon to bring it back. The controls fade when the mouse rests."""),
                 ("Performance", "Built for the room",
                  """Fullscreen to a second display or projector, <strong>Evolve</strong> for hands-free generative drift, <strong>Auto</strong> for preset roaming and <strong>Flow</strong> to morph between them — cut, smooth or slow. More than 36 presets and 15 colour palettes, layered dual-engine blending, a video-clip layer with reactive blending, and shockwave ripples on the kick."""),
                 ("I/O &amp; control", "Out to the rest of the rig",
@@ -1189,7 +1191,7 @@ INDEX_GROUPS = [
     ]),
     ("cat-visuals", "Visuals", "Sound you can see", [
         ("11", "/phosphor/", "Audio-reactive video synth", "Phosphor",
-         """Beat-locked GPU scenes you throw fullscreen onto a projector. Fields, tunnel, fractals, spectrum, ambient, plus Syphon out.""",
+         """Beat-locked GPU scenes you throw fullscreen onto a projector, or run over whatever your Mac is playing. Thirty-two scenes, plus Syphon out.""",
          "Soon", "is-soon"),
     ]),
 ]
@@ -1900,7 +1902,7 @@ def cadence_beta_page():
           carries its licence and third-party notices and passed an in-process smoke test; Glue is
           now Legato. Lacuna 0.2.0 and Schlagzeugs 0.2.0 are universal too. A Mac zip holds the AU and the VST3; a Windows zip
           holds the VST3 and a standalone exe. Each has its own install card. On the Mac, Cell,
-          Contour, Legato (1.1.0, called Glue until 1.0.0; the Windows zip is still Glue 1.0.0), Spazio, Stesso and Tonnetz are universal builds and Phosphor 0.3.0 is
+          Contour, Legato (1.1.0, called Glue until 1.0.0; the Windows zip is still Glue 1.0.0), Spazio, Stesso and Tonnetz are universal builds and Phosphor 0.4.0 is
           Apple Silicon only. Nothing is code-signed for Windows, so the standalone exe asks once;
           a host loading the VST3 does not.
         </p>
