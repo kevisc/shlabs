@@ -7,7 +7,7 @@ a30a5705acb0b5cf5732d28246ebcfe53154ad7f29d578a81574408ce5f1696d  Contour-1.0.0-
 b53d023a714a45e2426e2fa1f747469eb8493834b388e981f050c6d82ac6a664  Legato-1.1.0-macOS-universal.zip
 fdaf63bdea07dcc9e15100ea3f85a225c631ad15b5b05ff28173812b7dd3eda8  Glue-1.0.0-Windows.zip
 efbc085b3e1cb59104f6d76df38cd0cb7b526efaf9ff5b97bc8eec473ccc8354  Lacuna-0.2.0-macOS-universal.zip
-e17c8084dc37b68af4055b30944a6a168dc29199dc3fe8bdf6fbcdf0fc459008  Phosphor-0.4.0-macOS-arm64.zip
+47623884b38b0fc90a8803a5e809b24328e2e3b7863ff36882c8991588a4ba5d  Phosphor-0.5.0-macOS-arm64.zip
 b18fc1acb5e82700a6c73c7221507a2d7eecab212f3d4c558af09b178e003716  Phosphor-0.3.0-Windows.zip
 ed7237ae372064bf2ec57b8762b24b1f655a7624e1078a388be23582e2c88edb  Schlagzeugs-0.2.0-macOS-universal.zip
 4282d59b7f50a13a71e7325de1dc7c9b4cc456c1e40892b8f30175f864a8735a  Spazio-0.1.1-macOS-universal.zip

@@ -579,7 +579,7 @@ PRODUCTS["phosphor"] = {
                 ("Sync", "Four ways to stay in time",
                  """Lock to <a class="link" href="/cadence/">Cadence</a> over OSC and follow beat, phase, BPM, transport, band energy, onsets and drop intensity. Take the host playhead inside a DAW. Or let Phosphor find the beat in the audio itself, for a stream or a record with no clock at all. Motion stays on the grid whichever way."""),
                 ("Just listen", "A visualiser for the music you play",
-                 """On a Mac, Phosphor captures what any app plays, Spotify, Apple Music, a browser, with no cable and no loopback driver, and runs a hands-free director over it. Float it over the player, or put it on the desktop as a live wallpaper with a menu bar icon to bring it back. The controls fade when the mouse rests."""),
+                 """On a Mac, Phosphor captures what any app plays, Spotify, Apple Music, a browser, with no cable and no loopback driver, and runs a hands-free director over it. It asks the player what is playing, so a new track changes the scene and the album art sets the palette. Float it over the player, click-through if you like, or put it on the desktop as a live wallpaper with a menu bar icon to bring it back. A flash limiter keeps the picture under three flashes a second. The controls fade when the mouse rests."""),
                 ("Performance", "Built for the room",
                  """Fullscreen to a second display or projector, <strong>Evolve</strong> for hands-free generative drift, <strong>Auto</strong> for preset roaming and <strong>Flow</strong> to morph between them — cut, smooth or slow. More than 36 presets and 15 colour palettes, layered dual-engine blending, a video-clip layer with reactive blending, and shockwave ripples on the kick."""),
                 ("I/O &amp; control", "Out to the rest of the rig",
@@ -1902,7 +1902,7 @@ def cadence_beta_page():
           carries its licence and third-party notices and passed an in-process smoke test; Glue is
           now Legato. Lacuna 0.2.0 and Schlagzeugs 0.2.0 are universal too. A Mac zip holds the AU and the VST3; a Windows zip
           holds the VST3 and a standalone exe. Each has its own install card. On the Mac, Cell,
-          Contour, Legato (1.1.0, called Glue until 1.0.0; the Windows zip is still Glue 1.0.0), Spazio, Stesso and Tonnetz are universal builds and Phosphor 0.4.0 is
+          Contour, Legato (1.1.0, called Glue until 1.0.0; the Windows zip is still Glue 1.0.0), Spazio, Stesso and Tonnetz are universal builds and Phosphor 0.5.0 is
           Apple Silicon only. Nothing is code-signed for Windows, so the standalone exe asks once;
           a host loading the VST3 does not.
         </p>
