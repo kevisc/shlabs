@@ -557,13 +557,13 @@ PRODUCTS["cadence"] = {
 PRODUCTS["phosphor"] = {
     "name": "Phosphor",
     "title": "Phosphor — SHLabs",
-    "desc": """Phosphor is a GPU-native audio-reactive video synthesiser from SHLabs: thirty-two scenes, a 100k particle system, band envelopes and onset detection, Syphon output and recording. Locks to Cadence over OSC, to the host playhead, or to the beat it finds in the audio, and on a Mac it listens to whatever is playing. VST3 / AU / Standalone. Coming soon.""",
+    "desc": """Phosphor is a GPU-native audio-reactive video synthesiser from SHLabs: thirty-five scenes, a 100k particle system, band envelopes and onset detection, Syphon output and recording. Locks to Cadence over OSC, to the host playhead, or to the beat it finds in the audio, and on a Mac it listens to whatever is playing. VST3 / AU / Standalone. Coming soon.""",
     "crumb": ("Visuals", "/#cat-visuals"),
     "cat": "Audio-reactive video synth",
     "status": "Coming soon",
     "soon": True,
     "claim": "A video synthesiser that listens.",
-    "lead": """A GPU-native GLSL engine with thirty-two scenes and a hundred-thousand-particle system, driven by real band envelopes and onset detection, locked to your clock or to the beat it hears, and thrown fullscreen onto the projector or floated over the music you play. Insert it on a track and the audio passes through untouched.""",
+    "lead": """A GPU-native GLSL engine with thirty-five scenes and a hundred-thousand-particle system, driven by real band envelopes and onset detection, locked to your clock or to the beat it hears, and thrown fullscreen onto the projector or floated over the music you play. Insert it on a track and the audio passes through untouched.""",
     "spec": ["Premium · VST3 · AU · Standalone", "macOS"],
     "shot": ("/img/shots/phosphor.jpg", "The Phosphor plugin interface", 1280, 1040),
     "sections": [
@@ -1191,7 +1191,7 @@ INDEX_GROUPS = [
     ]),
     ("cat-visuals", "Visuals", "Sound you can see", [
         ("11", "/phosphor/", "Audio-reactive video synth", "Phosphor",
-         """Beat-locked GPU scenes you throw fullscreen onto a projector, or run over whatever your Mac is playing. Thirty-two scenes, plus Syphon out.""",
+         """Beat-locked GPU scenes you throw fullscreen onto a projector, or run over whatever your Mac is playing. Thirty-five scenes, plus Syphon out.""",
          "Soon", "is-soon"),
     ]),
 ]
