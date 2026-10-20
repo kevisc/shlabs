@@ -1,3 +1,19 @@
+# Cadence 0.9.1 beta - release note
+
+A small round after 0.9.0, on Assist. **Mac only**, like 0.9.0.
+
+## New in 0.9.1
+
+**Assist mixes slower and in layers.** Gradual is the house mix style now: an
+eight-bar floor on every overlap, long EQ blends, no hard cuts. With stems on
+both decks the hand-over is staged part by part: the new kit comes in first
+and alone, the bass crosses over a bar at the swap, the old kit leaves a bar
+later, the melodies cross after that, and the vocals keep the clash guard's
+rules. Every stem ramp spans a bar under Gradual. A pair whose keys sit badly
+keeps its two melodies apart. With Tempo set to Adapt, the master's bend to
+the next song takes the whole overlap instead of eight seconds. The manual
+gained an Assist chapter.
+
 # Cadence 0.9.0 beta - release note
 
 Twenty-six rounds landed after 0.8.0, in two weeks: the Composer became a
