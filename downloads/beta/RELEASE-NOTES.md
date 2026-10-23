@@ -1,3 +1,16 @@
+# Cadence 0.9.2 beta - release note
+
+A round on one thing: two Cadences on one network. **Mac only**, like 0.9.1.
+
+## New in 0.9.2
+
+**Peers.** Another Cadence on the same network can join this mix as a
+surface: it shows every fader, EQ, filter, stem chip, loop and transport
+control as they are here, and every move it makes lands on this mix within
+a few milliseconds. Last touch wins. Browse the other machine's collection
+and load from it over the link. Click the engine readout and choose Peers.
+`Cadence --instance 1` runs a second Cadence on one Mac to try it.
+
 # Cadence 0.9.1 beta - release note
 
 A small round after 0.9.0, on Assist. **Mac only**, like 0.9.0.

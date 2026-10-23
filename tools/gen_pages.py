@@ -1872,9 +1872,9 @@ def cadence_beta_page():
                  + table + '\n      </table>\n'
                  '      <p class="mono dim">Full checksums: <a class="link" href="/downloads/beta/SHA256SUMS.txt">SHA256SUMS.txt</a></p>')
     else:
-        files = '      <p class="body">The 0.9.1 beta build is in preparation. This page fills in when it is cut.</p>'
+        files = '      <p class="body">The 0.9.2 beta build is in preparation. This page fills in when it is cut.</p>'
     return (
-        head("Cadence beta — SHLabs", "Cadence 0.9.1 beta downloads for invited testers.",
+        head("Cadence beta — SHLabs", "Cadence 0.9.2 beta downloads for invited testers.",
              robots="noindex, nofollow", og=(None, None))
         + nav()
         + """
@@ -1882,7 +1882,7 @@ def cadence_beta_page():
   <main class="mid pad" id="main">
     <div class="hero__meta mono">
       <span class="dim">Cadence</span>
-      <span class="dim-2">0.9.1 beta, invited testers</span>
+      <span class="dim-2">0.9.2 beta, invited testers</span>
     </div>
     <h1 class="display">Cadence beta</h1>
     <div class="psheet__grid">
@@ -1890,9 +1890,11 @@ def cadence_beta_page():
       <div class="psheet__desc">
 """ + files + """
         <p class="body" style="margin-top:22px">
-          The Mac zip is 0.9.1: Assist mixes slower and in layers now (Gradual by default, a staged
-          stem hand-over, bar-long stem ramps, a tempo glide across the overlap, and an Assist chapter
-          in the manual), on top of 0.9.0's pads in Perform with a step sequencer, MATCH, tags, ratings
+          The Mac zip is 0.9.2: Peers, where another Cadence on the network mirrors this mix as a
+          surface and either chair can move any control, with the linked collection loadable over the
+          link; 0.9.1's Assist that mixes slower and in layers (Gradual by default, a staged stem
+          hand-over, bar-long stem ramps, a tempo glide across the overlap, and an Assist chapter in
+          the manual); and 0.9.0's pads in Perform with a step sequencer, MATCH, tags, ratings
           and relink in the Collection, stems and grid-aware samples in the Sampler, a Composer with
           multi-select, a cycle and a tempo lane, plugins with a long look-ahead that no longer move
           the mix, mono and sidechain plugins, and true-peak meters. The release note has the whole

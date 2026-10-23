@@ -1,9 +1,9 @@
 {
   "schema": 1,
   "mac": {
-    "version": "0.9.1",
+    "version": "0.9.2",
     "url": "https://shlabs.ch/cadence/beta/",
-    "notes": "Assist mixes slower and in layers: Gradual by default, a staged stem hand-over, bar-long ramps, a tempo glide across the overlap."
+    "notes": "Peers: another Cadence on the network mirrors this mix as a surface, last touch wins, the linked collection over the link."
   },
   "win": {
     "version": "0.6.0",
