@@ -1,9 +1,9 @@
 {
   "schema": 1,
   "mac": {
-    "version": "0.9.2",
+    "version": "0.9.3",
     "url": "https://shlabs.ch/cadence/beta/",
-    "notes": "Peers: another Cadence on the network mirrors this mix as a surface, last touch wins, the linked collection over the link."
+    "notes": "Hot cues on a controller: mapped pads go by number, a press on an empty one sets the cue, MAP mode shows all eight."
   },
   "win": {
     "version": "0.6.0",

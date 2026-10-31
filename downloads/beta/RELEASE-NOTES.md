@@ -1,3 +1,17 @@
+# Cadence 0.9.3 beta - release note
+
+A small round: hot cues on a controller. **Mac only**, like 0.9.2.
+
+## New in 0.9.3
+
+**Hot cues on a controller.** Map CH1 Hot Cue 3 and that control is the cue
+numbered 3, wherever it sits along the track. A press on an empty number
+saves a cue there at the playhead; the next press jumps to it, or holds it
+with SLIP on. In MAP mode each deck shows all eight numbers, so you can bind
+one before it holds a cue. The pad's LED is lit while its number holds a cue.
+A map saved before keeps its pads; pad N now means the cue numbered N rather
+than the N-th along the track.
+
 # Cadence 0.9.2 beta - release note
 
 A round on one thing: two Cadences on one network. **Mac only**, like 0.9.1.

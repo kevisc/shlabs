@@ -1872,9 +1872,9 @@ def cadence_beta_page():
                  + table + '\n      </table>\n'
                  '      <p class="mono dim">Full checksums: <a class="link" href="/downloads/beta/SHA256SUMS.txt">SHA256SUMS.txt</a></p>')
     else:
-        files = '      <p class="body">The 0.9.2 beta build is in preparation. This page fills in when it is cut.</p>'
+        files = '      <p class="body">The 0.9.3 beta build is in preparation. This page fills in when it is cut.</p>'
     return (
-        head("Cadence beta — SHLabs", "Cadence 0.9.2 beta downloads for invited testers.",
+        head("Cadence beta — SHLabs", "Cadence 0.9.3 beta downloads for invited testers.",
              robots="noindex, nofollow", og=(None, None))
         + nav()
         + """
@@ -1882,7 +1882,7 @@ def cadence_beta_page():
   <main class="mid pad" id="main">
     <div class="hero__meta mono">
       <span class="dim">Cadence</span>
-      <span class="dim-2">0.9.2 beta, invited testers</span>
+      <span class="dim-2">0.9.3 beta, invited testers</span>
     </div>
     <h1 class="display">Cadence beta</h1>
     <div class="psheet__grid">
@@ -1890,7 +1890,8 @@ def cadence_beta_page():
       <div class="psheet__desc">
 """ + files + """
         <p class="body" style="margin-top:22px">
-          The Mac zip is 0.9.2: Peers, where another Cadence on the network mirrors this mix as a
+          The Mac zip is 0.9.3: hot cues on a controller, where a mapped pad is the cue with its
+          number and a press on an empty one sets it; 0.9.2's Peers, where another Cadence on the network mirrors this mix as a
           surface and either chair can move any control, with the linked collection loadable over the
           link; 0.9.1's Assist that mixes slower and in layers (Gradual by default, a staged stem
           hand-over, bar-long stem ramps, a tempo glide across the overlap, and an Assist chapter in
