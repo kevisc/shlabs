@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-gen_pages.py — regenerate every HTML page of shlabs.ch in the "Index"
+gen_pages.py: regenerate every HTML page of shlabs.ch in the "Index"
 design system (see css/shlabs.css).
 
     HOW TO RE-RUN
@@ -16,6 +16,7 @@ design system (see css/shlabs.css).
         cadence/  phosphor/  cell/  schlagzeugs/  contour/  spazio/  lacuna/
         legato/  stesso/  tonnetz/  metro185/   (glue/ redirects to legato/)
         stochast/  mashina/  lucida/  rikoshet/  atmos/  terra/
+        gsw/  gsw/cadence/  gsw/phosphor/   (Schwiizerdütsch, see gsw_home())
 
     It never touches: cadence/manual/ (the product manual deliberately
     matches the app's own look, not the site), CNAME, img/, README.md,
@@ -26,6 +27,17 @@ design system (see css/shlabs.css).
     footer are defined exactly once (NAV_LINKS / FOOTER_COLS), so every
     page stays in sync and internal links cannot drift apart.
 
+    Voice rules for all copy in this file
+    -------------------------------------
+    * Humble, specific and technical. State what a tool is, what it does
+      and what it lets the user do. Give the numbers.
+    * Plain standard technical English. Short sentences, one idea each,
+      active voice, present tense. Direct, never sarcastic or abstract.
+    * No slogans, metaphors or superlatives (premium, lush, brain, alive,
+      state-of-the-art). No claims about other products. No "not X but Y".
+    * No em dashes. Page titles use " · SHLabs". Keep control names as the
+      app shows them. Mark what is in beta or planned as such.
+
     Design rules this file encodes
     ------------------------------
     * Amber is the only accent, used for status and interaction only.
@@ -34,10 +46,10 @@ design system (see css/shlabs.css).
       thing on the site that inverts to ink on hover. A product sheet's
       specification rows use the same ruled geometry but never invert,
       because they are facts, not links.
-    * Product sheets carry no logo art — the old app-icon PNGs are built
+    * Product sheets carry no logo art: the old app-icon PNGs are built
       for a dark UI. Real screenshots appear as "plates": a single 1px ink
       hairline, no shadow, no gradient, mono caption underneath.
-    * Only /cadence/ loads JavaScript, and only for the view explorer — the
+    * Only /cadence/ loads JavaScript, and only for the view explorer: the
       tab row over the Cadence screenshots. With no script it degrades to
       those plates stacked in flow, each with its own note.
 """
@@ -91,6 +103,7 @@ FOOTER_COLS = [
         ("Contact", MAIL),
         ("Support the studio", "/donate/"),
         ("GitHub", GITHUB),
+        ("Schwiizerdütsch", "/gsw/"),
     ]),
 ]
 
@@ -103,12 +116,12 @@ SWISS = (
 
 
 def head(title, desc, *, home=False, robots=None, canonical=None, refresh=None,
-         script=False, og=None):
+         script=False, og=None, lang="en"):
     """The <head> block. og defaults to the page title/description."""
     og_title, og_desc = og or (title, desc)
     L = [
         "<!doctype html>",
-        '<html lang="en">',
+        '<html lang="%s">' % lang,
         "<head>",
         '  <meta charset="utf-8">',
         '  <meta name="viewport" content="width=device-width, initial-scale=1">',
@@ -180,7 +193,7 @@ def footer():
         '      <div class="foot__word">SH<i>labs</i></div>\n'
         '    </div>\n\n'
         '    <div class="foot__bar pad mono">\n'
-        '      <span>&copy; %d SHLabs &middot; Instruments for the modular world</span>\n'
+        '      <span>&copy; %d SHLabs &middot; Software for music and visuals</span>\n'
         '      <span class="swiss">%s Made in Switzerland</span>\n'
         '      <span class="dim-2">Set in Helvetica</span>\n'
         '    </div>\n'
@@ -374,14 +387,13 @@ def product_page(p):
 # ═══════════════════════════════════════════════════════════════════════
 
 VST_CLOSE = ("""A paid, closed-source SHLabs plugin in active development. This page is """
-             """an early look; pricing and availability will be announced when it ships. """
-             """Follow SHLabs to hear when it lands.""")
+             """an early look. Pricing and availability will be announced at release.""")
 
-VCV_NEED = ("""You'll need <strong>VCV Rack 2</strong> — a free download for macOS, Windows """
+VCV_NEED = ("""You need <strong>VCV Rack 2</strong>, a free download for macOS, Windows """
             """and Linux from <a class="link" href="https://vcvrack.com/Rack" target="_blank" """
             """rel="noopener">vcvrack.com/Rack</a>.""")
 
-VCV_MAC = "macOS (Apple Silicon). Windows, Linux &amp; Intel builds coming via the VCV Library."
+VCV_MAC = "macOS (Apple Silicon). Windows, Linux &amp; Intel builds are planned through the VCV Library."
 
 ALL_PRODUCTS = ("/#index", "All products &rarr;", "")
 ALL_VCV = ("/#vcv", "All VCV modules &rarr;", "")
@@ -411,14 +423,14 @@ PRODUCTS = {}
 # ─── Cadence ──────────────────────────────────────────────────────────
 PRODUCTS["cadence"] = {
     "name": "Cadence",
-    "title": "Cadence — SHLabs",
-    "desc": """Cadence is a hybrid-performance brain from SHLabs: a DJ-style four-channel performance mixer, master clock and sync hub for hardware, files and live inputs. Sample-accurate 24-PPQN MIDI clock, beatgrid players, automatic structure analysis, on-device stem separation, a Composer timeline with a piano roll, MIDI and audio take recording, and an OSC broadcast. Standalone app for macOS and Windows. Coming soon.""",
+    "title": "Cadence · SHLabs",
+    "desc": """Cadence is a four-channel performance mixer and master clock for hardware, files and live inputs. It has a sample-accurate 24-PPQN MIDI clock, beatgrid players, automatic structure analysis, on-device stem separation, a Composer timeline with a piano roll, MIDI and audio take recording, and an OSC broadcast. Standalone app for macOS and Windows. Coming soon.""",
     "crumb": ("Performance &amp; live", "/#cat-live"),
     "cat": "Performance mixer &amp; master clock",
     "status": "Coming soon",
     "soon": True,
-    "claim": "A hybrid-performance brain.",
-    "lead": """Four channels of live inputs and beatgrid players under DJ-style hands, a sample-accurate MIDI clock that the rest of your rig follows, and an assist layer that can hold the mix together while you play hardware on top. Whatever you play over it, a keyboard or the synth on the desk, records back onto the channel it came from as a loop.""",
+    "claim": "A four-channel performance mixer and master clock.",
+    "lead": """Each channel takes a live input or a beatgrid player. A sample-accurate MIDI clock drives your hardware. Assist can hold the mix while you play. A part you play on a keyboard or a hardware synth records back onto its channel as a loop.""",
     "spec": ["Standalone app", "macOS and Windows, beta in testing"],
     # No hero plate: the Perform shot that used to sit here is the first view
     # of the explorer below, and one screenshot on a sheet twice is one too
@@ -441,14 +453,14 @@ PRODUCTS["cadence"] = {
                  "/img/shots/cadence.jpg",
                  "The Perform view: four mixer strips with faders and meters at the centre, a deck waveform either side of them, and the collection docked below",
                  2360, 1864,
-                 """Perform — the mixer: four strips, each running a live input or a deck from your collection, under one master section.""",
+                 """Perform is the mixer. It has four strips under one master section. Each strip runs a live input or a deck from your collection.""",
                  ["3-band EQ with full kill", "Filter per channel",
                   "Pre-fader cue bus", "Stem chips per deck", "REC chip per deck"]),
                 ("composer", "Composer",
                  "/img/shots/cadence-arrange.jpg",
                  "The Composer view: four channel lanes carrying audio clips and MIDI blocks on a numbered bar timeline, with automation curves under the lanes and a toolbar of clip and automation tools above them",
                  2360, 1864,
-                 """Composer — a bar timeline where the set is laid out in advance: one lane per channel, audio clips and MIDI blocks on the lanes, automation drawn underneath, and its own PLAY as the transport for the arrangement.""",
+                 """Composer is a bar timeline for laying out a set in advance. It has one lane per channel, with audio clips and MIDI blocks on the lanes and automation drawn underneath. Its own PLAY runs the arrangement.""",
                  ["Whole set to sixteenth-note zoom", "Piano roll with marquee editing",
                   "Vol / filt / dly / verb / OSC / macro and stem lanes",
                   "Saved as a Composition"]),
@@ -456,84 +468,84 @@ PRODUCTS["cadence"] = {
                  "/img/shots/cadence-sampler.jpg",
                  "The Sampler view: a zoomed waveform with a beatgrid-snapped selection highlighted, under the save, monitor and strip controls",
                  2360, 1864,
-                 """Sampler — a non-destructive editor for snipping regions out of tracks: select on the beatgrid, audition through the Sampler's own voice, then save the piece, or collect regions into a strip and render them as one crossfaded clip.""",
+                 """Sampler is a non-destructive editor for cutting regions out of tracks. Select on the beatgrid and audition through the Sampler's own voice. Then save the piece, or collect regions into a strip and render them as one crossfaded clip.""",
                  ["Beatgrid-snapped selection", "Its own preview voice, no deck borrowed",
                   "Cue and main are independent", "24-bit WAV, equal-power joins"]),
             ]),
-            ("body", """The fourth view is the Collection, the library you load from. Scanning reads tempo, a bar-accurate beatgrid, the musical key and the loudness the auto-gain works from. The table then carries a waveform, BPM, key, genre, length, grid confidence and stems status for every track. Search filters as you type on a word, a key or a BPM range, and while a deck plays the tracks in a compatible key tint green. LOAD 1 to 4 above the table put the selected track on a channel, each button lit by that channel's live level so you never load over a playing deck. Music comes in through Add Files, or through Import XML for a rekordbox collection with its playlists, curated beatgrids and hot cues."""),
+            ("body", """The fourth view is the Collection, the library you load from. A scan reads the tempo, a bar-accurate beatgrid, the musical key and the loudness that auto-gain uses. The table then shows a waveform, BPM, key, genre, length, grid confidence and stems status for every track. Search filters as you type, on a word, a key or a BPM range. While a deck plays, tracks in a compatible key tint green. LOAD 1 to 4 above the table put the selected track on a channel. Each button shows that channel's live level, so you can see which decks are playing. Music comes in through Add Files, or through Import XML for a rekordbox collection with its playlists, beatgrids and hot cues."""),
         ]},
         {"parts": [
             ("head", "What it is", ""),
             ("rows", [
-                ("The brain", "One surface for the whole set",
-                 """Live inputs, prepared clips and hardware all meet on the same four channels. Cadence holds the tempo, the grid and the structure of the set in one place, so there is a single thing to look at when the room is dark and something needs to change now."""),
-                ("One clock", "Everything follows Cadence",
-                 """A sample-accurate 24-PPQN MIDI clock, phase-locked to the audio clock rather than driven by a timer, with transport start and stop and tap tempo. Cadence is built to be the one clock in the room, not another device negotiating for sync."""),
-                ("Hands free", "Play hardware on top",
-                 """The assist layer can carry a transition on its own — key-aware, paced how you like it, looping the build into the drop. That buys you both hands for the modular, the drum machine or the synth, and you take the mix back whenever you want it."""),
+                ("One surface", "One surface for the whole set",
+                 """Live inputs, prepared clips and hardware share the same four channels. Cadence holds the tempo, the grid and the structure of the set in one place."""),
+                ("One clock", "Cadence is the master clock",
+                 """A sample-accurate 24-PPQN MIDI clock, phase-locked to the audio clock and not driven by a timer. It sends transport start and stop and has tap tempo. Your hardware follows Cadence, so the rig has one clock."""),
+                ("Assist", "Play hardware on top",
+                 """Assist can carry a transition on its own. It is key-aware, its pacing is adjustable, and it can loop the build into the drop. That leaves both hands free for the modular, the drum machine or the synth. You can take the mix back at any point."""),
             ]),
         ]},
         {"parts": [
             ("head", "Capabilities", ""),
             ("rows", [
-                ("Mixer", "Four channels, DJ ergonomics",
-                 """Each channel takes a live input or its own internal player. Three-band EQ with full kills, one HP/LP filter knob per channel in the DJ idiom, a pre-fader cue bus with selectable master and cue output routing, and master metering. Per-channel delay and a shared reverb send sit on the same strip."""),
+                ("Mixer", "Four channels, DJ layout",
+                 """Each channel takes a live input or its own internal player. It has a three-band EQ with full kills and one HP/LP filter knob. A pre-fader cue bus has selectable master and cue output routing. Master metering is included. Each strip also has a delay and a send to a shared reverb."""),
                 ("Clock &amp; sync", "Hardware locked to the grid",
-                 """24-PPQN MIDI clock out, sample-accurate and phase-locked to audio, driving eurorack, Elektron boxes and drum machines with transport start and stop. Tap tempo for anything unclocked, and an OSC broadcast of beat, phase and tempo for software on the network."""),
-                ("Players", "Beatgrid-native clips",
-                 """Quantized bar launch, warp and vari-speed sync to the master tempo, flexible grid with key-lock, eight hot cues and cue preview from the browser. Waveform lanes show phase and sync against the beat grid, so you can see whether two decks land together."""),
+                 """24-PPQN MIDI clock out, sample-accurate and phase-locked to audio, with transport start and stop. It drives eurorack, Elektron boxes and drum machines. Use tap tempo for anything unclocked. An OSC broadcast sends beat, phase and tempo to software on the network."""),
+                ("Players", "Beatgrid clips",
+                 """Quantized bar launch, warp and vari-speed sync to the master tempo, a flexible grid with key-lock, eight hot cues and cue preview from the browser. Waveform lanes show phase and sync against the beatgrid, so you can see whether two decks line up."""),
                 ("Composer", "A set laid out in advance",
-                 """A bar timeline with one lane per channel: full-length clips, MIDI blocks and hand-drawn automation, under its own PLAY. Zoom runs from a whole set on one screen down to a sixteenth note, the piano roll selects and edits notes in bulk, and the rows of the key the app has resolved are lit as you write. Saved and reloaded as a Composition."""),
-                ("Analysis", "It reads the track",
-                 """Automatic beatgrid and structure detection marks intro, break, drop and outro, with auto-sections snapped to bars, mood descriptors and clip-safe gain. The library stores the analysis, so a track you prepared once stays prepared."""),
+                 """A bar timeline with one lane per channel: full-length clips, MIDI blocks and hand-drawn automation, under its own PLAY. Zoom runs from a whole set on one screen down to a sixteenth note. The piano roll selects and edits notes in bulk, and it lights the rows of the key the app has resolved. A layout saves and reloads as a Composition."""),
+                ("Analysis", "Beatgrid and structure",
+                 """Automatic beatgrid and structure detection marks intro, break, drop and outro. Auto-sections snap to bars. Analysis also gives mood descriptors and clip-safe gain. The library stores the results, so a track needs preparing only once."""),
                 ("Assist", "An auto-DJ layer you steer",
-                 """Key-aware transition modes, adjustable pacing, a build-up loop into the drop and FX ramps. When tracks are separated, transitions use the stems themselves — real bass swaps and vocal handovers, not just EQ moves. Hand it the next stretch and it holds the mix; take it back mid-transition and nothing jumps."""),
+                 """Key-aware transition modes, adjustable pacing, a build-up loop into the drop and FX ramps. When tracks are separated, transitions use the stems: bass swaps and vocal handovers instead of EQ moves alone. You can take the mix back during a transition without a jump in level."""),
                 ("Control", "Mapped to your gear",
-                 """MIDI-learn on everything, with A/B bank switching so a small controller still reaches the whole surface. A phone remote joins over the local network by QR code. OSC broadcasts clock phase, beat, BPM and transport alongside master band energy, kick onsets, per-stem levels and a drop-aware intensity signal."""),
+                 """MIDI-learn on every control, with A/B bank switching so a small controller can reach the whole surface. A phone remote joins over the local network by QR code. OSC broadcasts clock phase, beat, BPM and transport, with master band energy, kick onsets, per-stem levels and a drop-aware intensity signal."""),
                 ("The look", "Two surfaces, one switch",
-                 """Cadence comes up in the Index look: the design language of this site turned dark, square and ruled rather than boxed, with type set by role instead of by whatever height a control happened to have. Classic, the surface Cadence had before it, is still a setting, and the switch is instant with nothing dropping out of the mix."""),
+                 """Cadence starts in the Index look: this site's design language in dark form, square and ruled, with type set by role. Classic, the earlier surface, is still a setting. The switch is instant and does not interrupt the mix."""),
             ]),
         ]},
         {"parts": [
             ("head", "Stems", "Drums · Bass · Other · Vocals"),
-            ("lead", """Cadence separates a track into its four parts on your machine — no cloud, no upload — and then treats them as performance surface: kill a vocal, keep the drums under the next tune, solo a bassline, and let the auto-DJ trade basslines instead of EQ bands."""),
+            ("lead", """Cadence separates a track into four parts on your machine, with no cloud and no upload. You can then kill a vocal, keep the drums under the next track or solo a bassline. Assist can swap the basslines of two tracks instead of trading EQ bands."""),
             ("rows", [
                 ("Separate", "Four parts, on your machine",
-                 """One right-click separates a track into drums, bass, other and vocals with a state-of-the-art neural model running locally — around forty seconds for a club track on Apple Silicon. Results live in the library cache, so a track is only ever separated once."""),
-                ("Perform", "Kills that land on the bar",
-                 """Each stemmed deck grows four mute chips and a solo per part, all quantized to the grid — a queued kill blinks until the bar line and drops exactly on it, or shift-click for an instant stab. Key-lock holds pitch throughout, and every chip is MIDI-learnable."""),
-                ("Assist + stems", "The auto-DJ mixes with the parts",
-                 """Transitions become stem-aware when the material allows it: bass swaps trade the actual basslines on the swap bar, the incoming vocal waits until the outgoing one is out of the way, and with both tracks separated it hands over drums first, then bass — the way you would."""),
+                 """One right-click separates a track into drums, bass, other and vocals. A neural model (htdemucs) runs locally. A club track takes about forty seconds on Apple Silicon. Results stay in the library cache, so each track is separated once."""),
+                ("Perform", "Kills quantized to the bar",
+                 """Each stemmed deck shows four mute chips and a solo per part, all quantized to the grid. A queued kill blinks until the bar line and then takes effect. Shift-click for an instant kill. Key-lock holds pitch, and every chip is MIDI-learnable."""),
+                ("Assist + stems", "Assist mixes with the parts",
+                 """Transitions use the stems when they exist. Bass swaps exchange the two basslines on the swap bar. The incoming vocal waits until the outgoing vocal has ended. With both tracks separated, Assist hands over the drums first, then the bass."""),
             ]),
         ]},
         {"parts": [
             ("head", "Recording", "The mix · MIDI takes · audio takes"),
-            ("lead", """Cadence records the mix that leaves it, and it records into itself: a part played on a keyboard, or a synth standing on the desk, is captured on the channel it arrived on and left looping there."""),
+            ("lead", """Cadence records the mix it sends out. It also records into itself: a part played on a keyboard or a hardware synth is captured on its channel and loops there."""),
             ("rows", [
-                ("The take", "Count in, play, it loops",
-                 """Arm a channel and the count-in starts on the next bar line rather than under your finger, because a loop that began where the mouse landed could never come back in phase. The click is forced audible for the count, the recording stops itself at the loop length you chose, and the loop starts immediately in the phase you played it. One shared menu sets loop length and count-in bars for every kind of take."""),
+                ("The take", "Count in, play, loop",
+                 """Arm a channel and the count-in starts on the next bar line, so the loop stays in phase with the grid. The click is audible during the count. The recording stops at the loop length you chose, and the loop starts at once in the phase you played it. One shared menu sets loop length and count-in bars for every kind of take."""),
                 ("MIDI", "Three places to record into",
-                 """Record a MIDI device onto a Perform channel, onto a Composer lane, or into the clip open in the note editor. Quantize is a sensitivity rather than a switch: it moves note starts and leaves the durations you played alone, so a take tightens without losing its phrasing. Snap to key moves an off-key note to the nearest one in the key the app has resolved, and does nothing at all when no key resolves."""),
-                ("Audio", "The synth in the room, on the grid",
-                 """Record a hardware synth on a live input, or a hosted instrument you are playing, as a looping clip on the channel or as a clip in a composition. The tap sits after the channel has made its sound and before it shapes it, ahead of the EQ, the filter and the sends, so the loop is still yours to tweak afterwards. The take is latency-compensated, with a manual trim for interfaces that misreport, and it is born on the master grid rather than handed to a beat detector."""),
-                ("The mix", "The set, as it went out",
-                 """The master button records the master bus, after the compressor and the limiter, as a 24-bit WAV. It runs independently of the channel takes, so recording the night and recording a loop into channel 3 are not a choice."""),
+                 """Record a MIDI device onto a Perform channel, onto a Composer lane, or into the clip open in the note editor. Quantize is a sensitivity control. It moves note starts and leaves your durations as played. Snap to key moves an off-key note to the nearest note in the resolved key. It does nothing when no key resolves."""),
+                ("Audio", "Hardware synths on the grid",
+                 """Record a hardware synth on a live input, or a hosted instrument, as a looping clip on the channel or as a clip in a composition. The tap sits after the sound source and before the EQ, the filter and the sends, so you can still shape the loop afterwards. The take is latency-compensated, with a manual trim for interfaces that report latency wrongly. It is placed on the master grid directly and does not go through beat detection."""),
+                ("The mix", "The master output",
+                 """The master button records the master bus, after the compressor and the limiter, as a 24-bit WAV. It runs independently of the channel takes, so you can record the set and a loop on channel 3 at the same time."""),
             ]),
         ]},
         {"slab": True, "id": "bundle", "parts": [
-            ("head", "The bundle", "The full SHLabs studio"),
-            ("h3", "Built to perform together"),
-            ("lead", """Phosphor listens to Cadence over OSC and locks the visuals to the clock. Motion lands on the beat, parameters move with bass, mid and high energy, kicks flash, and the image surges when the drop arrives and settles back through the breakdown. This is how the two apps already behave together, not something on a roadmap."""),
+            ("head", "The bundle", "Ten products"),
+            ("h3", "Cadence and Phosphor work together"),
+            ("lead", """Cadence sends live data to Phosphor over OSC. Phosphor uses that data to drive the picture, so the visuals follow the set while you keep mixing. Both apps do this today."""),
             ("rows", [
                 ("Cadence sends", "Clock, structure, energy",
-                 """Beat and clock phase, BPM and transport, master band energy across bass, mid and high, kick onsets, and a drop-aware intensity signal — plus live per-stem levels and drum-stem onsets when a deck plays separated stems. Broadcast continuously over OSC while you play."""),
-                ("Phosphor answers", "Visuals on the same grid",
-                 """Scene motion locks to beat phase, reactive parameters follow the bands, kick onsets fire shockwave ripples, and intensity drives the whole image up into the drop — fullscreen on the projector."""),
+                 """Beat and clock phase, BPM and transport, master band energy across bass, mid and high, kick onsets, and a drop-aware intensity signal. When a deck plays separated stems, it also sends per-stem levels and drum-stem onsets. The broadcast runs continuously while you play."""),
+                ("So Phosphor can", "Keep visuals on the same grid",
+                 """Lock scene motion to beat phase. Follow the bands with reactive parameters. Fire shockwave ripples on kick onsets. Raise the image into each drop. Output runs fullscreen on a projector."""),
             ]),
-            ("body", """And the bundle is the whole studio: alongside <strong>Cadence</strong> and <strong>Phosphor</strong> it includes <a class="link" href="/cell/">Cell</a>, <a class="link" href="/schlagzeugs/">Schlagzeugs</a>, <a class="link" href="/contour/">Contour</a>, <a class="link" href="/spazio/">Spazio</a>, <a class="link" href="/lacuna/">Lacuna</a>, <a class="link" href="/legato/">Legato</a>, <a class="link" href="/stesso/">Stesso</a> and <a class="link" href="/tonnetz/">Tonnetz</a> — every instrument, effect and mastering tool in the line."""),
-            ("body", """Schlagzeugs already speaks Cadence's language: the Beats assist writes a drum clip on the General MIDI drum map, which is the map Schlagzeugs plays by default."""),
-            ("body", """Lacuna follows Cadence's key: with Follow on, its six resonances retune to the key of the deck Cadence plays, in whatever host Lacuna runs on the same computer."""),
-            ("body", """A Tonnetz link — Cadence following and steering harmony via note-follow over OSC — is planned for the bundle."""),
+            ("body", """The bundle also includes <a class="link" href="/cell/">Cell</a>, <a class="link" href="/schlagzeugs/">Schlagzeugs</a>, <a class="link" href="/contour/">Contour</a>, <a class="link" href="/spazio/">Spazio</a>, <a class="link" href="/lacuna/">Lacuna</a>, <a class="link" href="/legato/">Legato</a>, <a class="link" href="/stesso/">Stesso</a> and <a class="link" href="/tonnetz/">Tonnetz</a>. That is every instrument, effect and mastering tool in the line."""),
+            ("body", """Schlagzeugs plays Cadence's drum clips directly. The Beats assist writes a drum clip on the General MIDI drum map, which is the default map in Schlagzeugs."""),
+            ("body", """Lacuna follows Cadence's key. With Follow on, its six resonances retune to the key of the deck Cadence plays, in any host on the same computer."""),
+            ("body", """A Tonnetz link is planned for the bundle. Cadence would follow and steer harmony through note-follow over OSC."""),
             ("mono", "Bundle pricing announced at release."),
             ("acts", [("/phosphor/", "Phosphor &rarr;", ""),
                       ("/tonnetz/", "Tonnetz &rarr;", ""),
@@ -541,13 +553,13 @@ PRODUCTS["cadence"] = {
         ]},
         {"parts": [
             ("head", "Influences", ""),
-            ("body", """Cadence's performance workflow owes an honest debt to deadmau5's Autopilot. Its DAW-style set preparation and hybrid performance thinking pushed us to ask how much of a set can be prepared in advance before it stops being a performance and becomes a playback."""),
-            ("body", """Cadence goes its own way from there: it is a hardware-first brain, putting out a sample-accurate MIDI clock that your modular and drum machines follow; it is open at the edges, broadcasting clock, structure and energy over OSC to a paired video synth that reacts to the shape of your set; and every control on it maps to whatever gear you already own."""),
+            ("body", """Cadence's workflow owes a debt to deadmau5's Autopilot. Its DAW-style set preparation and hybrid performance approach raised a question for us: how much of a set can you prepare before it stops being a performance?"""),
+            ("body", """Cadence differs in three ways. It is built around hardware, with a sample-accurate MIDI clock for your modular and drum machines. It broadcasts clock, structure and energy over OSC, so a paired video synth can follow the set. And every control maps to the gear you already own."""),
         ]},
         {"parts": [
             ("head", "Get it", ""),
-            ("lead", """Cadence is a premium SHLabs app in active development. This page is an early look."""),
-            ("body", """The macOS and Windows builds are in beta testing. Pricing and availability are announced when it ships. For early access, or if you want to know whether Cadence will clock the specific box on your desk, write to us."""),
+            ("lead", """Cadence is a paid SHLabs app in active development. This page is an early look."""),
+            ("body", """The macOS and Windows builds are in beta testing. Pricing and availability will be announced at release. For early access, or to ask whether Cadence can clock a specific device, write to us."""),
             ("acts", [(MAIL, "Write us", "fill"), ALL_PRODUCTS]),
         ]},
     ],
@@ -556,53 +568,53 @@ PRODUCTS["cadence"] = {
 # ─── Phosphor ─────────────────────────────────────────────────────────
 PRODUCTS["phosphor"] = {
     "name": "Phosphor",
-    "title": "Phosphor — SHLabs",
-    "desc": """Phosphor is a GPU-native audio-reactive video synthesiser from SHLabs: thirty-two scenes, a 100k particle system, band envelopes and onset detection, Syphon output and recording. Locks to Cadence over OSC, to the host playhead, or to the beat it finds in the audio, and on a Mac it listens to whatever is playing. VST3 / AU / Standalone. Coming soon.""",
+    "title": "Phosphor · SHLabs",
+    "desc": """Phosphor is a GPU-based audio-reactive video synthesiser: thirty-two scenes, a 100k particle system, band envelopes and onset detection, Syphon output and recording. It locks to Cadence over OSC, to the host playhead, or to the beat it finds in the audio. On a Mac it can capture whatever is playing. VST3 / AU / Standalone. Coming soon.""",
     "crumb": ("Visuals", "/#cat-visuals"),
     "cat": "Audio-reactive video synth",
     "status": "Coming soon",
     "soon": True,
-    "claim": "A video synthesiser that listens.",
-    "lead": """A GPU-native GLSL engine with thirty-two scenes and a hundred-thousand-particle system, driven by real band envelopes and onset detection, locked to your clock or to the beat it hears, and thrown fullscreen onto the projector or floated over the music you play. Insert it on a track and the audio passes through untouched.""",
-    "spec": ["Premium · VST3 · AU · Standalone", "macOS"],
+    "claim": "An audio-reactive video synthesiser.",
+    "lead": """A GLSL engine on the GPU, with thirty-two scenes and a particle system of 100,000 points. Band envelopes and onset detection drive the image. It locks to your clock or to the beat it finds in the audio. Output goes fullscreen to a projector or floats over the music you play. When inserted on a track, it passes the audio through unchanged.""",
+    "spec": ["VST3 · AU · Standalone", "macOS"],
     "shot": ("/img/shots/phosphor.jpg", "The Phosphor plugin interface", 1280, 1040),
     "sections": [
         {"parts": [
             ("head", "What it does", ""),
             ("rows", [
-                ("Scene engine", "Five families of image",
-                 """Everything renders on the GPU in GLSL. Morphable pattern <strong>Fields</strong> cover more than twelve forms; <strong>Tunnel</strong> is a flythrough; <strong>Fractals</strong> run Julia, Mandelbrot and Burning Ship; <strong>Spectrum</strong> draws bars, radial and spectrograph views from a true FFT; <strong>Ambient</strong> holds nebula, aurora, caustics and lava."""),
-                ("Particles", "A hundred thousand of them",
-                 """A GPGPU particle system running upward of 100,000 points with trails and reflections, simulated entirely on the graphics card so the count buys you density rather than dropped frames."""),
-                ("Reactivity", "It hears more than level",
-                 """Separate envelopes for overall level and for bass, mid and high, plus onset detectors for kick, snare and hat. Spectral centroid tilts the colour toward the brightness of the sound. One master REACT control sets how hard all of it pushes."""),
-                ("Sync", "Four ways to stay in time",
-                 """Lock to <a class="link" href="/cadence/">Cadence</a> over OSC and follow beat, phase, BPM, transport, band energy, onsets and drop intensity. Take the host playhead inside a DAW. Or let Phosphor find the beat in the audio itself, for a stream or a record with no clock at all. Motion stays on the grid whichever way."""),
+                ("Scene engine", "Five scene families",
+                 """Everything renders on the GPU in GLSL. <strong>Fields</strong> covers more than twelve morphable patterns. <strong>Tunnel</strong> is a flythrough. <strong>Fractals</strong> runs Julia, Mandelbrot and Burning Ship. <strong>Spectrum</strong> draws bars, radial and spectrograph views from an FFT. <strong>Ambient</strong> holds nebula, aurora, caustics and lava."""),
+                ("Particles", "100,000 points",
+                 """A GPGPU particle system with more than 100,000 points, trails and reflections. The simulation runs entirely on the graphics card."""),
+                ("Reactivity", "Bands and onsets",
+                 """Separate envelopes for overall level and for bass, mid and high. Onset detectors for kick, snare and hat. Spectral centroid tilts the colour with the brightness of the sound. One master REACT control sets the overall response."""),
+                ("Sync", "Clock sources",
+                 """Lock to <a class="link" href="/cadence/">Cadence</a> over OSC and follow beat, phase, BPM, transport, band energy, onsets and drop intensity. Use the host playhead inside a DAW. Or let Phosphor find the beat in the audio, for a stream or a record with no clock."""),
                 ("Just listen", "A visualiser for the music you play",
-                 """On a Mac, Phosphor captures what any app plays, Spotify, Apple Music, a browser, with no cable and no loopback driver, and runs a hands-free director over it. It asks the player what is playing, so a new track changes the scene and the album art sets the palette. Float it over the player, click-through if you like, or put it on the desktop as a live wallpaper with a menu bar icon to bring it back. A flash limiter keeps the picture under three flashes a second. The controls fade when the mouse rests."""),
-                ("Performance", "Built for the room",
-                 """Fullscreen to a second display or projector, <strong>Evolve</strong> for hands-free generative drift, <strong>Auto</strong> for preset roaming and <strong>Flow</strong> to morph between them — cut, smooth or slow. More than 36 presets and 15 colour palettes, layered dual-engine blending, a video-clip layer with reactive blending, and shockwave ripples on the kick."""),
-                ("I/O &amp; control", "Out to the rest of the rig",
-                 """Syphon output on macOS feeds your VJ software or media server; H.264 recording and PNG snapshots capture the set. MIDI-learn covers every control, and a phone remote joins over the local network by QR code."""),
+                 """On a Mac, Phosphor captures what any app plays, such as Spotify, Apple Music or a browser, with no cable and no loopback driver. A hands-free director runs over it. Phosphor asks the player what is playing, so a new track changes the scene and the album art sets the palette. You can float it over the player, with click-through if you want, or set it as a live desktop wallpaper with a menu bar icon. A flash limiter keeps the picture under three flashes a second. The controls fade when the mouse rests."""),
+                ("Performance", "For live use",
+                 """Fullscreen output to a second display or projector. <strong>Evolve</strong> gives hands-free generative drift. <strong>Auto</strong> moves between presets, and <strong>Flow</strong> morphs between them: cut, smooth or slow. More than 36 presets and 15 colour palettes, layered dual-engine blending, a video-clip layer with reactive blending, and shockwave ripples on the kick."""),
+                ("I/O &amp; control", "Outputs and remote control",
+                 """Syphon output on macOS feeds VJ software or a media server. H.264 recording and PNG snapshots capture the output. MIDI-learn covers every control, and a phone remote joins over the local network by QR code."""),
             ]),
-            ("mono", """VST3 &middot; AU &middot; Standalone. macOS now; a Windows build is in CI with the visuals and reactivity intact &mdash; Syphon and recording stay macOS-only."""),
+            ("mono", """VST3 &middot; AU &middot; Standalone. macOS now. A Windows build is in CI with the visuals and reactivity. Syphon and recording stay macOS-only."""),
         ]},
         {"parts": [
             ("head", "Engine output", ""),
             ("plate", "/img/shots/phosphor-visual.jpg",
              "A frame rendered by the Phosphor engine", 1600, 715,
-             "Engine output &mdash; a single frame captured straight out of Phosphor."),
+             "Engine output: a single frame captured from Phosphor."),
         ]},
         {"slab": True, "id": "bundle", "parts": [
             ("head", "The bundle", "Bundle pricing at release"),
-            ("h3", "Made to lock to Cadence"),
-            ("body", """Cadence broadcasts clock phase, beat, BPM, transport, master band energy, kick onsets and a drop-aware intensity signal over OSC. Phosphor listens and answers: motion on the beat, parameters on the bands, flashes on the kick, and the whole image surging into the drop. The bundle includes the full plugin line too — Cell, Schlagzeugs, Contour, Spazio, Legato, Stesso and Tonnetz."""),
+            ("h3", "Phosphor locks to Cadence"),
+            ("body", """Cadence broadcasts clock phase, beat, BPM, transport, master band energy, kick onsets and a drop-aware intensity signal over OSC. Phosphor uses them to put motion on the beat, move parameters with the bands, react to the kick and raise the image into the drop. The bundle also includes the plugin line: Cell, Schlagzeugs, Contour, Spazio, Lacuna, Legato, Stesso and Tonnetz."""),
             ("acts", [("/cadence/#bundle", "See the bundle &rarr;", "")]),
         ]},
         {"parts": [
             ("head", "Get it", ""),
-            ("lead", """Phosphor is the SHLabs studio made visible — sound turned into light."""),
-            ("body", """A premium, closed-source SHLabs release in active development. This page is an early look; pricing and availability are announced when it ships. For early access, or questions about a specific host, projector or media server, write to us."""),
+            ("lead", """Phosphor is a paid, closed-source SHLabs app in active development."""),
+            ("body", """This page is an early look. Pricing and availability will be announced at release. For early access, or to ask about a specific host, projector or media server, write to us."""),
             ("acts", [(MAIL, "Write us", "fill"), ALL_PRODUCTS]),
         ]},
     ],
@@ -611,104 +623,104 @@ PRODUCTS["phosphor"] = {
 # ─── Cell ─────────────────────────────────────────────────────────────
 PRODUCTS["cell"] = vst(
     name="Cell",
-    title="Cell — SHLabs",
-    desc="""Cell is a lightweight, CPU-frugal subtractive synthesizer — two band-limited oscillators, sub and noise into one state-variable filter, with envelopes, an LFO, a compact mod matrix and a bypass-when-off FX rack. VST3 / AU / Standalone.""",
+    title="Cell · SHLabs",
+    desc="""Cell is a subtractive synthesizer with a low CPU load: two band-limited oscillators, sub and noise into one state-variable filter, with envelopes, an LFO, a compact mod matrix and an FX rack that bypasses when off. VST3 / AU / Standalone.""",
     crumb=("Synthesizers &amp; instruments", "/#cat-synths"),
     cat="Subtractive synthesizer",
-    claim="""A lightweight, CPU-frugal subtractive synth — the clean analog voice you can load on every track.""",
-    lead="""Two band-limited oscillators, sub and noise into one state-variable filter, with filter and amp envelopes, an LFO and a compact modulation matrix. Nothing you don't need, and almost no CPU.""",
+    claim="""A subtractive synthesizer with a low CPU load.""",
+    lead="""Two band-limited oscillators, a sub and noise feed one state-variable filter. Filter and amp envelopes, an LFO and a compact modulation matrix shape the voice. It uses about one percent of a CPU core for eight voices.""",
     shot=("/img/shots/cell.jpg", "The Cell plugin interface", 1280, 843),
     rows=[
         ("The voice", "Two oscillators, sub and noise",
-         """Two independent oscillators — saw, pulse with PWM, triangle or sine — plus a sub an octave or two down and a white-noise source, mixed into one clean signal path."""),
-        ("The filter", "One clean state-variable filter",
-         """An Andy-Simper SVF with cutoff, resonance and key-tracking — stable at every setting — with its own dedicated envelope and amount control. Low-pass warmth or biting resonance."""),
-        ("Envelopes &amp; LFO", "Shape and movement",
-         """A filter ADSR and an amp ADSR for the essentials, plus one LFO — everything you need to make the voice breathe, and none of the clutter."""),
+         """Two independent oscillators, each with saw, pulse with PWM, triangle or sine. A sub one or two octaves down and a white-noise source join them in one signal path."""),
+        ("The filter", "One state-variable filter",
+         """A state-variable filter after Andy Simper, with cutoff, resonance and key-tracking. It is stable at every setting. It has its own envelope and amount control."""),
+        ("Envelopes &amp; LFO", "Two envelopes, one LFO",
+         """A filter ADSR, an amp ADSR and one LFO."""),
         ("Mod matrix", "A compact modulation matrix",
          """Four assignable slots route Filter Env, Amp Env, LFO, Velocity, Mod Wheel, Key Track or Aftertouch to cutoff, resonance, pitch, PWM, oscillator level, pan and LFO rate."""),
-        ("FX rack", "Effects when you want them",
-         """A built-in rack — drive, chorus, ping-pong delay and reverb — that bypasses itself completely when off, so a dry Cell stays as cheap as it gets."""),
-        ("Featherweight", "Stack it everywhere",
-         """Band-limited PolyBLEP oscillators and control-rate modulation keep it clean and almost free — around one percent of a CPU core for eight voices — so you can run one on every track. Thirty presets to start."""),
+        ("FX rack", "Built-in effects",
+         """Drive, chorus, ping-pong delay and reverb. The rack bypasses itself completely when off, so a dry Cell uses no extra CPU for effects."""),
+        ("CPU load", "One on every track",
+         """Band-limited PolyBLEP oscillators and control-rate modulation keep the load at about one percent of a CPU core for eight voices. You can run one on every track. Thirty presets are included."""),
     ],
 )
 
 # ─── Schlagzeugs ──────────────────────────────────────────────────────
 PRODUCTS["schlagzeugs"] = vst(
     name="Schlagzeugs",
-    title="Schlagzeugs — SHLabs",
-    desc="""Schlagzeugs is a generative drum machine and MIDI source: six lanes of DFAM-style step sequencing with Labyrinth-style registers that corrupt and lock, polymeter and polyrhythm per lane, and six voices: an analog kick, a snare that becomes a clap, an 808 hat cluster and two Rings-style modal resonators. Every lane also sends MIDI. VST3 / AU / Standalone. Coming soon.""",
+    title="Schlagzeugs · SHLabs",
+    desc="""Schlagzeugs is a generative drum machine and MIDI source: six lanes of DFAM-style step sequencing with Labyrinth-style registers that mutate and lock, polymeter and polyrhythm per lane, and six voices: an analog-style kick, a snare that morphs into a clap, an 808 hat cluster and two Rings-style modal resonators. Every lane also sends MIDI. VST3 / AU / Standalone. Coming soon.""",
     crumb=("Synthesizers &amp; instruments", "/#cat-synths"),
     cat="Generative drum machine",
-    claim="""Kicks, hats and toms that drift against each other.""",
-    lead="""Six lanes, each a small clocked sequencer with its own length and rate, so polymeter and polyrhythm are the starting point rather than a mode. The step registers mutate at a rate you set and freeze when you like what you hear. Six voices play the result, and every lane sends a MIDI note as well, so the same groove can drive a Syntakt, a Cycles or a eurorack drum module instead.""",
+    claim="""A six-lane generative drum machine and MIDI source.""",
+    lead="""Six lanes, each a clocked sequencer with its own length and rate, so polymeter and polyrhythm are the default. The step registers mutate at a rate you set and freeze on command. Six voices play the result. Every lane also sends a MIDI note, so the same pattern can drive a Syntakt, a Cycles or a eurorack drum module.""",
     shot=("/img/shots/schlagzeugs.jpg", "The Schlagzeugs plugin interface", 2364, 1376),
     rows=[
-        ("Registers", "Patterns that corrupt and lock",
-         """Each lane's steps are a Labyrinth-style register. CORRUPT mutates them once per cycle, DENSITY decides what a mutated step becomes, LOCK freezes every register and ROLL redraws them all from a seed. The kick's downbeat survives any amount of corruption."""),
+        ("Registers", "Patterns that mutate and lock",
+         """Each lane's steps are a Labyrinth-style register. CORRUPT mutates them once per cycle. DENSITY decides what a mutated step becomes. LOCK freezes every register, and ROLL redraws them all from a seed. The kick's downbeat is never mutated."""),
         ("Polymeter", "Six lengths, six rates",
-         """Lane lengths from 1 to 32 steps and rates from quarter notes to 1/16 triplets. One POLYMETER control morphs the six lengths toward a coprime set, so the lanes drift out of phase and back over a long cycle."""),
+         """Lane lengths from 1 to 32 steps, and rates from quarter notes to 1/16 triplets. One POLYMETER control moves the six lengths toward a coprime set, so the lanes drift out of phase and back over a long cycle."""),
         ("Steps", "DFAM rows, per step",
-         """Gate, velocity, pitch, probability and ratchets on every step, plus two modulation rows that reach the voice: one to tune, one to decay or tone. Euclidean fills per lane, swing and humanize for the whole kit."""),
-        ("Voices", "DFAM and Rings, in one kit",
-         """An analog-style kick with a pitch envelope and FM click. A snare that morphs into a clap. Closed and open hats from a six-oscillator 808 cluster, the closed hat choking the open. A tom and a metal percussion voice on Rings-style modal resonators whose ratios morph from membrane to metal."""),
+         """Gate, velocity, pitch, probability and ratchets on every step, plus two modulation rows that reach the voice: one for tune, one for decay or tone. Euclidean fills per lane, with swing and humanize for the whole kit."""),
+        ("Voices", "Six voices in one kit",
+         """An analog-style kick with a pitch envelope and FM click. A snare that morphs into a clap. Closed and open hats from a six-oscillator 808 cluster, where the closed hat chokes the open one. A tom and a metal percussion voice on Rings-style modal resonators, with ratios that morph from membrane to metal."""),
         ("MIDI", "An instrument and a sequencer",
-         """Every lane sends a note on its own number and channel, on the General MIDI drum map by default. A note in on a lane's number plays that voice, so a drum clip from Cadence's Beats assist, or from any DAW, plays the kit."""),
+         """Every lane sends a note on its own number and channel, on the General MIDI drum map by default. A note in on a lane's number plays that voice, so a drum clip from Cadence's Beats assist or from any DAW plays the kit."""),
         ("Clock", "Host or free-running",
-         """Follows the host transport sample-accurately, or free-runs at its own tempo in the standalone. The engine is deterministic per seed and split-invariant, so a groove sounds the same live and bounced."""),
+         """Follows the host transport sample-accurately, or runs at its own tempo in the standalone. The engine is deterministic per seed and split-invariant, so a pattern sounds the same live and bounced."""),
     ],
 )
 
 # ─── Contour ──────────────────────────────────────────────────────────
 PRODUCTS["contour"] = vst(
     name="Contour",
-    title="Contour — SHLabs",
-    desc="""Contour is the first SHLabs VST: a multi-LFO modulation rack with a draggable curve editor, tempo sync, multiband routing and MIDI output. VST3 / AU / Standalone. Coming soon.""",
+    title="Contour · SHLabs",
+    desc="""Contour is a multi-LFO modulation rack with a draggable curve editor, tempo sync, multiband routing and MIDI output. VST3 / AU / Standalone. Coming soon.""",
     crumb=("Effects", "/#cat-effects"),
     cat="Multi-LFO modulation rack",
-    claim="""A modulation rack built around a draggable curve editor.""",
-    lead="""Draw the exact shape of your modulation, lock it to the beat, and route it where it needs to go. Four independent curve-LFOs, tempo-synced or free, shaping volume, pan and a built-in filter — the sidechain pump, trance gate, auto-pan and rhythmic filter moves, all from one panel.""",
+    claim="""A modulation rack with a draggable curve editor.""",
+    lead="""Draw the shape of your modulation, lock it to the beat and route it to a target. Four independent curve-LFOs, tempo-synced or free, shape volume, pan and a built-in filter. Use it for sidechain pumping, trance gates, auto-pan and rhythmic filter moves.""",
     shot=("/img/shots/contour.jpg", "The Contour plugin interface", 1280, 1137),
     rows=[
         ("Curve editor", "Draw your modulation",
-         """A multi-point curve with bendable segments — drag points, shape the tension, snap to the grid. A library of starter shapes (sidechain pump, trance gates, stairs, pluck, sample &amp; hold) gets you moving fast."""),
+         """A multi-point curve with bendable segments. Drag points, set the tension and snap to the grid. A library of starter shapes includes sidechain pump, trance gates, stairs, pluck and sample &amp; hold."""),
         ("Four LFOs", "A modulation rack",
-         """Four independent curve-LFOs, each routable to volume, pan, filter cutoff or resonance — stack them on one target or spread them across several. Per-LFO depth, smoothing, phase, swing, invert and stereo offset."""),
-        ("Locked in time", "Sync, free, or triggered",
-         """Tempo-sync to bar fractions (dotted and triplet included), run free in Hz, retrigger from MIDI notes, or follow the audio with an envelope trigger for hands-free, transient-locked ducking."""),
-        ("Multiband", "Per-band movement",
-         """Split into two or three bands and route each LFO to a band — duck only the lows under the kick while the highs breathe, or auto-pan a single band. Phase-correct crossovers, adjustable split points."""),
-        ("MIDI out", "Send the shapes out",
-         """Each LFO can stream as a MIDI CC, turning your drawn curves into control data for hardware and other instruments — the curve editor as a modulation source beyond the plugin itself."""),
-        ("Workflow", "Made to play",
-         """A clean, resizable interface with the input waveform behind the curve so you line modulation up to transients, undo/redo on every move, and a preset browser for your own shapes and patches."""),
+         """Four independent curve-LFOs, each routable to volume, pan, filter cutoff or resonance. Stack them on one target or spread them across several. Each LFO has depth, smoothing, phase, swing, invert and stereo offset."""),
+        ("Timing", "Sync, free or triggered",
+         """Tempo-sync to bar fractions, including dotted and triplet. Run free in Hz. Retrigger from MIDI notes, or follow the audio with an envelope trigger for transient-locked ducking."""),
+        ("Multiband", "Per-band modulation",
+         """Split the signal into two or three bands and route each LFO to a band. You can duck only the lows under the kick, or auto-pan a single band. Crossovers are phase-correct, with adjustable split points."""),
+        ("MIDI out", "Curves as MIDI CC",
+         """Each LFO can stream as a MIDI CC, so a drawn curve can control hardware and other instruments."""),
+        ("Workflow", "Interface",
+         """A resizable interface shows the input waveform behind the curve, so you can line modulation up with transients. Undo and redo cover every move. A preset browser holds your own shapes and patches."""),
     ],
 )
 
 # ─── Spazio ───────────────────────────────────────────────────────────
 PRODUCTS["spazio"] = vst(
     name="Spazio",
-    title="Spazio — SHLabs",
-    desc="""Spazio is a reverb–delay continuum: a studio delay at one end, a hall at the other, and the diffused, blooming territory in between — morphed by one CONTINUUM control. Tempo-synced echoes, an 8-line modulated reverb network, freeze, ducking and a live decay-profile display. VST3 / AU / Standalone. Coming soon.""",
+    title="Spazio · SHLabs",
+    desc="""Spazio is a combined delay and reverb. One CONTINUUM control moves from a studio delay to a hall, through diffused settings in between. It has tempo-synced echoes, an 8-line modulated reverb network, freeze, ducking and a live decay-profile display. VST3 / AU / Standalone. Coming soon.""",
     crumb=("Effects", "/#cat-effects"),
     cat="Reverb and delay continuum",
-    claim="""One engine for every space between echo and hall.""",
-    lead="""A precision studio delay at one end, a lush modulated reverb at the other — and the territory in between, where repeats smear, diffuse and bloom into tails, on a single CONTINUUM control. Every parameter underneath stays yours to adjust.""",
+    claim="""One engine from delay to reverb.""",
+    lead="""A studio delay at one end and a modulated reverb at the other. One CONTINUUM control moves between them. In the middle, repeats diffuse into reverb tails. Every parameter underneath stays adjustable.""",
     shot=("/img/shots/spazio.jpg", "The Spazio plugin interface", 1280, 813),
     rows=[
-        ("Continuum", "Echo to hall, one move",
-         """The headline control morphs the whole engine: pure repeats on the left, pure space on the right. In the middle the reverb network is fed by the echoes themselves, so every repeat blooms a tail. Equal-power, fully smoothed, automatable."""),
-        ("Echo", "A serious studio delay",
-         """Tempo-synced (sixteen divisions, dotted and triplet) or free-running per-channel times, ping-pong cross-feed, feedback past 100% that self-limits through an in-loop saturation stage, loop filters that darken each pass, and wow-style modulation from subtle chorus to tape wobble."""),
-        ("Smear", "The in-between maker",
-         """A diffuser inside the feedback loop turns clean repeats into washes that thicken with every pass — slapback stays crisp at zero, dub clouds and ambient smears live at the top. This is the zone most delays and reverbs leave uncovered."""),
-        ("Space", "A modern modulated reverb",
-         """An eight-line modulated reverb network with two-band decay — let the lows bloom past the mids or tighten them — high-frequency damping, size from plate to vast hall, decay from 0.1 to 60 seconds, and a lossless FREEZE that holds the room forever."""),
-        ("Decay profile", "See the space you are shaping",
-         """The display renders the actual impulse response of your current settings — tap spikes, bloom, tail — recomputed live as you turn knobs. Not a stock animation: the real engine, rendered ahead of time."""),
-        ("Control", "Mix-ready by design",
-         """Program-dependent ducking keeps the space behind the performance, width runs from mono to extra-wide, a tilt tone darkens or opens the wet path — thirty-six parameters, zero latency, click-free time glides (crossfade or tape repitch), factory and user presets."""),
+        ("Continuum", "Delay to hall on one control",
+         """CONTINUUM morphs the whole engine: pure repeats on the left, pure reverb on the right. In the middle, the echoes feed the reverb network, so every repeat gets a tail. The morph is equal-power, smoothed and automatable."""),
+        ("Echo", "A studio delay",
+         """Tempo-synced with sixteen divisions, including dotted and triplet, or free-running with per-channel times. Ping-pong cross-feed. Feedback past 100%, limited by a saturation stage in the loop. Loop filters darken each pass. Wow-style modulation runs from light chorus to tape wobble."""),
+        ("Smear", "Diffusion in the delay loop",
+         """A diffuser inside the feedback loop blurs repeats a little more on every pass. At zero, a slapback stays clean. At the top of the range, repeats become dense washes."""),
+        ("Space", "A modulated reverb",
+         """An eight-line modulated reverb network with two-band decay, so the lows can ring longer or shorter than the mids. High-frequency damping, size from plate to large hall, decay from 0.1 to 60 seconds, and a lossless FREEZE that holds the sound indefinitely."""),
+        ("Decay profile", "A view of the impulse response",
+         """The display shows the actual impulse response of the current settings: tap spikes, diffusion and tail. It recomputes as you turn knobs, using the engine itself."""),
+        ("Control", "Mix controls",
+         """Program-dependent ducking lowers the effect while the source plays. Width runs from mono to extra-wide. A tilt tone darkens or opens the wet path. Thirty-six parameters, zero latency, click-free time glides (crossfade or tape repitch), and factory and user presets."""),
     ],
 )
 
@@ -718,22 +730,22 @@ PRODUCTS["spazio"] = vst(
 PRODUCTS["lacuna"] = vst(
     name="Lacuna",
     title="Lacuna · SHLabs",
-    desc="""Lacuna is a harmonic resonator: six tuned resonances that take their energy from the sound you feed them and answer in the space it leaves. Gap, Bloom and Ripple shape the answer, Hold and Strike keep and test it, MIDI notes move the root, and Follow tracks the key Cadence is playing. VST3 / AU / Standalone. Coming soon.""",
+    desc="""Lacuna is a harmonic resonator: six tuned resonators driven by the sound you feed them. Gap, Bloom and Ripple shape the response. Hold and Strike keep and test it. MIDI notes move the root, and Follow tracks the key Cadence is playing. VST3 / AU / Standalone. Coming soon.""",
     crumb=("Effects", "/#cat-effects"),
     cat="Harmonic resonator",
-    claim="""Six tuned resonances that answer your sound in the space it leaves.""",
-    lead="""Feed it a drum loop, a pluck or a voice. Six resonators tuned to a chord take their energy from it and ring. Gap keeps them out of the way while the source plays, Bloom sets how gently they return, and Ripple lets the six voices enter one after another, so a hit gets a short harmonic reply.""",
+    claim="""Six tuned resonators driven by your audio.""",
+    lead="""Feed it a drum loop, a pluck or a voice. Six resonators tuned to a chord take their energy from that sound and ring. Gap holds them back while the source plays. Bloom sets how fast they return. Ripple lets the six voices enter one after another, so a hit gets a short harmonic reply.""",
     spec=["VST3 · AU · Standalone", "macOS · Windows to follow"],
     shot=("/img/shots/lacuna.jpg", "The Lacuna plugin interface", 1280, 886),
     rows=[
-        ("Resonators", "Six voices, tuned",
-         """Six resonators ring at the pitches of a chord: fifths, minor or major ninth, suspended, or the exact harmonic series. Set the root on the panel, or play it: a held MIDI note moves it, and the last note held wins."""),
+        ("Resonators", "Six tuned voices",
+         """Six resonators ring at the pitches of a chord: fifths, minor or major ninth, suspended, or the exact harmonic series. Set the root on the panel, or play it. A held MIDI note moves it, and the last note held wins."""),
         ("Gap &amp; Bloom", "Room for the source",
-         """Gap pulls the response down while the source is loud, so the hit stays clear. Bloom sets how the answer returns once the sound falls away, from twenty milliseconds to more than a second."""),
-        ("Ripple", "An answer in turn",
-         """After each hit the six voices can enter one after another instead of all at once. At full Ripple they arrive a sixteenth note apart, at the host's tempo."""),
-        ("Hold &amp; Strike", "Keep a moment",
-         """Hold stops new sound from exciting the resonators and sustains what is ringing, for as long as you leave it on. Strike sends one short burst, to hear a chord or a decay without routing any audio."""),
+         """Gap pulls the response down while the source is loud, so the hit stays clear. Bloom sets how the response returns once the sound falls away, from twenty milliseconds to more than a second."""),
+        ("Ripple", "Voices in sequence",
+         """After each hit, the six voices can enter one after another instead of all at once. At full Ripple they arrive a sixteenth note apart, at the host's tempo."""),
+        ("Hold &amp; Strike", "Sustain and test",
+         """Hold stops new sound from exciting the resonators and sustains what is ringing, for as long as it stays on. Strike sends one short burst, so you can hear a chord or a decay without routing any audio."""),
         ("Follow", "In Cadence's key",
          """With Follow on, Lacuna tracks the key Cadence is playing on the same computer, inside Cadence or in another host. The root moves to the key, and the ninth voicings turn major or minor with it. When the feed stops, the last key holds."""),
         ("Clean", "Nothing added",
@@ -744,152 +756,152 @@ PRODUCTS["lacuna"] = vst(
 # ─── Legato (called Glue until 1.0.0) ─────────────────────────────────
 PRODUCTS["legato"] = vst(
     name="Legato",
-    title="Legato — SHLabs",
-    desc="""Legato is an SSL-style mastering bus compressor: program-dependent glue with stepped controls, a sidechain high-pass, Mid/Side, parallel mix and a big gain-reduction meter. VST3 / AU / Standalone. Coming soon.""",
+    title="Legato · SHLabs",
+    desc="""Legato is an SSL-style mastering bus compressor with stepped controls, program-dependent release, a sidechain high-pass, Mid/Side, a parallel mix and a large gain-reduction meter. VST3 / AU / Standalone. Coming soon.""",
     crumb=("Mastering tools", "/#cat-mastering"),
     cat="Mastering bus compressor",
-    claim="""The compressor that holds a mix together. Legato is Italian for bound together. Until 1.0.0 it was called Glue.""",
-    lead="""An SSL G-series-style bus compressor with a clean VCA core, program-dependent release and the mastering essentials — gentle, musical gain riding across the whole stereo image, on your mix bus or master.""",
+    claim="""An SSL-style bus compressor. Legato is Italian for bound together. Until 1.0.0 it was called Glue.""",
+    lead="""A bus compressor in the style of the SSL G-series, with a clean VCA core and program-dependent release. It applies moderate gain reduction across the stereo image, on a mix bus or a master.""",
     shot=("/img/shots/glue.jpg", "The Legato plugin interface (1.0.0, as Glue)", 1280, 759),
     rows=[
-        ("The glue", "Bus compression, done right",
-         """A feed-forward VCA compressor in the spirit of the SSL G-series — the sound that holds a mix together. Subtle, cohesive gain movement that makes a busy arrangement feel like one performance."""),
+        ("Topology", "Feed-forward VCA",
+         """A feed-forward VCA compressor in the style of the SSL G-series. It is designed for low amounts of gain reduction on a full mix."""),
         ("SSL controls", "Stepped &amp; program-dependent",
-         """The classic stepped ratio, attack and release, plus an Auto release that adapts to the music — brief peaks recover fast, sustained passages breathe slowly."""),
-        ("Sidechain HPF", "Stop the low-end pump",
-         """A high-pass on the detector keeps kick and bass from triggering the whole bus, so the compression follows the music instead of riding the sub. The single most important control for mastering glue."""),
+         """Stepped ratio, attack and release, plus an Auto release that adapts to the signal. Brief peaks recover fast. Sustained passages recover slowly."""),
+        ("Sidechain HPF", "Less low-end pumping",
+         """A high-pass filter on the detector stops kick and bass from triggering the whole bus. The compression then follows the rest of the mix."""),
         ("Mid / Side", "Centre and sides, apart",
-         """Switch the detector into Mid/Side and compress the centre and the stereo sides independently — tighten the middle without squashing the width, or vice versa. Adjustable stereo link from dual-mono to fully linked."""),
-        ("Parallel mix", "New-York blend",
-         """A wet/dry Mix control for parallel compression — slam the compressed path and dial it back under the dry signal for density and punch without losing the transients."""),
-        ("Metering", "See the gain ride",
-         """A large gain-reduction meter anchors the panel, flanked by input and output levels, with a soft knee, makeup and an auto-gain option so the level stays matched while you dial in the feel."""),
+         """Switch the detector into Mid/Side and compress the centre and the sides independently. You can tighten the middle without reducing the width, or the reverse. The stereo link adjusts from dual-mono to fully linked."""),
+        ("Parallel mix", "Wet/dry blend",
+         """A wet/dry Mix control for parallel compression. Compress hard, then blend the result under the dry signal to add density and keep the transients."""),
+        ("Metering", "Gain reduction",
+         """A large gain-reduction meter with input and output levels on either side. Soft knee, makeup gain and an auto-gain option keep the level matched while you adjust."""),
     ],
 )
 
 # ─── Stesso ───────────────────────────────────────────────────────────
 PRODUCTS["stesso"] = vst(
     name="Stesso",
-    title="Stesso — SHLabs",
-    desc="""Stesso is a mastering equaliser: up to 24 bands and eight filter types over a live pre/post spectrum, a draggable curve, gentle 6 to surgical 96 dB/oct slopes, and per-band Left/Right or Mid/Side. VST3 / AU / Standalone. Coming soon.""",
+    title="Stesso · SHLabs",
+    desc="""Stesso is a mastering equaliser: up to 24 bands and eight filter types over a live pre/post spectrum, a draggable curve, slopes from 6 to 96 dB/oct, and per-band Left/Right or Mid/Side. VST3 / AU / Standalone. Coming soon.""",
     crumb=("Mastering tools", "/#cat-mastering"),
     cat="Mastering equaliser",
-    claim="""A transparent mastering equaliser built around a draggable curve over a live spectrum.""",
-    lead="""Up to twenty-four bands, eight filter types and slopes from a gentle 6 to a surgical 96 dB per octave — broad tone-shaping and tight problem-solving from one clean panel.""",
+    claim="""A mastering equaliser with a draggable curve over a live spectrum.""",
+    lead="""Up to twenty-four bands, eight filter types and slopes from 6 to 96 dB per octave. It covers broad tone shaping and narrow corrections on one panel.""",
     shot=("/img/shots/stesso.jpg", "The Stesso plugin interface", 1280, 871),
     rows=[
-        ("Drag the curve", "Shape it by hand",
-         """Drop a node anywhere on the response and drag it — frequency and gain under the cursor, Q on the scroll wheel. The whole EQ is one interactive curve drawn straight over the spectrum."""),
-        ("24 bands · 8 types", "From broad to surgical",
-         """Up to twenty-four bands and eight filter shapes — bell, low and high shelf, high- and low-pass, notch and more — with slopes from a gentle 6 to a razor 96 dB per octave."""),
-        ("Pre / post spectrum", "See what you hear",
-         """A real-time analyser shows the signal before and after the EQ behind the curve, so every move is informed — find the resonance, then place the band exactly on it."""),
+        ("Drag the curve", "Edit on the curve",
+         """Place a node anywhere on the response and drag it. Frequency and gain follow the cursor, and the scroll wheel sets Q. The whole EQ is one curve drawn over the spectrum."""),
+        ("24 bands · 8 types", "Bands and filter types",
+         """Up to twenty-four bands and eight filter shapes, including bell, low and high shelf, high-pass, low-pass and notch. Slopes run from 6 to 96 dB per octave."""),
+        ("Pre / post spectrum", "A live analyser",
+         """A real-time analyser shows the signal before and after the EQ, behind the curve. Find a resonance, then place the band on it."""),
         ("L/R · Mid/Side", "Per-band stereo",
-         """Set any band to process the full stereo, just the left or right, or the mid or the sides — de-ess only the centre, brighten only the width, tame a channel imbalance."""),
-        ("Precision DSP", "Clean and true",
-         """A precise, independently verified filter core — the response you draw is the response you get, transparent enough for the master bus and sharp enough to fix a problem."""),
-        ("Workflow", "Made to master",
-         """A clean, resizable interface with a readable grid, solo-listen per band to audition a move, gain matching and a preset browser for your own mastering chains."""),
+         """Any band can process the full stereo signal, the left or right channel only, or the mid or sides only. You can de-ess the centre alone, brighten the sides alone or correct a channel imbalance."""),
+        ("Filter core", "Curve and response",
+         """The curve on screen is the response the filters apply. The core is suitable for the master bus and for narrow corrective cuts."""),
+        ("Workflow", "Interface",
+         """A resizable interface with a readable grid. Solo-listen per band to audition a move. Gain matching and a preset browser for your own mastering chains."""),
     ],
 )
 
 # ─── Tonnetz ──────────────────────────────────────────────────────────
 PRODUCTS["tonnetz"] = vst(
     name="Tonnetz",
-    title="Tonnetz — SHLabs",
-    desc="""Tonnetz is a MIDI harmony conductor: a master key and scale, an interactive Neo-Riemannian lattice, three quantizers, a voiced chord generator, arpeggiator, bass, drone and a progression sequencer — all driving your synths over MIDI. VST3 / AU / Standalone. Coming soon.""",
+    title="Tonnetz · SHLabs",
+    desc="""Tonnetz is a MIDI harmony generator: a master key and scale, an interactive Neo-Riemannian lattice, three quantizers, a voiced chord generator, arpeggiator, bass, drone and a progression sequencer, all driving your synths over MIDI. VST3 / AU / Standalone. Coming soon.""",
     crumb=("MIDI generators &amp; composers", "/#cat-midi"),
-    cat="MIDI harmony conductor",
-    claim="""A harmonic conductor for your whole rig.""",
-    lead="""Set a key and scale, then play chords from an interactive Neo-Riemannian lattice while three quantizers, a voiced chord generator, an arpeggiator, bass and drone all stay locked to the same harmony — and drive any synth or hardware over MIDI. No sound of its own; it conducts the instruments you already own.""",
+    cat="MIDI harmony generator",
+    claim="""A MIDI harmony generator for your whole rig.""",
+    lead="""Set a key and scale, then play chords from an interactive Neo-Riemannian lattice. Three quantizers, a voiced chord generator, an arpeggiator, bass and drone all use the same harmony. They drive any synth or hardware over MIDI. Tonnetz makes no sound of its own.""",
     shot=("/img/shots/tonnetz.jpg", "The Tonnetz plugin interface", 1280, 1226),
     rows=[
-        ("The lattice", "Play harmony in space",
-         """An interactive Neo-Riemannian Tonnetz lattice at the centre of the plugin — click a triad and the whole rig follows, with the notes lighting up as they play. The harmonic map no other plugin puts front and centre."""),
-        ("Master harmony", "One key, everything obeys",
-         """A live, modulatable key and scale with degree → chord stacking (root / 3 / 5 / 7 / 9 / 11 / 13). Change the degree and every part re-voices, in tune, instantly."""),
-        ("Quantizers", "Never a wrong note",
-         """Three independent channels snap incoming MIDI to the master key — Scale, Triad, 7th, 9th or Full — each on its own input/output MIDI channel and octave. Play freely; it stays in key."""),
-        ("Chord + parts", "A whole band, in key",
-         """A voiced chord generator with voice-leading, spread and inversions, plus an arpeggiator, bass and drone — each routable to its own synth on its own channel, with swing and humanize for feel."""),
-        ("Song mode", "Write the progression",
-         """A 16-step progression sequencer drives the degree from the clock — host transport or internal — so your changes land exactly on the beat or bar. Twelve factory presets to start, save your own."""),
-        ("Perform", "Built to play live",
-         """Chord-by-MIDI, global transpose, quantized chord changes, MIDI-Learn on every control, and drag-to-DAW MIDI export of the whole arrangement. A performance instrument, not just a utility."""),
+        ("The lattice", "Chords on a Tonnetz",
+         """An interactive Neo-Riemannian Tonnetz lattice sits at the centre of the plugin. Click a triad and all parts follow. Notes light up as they play."""),
+        ("Master harmony", "One key for all parts",
+         """A live, modulatable key and scale with degree-to-chord stacking (root / 3 / 5 / 7 / 9 / 11 / 13). Change the degree and every part re-voices at once."""),
+        ("Quantizers", "Three MIDI quantizers",
+         """Three independent channels snap incoming MIDI to the master key, in Scale, Triad, 7th, 9th or Full mode. Each has its own input and output MIDI channel and octave."""),
+        ("Chord + parts", "Chords, arpeggio, bass, drone",
+         """A voiced chord generator with voice-leading, spread and inversions, plus an arpeggiator, bass and drone. Each part routes to its own synth on its own channel, with swing and humanize."""),
+        ("Song mode", "Progression sequencer",
+         """A 16-step progression sequencer drives the degree from the host transport or the internal clock, so changes land on the beat or bar. Twelve factory presets are included, and you can save your own."""),
+        ("Perform", "Live controls",
+         """Chord-by-MIDI, global transpose, quantized chord changes, MIDI-Learn on every control, and drag-to-DAW MIDI export of the whole arrangement."""),
     ],
 )
 
 # ─── Metro 185 ────────────────────────────────────────────────────────
 PRODUCTS["metro185"] = vst(
     name="Metro 185",
-    title="Metro 185 — SHLabs",
-    desc="""Metro 185 is a professional MIDI-effect step sequencer from SHLabs, in the lineage of the RYK M-185 and Roland System 100m — reimagined for the DAW. VST3 / AU / Standalone. Coming soon.""",
+    title="Metro 185 · SHLabs",
+    desc="""Metro 185 is a MIDI-effect step sequencer based on the RYK M-185 and Roland System 100m. VST3 / AU / Standalone. Coming soon.""",
     crumb=("MIDI generators &amp; composers", "/#cat-midi"),
     cat="MIDI step sequencer",
-    claim="""A step sequencer in the lineage of the RYK M-185 and Roland System 100m, reimagined for the DAW.""",
-    lead="""A pure MIDI effect — drop it on a MIDI track, route it into any instrument, and drive it with eight deep, expressive steps.""",
+    claim="""A MIDI step sequencer based on the RYK M-185 and Roland System 100m.""",
+    lead="""A MIDI effect. Place it on a MIDI track, route it into any instrument and drive it with eight steps.""",
     shot=("/img/shots/metro185.jpg", "The Metro 185 plugin interface", 1280, 865),
     rows=[
-        ("Step engine", "Eight deep steps",
-         """Eight steps with sample-accurate MIDI generation locked to host transport. Per step: pitch, gate mode, pulse count (1–8), velocity, gate length, ratchets, slide, skip and two CC outputs."""),
-        ("14 gate modes", "Per-step character",
-         """Single, repeat, legato, hold, divisions, probability gates and two Euclidean modes that spread onsets across a step's pulses — plus RYK-style ratcheting up to four re-triggers."""),
+        ("Step engine", "Eight steps",
+         """Eight steps with sample-accurate MIDI generation, locked to the host transport. Per step: pitch, gate mode, pulse count (1–8), velocity, gate length, ratchets, slide, skip and two CC outputs."""),
+        ("14 gate modes", "Gate modes per step",
+         """Single, repeat, legato, hold, divisions, probability gates and two Euclidean modes that spread onsets across a step's pulses. RYK-style ratcheting gives up to four re-triggers."""),
         ("Musical", "34 scales &amp; swing",
-         """Automatic quantization to 34 scales with root selection, global and MIDI-input transpose, swing on every other pulse, and pitch-bend slide between steps."""),
+         """Automatic quantization to 34 scales with root selection. Global and MIDI-input transpose, swing on every other pulse, and pitch-bend slide between steps."""),
         ("Play modes", "Direction &amp; chance",
-         """Forward, reverse, ping-pong, random and brownian — each with a "fixed" variant that always traverses all eight steps. Sequence length 1–8."""),
-        ("DAW-native", "Built for the host",
+         """Forward, reverse, ping-pong, random and brownian. Each has a "fixed" variant that always traverses all eight steps. Sequence length is 1–8."""),
+        ("Host", "DAW integration",
          """Full transport sync, every control automatable, right-click MIDI-learn on any parameter, state saved with the project, and a configurable MIDI output channel."""),
         ("Patterns", "Save &amp; recall",
-         """Store and load full patterns to disk, and route the two per-step CC outputs to modulate anything in your rack — the sequence becomes a modulation source too."""),
+         """Store and load full patterns to disk. Route the two per-step CC outputs to modulate other devices."""),
     ],
 )
 
 # ─── Stochast (VCV) ───────────────────────────────────────────────────
 PRODUCTS["stochast"] = {
     "name": "Stochast",
-    "title": "Stochast — SHLabs",
-    "desc": """Stochast is a free, open-source suite of 28 VCV Rack 2 modules across five plugins that turn real statistical, social, and stochastic processes into control voltage. Sample a distribution, clock a segregation grid, sweep a filter with an epidemic curve — quirky, generative patch material with genuinely correct math under the hood. GPL-3.0. macOS, Windows, Linux.""",
+    "title": "Stochast · SHLabs",
+    "desc": """Stochast is a free, open-source suite of 28 VCV Rack 2 modules in five plugins. It turns statistical, social and stochastic processes into control voltage. Sample a distribution, clock a segregation grid or sweep a filter with an epidemic curve. GPL-3.0. macOS, Windows, Linux.""",
     "crumb": ("VCV Rack 2", "/#vcv"),
     "cat": "5 plugins · 28 modules",
     "status": "Free &amp; open source",
     "soon": False,
-    "claim": "Real math as patchable voltage.",
-    "lead": """Twenty-eight open-source modules across five plugins that turn real statistical, social, and stochastic processes into control voltage you can patch anywhere in your rack. Sample a distribution as a modulation source, clock a segregation grid into a gate sequencer, let an epidemic curve sweep a filter. Quirky, generative, alive — and the math underneath is the genuine article, not a toy.""",
+    "claim": "Statistical and social models as control voltage.",
+    "lead": """Twenty-eight open-source modules in five plugins. Each one turns a statistical, social or stochastic process into control voltage that you can patch anywhere in your rack. Sample a distribution as a modulation source, clock a segregation grid into a gate sequencer, or let an epidemic curve sweep a filter. The models follow the published methods.""",
     "spec": ["5 plugins · 28 modules", "GPL-3.0", "macOS · Windows · Linux"],
     "sections": [
         {"parts": [
             ("head", "What it is", ""),
             ("rows", [
-                ("Real math", "Instruments built from processes",
-                 """Each module is a genuine statistical, agent-based, or dynamical process — a bootstrap resampler, a Granovetter cascade, an SIR epidemic, a reaction-diffusion field — exposed as knobs and control voltage. The output is quirky and alive precisely because the process underneath behaves the way the theory says it should."""),
+                ("Models", "Instruments built from processes",
+                 """Each module is a statistical, agent-based or dynamical process, exposed as knobs and control voltage. Examples are a bootstrap resampler, a Granovetter cascade, an SIR epidemic and a reaction-diffusion field. The output behaves the way the underlying model does."""),
                 ("Patchable", "Voltage you can route anywhere",
-                 """Patch them like anything else on your rack. A sampling distribution becomes a modulation source; a segregation grid becomes a generative gate pattern; a drift-diffusion decision fires triggers; an opinion-dynamics model becomes a slow, evolving CV sweep. No stats background needed to enjoy it — and if you do know the math, you can trust it."""),
+                 """Patch them like any other module. A sampling distribution becomes a modulation source. A segregation grid becomes a generative gate pattern. A drift-diffusion decision fires triggers. An opinion-dynamics model becomes a slow CV sweep. You do not need a statistics background to use them."""),
                 ("Reproducible", "Seeded, exact, portable",
-                 """Every random module wraps a Mersenne-Twister generator with an explicit on-panel seed, so the same seed is byte-identical across macOS, Windows and Linux. Closed-form quantities use the standard numerical recipes — Lentz continued fractions, BCa bootstrap, Sanger's rule. Patches are plain-JSON <span class="mono">.vcv</span> files, and Tape exports its buffer to CSV for R, Python or Julia."""),
+                 """Every random module wraps a Mersenne-Twister generator with an explicit on-panel seed, so a seed gives byte-identical results on macOS, Windows and Linux. Closed-form quantities use standard numerical recipes: Lentz continued fractions, BCa bootstrap, Sanger's rule. Patches are plain-JSON <span class="mono">.vcv</span> files, and Tape exports its buffer to CSV for R, Python or Julia."""),
             ]),
         ]},
         {"parts": [
             ("head", "The five plugins", ""),
             ("rows", [
                 ("Methods · 15 modules", "Statistical workflow",
-                 """Sample · Frame · Regress · Test · Boot · Lag · Code · Tab · Strata · Cohort · Factor · Seed · Tape · Gauge · Quantity. The full sampling-to-inference chain — draws, regressions, tests and bootstraps — turned into patchable voltage."""),
+                 """Sample · Frame · Regress · Test · Boot · Lag · Code · Tab · Strata · Cohort · Factor · Seed · Tape · Gauge · Quantity. The chain from sampling to inference as patchable voltage: draws, regressions, tests and bootstraps."""),
                 ("Polis · 6 modules", "Agent-based social models",
-                 """Cascade · Discourse · Pareto · Dilemma · Diffusion · Network. Granovetter cascades, opinion dynamics, wealth condensation, iterated dilemmas, and small-world / scale-free networks as evolving control sources."""),
+                 """Cascade · Discourse · Pareto · Dilemma · Diffusion · Network. Granovetter cascades, opinion dynamics, wealth condensation, iterated dilemmas, and small-world and scale-free networks as control sources."""),
                 ("Epi · 1 module", "Network epidemiology",
-                 """Outbreak — SIR-style epidemic spread on Watts-Strogatz, Erdős-Rényi and Barabási-Albert graphs. "Flatten the curve" is one patch cable away, its infection wave driving whatever you route it into."""),
+                 """Outbreak: SIR-style epidemic spread on Watts-Strogatz, Erdős-Rényi and Barabási-Albert graphs. Its infection wave drives whatever you patch it into."""),
                 ("Space · 3 modules", "Spatial dynamics",
-                 """Life · Schelling · Turing. Conway's Game of Life with rule presets, Schelling segregation on a 24 × 24 grid, and Gray-Scott reaction-diffusion traversing spots, stripes and labyrinths."""),
+                 """Life · Schelling · Turing. Conway's Game of Life with rule presets, Schelling segregation on a 24 × 24 grid, and Gray-Scott reaction-diffusion through spots, stripes and labyrinths."""),
                 ("Decisions · 3 modules", "Behavioral economics &amp; cognition",
-                 """Prospect · Bandit · DDM. Kahneman-Tversky prospect theory, K-armed bandits with ε-greedy / UCB1 / Thompson sampling, and the Ratcliff drift-diffusion model of decision timing."""),
-                ("Not a classroom tool", "This one is for patching",
-                 """Stochast began as a teaching idea, but what it really is is a box of modular-synth instruments made from real mathematics. If you want statistics as a teaching tool instead, that is the job of the separate, browser-based Empiria app — Stochast is for music."""),
+                 """Prospect · Bandit · DDM. Kahneman-Tversky prospect theory, K-armed bandits with ε-greedy, UCB1 and Thompson sampling, and the Ratcliff drift-diffusion model of decision timing."""),
+                ("Purpose", "For patching, not teaching",
+                 """Stochast began as a teaching idea, but it is a set of modular-synth instruments. For statistics as a teaching tool, use the separate browser-based Empiria app."""),
             ]),
         ]},
         {"parts": [
             ("head", "Get it", ""),
-            ("lead", """Free, open source, and correct under the hood. No paid tier, no telemetry, no account."""),
-            ("body", """You'll need <strong>VCV Rack 2</strong> — a free download for macOS, Windows and Linux from <a class="link" href="https://vcvrack.com/Rack" target="_blank" rel="noopener">vcvrack.com/Rack</a>. Grab the latest <strong>.vcvplugin</strong> archives from GitHub releases, drop them into Rack's user plugin folder and restart — the modules appear under the <strong>SHLabs</strong> brand. Source is on GitHub under GPL-3.0-or-later, with a full methods manual: read it, build it, or send a fix."""),
+            ("lead", """Free and open source. No paid tier, no telemetry, no account."""),
+            ("body", """You need <strong>VCV Rack 2</strong>, a free download for macOS, Windows and Linux from <a class="link" href="https://vcvrack.com/Rack" target="_blank" rel="noopener">vcvrack.com/Rack</a>. Download the latest <strong>.vcvplugin</strong> archives from GitHub releases, place them in Rack's user plugin folder and restart. The modules appear under the <strong>SHLabs</strong> brand. The source is on GitHub under GPL-3.0-or-later, with a full methods manual."""),
             ("acts", [
                 ("https://github.com/shlabs-audio/stochast/releases/latest", "Download the plugins &darr;", "fill"),
                 ("https://github.com/shlabs-audio/stochast/blob/main/docs/methods_manual.md", "Read the manual &rarr;", ""),
@@ -903,52 +915,52 @@ PRODUCTS["stochast"] = {
 # ─── Mashina (VCV) ────────────────────────────────────────────────────
 PRODUCTS["mashina"] = {
     "name": "Mashina",
-    "title": "Mashina — SHLabs",
-    "desc": """Mashina is a free family of eight VCV Rack 2 modules pairing Soviet-era analog character with West-Coast synthesis: drum voices, oscillators, a master clock, a plate reverb, and generative sequencers. Free download for macOS (Apple Silicon).""",
+    "title": "Mashina · SHLabs",
+    "desc": """Mashina is a free family of eight VCV Rack 2 modules based on Soviet-era synthesizers and West Coast synthesis: drum voices, oscillators, a master clock, a plate reverb and generative sequencers. Free download for macOS (Apple Silicon).""",
     "crumb": ("VCV Rack 2", "/#vcv"),
     "cat": "8 modules",
     "status": "Free download",
     "soon": False,
-    "claim": "Soviet machines meet the West Coast.",
-    "lead": """A family of eight VCV Rack modules that pair the gritty, idiosyncratic character of mid-century Soviet synthesizers — the Polivoks, the ANS, the Aelita — with the patch-cable, function-generator tradition of West Coast synthesis. Drum voices, oscillators, a master clock, a plate reverb, and generative sequencers, all in one rack.""",
+    "claim": "Eight modules based on Soviet synthesizers and West Coast synthesis.",
+    "lead": """A family of eight VCV Rack modules. They combine the circuits and quirks of mid-century Soviet synthesizers, such as the Polivoks, the ANS and the Aelita, with the patching tradition of West Coast synthesis. The set has drum voices, oscillators, a master clock, a plate reverb and generative sequencers.""",
     "spec": ["8 modules", "Freeware", "macOS (Apple Silicon)"],
     "sections": [
         {"parts": [
             ("head", "What it is", ""),
             ("rows", [
-                ("Why Soviet", "Character from constraint",
-                 """The Eastern-bloc synthesizer tradition worked under tight component constraints, which produced characterful nonlinearities — overdriven envelopes, drifty VCOs, idiosyncratic filters — that became part of the instrument's voice. Mashina treats that voice as a design ideal, not as kitsch. Each module's name is its Russian function."""),
+                ("Why Soviet", "Design under constraint",
+                 """Eastern-bloc synthesizers were built under tight component limits. That produced nonlinear behaviour: overdriven envelopes, drifting VCOs and unusual filters. Mashina takes that behaviour as a design reference. Each module's name is its Russian function."""),
                 ("Why West Coast", "Synthesis as patching",
-                 """Buchla, Serge, Make Noise: synthesis as patching rather than playing, timbre as a parametric space rather than a preset library. Mashina inherits that grammar — open-ended, parameter-rich modules that reward exploration. Soviet machines met the West Coast nowhere in real life; Mashina puts them together."""),
-                ("One family", "A shared panel language",
-                 """A consistent SHLabs panel grammar — a gunmetal field, a red family stripe under each header, and clear left-to-right signal flow — shared with the other SHLabs series so a Mashina module reads as part of one instrument family."""),
+                 """Buchla, Serge and Make Noise treat synthesis as patching, and timbre as a parameter space. Mashina follows that approach with open-ended modules that have many parameters. The two traditions never met historically. Mashina combines them."""),
+                ("One family", "A shared panel layout",
+                 """Panels share the SHLabs layout: a gunmetal field, a red family stripe under each header, and left-to-right signal flow. The other SHLabs series use the same layout."""),
             ]),
         ]},
         {"parts": [
             ("head", "The eight modules", ""),
             ("rows", [
                 ("Udar · удар", "Percussion voice + sequencer",
-                 """Analog-style drum voice with an 8-step sequencer, a DFAM homage: two VCOs, noise, a tanh-saturated ladder filter, per-step pitch / velocity / gate modes, conditional triggers, and polyphonic per-step trigger and velocity outputs to drive poly VCAs and envelopes."""),
+                 """An analog-style drum voice with an 8-step sequencer, modelled on the DFAM. Two VCOs, noise, a tanh-saturated ladder filter, per-step pitch, velocity and gate modes, conditional triggers, and polyphonic per-step trigger and velocity outputs for poly VCAs and envelopes."""),
                 ("Klubok · клубок", "Generative dual sequencer + voice",
-                 """A Labyrinth-style pair of step engines with per-step probability, length, divergence, and feedback for evolving patterns — feeding their own VCO, filter, wavefolder and plate-reverb voice, or any other module via 1V/oct and gate streams."""),
+                 """A Labyrinth-style pair of step engines with per-step probability, length, divergence and feedback. They feed their own VCO, filter, wavefolder and plate-reverb voice, or any other module through 1V/oct and gate streams."""),
                 ("Bochka · бочка", "Techno kick voice",
-                 """A punchy kick: pitch-swept sine, filtered click, sub layer, transient punch, tanh drive, tilt EQ, and a choke input. KIT MODE turns one polyphonic trigger cable into kick / snare / hat / clap — a mini drum kit in one module."""),
+                 """A kick voice: pitch-swept sine, filtered click, sub layer, transient control, tanh drive, tilt EQ and a choke input. KIT MODE turns one polyphonic trigger cable into kick, snare, hat and clap."""),
                 ("Takt · такт", "Master clock",
-                 """A Pamela-style master clock with eight independent divided / multiplied outputs (/64 to ×64), tap tempo, run / stop, reset, global swing, pulse width, and BPM CV, plus a master beat output for syncing the rest of the rack."""),
+                 """A Pamela-style master clock with eight independent divided or multiplied outputs (/64 to ×64), tap tempo, run and stop, reset, global swing, pulse width and BPM CV. A master beat output syncs the rest of the rack."""),
                 ("Otzvuk · отзвук", "Plate reverb",
-                 """A warm Dattorro-style plate with shimmer, a self-ducker, modulation, tilt EQ, and tape drive in the feedback path. CHARACTER morphs ROOM → PLATE → HALL → SHIMMER, and pre-delay can be tempo-synced from a clock input."""),
+                 """A Dattorro-style plate with shimmer, a self-ducker, modulation, tilt EQ and tape drive in the feedback path. CHARACTER morphs from ROOM to PLATE, HALL and SHIMMER. Pre-delay can sync to a clock input."""),
                 ("Strela · стрела", "Register additive VCO",
-                 """A register-driven additive oscillator inspired by 1950s Soviet console computers: a 16-bit switch register controls 16 harmonics, a clock shifts the register, and a polyphonic bit-CV input combines via OR / AND / XOR. Spectral thinning, tilt, per-partial phase distortion, and drive."""),
+                 """A register-driven additive oscillator based on 1950s Soviet console computers. A 16-bit switch register controls 16 harmonics, a clock shifts the register, and a polyphonic bit-CV input combines through OR, AND or XOR. Spectral thinning, tilt, per-partial phase distortion and drive."""),
                 ("Volna · волна", "Polyphonic analog VCO",
-                 """A polyphonic oscillator with four simultaneous band-limited outputs (sine, triangle, saw, pulse), PolyBLEP anti-aliasing, CV-able PWM, hard sync, FM with a LIN / EXP switch, per-voice drift for natural chorus, and a warmth control."""),
+                 """A polyphonic oscillator with four simultaneous band-limited outputs: sine, triangle, saw and pulse. PolyBLEP anti-aliasing, CV-controlled PWM, hard sync, FM with a LIN/EXP switch, per-voice drift for chorus, and a warmth control."""),
                 ("Podton · подтон", "Subharmonic synth",
-                 """A Subharmonicon-style polyrhythmic voice: two VCOs each with two integer-divided sub-oscillators, dual 4-step sequencers on independent clock divisions, a ladder filter, per-step gate modes, conditional triggers, and a drone mode."""),
+                 """A Subharmonicon-style polyrhythmic voice. Two VCOs each have two integer-divided sub-oscillators. Dual 4-step sequencers run on independent clock divisions. It also has a ladder filter, per-step gate modes, conditional triggers and a drone mode."""),
             ]),
         ]},
         {"id": "get", "parts": [
             ("head", "Get it", ""),
-            ("lead", """Free, and built to be played. No account, no nag screen."""),
-            ("body", VCV_NEED + """ Download the <strong>.vcvplugin</strong> below and drop it into Rack's user plugin folder, then restart — the modules appear under the <strong>SHLabs</strong> brand."""),
+            ("lead", """Free. No account, no nag screen."""),
+            ("body", VCV_NEED + """ Download the <strong>.vcvplugin</strong> below, place it in Rack's user plugin folder and restart. The modules appear under the <strong>SHLabs</strong> brand."""),
             ("mono", VCV_MAC),
             ("acts", [
                 ("/downloads/SHLabs-Mashina-2.0.0-mac-arm64.vcvplugin", "Download the plugin &darr;", "fill"),
@@ -961,40 +973,40 @@ PRODUCTS["mashina"] = {
 # ─── Lucida (VCV) ─────────────────────────────────────────────────────
 PRODUCTS["lucida"] = {
     "name": "Lucida",
-    "title": "Lucida — SHLabs",
-    "desc": """Lucida is a free generative-visual series of VCV Rack 2 modules: emergent systems — a cellular-automaton CV grid (Colony) and a probabilistic shift register (Turing) — rendered on screen and turned into CV. Free download for macOS (Apple Silicon).""",
+    "title": "Lucida · SHLabs",
+    "desc": """Lucida is a free series of generative VCV Rack 2 modules with on-panel displays: a cellular-automaton CV grid (Colony) and a probabilistic shift register (Turing). Free download for macOS (Apple Silicon).""",
     "crumb": ("VCV Rack 2", "/#vcv"),
     "cat": "2 modules · Colony, Turing",
     "status": "Free download",
     "soon": False,
-    "claim": "Generative systems, made visible.",
-    "lead": """A series of VCV Rack modules built around emergent systems — cellular automata, shift registers, iterated processes — that you watch evolve on screen and patch as control voltage. Each module is a small generative world: set it running, nudge it, and harvest the patterns it produces as pitch, gates, and modulation.""",
+    "claim": "Generative modules with a live display of their state.",
+    "lead": """VCV Rack modules built on cellular automata, shift registers and iterated processes. The panel shows the process as it runs. You patch its output as pitch, gates and modulation.""",
     "spec": ["2 modules", "Freeware", "macOS (Apple Silicon)"],
     "sections": [
         {"parts": [
             ("head", "What it is", ""),
             ("rows", [
-                ("Seen, not hidden", "Systems you can watch",
-                 """Lucida modules are generative systems you can see. The on-panel display is not decoration: it is the state of the process, and watching it is how you learn to steer it. A change to a knob propagates visibly across the grid or the register before it ever reaches a cable."""),
-                ("Patchable emergence", "Self-organizing CV",
-                 """Every module turns its internal dynamics into useful CV — scan taps, polyphonic rows, quantized pitch, gates — so a self-organizing system becomes a playable sequencer and modulation source, not just a screensaver."""),
-                ("One family", "A creep-green accent",
-                 """Lucida inherits the SHLabs industrial panel grammar — gunmetal field, header strip, clear signal flow — with a creep-green family accent that ties the series together and sets it apart from Mashina's red."""),
+                ("Display", "The state on the panel",
+                 """The on-panel display shows the state of the process. Watching it is how you learn to steer it. A knob change shows on the grid or the register before it reaches a cable."""),
+                ("Outputs", "Self-organizing CV",
+                 """Every module turns its internal state into CV: scan taps, polyphonic rows, quantized pitch and gates. A self-organizing system becomes a sequencer and a modulation source."""),
+                ("One family", "A green accent",
+                 """Lucida uses the SHLabs panel layout: a gunmetal field, a header strip and clear signal flow. A green family accent separates it from Mashina's red."""),
             ]),
         ]},
         {"parts": [
             ("head", "The modules", ""),
             ("rows", [
                 ("Colony", "Cellular-automaton CV grid",
-                 """The flagship. A 24×16 toroidal cellular automaton evolves on screen and emits CV. SPREAD biases the birth / survive rules, MUTATE injects per-cell noise, and FLOW clock-multiplies or -divides the simulation step. Paint cells with the mouse, sweep the scan position with SCAN_CV, freeze the simulation while keeping outputs live, and choose scan-and-tap, polyphonic-row / column, or quadrant-mix output modes."""),
+                 """A 24×16 toroidal cellular automaton runs on screen and emits CV. SPREAD biases the birth and survive rules, MUTATE injects per-cell noise, and FLOW multiplies or divides the simulation clock. Paint cells with the mouse and sweep the scan position with SCAN_CV. Freeze the simulation while the outputs stay live. Output modes are scan-and-tap, polyphonic row or column, and quadrant mix."""),
                 ("Turing", "Probabilistic shift register",
-                 """A 16-bit looping shift register in the Music Thing Modular tradition. LOCK slides between full randomness and an exact repeating pattern; LENGTH sets the loop (2–16 bits). A built-in quantizer (10 scales × 12 roots) puts the output straight onto a melody. Outputs: quantized V/OCT, raw bipolar analog, a write-position gate, polyphonic per-bit gates, and a clock pulse. The display shows the live bits above a scrolling history, so the lock pattern becomes visible."""),
+                 """A 16-bit looping shift register in the Music Thing Modular tradition. LOCK moves between full randomness and an exact repeating pattern. LENGTH sets the loop from 2 to 16 bits. A built-in quantizer has 10 scales and 12 roots. Outputs: quantized V/OCT, raw bipolar analog, a write-position gate, polyphonic per-bit gates and a clock pulse. The display shows the live bits above a scrolling history."""),
             ]),
         ]},
         {"id": "get", "parts": [
             ("head", "Get it", ""),
-            ("lead", """Free, and built to be played. No account, no nag screen."""),
-            ("body", VCV_NEED + """ Colony and Turing ship together in the <strong>SHLabs-Colony</strong> plugin: download the <strong>.vcvplugin</strong> below and drop it into Rack's user plugin folder, then restart — the modules appear under the <strong>SHLabs</strong> brand."""),
+            ("lead", """Free. No account, no nag screen."""),
+            ("body", VCV_NEED + """ Colony and Turing ship together in the <strong>SHLabs-Colony</strong> plugin. Download the <strong>.vcvplugin</strong> below, place it in Rack's user plugin folder and restart. The modules appear under the <strong>SHLabs</strong> brand."""),
             ("mono", VCV_MAC),
             ("acts", [
                 ("/downloads/SHLabs-Colony-2.0.0-mac-arm64.vcvplugin", "Download the plugin &darr;", "fill"),
@@ -1007,44 +1019,44 @@ PRODUCTS["lucida"] = {
 # ─── Rikoshet (VCV) ───────────────────────────────────────────────────
 PRODUCTS["rikoshet"] = {
     "name": "Rikoshet",
-    "title": "Rikoshet — SHLabs",
-    "desc": """Rikoshet is four free, tempo-synced rhythmic effects for VCV Rack 2: a rhythmic gate, a ping-pong delay, an 8-step pattern delay and a crossfader. Lock them to your clock for movement in time and across the stereo field. Free and open source, GPL-3.0. macOS, Windows, Linux.""",
+    "title": "Rikoshet · SHLabs",
+    "desc": """Rikoshet is four free, tempo-synced rhythmic effects for VCV Rack 2: a rhythmic gate, a ping-pong delay, an 8-step pattern delay and a crossfader. Free and open source, GPL-3.0. macOS, Windows, Linux.""",
     "crumb": ("VCV Rack 2", "/#vcv"),
     "cat": "4 modules · Gate, PingPong, MultiTap, Blend",
     "status": "Free &amp; open source",
     "soon": False,
     "claim": "Rhythmic delay and gate effects.",
-    "lead": """Four tempo-synced rhythmic effects for VCV Rack. A rhythmic gate, a ping-pong delay, an 8-step pattern delay and a crossfader — feed them a clock and everything they do locks to musical time, from two bars down to a 1/32. Pull the clock and they run free. CV over the controls that matter.""",
+    "lead": """Four tempo-synced rhythmic effects for VCV Rack: a rhythmic gate, a ping-pong delay, an 8-step pattern delay and a crossfader. With a clock patched in, they lock to musical time from two bars down to a 1/32. Without a clock, they run free. The main controls have CV inputs.""",
     "spec": ["4 modules", "GPL-3.0", "macOS · Windows · Linux"],
     "sections": [
         {"parts": [
             ("head", "What they share", ""),
             ("rows", [
-                ("In time", "Locked to your clock",
-                 """Patch a clock and every module snaps its motion to musical subdivisions — two bars down to a 1/32, with dotted and triplet values. No clock? They run from their own tempo knob, so they work standalone or in a patch."""),
-                ("Stereo", "Movement across the field",
-                 """These are effects that move in space as well as time — stereo offset, ping-pong cross-feed, alternating tap panning and width. They stay out of the way harmonically and put their character into timing and the stereo image."""),
-                ("CV", "Modulate what matters",
-                 """Every module exposes CV over the controls you'd actually want to automate — rate, time, feedback, mix, depth — plus click-free parameter glides so sweeps and modulation stay clean, and dry-through bypass on every one."""),
+                ("Timing", "Locked to your clock",
+                 """With a clock patched in, every module locks to musical subdivisions from two bars down to a 1/32, with dotted and triplet values. Without a clock, each one runs from its own tempo knob."""),
+                ("Stereo", "Stereo controls",
+                 """The effects work in the stereo field as well as in time: stereo offset, ping-pong cross-feed, alternating tap panning and width. They do not add harmonic colour of their own."""),
+                ("CV", "CV inputs",
+                 """Every module has CV over rate, time, feedback, mix or depth. Parameter glides are click-free, and every module has dry-through bypass."""),
             ]),
         ]},
         {"parts": [
             ("head", "The four modules", ""),
             ("rows", [
                 ("Gate · 10 HP", "Rhythmic gate",
-                 """A tempo-synced amplitude gate — tremolo to hard pattern gating. Rate picks from 14 musical subdivisions; Shape morphs a hard square to a raised cosine; Pulse Width sets the duty cycle; a Stereo Offset slips the right channel for width. CV over Rate, Shape, Depth and PW, plus a gate-envelope output."""),
+                 """A tempo-synced amplitude gate, from tremolo to hard pattern gating. Rate picks from 14 musical subdivisions. Shape morphs a hard square to a raised cosine. Pulse Width sets the duty cycle. Stereo Offset shifts the right channel for width. CV over Rate, Shape, Depth and PW, plus a gate-envelope output."""),
                 ("PingPong · 12 HP", "Ping-pong delay",
-                 """A stereo delay with cross-fed feedback that bounces repeats between channels. Spread offsets the right-channel time for tumbling echoes, Cross sets how much feedback crosses sides, and low- and high-cut sit in the feedback path so repeats darken naturally as they fade. Sync or free time."""),
+                 """A stereo delay with cross-fed feedback that moves repeats between channels. Spread offsets the right-channel time. Cross sets how much feedback crosses sides. Low-cut and high-cut filters sit in the feedback path, so repeats darken as they fade. Sync or free time."""),
                 ("MultiTap · 20 HP", "Pattern delay",
-                 """An 8-step delay across a tempo-synced window. Per-tap level sliders place the hits, alternating L/R panning with Spread opens the stereo image, Decay tapers the taps toward the end, and Feedback recirculates the whole pattern — darkening a little each pass through the high-cut."""),
+                 """An 8-step delay across a tempo-synced window. Per-tap level sliders place the hits. Alternating L/R panning with Spread widens the image. Decay tapers the taps toward the end. Feedback recirculates the whole pattern through the high-cut."""),
                 ("Blend · 6 HP", "Crossfader",
-                 """A stereo A/B crossfader with input drive and an equal-power curve. Blend parallel chains of Rikoshet effects into one rhythm, or use it as a dry/wet control around a serial chain. CV over Mix and Drive — the small utility that ties the family together."""),
+                 """A stereo A/B crossfader with input drive and an equal-power curve. Blend parallel chains of Rikoshet effects, or use it as a dry/wet control around a serial chain. CV over Mix and Drive."""),
             ]),
         ]},
         {"parts": [
             ("head", "Get it", ""),
-            ("lead", """Free, open source, and built to be played. No account, no nag screen."""),
-            ("body", """Search <strong>Rikoshet</strong> in the VCV Library and click Add, or download the plugin directly and drop it into Rack's user plugin folder. It appears under the <strong>SHLabs</strong> brand. Source is on GitHub under GPL-3.0 — read it, build it, or send a fix."""),
+            ("lead", """Free and open source. No account, no nag screen."""),
+            ("body", """Search <strong>Rikoshet</strong> in the VCV Library and click Add, or download the plugin and place it in Rack's user plugin folder. It appears under the <strong>SHLabs</strong> brand. The source is on GitHub under GPL-3.0."""),
             ("acts", [
                 ("https://github.com/shlabs-audio/rikoshet/releases/latest", "Download the plugin &darr;", "fill"),
                 ("https://github.com/shlabs-audio/rikoshet", "Source on GitHub &rarr;", ""),
@@ -1057,42 +1069,42 @@ PRODUCTS["rikoshet"] = {
 # ─── Atmos (VCV) ──────────────────────────────────────────────────────
 PRODUCTS["atmos"] = {
     "name": "Atmos",
-    "title": "Atmos — SHLabs",
-    "desc": """Atmos is a free family of four VCV Rack 2 modules for tone, space, and time: the Helix ladder filter, the Halo stereo repeater, the Skywave character delay, and the Metro 185 step sequencer. Free download for macOS (Apple Silicon).""",
+    "title": "Atmos · SHLabs",
+    "desc": """Atmos is a free family of four VCV Rack 2 modules for tone, space and time: the Helix ladder filter, the Halo stereo repeater, the Skywave delay and the Metro 185 step sequencer. Free download for macOS (Apple Silicon).""",
     "crumb": ("VCV Rack 2", "/#vcv"),
     "cat": "4 modules · Helix, Halo, Metro185, Skywave",
     "status": "Free download",
     "soon": False,
-    "claim": "Tone, space and time.",
-    "lead": """Four VCV Rack modules for shaping tone, space, and time: the <strong>Helix</strong> transistor-ladder filter, the <strong>Halo</strong> stereo repeater, the <strong>Skywave</strong> character delay with reverb, and the <strong>Metro 185</strong> step sequencer. A filter, two stereo time effects, and a sequencer to drive them.""",
+    "claim": "A filter, two stereo time effects and a sequencer.",
+    "lead": """Four VCV Rack modules: the <strong>Helix</strong> transistor-ladder filter, the <strong>Halo</strong> stereo repeater, the <strong>Skywave</strong> delay with reverb, and the <strong>Metro 185</strong> step sequencer.""",
     "spec": ["4 modules", "Freeware", "macOS (Apple Silicon)"],
     "sections": [
         {"parts": [
             ("head", "The four modules", ""),
             ("rows", [
                 ("Helix", "Transistor-ladder filter",
-                 """A 4-pole Moog-style lowpass that self-oscillates and tracks V/oct, so it doubles as a sine source. Three twists go beyond a clone — DRIFT detunes the poles, FRICTION adds per-stage saturation, TURBULENCE feeds noise into the resonance. Simultaneous LP / HP / BP outs, selectable slope, drive, and 16-voice poly."""),
-                ("Halo", "Stereo color repeater",
-                 """A modulated multi-tap delay network with two independent zones and polarizing pitch drift, for smeared, gently detuned echoes that spread a sound across the stereo field."""),
-                ("Skywave", "Character delay &amp; reverb",
-                 """A multi-model stereo delay with scatter reverb, themed on radio propagation. Three engines — longwave (tape), shortwave (bucket-brigade), and microwave (clean digital) — plus internal modulation, atmospheric hiss and crackle, freeze, and clock sync."""),
+                 """A 4-pole Moog-style lowpass that self-oscillates and tracks V/oct, so it can also act as a sine source. Three added controls: DRIFT detunes the poles, FRICTION adds per-stage saturation, and TURBULENCE feeds noise into the resonance. Simultaneous LP, HP and BP outputs, selectable slope, drive and 16-voice polyphony."""),
+                ("Halo", "Stereo colour repeater",
+                 """A modulated multi-tap delay network with two independent zones and polarizing pitch drift. It gives diffuse, slightly detuned echoes across the stereo field."""),
+                ("Skywave", "Delay &amp; reverb",
+                 """A multi-model stereo delay with scatter reverb, themed on radio propagation. Three engines: longwave (tape), shortwave (bucket-brigade) and microwave (clean digital). Internal modulation, hiss and crackle, freeze and clock sync."""),
                 ("Metro 185", "Step sequencer",
-                 """An eight-stage sequencer in the M185 / Metropolis tradition: each stage has a pitch, a pulse count, and a gate type. The count and gate-type controls are vertical sliders and patchable over polyphonic CV, so the sequence itself becomes modulatable."""),
+                 """An eight-stage sequencer in the M185 and Metropolis tradition. Each stage has a pitch, a pulse count and a gate type. The count and gate-type controls are vertical sliders and accept polyphonic CV."""),
             ]),
         ]},
         {"parts": [
             ("head", "Design notes", ""),
             ("rows", [
-                ("Long-form by default", "Set it and listen",
-                 """Atmos modules assume the listener won't be holding still in front of a knob. Knob ranges resolve into multi-minute evolutions, modulation depths are calibrated for slow movement, and defaults sit at "interesting but not active." Patch one in and leave it."""),
-                ("Aesthetic", "Warm-gold, few jacks",
-                 """The family uses a warm-gold accent under each panel header and layouts that favor large knobs over crowded jack rows — these are tools you set once and listen to, not modules you re-cable every measure."""),
+                ("Slow by default", "Set it and listen",
+                 """Knob ranges cover changes that take several minutes. Modulation depths suit slow movement. Defaults give a sound that moves without any input."""),
+                ("Panel", "Gold accent, few jacks",
+                 """The family uses a gold accent under each panel header. Layouts favour large knobs over rows of jacks, because you set these modules once and listen."""),
             ]),
         ]},
         {"id": "get", "parts": [
             ("head", "Get it", "Each module ships as its own plugin"),
-            ("lead", """Free, and built to be played. Each module ships as its own plugin — grab the ones you want."""),
-            ("body", VCV_NEED + """ Download the <strong>.vcvplugin</strong> files below and drop them into Rack's user plugin folder, then restart — they appear under the <strong>SHLabs</strong> brand."""),
+            ("lead", """Free. Each module ships as its own plugin, so you can install only the ones you want."""),
+            ("body", VCV_NEED + """ Download the <strong>.vcvplugin</strong> files below, place them in Rack's user plugin folder and restart. They appear under the <strong>SHLabs</strong> brand."""),
             ("mono", VCV_MAC),
             ("acts", [
                 ("/downloads/SHLabs-Helix-2.0.0-mac-arm64.vcvplugin", "Helix &darr;", "fill"),
@@ -1108,31 +1120,31 @@ PRODUCTS["atmos"] = {
 # ─── Terra (VCV) ──────────────────────────────────────────────────────
 PRODUCTS["terra"] = {
     "name": "Terra",
-    "title": "Terra — SHLabs",
-    "desc": """Terra is a free gestural granular sampler for VCV Rack 2 — six grain voices steered by an on-panel XY field over a stereo 8-second buffer. Free download for macOS (Apple Silicon).""",
+    "title": "Terra · SHLabs",
+    "desc": """Terra is a free gestural granular sampler for VCV Rack 2: six grain voices steered by an on-panel XY field over a stereo 8-second buffer. Free download for macOS (Apple Silicon).""",
     "crumb": ("VCV Rack 2", "/#vcv"),
     "cat": "1 module",
     "status": "Free download",
     "soon": False,
     "claim": "A gestural granular sampler.",
-    "lead": """Terra records a few seconds of audio into a buffer and plays it back as overlapping grains, steered by an on-panel XY field — read position on one axis, grain pitch on the other. Six voices spread around that point for thick, evolving textures.""",
+    "lead": """Terra records a few seconds of audio into a buffer and plays it back as overlapping grains. An on-panel XY field steers them: read position on one axis, grain pitch on the other. Six voices spread around that point.""",
     "spec": ["1 module", "Freeware", "macOS (Apple Silicon)"],
     "sections": [
         {"parts": [
             ("head", "What it is", ""),
             ("rows", [
                 ("The field", "Steer six voices by hand",
-                 """Six grain voices share a stereo 8-second buffer fed from AUDIO IN; FREEZE captures the buffer so you can scrub a held sound. The signature control is the on-panel XY field: X is buffer read position, Y is grain pitch (±12 semitones). POSITION and PITCH knobs, plus X-CV and Y-CV, set the center of the field."""),
+                 """Six grain voices share a stereo 8-second buffer fed from AUDIO IN. FREEZE holds the buffer so you can scrub a held sound. On the XY field, X is the buffer read position and Y is grain pitch (±12 semitones). POSITION and PITCH knobs, plus X-CV and Y-CV, set the centre of the field."""),
                 ("The cloud", "Spread, scatter, shape",
-                 """SPREAD distributes the six voices around the center on a ring, SCATTER adds per-grain randomization. DENSITY (1–100 g/s), SIZE (1–500 ms), SHAPE (Hann to rectangular), JITTER, and FEEDBACK round out the grain controls, and V/OCT transposes the whole field."""),
+                 """SPREAD places the six voices around the centre on a ring. SCATTER adds per-grain randomization. The other grain controls are DENSITY (1–100 g/s), SIZE (1–500 ms), SHAPE (Hann to rectangular), JITTER and FEEDBACK. V/OCT transposes the whole field."""),
                 ("Outputs", "Mix plus per-voice poly",
-                 """Outputs are a stereo L/R mix plus a polyphonic OUT carrying one voice per channel, so each of the six grains can be processed downstream independently before you fold them back together."""),
+                 """A stereo L/R mix, plus a polyphonic OUT with one voice per channel. You can process each of the six grains separately downstream."""),
             ]),
         ]},
         {"id": "get", "parts": [
             ("head", "Get it", ""),
-            ("lead", """Free, and built to be played. No account, no nag screen."""),
-            ("body", VCV_NEED + """ Download the <strong>.vcvplugin</strong> below and drop it into Rack's user plugin folder, then restart — the module appears under the <strong>SHLabs</strong> brand."""),
+            ("lead", """Free. No account, no nag screen."""),
+            ("body", VCV_NEED + """ Download the <strong>.vcvplugin</strong> below, place it in Rack's user plugin folder and restart. The module appears under the <strong>SHLabs</strong> brand."""),
             ("mono", VCV_MAC),
             ("acts", [
                 ("/downloads/SHLabs-Atlas-2.0.0-mac-arm64.vcvplugin", "Download the plugin &darr;", "fill"),
@@ -1149,17 +1161,17 @@ PRODUCTS["terra"] = {
 
 # group id, group label, group aside, [(no, href, category, name, desc, status, status class)]
 INDEX_GROUPS = [
-    ("cat-live", "Performance &amp; live", "The centre of the rig", [
+    ("cat-live", "Performance &amp; live", "Mixer and clock", [
         ("01", "/cadence/", "Performance mixer &amp; master clock", "Cadence",
-         """Four channels of live input or beatgrid players, DJ filter and full-kill EQ, a pre-fader cue bus, and a clock the rest of the rig follows.""",
+         """Four channels of live input or beatgrid players, a filter and full-kill EQ per channel, a pre-fader cue bus, and a master MIDI clock.""",
          "Soon", "is-soon"),
     ]),
-    ("cat-synths", "Synthesizers &amp; instruments", "Sound sources you play", [
+    ("cat-synths", "Synthesizers &amp; instruments", "Sound sources", [
         ("02", "/cell/", "Subtractive synthesizer", "Cell",
-         """The essential analog voice, built to stack. Two band-limited oscillators, sub and noise into one clean state-variable filter. Featherweight on the CPU.""",
+         """Two band-limited oscillators, sub and noise into one state-variable filter. About one percent of a CPU core for eight voices.""",
          "Soon", "is-soon"),
         ("03", "/schlagzeugs/", "Generative drum machine", "Schlagzeugs",
-         """Six lanes that corrupt, lock and drift against each other. DFAM sequencing, Labyrinth registers, Rings-style toms, and MIDI out on every lane.""",
+         """Six lanes with their own lengths and rates. DFAM-style sequencing, Labyrinth-style registers, Rings-style toms, and MIDI out on every lane.""",
          "Soon", "is-soon"),
     ]),
     ("cat-effects", "Effects", "Modulation · space · resonance", [
@@ -1167,54 +1179,54 @@ INDEX_GROUPS = [
          """Draw modulation on a curve editor and lock it to the beat. Four curve-LFOs over volume, pan and filter, with MIDI out.""",
          "Soon", "is-soon"),
         ("05", "/spazio/", "Reverb and delay continuum", "Spazio",
-         """Studio delay, modulated reverb and everything between on one CONTINUUM control. Echoes that smear and bloom into tails.""",
+         """A studio delay and a modulated reverb on one CONTINUUM control. In the middle, repeats diffuse into reverb tails.""",
          "Soon", "is-soon"),
         ("06", "/lacuna/", "Harmonic resonator", "Lacuna",
-         """Six tuned resonances answer your sound in the gaps it leaves. Gap, Bloom and Ripple shape the reply, and Follow tracks Cadence's key.""",
+         """Six tuned resonators driven by your audio. Gap, Bloom and Ripple shape the response, and Follow tracks Cadence's key.""",
          "Soon", "is-soon"),
     ]),
-    ("cat-mastering", "Mastering tools", "The last mile of a mix", [
+    ("cat-mastering", "Mastering tools", "Compression and EQ", [
         ("07", "/legato/", "Mastering bus compressor", "Legato",
-         """SSL-style glue with stepped controls, program-dependent release, sidechain high-pass, Mid/Side and a parallel mix.""",
+         """An SSL-style bus compressor with stepped controls, program-dependent release, sidechain high-pass, Mid/Side and a parallel mix.""",
          "Soon", "is-soon"),
         ("08", "/stesso/", "Mastering equaliser", "Stesso",
          """A draggable curve over a live spectrum. Up to 24 bands, eight filter types, per-band Left/Right or Mid/Side.""",
          "Soon", "is-soon"),
     ]),
-    ("cat-midi", "MIDI generators &amp; composers", "Sequencing &amp; harmony brains", [
-        ("09", "/tonnetz/", "MIDI harmony conductor", "Tonnetz",
-         """Master key and scale, an interactive Tonnetz lattice, three quantizers, chords, arp, bass and drone, driving your synths.""",
+    ("cat-midi", "MIDI generators &amp; composers", "Sequencing and harmony", [
+        ("09", "/tonnetz/", "MIDI harmony generator", "Tonnetz",
+         """Master key and scale, an interactive Tonnetz lattice, three quantizers, chords, arpeggio, bass and drone, sent to your synths over MIDI.""",
          "Soon", "is-soon"),
         ("10", "/metro185/", "MIDI step sequencer", "Metro 185",
-         """Eight deep steps in the RYK M-185 and System 100m lineage, reimagined for the DAW. Ratchets, 34 scales, gate modes.""",
+         """Eight steps based on the RYK M-185 and System 100m. Ratchets, 34 scales and 14 gate modes.""",
          "Soon", "is-soon"),
     ]),
-    ("cat-visuals", "Visuals", "Sound you can see", [
+    ("cat-visuals", "Visuals", "Video synthesis", [
         ("11", "/phosphor/", "Audio-reactive video synth", "Phosphor",
-         """Beat-locked GPU scenes you throw fullscreen onto a projector, or run over whatever your Mac is playing. Thirty-two scenes, plus Syphon out.""",
+         """Beat-locked GPU scenes for a projector, or for whatever your Mac is playing. Thirty-two scenes and Syphon output.""",
          "Soon", "is-soon"),
     ]),
 ]
 
 VCV_ROWS = [
     ("12", "/stochast/", "5 plugins · 28 modules", "Stochast",
-     """Statistics and emergence as patchable CV: sampling distributions, the bootstrap, agent-based cascades, epidemics, reaction-diffusion.""",
+     """Statistical and social models as patchable CV: sampling distributions, the bootstrap, agent-based cascades, epidemics, reaction-diffusion.""",
      "Free", "is-free"),
     ("13", "/mashina/", "8 modules", "Mashina",
-     """Soviet machines meet the West Coast. Drum voices, oscillators, a master clock, a plate reverb and generative sequencers.""",
+     """Based on Soviet synthesizers and West Coast synthesis. Drum voices, oscillators, a master clock, a plate reverb and generative sequencers.""",
      "Free", "is-free"),
     ("14", "/lucida/", "2 modules · Colony, Turing", "Lucida",
-     """Generative systems made visible. A cellular-automaton grid and a probabilistic shift-register sequencer with a built-in quantizer.""",
+     """A cellular-automaton grid and a probabilistic shift-register sequencer with a built-in quantizer. Each shows its state on the panel.""",
      "Free", "is-free"),
     ("15", "/rikoshet/", "4 modules · Gate, PingPong, MultiTap, Blend", "Rikoshet",
-     """Rhythmic delay and gate effects, tempo-synced. Lock them to your clock for movement in time and across the stereo field.""",
+     """Rhythmic delay and gate effects, tempo-synced to your clock.""",
      "Free", "is-free"),
     ("16", "/atmos/", "4 modules · Helix, Halo, Metro185, Skywave", "Atmos",
-     """Tone, space and time. A transistor-ladder filter, a stereo colour repeater, a character delay with reverb and an eight-stage sequencer.""",
+     """A transistor-ladder filter, a stereo colour repeater, a delay with reverb and an eight-stage sequencer.""",
      "Free", "is-free"),
     ("17", "/downloads/SHLabs-Phosphor-2.0.0-mac-arm64.vcvplugin",
      "3 modules · Beam, Chroma, Cathode", "Phosphor for VCV Rack",
-     """An LZX-style video chain that passes a lo-fi RGB frame over an expander bus, turning luma and motion back into CV.""",
+     """An LZX-style video chain. It passes a low-resolution RGB frame over an expander bus and turns luma and motion back into CV.""",
      "Free &darr;", "is-free"),
 ]
 
@@ -1248,11 +1260,11 @@ def homepage():
     vcv = [index_row(*r) for r in VCV_ROWS]
 
     return (
-        head("SHLabs — instruments for the modular world",
-             """SHLabs is an independent audio-tools studio. Cadence, a performance mixer and master clock, and Phosphor, an audio-reactive video synth, lead a line of VST3 / AU plugins and standalone apps, alongside free and paid modules for VCV Rack 2.""",
+        head("SHLabs · Software for music and visuals",
+             """SHLabs is an independent studio in Switzerland. It makes Cadence, a performance mixer and master clock, Phosphor, an audio-reactive video synth, a line of VST3 and AU plugins, and free modules for VCV Rack 2.""",
              home=True,
-             og=("SHLabs — instruments for the modular world",
-                 "An independent studio making instruments for the stage, the DAW and VCV Rack."))
+             og=("SHLabs · Software for music and visuals",
+                 "An independent studio in Switzerland. Apps, plugins and modules for the stage, the DAW and VCV Rack."))
         + nav(home=True)
         + """
   <div class="sheet" id="top">
@@ -1260,18 +1272,16 @@ def homepage():
   <!-- ─── hero ───────────────────────────────────────────────────────── -->
   <header class="hero pad" id="main">
     <div class="hero__meta mono">
-      <span>Independent audio-tools studio · Switzerland</span>
+      <span>Independent studio · Switzerland</span>
       <span class="dim-2">Catalogue %d</span>
     </div>
 
-    <h1 class="display">Instruments<br>built to be<br>played.</h1>
+    <h1 class="display">Software<br>for music<br>and visuals.</h1>
 
     <div class="hero__grid">
       <div class="hero__lead">
         <p class="lead">
-          SHLabs builds instruments at the intersection of musical use, real
-          computation and unusual control surfaces. A line of VST3 and AU plugins
-          and standalone apps, plus modules for
+          SHLabs makes VST3 and AU plugins, standalone apps and modules for
           <a class="link" href="https://vcvrack.com" target="_blank" rel="noopener">VCV Rack 2</a>.
         </p>
       </div>
@@ -1292,7 +1302,7 @@ def homepage():
   <section class="sec" id="flagships">
     <div class="sec__head pad">
       <h2 class="sec__title"><span class="mono sec__no">01</span> Flagships</h2>
-      <span class="mono dim">Premium · Coming soon</span>
+      <span class="mono dim">Paid · Coming soon</span>
     </div>
 
     <div class="flag pad">
@@ -1301,16 +1311,14 @@ def homepage():
         <h3 class="flag__name"><a href="/cadence/">Cadence</a></h3>
       </div>
       <div class="flag__text">
-        <p class="flag__claim">The brain of a hybrid set.</p>
+        <p class="flag__claim">A four-channel performance mixer and master clock.</p>
         <p class="body">
-          A four-channel performance mixer, master clock and sync hub in one
-          standalone app. Beatgrid clip players with quantized launch, automatic
-          structure detection, on-device stem separation with quantized stem kills,
-          and an assist layer that can carry a transition. A Composer timeline
-          lays a whole set out in advance, and what you play over it, MIDI or
-          audio, records back onto its channel as a loop. A sample-accurate MIDI
-          clock keeps your modular, drum machines and grooveboxes following you,
-          not the other way round.
+          A standalone app with beatgrid clip players and quantized launch.
+          It detects track structure, separates stems on your machine and can
+          kill them on the bar. Assist can carry a transition. A Composer timeline
+          lays out a set in advance. MIDI or audio that you play records back onto
+          its channel as a loop. A sample-accurate MIDI clock drives your modular,
+          drum machines and grooveboxes.
         </p>
         <div class="flag__spec mono">
           <span>4-channel mixer</span>
@@ -1327,13 +1335,12 @@ def homepage():
         <h3 class="flag__name"><a href="/phosphor/">Phosphor</a></h3>
       </div>
       <div class="flag__text">
-        <p class="flag__claim">A video synth that listens.</p>
+        <p class="flag__claim">An audio-reactive video synth.</p>
         <p class="body">
-          A GPU-native visual instrument with five scene families (morphing fields,
-          tunnel, fractals, spectrum, ambient) and a hundred-thousand-particle
-          system on top. Band envelopes and onset detectors drive the image, and it
-          locks to Cadence or to your host playhead before going
-          fullscreen on the projector.
+          A GPU engine with five scene families (fields, tunnel, fractals,
+          spectrum, ambient) and a particle system of 100,000 points. Band envelopes
+          and onset detectors drive the image. It locks to Cadence or to your host
+          playhead and runs fullscreen on a projector.
         </p>
         <div class="flag__spec mono">
           <span>GLSL engine</span>
@@ -1349,10 +1356,10 @@ def homepage():
       <div class="note__k mono">The bundle</div>
       <div class="note__v">
         <p class="body">
-          The two lock over OSC: Phosphor follows Cadence's clock and beat phase,
-          reads master band energy and kick onsets, and surges when the drop lands.
-          The bundle is the whole studio, with Cell, Schlagzeugs, Contour,
-          Spazio, Lacuna, Legato, Stesso and Tonnetz included.
+          Cadence sends its clock, beat phase, band energy, kick onsets and drop
+          intensity to Phosphor over OSC, so the visuals follow the set. The bundle
+          also includes Cell, Schlagzeugs, Contour, Spazio, Lacuna, Legato, Stesso
+          and Tonnetz.
         </p>
         <p class="mono dim-2" style="margin-top:12px"><a class="link" href="/cadence/#bundle">Bundle pricing at release</a></p>
       </div>
@@ -1374,7 +1381,7 @@ def homepage():
 %s
 
       <div class="index__foot mono">
-        <span>Eleven titles · one design language</span>
+        <span>Eleven titles</span>
         <span>Soon = pre-release</span>
       </div>
     </div>
@@ -1399,7 +1406,7 @@ def homepage():
 
       <div class="index__foot mono">
         <span>Direct download: macOS (Apple Silicon). Windows, Linux &amp; Intel via the VCV Library.</span>
-        <span>Community-first</span>
+        <span>Free</span>
       </div>
     </div>
   </section>
@@ -1410,35 +1417,32 @@ def homepage():
   <section class="sec" id="studio">
     <div class="sec__head pad">
       <h2 class="sec__title"><span class="mono sec__no">04</span> The studio</h2>
-      <span class="mono dim">What ties them together</span>
+      <span class="mono dim">How we work</span>
     </div>
 
     <div class="ethos pad">
       <div>
         <span class="mono dim">State</span>
-        <h3>Nothing gets lost</h3>
+        <h3>Full recall</h3>
         <p class="body">
-          Generative modules are seedable and every plugin recalls its full state.
-          Stumble onto a sound you love and dial it back any time. Save it, share
-          it, and it plays the same on every machine.
+          Generative modules are seedable. Every plugin recalls its full state.
+          A saved patch plays the same on every machine.
         </p>
       </div>
       <div>
         <span class="mono dim">Interface</span>
-        <h3>Built to be played</h3>
+        <h3>Controls first</h3>
         <p class="body">
-          Whether it is a panel in the rack or a plugin window in your DAW, the
-          interface is a control surface, not decoration. Drag-to-assign
-          modulation, MIDI learn, sensible defaults and no telemetry.
+          Panels and plugin windows carry controls, not decoration. Drag-to-assign
+          modulation, MIDI learn and sensible defaults. No telemetry.
         </p>
       </div>
       <div>
         <span class="mono dim">Engine</span>
-        <h3>Real under the hood</h3>
+        <h3>Named methods</h3>
         <p class="body">
-          The processes are the real thing: analog-modelled circuits, feedback,
-          sampling, stochastic motion. Every tool is voiced as an instrument first,
-          expressive, surprising, and made to be listened to.
+          The tools use analog-modelled circuits, feedback, sampling and stochastic
+          processes. Product pages name the method behind a tool where one applies.
         </p>
       </div>
     </div>
@@ -1447,10 +1451,9 @@ def homepage():
       <div class="strip__a">
         <h4>The studio</h4>
         <p class="body">
-          An independent audio-tools studio making instruments for the modular
-          world and the DAW. One person, one design language, two branches: plugins
-          and standalone apps for the stage and the DAW, and open modules for
-          VCV Rack 2.
+          An independent studio in Switzerland. One person builds everything here:
+          plugins and standalone apps for the stage and the DAW, and free modules
+          for VCV Rack 2.
         </p>
       </div>
       <div class="strip__b">
@@ -1485,8 +1488,8 @@ def homepage():
 
 def about_page():
     return (
-        head("About — SHLabs",
-             """SHLabs is a one-person independent studio near Zurich making instruments for VCV Rack and the DAW: modules, VST3 / AU plugins and standalone apps.""")
+        head("About · SHLabs",
+             """SHLabs is a one-person studio in Switzerland. It makes modules for VCV Rack, VST3 and AU plugins, and standalone apps.""")
         + nav(current="Studio")
         + """
   <div class="sheet">
@@ -1504,19 +1507,16 @@ def about_page():
     </div>
     <h1 class="psheet__name">About</h1>
     <div class="psheet__grid">
-      <div class="psheet__claim"><p>Instruments for the rack and the DAW.</p></div>
+      <div class="psheet__claim"><p>Software for the rack, the DAW and the stage.</p></div>
       <div class="psheet__desc">
         <p class="body">
-          SHLabs is a small independent studio making music software across
-          formats. The catalog started with modules for
-          <a class="link" href="https://vcvrack.com" target="_blank" rel="noopener">VCV&nbsp;Rack</a>,
-          and is now growing a second branch of DAW-ready plugins — VST3&nbsp;/&nbsp;AU and
-          standalone apps that run in Ableton Live, Logic, Bitwig and beyond.
-          Whatever the format, the instruments put real processes on the panel —
-          modulation and LFOs, sequencers, generative sources, gate logic and
-          stochastic motion — drawn from the older tradition of analog computing,
-          where a calculation was something physical and visible rather than
-          hidden behind function calls.
+          SHLabs is a small independent studio. The catalogue started with modules
+          for <a class="link" href="https://vcvrack.com" target="_blank" rel="noopener">VCV&nbsp;Rack</a>.
+          A second branch of VST3&nbsp;and AU plugins and standalone apps is in
+          beta. They run in Ableton Live, Logic, Bitwig and other hosts. The tools
+          cover modulation, sequencing, generative sources, gate logic and stochastic
+          processes. Many draw on analog computing, where a calculation was a
+          physical process that you could see.
         </p>
       </div>
     </div>
@@ -1533,13 +1533,11 @@ def about_page():
       <div class="cols__k mono">Families</div>
       <div class="cols__v">
         <p class="body">
-          On the rack side the catalog is organized into families, each with its
-          own character: <strong>Stochast</strong>, <strong>Mashina</strong>,
-          <strong>Lucida</strong>, <strong>Rikoshet</strong> and
-          <strong>Atmos</strong>. Some are free; others are paid releases that fund
-          continued development. On the DAW side, a growing line of synths, effects,
-          mastering tools, MIDI brains and visuals shares one design language — the
-          same metallic control surfaces, the same instruments-first feel.
+          On the rack side, the catalogue has five families:
+          <strong>Stochast</strong>, <strong>Mashina</strong>, <strong>Lucida</strong>,
+          <strong>Rikoshet</strong> and <strong>Atmos</strong>. All of them are free.
+          On the DAW side, the paid line covers synths, effects, mastering tools,
+          MIDI generators and visuals. Both sides share one design language.
         </p>
       </div>
     </div>
@@ -1548,32 +1546,26 @@ def about_page():
   <section class="sec">
     <div class="group__head group__head--first">
       <h2 class="mono">How it started</h2>
-      <span class="mono dim-2">A founding story</span>
+      <span class="mono dim-2">Background</span>
     </div>
     <div class="cols pad cols--open">
       <div class="cols__k mono">In the first person</div>
       <div class="cols__v prose">
         <p>
           SHLabs is a one-person studio. I grew up near Zurich, Switzerland, and
-          work as a data scientist — but synthesizers have been a love of mine for
-          as long as I can remember, and that fascination eventually led, as it
-          tends to, to modular.
+          work as a data scientist. I have played synthesizers for as long as I can
+          remember, and that led to modular.
         </p>
         <p>
-          The tools on this site started years ago as things I built for my own
-          needs and my own pleasure: modules and plugins I used in my own jams,
-          live shows and music production. Along the way they kept circling a
-          simple question — what if the maths that usually disappears inside code
-          were laid out as something you could turn, patch, and hear? A sequencer
-          here, a generative source there, and the tools kept growing into families.
+          The tools on this site began as things I built for my own jams, live
+          shows and productions. One question kept coming up: what if the maths that
+          usually stays inside code were something you could turn, patch and hear?
+          The tools grew into families from there.
         </p>
         <p>
-          Now I've decided to release them. Expanded, polished and made dependable,
-          they're ready to be shared with the world — first with the VCV&nbsp;Rack
-          community, and with the plugin line arriving, with anyone working in a DAW.
-          The same ideas carry across: whether it's a module you patch or a plugin
-          you insert, it should be real under the hood and a pleasure to play. New
-          families, plugins and updates are released as they're ready.
+          I now release them. I expand and test each one first. The VCV&nbsp;Rack
+          modules came first, and the plugin line follows. New releases appear when
+          they are ready.
         </p>
       </div>
     </div>
@@ -1586,9 +1578,8 @@ def about_page():
     </div>
     <div class="blk pad">
       <p class="body">
-        Questions about a release, early access to something still in testing, bug
-        reports, or whether a particular piece of gear will play nicely with the
-        tools here — the studio inbox is open.
+        Write to us with questions about a release, requests for early access, bug
+        reports, or to ask whether a piece of gear works with these tools.
       </p>
       <p class="mono dim">shlabs.contact@gmail.com</p>
       <div class="acts">
@@ -1608,7 +1599,7 @@ def about_page():
 def donate_page():
     return (
         head("Support SHLabs",
-             """Support SHLabs: sponsor the studio on GitHub, spread the word, or open an issue. Contributions help the next module get built and keep the free modules coming.""")
+             """Support SHLabs: sponsor the studio on GitHub, tell others about the tools, or open an issue. Contributions fund development time and the free modules.""")
         + nav()
         + """
   <div class="sheet">
@@ -1622,17 +1613,16 @@ def donate_page():
   <header class="psheet pad" id="main">
     <div class="psheet__meta mono">
       <span class="dim">Support the work</span>
-      <span class="dim-2">Optional · always</span>
+      <span class="dim-2">Optional</span>
     </div>
     <h1 class="psheet__name">Support</h1>
     <div class="psheet__grid">
-      <div class="psheet__claim"><p>Help the next module get built.</p></div>
+      <div class="psheet__claim"><p>Contributions fund development time.</p></div>
       <div class="psheet__desc">
         <p class="body">
-          SHLabs is an independent studio, and development time comes out of
-          evenings and weekends. If a module has earned a place in your rack or
-          just given you the pleasure of patching, a contribution helps the next
-          one get written — and keeps the free modules coming.
+          SHLabs is an independent studio. Development happens in evenings and
+          at weekends. If a module is useful to you, a contribution helps pay for
+          the next one and keeps the free modules free.
         </p>
       </div>
     </div>
@@ -1647,10 +1637,9 @@ def donate_page():
     </div>
     <div class="blk pad">
       <p class="body">
-        Sponsor on GitHub for a monthly amount — any value, set by you — or send a
-        one-off contribution. Payments are handled by GitHub, so no account beyond
-        your existing GitHub one is required. It is the clearest, lowest-friction
-        way to support the studio and keep the free modules coming.
+        Sponsor on GitHub with a monthly amount that you set, or send a one-off
+        contribution. GitHub handles the payments, so you need only your existing
+        GitHub account.
       </p>
       <div class="acts">
         <a class="act act--fill" href="https://github.com/sponsors/kevisc" target="_blank" rel="noopener">Sponsor on GitHub &#8599;</a>
@@ -1661,17 +1650,17 @@ def donate_page():
   <section class="sec">
     <div class="group__head group__head--first">
       <h2 class="mono">Other ways to help</h2>
-      <span class="mono dim-2">Free, and worth more</span>
+      <span class="mono dim-2">Free</span>
     </div>
     <div class="spec">
       <span class="row__no">01</span>
       <span class="row__id"><span class="row__cat">Spread the word</span><h3 class="row__name">Tell people about it</h3></span>
-      <p class="row__desc">Mention a module in a patch you share, on social media, or to a friend who racks. Word of mouth in the modular community beats any donation in long-run usefulness — and it costs nothing.</p>
+      <p class="row__desc">Mention a module in a patch you share, on social media, or to a friend who racks. Word of mouth helps a small studio more than most things, and it costs nothing.</p>
     </div>
     <div class="spec">
       <span class="row__no">02</span>
       <span class="row__id"><span class="row__cat">On GitHub</span><h3 class="row__name">Open an issue</h3></span>
-      <p class="row__desc">Bug reports, edge cases, and requests for new modules are all welcome on the SHLabs GitHub at <a class="link" href="https://github.com/shlabs-audio" target="_blank" rel="noopener">github.com/shlabs-audio</a>. A clear repro is worth its weight in gold.</p>
+      <p class="row__desc">Bug reports, edge cases, and requests for new modules are all welcome on the SHLabs GitHub at <a class="link" href="https://github.com/shlabs-audio" target="_blank" rel="noopener">github.com/shlabs-audio</a>. Clear steps to reproduce a bug help most.</p>
     </div>
     <div class="blk pad">
       <div class="acts">
@@ -1704,7 +1693,7 @@ def downloads_page():
     rows = []
     for i, (fname, cat, label, page) in enumerate(DOWNLOADS, 1):
         path = os.path.join(ROOT, "downloads", fname)
-        kb = "%d KB" % round(os.path.getsize(path) / 1024) if os.path.exists(path) else "—"
+        kb = "%d KB" % round(os.path.getsize(path) / 1024) if os.path.exists(path) else "n/a"
         detail = ('Product sheet: <a class="link" href="%s">%s</a>. ' % (page, label)) if page else ""
         rows.append(
             '      <a class="row" href="/downloads/%s">\n'
@@ -1716,8 +1705,8 @@ def downloads_page():
             '      </a>' % (fname, i, cat, label, detail, fname, kb)
         )
     return (
-        head("Downloads — SHLabs",
-             """Direct downloads of the free SHLabs VCV Rack 2 plugins for macOS (Apple Silicon). Drop the .vcvplugin file into Rack's user plugin folder and restart.""")
+        head("Downloads · SHLabs",
+             """Direct downloads of the free SHLabs VCV Rack 2 plugins for macOS (Apple Silicon). Place the .vcvplugin file in Rack's user plugin folder and restart.""")
         + nav()
         + """
   <div class="sheet">
@@ -1738,11 +1727,11 @@ def downloads_page():
       <div class="psheet__claim"><p>Every direct download, in one list.</p></div>
       <div class="psheet__desc">
         <p class="body">
-          Download a <strong>.vcvplugin</strong> file and drop it into Rack's user
-          plugin folder, then restart — the modules appear under the
-          <strong>SHLabs</strong> brand. You'll need
+          Download a <strong>.vcvplugin</strong> file, place it in Rack's user
+          plugin folder and restart. The modules appear under the
+          <strong>SHLabs</strong> brand. You need
           <a class="link" href="https://vcvrack.com/Rack" target="_blank" rel="noopener">VCV&nbsp;Rack&nbsp;2</a>,
-          itself a free download.
+          which is also a free download.
         </p>
       </div>
     </div>
@@ -1775,7 +1764,7 @@ def downloads_page():
 
 def notfound_page():
     return (
-        head("Not found — SHLabs", "", robots="noindex", og=(None, None))
+        head("Not found · SHLabs", "", robots="noindex", og=(None, None))
         + nav()
         + """
   <div class="sheet">
@@ -1786,11 +1775,11 @@ def notfound_page():
     </div>
     <h1 class="display">404</h1>
     <div class="psheet__grid">
-      <div class="psheet__claim"><p>No module patches to that input.</p></div>
+      <div class="psheet__claim"><p>This page does not exist.</p></div>
       <div class="psheet__desc">
         <p class="body">
-          The page you asked for is not on this sheet. The full catalogue —
-          plugins, standalone apps and VCV Rack modules — is one link away.
+          Check the address, or go to the catalogue of plugins, standalone apps
+          and VCV Rack modules.
         </p>
         <div class="acts" style="margin-top:26px">
           <a class="act act--fill" href="/">Back to SHLabs</a>
@@ -1810,7 +1799,7 @@ def empiria_page():
     """A redirect stub. The canonical page is /stochast/; the visible copy is
     only ever seen if the refresh and the script are both blocked."""
     return (
-        head("Empiria → Stochast — SHLabs", "", robots="noindex",
+        head("Empiria → Stochast · SHLabs", "", robots="noindex",
              canonical="https://shlabs.ch/stochast/", refresh="0; url=/stochast/",
              og=(None, None))
         + nav()
@@ -1874,7 +1863,7 @@ def cadence_beta_page():
     else:
         files = '      <p class="body">The 0.9.4 beta build is in preparation. This page fills in when it is cut.</p>'
     return (
-        head("Cadence beta — SHLabs", "Cadence 0.9.4 beta downloads for invited testers.",
+        head("Cadence beta · SHLabs", "Cadence 0.9.4 beta downloads for invited testers.",
              robots="noindex, nofollow", og=(None, None))
         + nav()
         + """
@@ -1935,6 +1924,271 @@ def cadence_beta_page():
 
 
 # ═══════════════════════════════════════════════════════════════════════
+#  Schwiizerdütsch: a small homage, three pages under /gsw/
+#  (gsw is the ISO 639 code for Swiss German). Zurich dialect, in the same
+#  plain voice as the English pages. Product and technical terms stay in
+#  English, as they do in speech. The English pages stay the full reference.
+# ═══════════════════════════════════════════════════════════════════════
+
+GSW_LINK = [
+    ("Beat und Tempo", "D Visuals bliibed im Takt",
+     """Du muesch kei Tempo tappe."""),
+    ("Bass, Mitte, Höhi", "Jede Teil vom Mix isch im Bild",
+     """Parameter folged de drüü Bänder."""),
+    ("Kick-Treffer", "Jede Kick git en visuelle Treffer",
+     """Phosphor löst bi jedem Kick e Schockwälle uus."""),
+    ("Drop-Intensität", "S Bild baut sich bis zum Drop uuf",
+     """Cadence meldet, wie starch de Drop isch."""),
+]
+
+GSW_CADENCE = [
+    ("Mixer", "Vier Kanäl",
+     """Jede Kanal nimmt en Live-Iigang oder en Player. Er hät en Drüü-Band-EQ mit Full Kill und en Filter. En Pre-Fader-Cue-Bus isch au debii."""),
+    ("Clock", "Hardware uf em Grid",
+     """24-PPQN-MIDI-Clock, sample-gnau und mit de Audio-Clock gekopplet. Mit Start, Stopp und Tap Tempo. Dini Hardware folgt Cadence."""),
+    ("Stems", "Vier Teil, uf dim Computer",
+     """En Rechtsklick trännt en Track i Drums, Bass, Other und Vocals. S Modell lauft lokal, ohni Cloud und ohni Upload. En Club-Track bruucht uf Apple Silicon öppe vierzg Sekunde."""),
+    ("Assist", "En Auto-DJ, wo du stüürsch",
+     """Assist chan en Übergang eleige mache und kännt d Tonart. Du chasch de Mix jederziit zrugg neh."""),
+    ("Composer", "Es Set im Voruus",
+     """E Timeline i Täkt, mit ere Spuur pro Kanal. Druf ligged Audio-Clips, MIDI und Automation."""),
+    ("Ufnahm", "Takes als Loop",
+     """Kanal scharf stelle, iizähle, spile. De Loop lauft grad im Takt wiiter. De Master nimmt Cadence als 24-Bit-WAV uuf."""),
+]
+
+GSW_PHOSPHOR = [
+    ("Szene", "Föif Familie",
+     """Fields, Tunnel, Fractals, Spectrum und Ambient. Alles lauft i GLSL uf de GPU."""),
+    ("Partikel", "100'000 Pünkt",
+     """D Simulation lauft ganz uf de Grafikcharte."""),
+    ("Reaktion", "Bänder und Onsets",
+     """Eigeni Hüllkurve für Level, Bass, Mitte und Höhi. Onset-Detektore für Kick, Snare und Hat."""),
+    ("Sync", "Clock-Quälle",
+     """Cadence per OSC, de Host-Playhead i de DAW, oder de Beat, wo Phosphor im Audio findet."""),
+    ("Output", "Bild use",
+     """Vollbild uf en zweite Bildschirm oder en Beamer. Syphon uf macOS, H.264-Ufnahm und PNG-Snapshots."""),
+]
+
+
+def gsw_spec(rows):
+    return "\n".join(
+        '    <div class="spec">\n'
+        '      <span class="row__no">%02d</span>\n'
+        '      <span class="row__id"><span class="row__cat">%s</span>'
+        '<h3 class="row__name">%s</h3></span>\n'
+        '      <p class="row__desc">%s</p>\n'
+        '    </div>' % (i, cat, name, desc)
+        for i, (cat, name, desc) in enumerate(rows, 1)
+    )
+
+
+def gsw_nav(english):
+    return (
+        '  <a class="skip" href="#main">Zum Inhalt</a>\n'
+        '  <nav class="nav">\n'
+        '    <div class="nav__in pad">\n'
+        '      <a class="wordmark" href="/gsw/">SH<i>labs</i></a>\n'
+        '      <div class="nav__links mono">\n'
+        '      <a href="/gsw/cadence/">Cadence</a>\n'
+        '      <a href="/gsw/phosphor/">Phosphor</a>\n'
+        '      <a href="%s" class="is-accent" hreflang="en" lang="en">English</a>\n'
+        '      </div>\n'
+        '    </div>\n'
+        '  </nav>\n' % english
+    )
+
+
+def gsw_footer(english):
+    return (
+        '  <footer class="foot">\n'
+        '    <div class="pad">\n'
+        '      <div class="foot__word">SH<i>labs</i></div>\n'
+        '    </div>\n\n'
+        '    <div class="foot__bar pad mono">\n'
+        '      <span>&copy; %d SHLabs &middot; Software für Musig und Visuals</span>\n'
+        '      <span class="swiss">%s Gmacht i de Schwiiz</span>\n'
+        '      <a class="dim-2" href="%s" hreflang="en" lang="en">English</a>\n'
+        '    </div>\n'
+        '  </footer>\n' % (YEAR, SWISS, english)
+    )
+
+
+def gsw_home():
+    return (
+        head("SHLabs · Software für Musig und Visuals",
+             """SHLabs isch es unabhängigs Studio i de Schwiiz. Apps, Plugins und Module für d Bühni, d DAW und VCV Rack.""",
+             lang="gsw", canonical="https://shlabs.ch/gsw/")
+        + gsw_nav("/")
+        + """
+  <div class="sheet" id="top">
+
+  <header class="hero pad" id="main">
+    <div class="hero__meta mono">
+      <span>Unabhängigs Studio · Schwiiz</span>
+      <span class="dim-2">Schwiizerdütsch</span>
+    </div>
+
+    <h1 class="display">Software<br>für Musig<br>und Visuals.</h1>
+
+    <div class="hero__grid">
+      <div class="hero__lead">
+        <p class="lead">
+          SHLabs macht VST3- und AU-Plugins, Standalone-Apps und Module für
+          <a class="link" href="https://vcvrack.com" target="_blank" rel="noopener">VCV Rack 2</a>.
+          Die Siite isch e chlini Hommage a d Mundart. Alli Details stönd uf de
+          <a class="link" href="/" hreflang="en">änglische Siite</a>.
+        </p>
+      </div>
+    </div>
+  </header>
+
+  <div class="rule--ink"></div>
+
+  <section class="sec">
+    <div class="sec__head pad">
+      <h2 class="sec__title"><span class="mono sec__no">01</span> Di zwei Apps</h2>
+      <span class="mono dim">Choschtet öppis · Chunnt bald</span>
+    </div>
+
+    <div class="flag pad">
+      <div class="flag__id">
+        <span class="mono dim">Performance &amp; Live · Standalone</span>
+        <h3 class="flag__name"><a href="/gsw/cadence/">Cadence</a></h3>
+      </div>
+      <div class="flag__text">
+        <p class="flag__claim">En Performance-Mixer mit vier Kanäl und ere Master-Clock.</p>
+        <p class="body">
+          Jede Kanal nimmt en Live-Iigang oder en Player mit Beatgrid. Cadence
+          erchännt d Struktur vomene Track und trännt d Stems diräkt uf dim
+          Computer. Assist chan en Übergang eleige mache. E sample-gnaui MIDI-Clock
+          stüürt dis Modular und dini Drum Machines.
+        </p>
+      </div>
+    </div>
+
+    <div class="flag pad">
+      <div class="flag__id">
+        <span class="mono dim">Visuals · VST3 · AU · Standalone</span>
+        <h3 class="flag__name"><a href="/gsw/phosphor/">Phosphor</a></h3>
+      </div>
+      <div class="flag__text">
+        <p class="flag__claim">En Video-Synth, wo uf Audio reagiert.</p>
+        <p class="body">
+          E GPU-Engine mit föif Szene-Familie und eme Partikelsystem mit
+          100'000 Pünkt. Hüllkurve und Onset-Detektore stüüred s Bild. Phosphor
+          synchronisiert sich mit Cadence oder mit em Host und lauft im Vollbild
+          uf em Beamer.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <div class="rule--ink"></div>
+
+  <section class="sec" id="link">
+    <div class="sec__head pad">
+      <h2 class="sec__title"><span class="mono sec__no">02</span> Wie s funktioniert</h2>
+      <span class="mono dim">Per OSC</span>
+    </div>
+    <div class="blk pad">
+      <p class="lead">Cadence schickt Live-Date a Phosphor. Phosphor bruucht si, zum s Bild z stüüre. Du chasch eifach wiiter mixe.</p>
+    </div>
+%s
+  </section>
+
+  <div class="rule--ink"></div>
+
+  <section class="sec">
+    <div class="sec__head pad">
+      <h2 class="sec__title"><span class="mono sec__no">03</span> S Bundle</h2>
+      <span class="mono dim">Priis bim Release</span>
+    </div>
+    <div class="blk pad">
+      <p class="lead">Zäh Produkt: Cadence, Phosphor und acht Plugins.</p>
+      <p class="body">Cell, Schlagzeugs, Contour, Spazio, Lacuna, Legato, Stesso und Tonnetz.</p>
+      <div class="acts">
+        <a class="act act--fill" href="mailto:shlabs.contact@gmail.com">Schriib eus</a>
+        <a class="act" href="/#index" hreflang="en">Alli Produkt &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+""" % gsw_spec(GSW_LINK)
+        + gsw_footer("/")
+        + tail()
+    )
+
+
+def gsw_product(slug, name, cat, claim, desc, rows, close, other):
+    return (
+        head("%s · SHLabs" % name, claim, lang="gsw",
+             canonical="https://shlabs.ch/gsw/%s/" % slug)
+        + gsw_nav("/%s/" % slug)
+        + """
+  <div class="sheet">
+
+  <header class="psheet pad" id="main">
+    <div class="psheet__meta mono">
+      <span class="dim">%s</span>
+      <span class="is-soon">Chunnt bald</span>
+    </div>
+    <h1 class="psheet__name">%s</h1>
+    <div class="psheet__grid">
+      <div class="psheet__claim"><p>%s</p></div>
+      <div class="psheet__desc"><p class="body">%s</p></div>
+    </div>
+  </header>
+
+  <div class="rule--ink"></div>
+
+  <section class="sec">
+    <div class="group__head group__head--first">
+      <h2 class="mono">Was es macht</h2>
+    </div>
+%s
+  </section>
+
+  <section class="sec">
+    <div class="group__head group__head--first">
+      <h2 class="mono">Überchoo</h2>
+    </div>
+    <div class="blk pad">
+      <p class="body">%s</p>
+      <div class="acts">
+        <a class="act act--fill" href="mailto:shlabs.contact@gmail.com">Schriib eus</a>
+        <a class="act" href="/gsw/%s/">%s &rarr;</a>
+        <a class="act" href="/%s/" hreflang="en">Alli Details uf Änglisch &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+""" % (cat, name, claim, desc, gsw_spec(rows), close, other.lower(), other, slug)
+        + gsw_footer("/%s/" % slug)
+        + tail()
+    )
+
+
+def gsw_cadence():
+    return gsw_product(
+        "cadence", "Cadence", "Performance-Mixer &amp; Master-Clock",
+        "En Performance-Mixer mit vier Kanäl und ere Master-Clock.",
+        """Jede Kanal nimmt en Live-Iigang oder en Player mit Beatgrid. E sample-gnaui MIDI-Clock stüürt dini Hardware. Assist chan de Mix hebe, während du spilsch. Was du uf eme Keyboard oder eme Hardware-Synth spilsch, nimmt Cadence uf em gliiche Kanal als Loop uuf.""",
+        GSW_CADENCE,
+        """Cadence isch e choschtepflichtigi App i aktiver Entwicklig. D Beta lauft uf macOS und Windows. Für Early Access schriib eus.""",
+        "Phosphor")
+
+
+def gsw_phosphor():
+    return gsw_product(
+        "phosphor", "Phosphor", "Audio-reaktive Video-Synth",
+        "En Video-Synth, wo uf Audio reagiert.",
+        """E GLSL-Engine uf de GPU, mit 32 Szene und eme Partikelsystem mit 100'000 Pünkt. Bänder und Onsets stüüred s Bild. Wänn Phosphor uf eme Track lauft, gaht s Audio unveränderet dure.""",
+        GSW_PHOSPHOR,
+        """Phosphor isch e choschtepflichtigi App i aktiver Entwicklig. Für Early Access schriib eus.""",
+        "Cadence")
+
+
+# ═══════════════════════════════════════════════════════════════════════
 #  main
 # ═══════════════════════════════════════════════════════════════════════
 
@@ -1942,7 +2196,7 @@ def main():
     if not os.path.isfile(os.path.join(ROOT, "css", "shlabs.css")):
         sys.exit("error: run this from inside the shlabs repo (css/shlabs.css not found)")
 
-    print("SHLabs — regenerating pages into %s" % ROOT)
+    print("SHLabs: regenerating pages into %s" % ROOT)
     write("index.html", homepage())
     write("404.html", notfound_page())
     write("about/index.html", about_page())
@@ -1952,7 +2206,10 @@ def main():
     write("cadence/beta/index.html", cadence_beta_page())   # unlisted, noindex
     for slug, p in PRODUCTS.items():
         write("%s/index.html" % slug, product_page(p))
-    print("done — %d pages" % (7 + len(PRODUCTS)))
+    write("gsw/index.html", gsw_home())
+    write("gsw/cadence/index.html", gsw_cadence())
+    write("gsw/phosphor/index.html", gsw_phosphor())
+    print("done: %d pages" % (10 + len(PRODUCTS)))
 
 
 if __name__ == "__main__":

@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Schlagzeugs — SHLabs</title>
-  <meta name="description" content="Schlagzeugs is a generative drum machine and MIDI source: six lanes of DFAM-style step sequencing with Labyrinth-style registers that corrupt and lock, polymeter and polyrhythm per lane, and six voices: an analog kick, a snare that becomes a clap, an 808 hat cluster and two Rings-style modal resonators. Every lane also sends MIDI. VST3 / AU / Standalone. Coming soon.">
+  <title>Schlagzeugs · SHLabs</title>
+  <meta name="description" content="Schlagzeugs is a generative drum machine and MIDI source: six lanes of DFAM-style step sequencing with Labyrinth-style registers that mutate and lock, polymeter and polyrhythm per lane, and six voices: an analog-style kick, a snare that morphs into a clap, an 808 hat cluster and two Rings-style modal resonators. Every lane also sends MIDI. VST3 / AU / Standalone. Coming soon.">
   <meta name="theme-color" content="#f3f2ee">
   <link rel="icon" type="image/svg+xml" href="/img/favicon.svg">
   <link rel="stylesheet" href="/css/shlabs.css">
-  <meta property="og:title" content="Schlagzeugs — SHLabs">
-  <meta property="og:description" content="Schlagzeugs is a generative drum machine and MIDI source: six lanes of DFAM-style step sequencing with Labyrinth-style registers that corrupt and lock, polymeter and polyrhythm per lane, and six voices: an analog kick, a snare that becomes a clap, an 808 hat cluster and two Rings-style modal resonators. Every lane also sends MIDI. VST3 / AU / Standalone. Coming soon.">
+  <meta property="og:title" content="Schlagzeugs · SHLabs">
+  <meta property="og:description" content="Schlagzeugs is a generative drum machine and MIDI source: six lanes of DFAM-style step sequencing with Labyrinth-style registers that mutate and lock, polymeter and polyrhythm per lane, and six voices: an analog-style kick, a snare that morphs into a clap, an 808 hat cluster and two Rings-style modal resonators. Every lane also sends MIDI. VST3 / AU / Standalone. Coming soon.">
   <meta property="og:type" content="website">
 </head>
 <body>
@@ -43,8 +43,8 @@
     </div>
     <h1 class="psheet__name">Schlagzeugs</h1>
     <div class="psheet__grid">
-      <div class="psheet__claim"><p>Kicks, hats and toms that drift against each other.</p></div>
-      <div class="psheet__desc"><p class="body">Six lanes, each a small clocked sequencer with its own length and rate, so polymeter and polyrhythm are the starting point rather than a mode. The step registers mutate at a rate you set and freeze when you like what you hear. Six voices play the result, and every lane sends a MIDI note as well, so the same groove can drive a Syntakt, a Cycles or a eurorack drum module instead.</p></div>
+      <div class="psheet__claim"><p>A six-lane generative drum machine and MIDI source.</p></div>
+      <div class="psheet__desc"><p class="body">Six lanes, each a clocked sequencer with its own length and rate, so polymeter and polyrhythm are the default. The step registers mutate at a rate you set and freeze on command. Six voices play the result. Every lane also sends a MIDI note, so the same pattern can drive a Syntakt, a Cycles or a eurorack drum module.</p></div>
     </div>
     <div class="psheet__spec mono"><span>VST3 · AU · Standalone</span><span>macOS &amp; Windows</span></div>
   </header>
@@ -64,33 +64,33 @@
     </div>
     <div class="spec">
       <span class="row__no">01</span>
-      <span class="row__id"><span class="row__cat">Registers</span><h3 class="row__name">Patterns that corrupt and lock</h3></span>
-      <p class="row__desc">Each lane's steps are a Labyrinth-style register. CORRUPT mutates them once per cycle, DENSITY decides what a mutated step becomes, LOCK freezes every register and ROLL redraws them all from a seed. The kick's downbeat survives any amount of corruption.</p>
+      <span class="row__id"><span class="row__cat">Registers</span><h3 class="row__name">Patterns that mutate and lock</h3></span>
+      <p class="row__desc">Each lane's steps are a Labyrinth-style register. CORRUPT mutates them once per cycle. DENSITY decides what a mutated step becomes. LOCK freezes every register, and ROLL redraws them all from a seed. The kick's downbeat is never mutated.</p>
     </div>
     <div class="spec">
       <span class="row__no">02</span>
       <span class="row__id"><span class="row__cat">Polymeter</span><h3 class="row__name">Six lengths, six rates</h3></span>
-      <p class="row__desc">Lane lengths from 1 to 32 steps and rates from quarter notes to 1/16 triplets. One POLYMETER control morphs the six lengths toward a coprime set, so the lanes drift out of phase and back over a long cycle.</p>
+      <p class="row__desc">Lane lengths from 1 to 32 steps, and rates from quarter notes to 1/16 triplets. One POLYMETER control moves the six lengths toward a coprime set, so the lanes drift out of phase and back over a long cycle.</p>
     </div>
     <div class="spec">
       <span class="row__no">03</span>
       <span class="row__id"><span class="row__cat">Steps</span><h3 class="row__name">DFAM rows, per step</h3></span>
-      <p class="row__desc">Gate, velocity, pitch, probability and ratchets on every step, plus two modulation rows that reach the voice: one to tune, one to decay or tone. Euclidean fills per lane, swing and humanize for the whole kit.</p>
+      <p class="row__desc">Gate, velocity, pitch, probability and ratchets on every step, plus two modulation rows that reach the voice: one for tune, one for decay or tone. Euclidean fills per lane, with swing and humanize for the whole kit.</p>
     </div>
     <div class="spec">
       <span class="row__no">04</span>
-      <span class="row__id"><span class="row__cat">Voices</span><h3 class="row__name">DFAM and Rings, in one kit</h3></span>
-      <p class="row__desc">An analog-style kick with a pitch envelope and FM click. A snare that morphs into a clap. Closed and open hats from a six-oscillator 808 cluster, the closed hat choking the open. A tom and a metal percussion voice on Rings-style modal resonators whose ratios morph from membrane to metal.</p>
+      <span class="row__id"><span class="row__cat">Voices</span><h3 class="row__name">Six voices in one kit</h3></span>
+      <p class="row__desc">An analog-style kick with a pitch envelope and FM click. A snare that morphs into a clap. Closed and open hats from a six-oscillator 808 cluster, where the closed hat chokes the open one. A tom and a metal percussion voice on Rings-style modal resonators, with ratios that morph from membrane to metal.</p>
     </div>
     <div class="spec">
       <span class="row__no">05</span>
       <span class="row__id"><span class="row__cat">MIDI</span><h3 class="row__name">An instrument and a sequencer</h3></span>
-      <p class="row__desc">Every lane sends a note on its own number and channel, on the General MIDI drum map by default. A note in on a lane's number plays that voice, so a drum clip from Cadence's Beats assist, or from any DAW, plays the kit.</p>
+      <p class="row__desc">Every lane sends a note on its own number and channel, on the General MIDI drum map by default. A note in on a lane's number plays that voice, so a drum clip from Cadence's Beats assist or from any DAW plays the kit.</p>
     </div>
     <div class="spec">
       <span class="row__no">06</span>
       <span class="row__id"><span class="row__cat">Clock</span><h3 class="row__name">Host or free-running</h3></span>
-      <p class="row__desc">Follows the host transport sample-accurately, or free-runs at its own tempo in the standalone. The engine is deterministic per seed and split-invariant, so a groove sounds the same live and bounced.</p>
+      <p class="row__desc">Follows the host transport sample-accurately, or runs at its own tempo in the standalone. The engine is deterministic per seed and split-invariant, so a pattern sounds the same live and bounced.</p>
     </div>
   </section>
 
@@ -99,7 +99,7 @@
       <h2 class="mono">Get it</h2>
     </div>
     <div class="blk pad">
-      <p class="body">A paid, closed-source SHLabs plugin in active development. This page is an early look; pricing and availability will be announced when it ships. Follow SHLabs to hear when it lands.</p>
+      <p class="body">A paid, closed-source SHLabs plugin in active development. This page is an early look. Pricing and availability will be announced at release.</p>
       <div class="acts">
         <a class="act" href="/#index">All products &rarr;</a>
       </div>
@@ -141,6 +141,7 @@
         <a href="mailto:shlabs.contact@gmail.com">Contact</a>
         <a href="/donate/">Support the studio</a>
         <a href="https://github.com/shlabs-audio" rel="noopener">GitHub</a>
+        <a href="/gsw/">Schwiizerdütsch</a>
       </div>
     </div>
 
@@ -149,7 +150,7 @@
     </div>
 
     <div class="foot__bar pad mono">
-      <span>&copy; 2026 SHLabs &middot; Instruments for the modular world</span>
+      <span>&copy; 2026 SHLabs &middot; Software for music and visuals</span>
       <span class="swiss"><svg width="12" height="12" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect width="32" height="32" fill="#d52b1e"/><rect x="13" y="6" width="6" height="20" fill="#fff"/><rect x="6" y="13" width="20" height="6" fill="#fff"/></svg> Made in Switzerland</span>
       <span class="dim-2">Set in Helvetica</span>
     </div>

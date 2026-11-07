@@ -3,13 +3,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Lucida — SHLabs</title>
-  <meta name="description" content="Lucida is a free generative-visual series of VCV Rack 2 modules: emergent systems — a cellular-automaton CV grid (Colony) and a probabilistic shift register (Turing) — rendered on screen and turned into CV. Free download for macOS (Apple Silicon).">
+  <title>Lucida · SHLabs</title>
+  <meta name="description" content="Lucida is a free series of generative VCV Rack 2 modules with on-panel displays: a cellular-automaton CV grid (Colony) and a probabilistic shift register (Turing). Free download for macOS (Apple Silicon).">
   <meta name="theme-color" content="#f3f2ee">
   <link rel="icon" type="image/svg+xml" href="/img/favicon.svg">
   <link rel="stylesheet" href="/css/shlabs.css">
-  <meta property="og:title" content="Lucida — SHLabs">
-  <meta property="og:description" content="Lucida is a free generative-visual series of VCV Rack 2 modules: emergent systems — a cellular-automaton CV grid (Colony) and a probabilistic shift register (Turing) — rendered on screen and turned into CV. Free download for macOS (Apple Silicon).">
+  <meta property="og:title" content="Lucida · SHLabs">
+  <meta property="og:description" content="Lucida is a free series of generative VCV Rack 2 modules with on-panel displays: a cellular-automaton CV grid (Colony) and a probabilistic shift register (Turing). Free download for macOS (Apple Silicon).">
   <meta property="og:type" content="website">
 </head>
 <body>
@@ -43,8 +43,8 @@
     </div>
     <h1 class="psheet__name">Lucida</h1>
     <div class="psheet__grid">
-      <div class="psheet__claim"><p>Generative systems, made visible.</p></div>
-      <div class="psheet__desc"><p class="body">A series of VCV Rack modules built around emergent systems — cellular automata, shift registers, iterated processes — that you watch evolve on screen and patch as control voltage. Each module is a small generative world: set it running, nudge it, and harvest the patterns it produces as pitch, gates, and modulation.</p></div>
+      <div class="psheet__claim"><p>Generative modules with a live display of their state.</p></div>
+      <div class="psheet__desc"><p class="body">VCV Rack modules built on cellular automata, shift registers and iterated processes. The panel shows the process as it runs. You patch its output as pitch, gates and modulation.</p></div>
     </div>
     <div class="psheet__spec mono"><span>2 modules</span><span>Freeware</span><span>macOS (Apple Silicon)</span></div>
   </header>
@@ -57,18 +57,18 @@
     </div>
     <div class="spec">
       <span class="row__no">01</span>
-      <span class="row__id"><span class="row__cat">Seen, not hidden</span><h3 class="row__name">Systems you can watch</h3></span>
-      <p class="row__desc">Lucida modules are generative systems you can see. The on-panel display is not decoration: it is the state of the process, and watching it is how you learn to steer it. A change to a knob propagates visibly across the grid or the register before it ever reaches a cable.</p>
+      <span class="row__id"><span class="row__cat">Display</span><h3 class="row__name">The state on the panel</h3></span>
+      <p class="row__desc">The on-panel display shows the state of the process. Watching it is how you learn to steer it. A knob change shows on the grid or the register before it reaches a cable.</p>
     </div>
     <div class="spec">
       <span class="row__no">02</span>
-      <span class="row__id"><span class="row__cat">Patchable emergence</span><h3 class="row__name">Self-organizing CV</h3></span>
-      <p class="row__desc">Every module turns its internal dynamics into useful CV — scan taps, polyphonic rows, quantized pitch, gates — so a self-organizing system becomes a playable sequencer and modulation source, not just a screensaver.</p>
+      <span class="row__id"><span class="row__cat">Outputs</span><h3 class="row__name">Self-organizing CV</h3></span>
+      <p class="row__desc">Every module turns its internal state into CV: scan taps, polyphonic rows, quantized pitch and gates. A self-organizing system becomes a sequencer and a modulation source.</p>
     </div>
     <div class="spec">
       <span class="row__no">03</span>
-      <span class="row__id"><span class="row__cat">One family</span><h3 class="row__name">A creep-green accent</h3></span>
-      <p class="row__desc">Lucida inherits the SHLabs industrial panel grammar — gunmetal field, header strip, clear signal flow — with a creep-green family accent that ties the series together and sets it apart from Mashina's red.</p>
+      <span class="row__id"><span class="row__cat">One family</span><h3 class="row__name">A green accent</h3></span>
+      <p class="row__desc">Lucida uses the SHLabs panel layout: a gunmetal field, a header strip and clear signal flow. A green family accent separates it from Mashina's red.</p>
     </div>
   </section>
 
@@ -79,12 +79,12 @@
     <div class="spec">
       <span class="row__no">04</span>
       <span class="row__id"><span class="row__cat">Colony</span><h3 class="row__name">Cellular-automaton CV grid</h3></span>
-      <p class="row__desc">The flagship. A 24×16 toroidal cellular automaton evolves on screen and emits CV. SPREAD biases the birth / survive rules, MUTATE injects per-cell noise, and FLOW clock-multiplies or -divides the simulation step. Paint cells with the mouse, sweep the scan position with SCAN_CV, freeze the simulation while keeping outputs live, and choose scan-and-tap, polyphonic-row / column, or quadrant-mix output modes.</p>
+      <p class="row__desc">A 24×16 toroidal cellular automaton runs on screen and emits CV. SPREAD biases the birth and survive rules, MUTATE injects per-cell noise, and FLOW multiplies or divides the simulation clock. Paint cells with the mouse and sweep the scan position with SCAN_CV. Freeze the simulation while the outputs stay live. Output modes are scan-and-tap, polyphonic row or column, and quadrant mix.</p>
     </div>
     <div class="spec">
       <span class="row__no">05</span>
       <span class="row__id"><span class="row__cat">Turing</span><h3 class="row__name">Probabilistic shift register</h3></span>
-      <p class="row__desc">A 16-bit looping shift register in the Music Thing Modular tradition. LOCK slides between full randomness and an exact repeating pattern; LENGTH sets the loop (2–16 bits). A built-in quantizer (10 scales × 12 roots) puts the output straight onto a melody. Outputs: quantized V/OCT, raw bipolar analog, a write-position gate, polyphonic per-bit gates, and a clock pulse. The display shows the live bits above a scrolling history, so the lock pattern becomes visible.</p>
+      <p class="row__desc">A 16-bit looping shift register in the Music Thing Modular tradition. LOCK moves between full randomness and an exact repeating pattern. LENGTH sets the loop from 2 to 16 bits. A built-in quantizer has 10 scales and 12 roots. Outputs: quantized V/OCT, raw bipolar analog, a write-position gate, polyphonic per-bit gates and a clock pulse. The display shows the live bits above a scrolling history.</p>
     </div>
   </section>
 
@@ -93,9 +93,9 @@
       <h2 class="mono">Get it</h2>
     </div>
     <div class="blk pad">
-      <p class="lead">Free, and built to be played. No account, no nag screen.</p>
-      <p class="body">You'll need <strong>VCV Rack 2</strong> — a free download for macOS, Windows and Linux from <a class="link" href="https://vcvrack.com/Rack" target="_blank" rel="noopener">vcvrack.com/Rack</a>. Colony and Turing ship together in the <strong>SHLabs-Colony</strong> plugin: download the <strong>.vcvplugin</strong> below and drop it into Rack's user plugin folder, then restart — the modules appear under the <strong>SHLabs</strong> brand.</p>
-      <p class="mono dim">macOS (Apple Silicon). Windows, Linux &amp; Intel builds coming via the VCV Library.</p>
+      <p class="lead">Free. No account, no nag screen.</p>
+      <p class="body">You need <strong>VCV Rack 2</strong>, a free download for macOS, Windows and Linux from <a class="link" href="https://vcvrack.com/Rack" target="_blank" rel="noopener">vcvrack.com/Rack</a>. Colony and Turing ship together in the <strong>SHLabs-Colony</strong> plugin. Download the <strong>.vcvplugin</strong> below, place it in Rack's user plugin folder and restart. The modules appear under the <strong>SHLabs</strong> brand.</p>
+      <p class="mono dim">macOS (Apple Silicon). Windows, Linux &amp; Intel builds are planned through the VCV Library.</p>
       <div class="acts">
         <a class="act act--fill" href="/downloads/SHLabs-Colony-2.0.0-mac-arm64.vcvplugin">Download the plugin &darr;</a>
         <a class="act" href="/#vcv">All VCV modules &rarr;</a>
@@ -138,6 +138,7 @@
         <a href="mailto:shlabs.contact@gmail.com">Contact</a>
         <a href="/donate/">Support the studio</a>
         <a href="https://github.com/shlabs-audio" rel="noopener">GitHub</a>
+        <a href="/gsw/">Schwiizerdütsch</a>
       </div>
     </div>
 
@@ -146,7 +147,7 @@
     </div>
 
     <div class="foot__bar pad mono">
-      <span>&copy; 2026 SHLabs &middot; Instruments for the modular world</span>
+      <span>&copy; 2026 SHLabs &middot; Software for music and visuals</span>
       <span class="swiss"><svg width="12" height="12" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect width="32" height="32" fill="#d52b1e"/><rect x="13" y="6" width="6" height="20" fill="#fff"/><rect x="6" y="13" width="20" height="6" fill="#fff"/></svg> Made in Switzerland</span>
       <span class="dim-2">Set in Helvetica</span>
     </div>
