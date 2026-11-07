@@ -1,3 +1,99 @@
+# Cadence 0.9.4 beta - release note
+
+Hot cues from the scan, a whole set on one deck, a card for your stream, a
+tracklist for every recording, sections on a controller and a cleaner
+mixer. **Mac only**, like 0.9.3.
+
+## Sections on a controller
+
+**Sections on a controller.** Map CH1 Section 3 and that control jumps to
+the third section along the track, the same chip a click on the deck jumps
+to. Its LED is lit while the track has a third section. CH1 Next Section
+and CH1 Previous Section work on any track: previous restarts the section
+you are in when you are more than a bar into it, and otherwise goes one
+back. Two quick presses step two sections, even while the first jump waits
+for its beat. In MAP mode each deck shows at least eight section chips, the
+missing ones by number, so you can bind one before a track has it.
+
+## A cleaner mixer
+
+**Rails on every channel.** The small EQ, FX and LVL drop-downs are gone.
+Each block of a mixer strip now sits under its own full-width line: STEMS,
+EQ, FX, LEVEL and PLUGINS. A filled square means open, a hollow square means
+closed, and FX has a square for each of its three rows, so you can see at a
+glance what every channel shows. Click a line to close its block, and it
+stays in place as a single line. Alt-click does the same on all four
+channels. The channel number is now the brightest thing at the top of each
+strip. VoiceOver and the Tab key reach all five lines.
+
+## Long sets on a deck
+
+**A deck holds a whole set.** A deck used to stop ten minutes into any
+file. Settings > INTERFACE > Decks hold now sets how much it takes: Auto
+(the default) gives the decks a share of this Mac's memory, so a 61-minute
+recording loads whole beside three ordinary tracks, or choose 10, 30, 60 or
+90 minutes. A file longer than its deck says how much the deck holds, and
+the Composer hatches the rest. A deck that holds more than ten minutes takes
+no stems and says so once. A stereo file also needs less memory while it
+decodes, because it no longer passes through a scratch copy.
+
+## Hot cues from the scan
+
+**Suggested hot cues.** A scan now fills a track's empty cue slots: Start on
+the first downbeat, Vocal where the singing starts (with stems), every Drop,
+the first Break and the Outro. The pads of a mapped controller have cues to
+jump to from the first scan. A suggested pad is dim until you keep it from
+its right-click menu, or rename, recolour or move it. A rescan replaces only
+the suggestions you have not kept and never touches a cue you set. For
+tracks you scanned before, right-click them in the Collection and choose
+Suggest hot cues. Settings > LIBRARY > Suggest hot cues turns it off.
+
+## For streams and recordings
+
+**A now-playing card for your stream.** Settings > REMOTE > Stream overlay
+serves a card for OBS, or any streaming app with a browser source: the
+track on air with its artist and cover, the tempo, the key and the section.
+It fades to the next track when the track changes and hides while nothing
+plays. Pick the corner, the size and what it shows, copy the link and paste
+it into a Browser source. The link is saved, so the scene still works after
+a restart, and it reaches the card and nothing else. The phone remote does
+not have to be on.
+
+**Every recording gets its tracklist.** When a master recording stops,
+Cadence writes its tracklist beside the WAV: a text file with one line per
+track and its time in the recording, ready for Mixcloud, SoundCloud or a
+video description, and a .cue sheet so a player or an editor can jump to
+each track. A set that runs past midnight keeps its whole list.
+
+## Cadence and Phosphor
+
+This part needs the next Phosphor beta, which is not on the beta page yet.
+Phosphor 0.6.1 does not do these things.
+
+**Phosphor knows what the song is doing.** Cadence now tells Phosphor four
+more things about the live deck. The drop lands as a drop: Phosphor's
+hyperspace jumps, flashes and glitches fire on the drop itself, not only
+when a track starts. The bars before a drop tighten every scene and land on
+its downbeat, even on a track with no Build section, because Cadence sends
+how far off the next section is. Phosphor's Type and Marquee scenes set the
+playing track's title. And Phosphor changes scene on Cadence's own handover
+to the next track, the moment it happens, instead of guessing from levels.
+
+**Phosphor from Cadence.** While Phosphor follows this mix, a PHOSPHOR label
+sits in the top strip with the scene on screen. Click it for Phosphor's
+scenes, one row per group, and the moves you reach for between tracks:
+back, forward, keep, random, the look memories A to D, Auto, hold, skip,
+strobe, freeze, blackout and the title card. The same moves are in the MIDI
+map as "Phosphor: ...", so a pad on your controller can fire them, and the
+lit ones follow what Phosphor is doing. Cadence also reads the live track's
+cover from the file and hands it to Phosphor, which colours by it and puts
+it on its title card.
+
+**Phosphor mirrors your effects.** Sweep a deck's filter and Phosphor's
+picture darkens and softens on a low-pass, thins to fine detail on a
+high-pass. Turn up the echo and its trails grow; turn up the reverb and it
+glows. Roll a loop and the picture repeats with it, one punch per repeat.
+
 # Cadence 0.9.3 beta - release note
 
 A small round: hot cues on a controller. **Mac only**, like 0.9.2.
