@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Akai Professional APC mini mk2: a Cadence profile from the online library (A208).
+
+  SOURCE, and only this: the manufacturer's own MIDI documentation.
+    APC mini mk2 Communications Protocol (v1.0) (Akai Professional (inMusic Brands), 2023-01-23 (PDF date)), pages 2 (Pad/Button Values, pad matrix figure), 15 (Control Mapping: buttons), 16 (Channel Faders / Master Fader)
+    https://cdn.inmusicbrands.com/akai/attachments/APC%20mini%20mk2%20-%20Communication%20Protocol%20-%20v1.0.pdf
+  No mapping file from any other application was read or used.
+
+  status="manual": the message is the manufacturer's. Nobody has tried this map on the hardware
+  yet. If a control does nothing, use Learn on that row and tell us at shlabs.contact@gmail.com.
+
+  BEFORE YOU START: None needed for these binds: faders and Track buttons send on USB Port 0, MIDI channel 1, in every mode.
+
+  LEFT OUT (no Cadence target): 8x8 clip-launch pad grid (notes 0x00-0x3F): not bound, see doubts. The note layout is clear (bottom row 0x00-0x07 left to right, up to top row 0x38-0x3F), but the inbound MIDI channel in Session View is not stated.; Scene Launch 1-8 (notes 0x70-0x77, channel 1): left free.; Shift (note 0x7A, channel 1): left free.
+
+  A jog wheel that moves too fast or too slow: set its row to Fine, or invert it, in the dialog.
+-->
+<CadenceMidiMap name="Akai Professional APC mini mk2" maker="Akai Professional" model="APC mini mk2" match="apcminimk2" version="1">
+  <bind target="ch1.gain" kind="0" ch="1" num="48" status="manual"/>  <!-- Channel Fader 1, p.16 -->
+  <bind target="ch2.gain" kind="0" ch="1" num="49" status="manual"/>  <!-- Channel Fader 2, p.16 -->
+  <bind target="ch3.gain" kind="0" ch="1" num="50" status="manual"/>  <!-- Channel Fader 3, p.16 -->
+  <bind target="ch4.gain" kind="0" ch="1" num="51" status="manual"/>  <!-- Channel Fader 4, p.16 -->
+  <bind target="ch1.filter" kind="0" ch="1" num="52" status="manual"/>  <!-- Channel Fader 5, p.16 -->
+  <bind target="ch2.filter" kind="0" ch="1" num="53" status="manual"/>  <!-- Channel Fader 6, p.16 -->
+  <bind target="ch3.filter" kind="0" ch="1" num="54" status="manual"/>  <!-- Channel Fader 7, p.16 -->
+  <bind target="ch4.filter" kind="0" ch="1" num="55" status="manual"/>  <!-- Channel Fader 8, p.16 -->
+  <bind target="master.gain" kind="0" ch="1" num="56" status="manual"/>  <!-- Master Fader (fader 9), p.16 -->
+  <bind target="ch1.cue" kind="1" ch="1" num="100" status="manual"/>  <!-- Track Button 1, p.15 -->
+  <bind target="ch2.cue" kind="1" ch="1" num="101" status="manual"/>  <!-- Track Button 2, p.15 -->
+  <bind target="ch3.cue" kind="1" ch="1" num="102" status="manual"/>  <!-- Track Button 3, p.15 -->
+  <bind target="ch4.cue" kind="1" ch="1" num="103" status="manual"/>  <!-- Track Button 4, p.15 -->
+  <bind target="ch1.sync" kind="1" ch="1" num="104" status="manual"/>  <!-- Track Button 5, p.15 -->
+  <bind target="ch2.sync" kind="1" ch="1" num="105" status="manual"/>  <!-- Track Button 6, p.15 -->
+  <bind target="ch3.sync" kind="1" ch="1" num="106" status="manual"/>  <!-- Track Button 7, p.15 -->
+  <bind target="ch4.sync" kind="1" ch="1" num="107" status="manual"/>  <!-- Track Button 8, p.15 -->
+</CadenceMidiMap>

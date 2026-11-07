@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  M-Audio Xsession Pro: a Cadence factory profile.
+
+  SOURCES, and only these two:
+    verified  Kevin's own map, saved in June 2026 and checked on his controller.
+    manual    The manufacturer's user guide: M-Audio X-Session Pro User Guide, document
+              061005_XSssnPro_UG_EN01 (2006), Appendix A "X-Session Pro MIDI CC defaults" and the
+              top-panel drawing on page 5. The message is M-Audio's. What it does in Cadence has not
+              been tried on the hardware yet.
+  No mapping file from any other application was read or used.
+
+  THE HARDWARE, from the guide: 12 knobs, 4 vertical faders, 1 crossfader and 10 buttons, all on
+  MIDI channel 1 in the factory state. It has no jog wheels, no browse encoder and no load buttons,
+  so this profile binds none of those targets. Every control on the panel is listed below. The
+  crossfader also sends an inverted copy on CC 20, which is left unbound.
+
+  Left to right, the four faders are PITCH A, VOLUME A, VOLUME B and PITCH B. Kevin uses them as the
+  volumes of decks 1 to 4 in that order. The knobs and buttons on the left (A) side drive deck 1,
+  those on the right (B) side deck 2.
+
+  The eight transport buttons were bound to the auto-ramp buttons, which left the channel strips on
+  2026-06-21. Each now does what its printed label says. Cue jumps to the deck's first cue pad,
+  which is the track's earliest hot cue.
+
+  The status attribute is for people. The loader ignores it, and a map saved after loading drops it.
+-->
+<CadenceMidiMap name="M-Audio Xsession Pro" maker="M-Audio" model="Xsession Pro" match="xsession"
+                version="1" factory="1">
+  <!-- The four faders, left to right -->
+  <bind target="ch1.gain" kind="0" ch="1" num="12" status="verified"/>  <!-- PITCH A fader -->
+  <bind target="ch2.gain" kind="0" ch="1" num="11" status="verified"/>  <!-- VOLUME A fader -->
+  <bind target="ch3.gain" kind="0" ch="1" num="14" status="verified"/>  <!-- VOLUME B fader -->
+  <bind target="ch4.gain" kind="0" ch="1" num="15" status="verified"/>  <!-- PITCH B fader -->
+
+  <!-- Side A knobs: 1, 2, 3 on the left of the block, HIGH, MID, LOW on the right -->
+  <bind target="ch1.filter" kind="0" ch="1" num="24" status="verified"/>  <!-- Knob 1 A -->
+  <bind target="ch1.delay" kind="0" ch="1" num="25" status="verified"/>   <!-- Knob 2 A -->
+  <bind target="ch1.reverb" kind="0" ch="1" num="26" status="verified"/>  <!-- Knob 3 A -->
+  <bind target="ch1.high" kind="0" ch="1" num="27" status="verified"/>    <!-- HIGH A -->
+  <bind target="ch1.mid" kind="0" ch="1" num="28" status="verified"/>     <!-- MID A -->
+  <bind target="ch1.low" kind="0" ch="1" num="29" status="verified"/>     <!-- LOW A -->
+
+  <!-- Side B knobs: HIGH, MID, LOW on the left of the block, 1, 2, 3 on the right -->
+  <bind target="ch2.filter" kind="0" ch="1" num="31" status="verified"/>  <!-- Knob 1 B -->
+  <bind target="ch2.delay" kind="0" ch="1" num="32" status="verified"/>   <!-- Knob 2 B -->
+  <bind target="ch2.reverb" kind="0" ch="1" num="33" status="verified"/>  <!-- Knob 3 B -->
+  <bind target="ch2.high" kind="0" ch="1" num="34" status="verified"/>    <!-- HIGH B -->
+  <bind target="ch2.mid" kind="0" ch="1" num="35" status="verified"/>     <!-- MID B -->
+  <bind target="ch2.low" kind="0" ch="1" num="36" status="verified"/>     <!-- LOW B -->
+
+  <!-- The headphone cue buttons under each knob block -->
+  <bind target="ch1.cue" kind="1" ch="1" num="44" status="verified"/>  <!-- Headphone A -->
+  <bind target="ch2.cue" kind="1" ch="1" num="45" status="verified"/>  <!-- Headphone B -->
+
+  <!-- Side A transport: rewind and fast forward on top, play/pause and cue below -->
+  <bind target="ch1.jumpback" kind="1" ch="1" num="46" status="manual"/>  <!-- << A, was CH1 auto FX out -->
+  <bind target="ch1.jumpfwd" kind="1" ch="1" num="43" status="manual"/>   <!-- >> A, was CH1 auto FX in -->
+  <bind target="ch1.clip" kind="1" ch="1" num="70" status="manual"/>      <!-- Play/pause A, was CH1 auto volume in -->
+  <bind target="ch1.cuepad1" kind="1" ch="1" num="58" status="manual"/>   <!-- Cue A, was CH1 auto volume out -->
+
+  <!-- Side B transport -->
+  <bind target="ch2.jumpback" kind="1" ch="1" num="56" status="manual"/>  <!-- << B, was CH2 auto FX out -->
+  <bind target="ch2.jumpfwd" kind="1" ch="1" num="57" status="manual"/>   <!-- >> B, was CH2 auto FX in -->
+  <bind target="ch2.clip" kind="1" ch="1" num="69" status="manual"/>      <!-- Play/pause B, was CH2 auto volume in -->
+  <bind target="ch2.cuepad1" kind="1" ch="1" num="59" status="manual"/>   <!-- Cue B, was CH2 auto volume out -->
+
+  <!-- The crossfader (CC 17, left to right). Kevin uses it as the headphone level. -->
+  <bind target="master.phones" kind="0" ch="1" num="17" status="verified"/>
+</CadenceMidiMap>

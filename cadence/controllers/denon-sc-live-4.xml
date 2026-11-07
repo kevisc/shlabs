@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Denon DJ SC LIVE 4: a Cadence factory profile (A208).
+
+  SOURCE, and only this: the messages Kevin's own unit sent in Computer mode on 2026-11-04, captured
+  with a read-only CoreMIDI monitor. Denon publishes no MIDI chart for this unit. No mapping file from
+  any other application was read or used.
+
+  status="verified"  the control was moved and this message was seen.
+  status="pattern"   the same control on the other channel or deck was seen, and this one follows it.
+  status="probable"  the message was seen, but which of two knobs sent it is not settled.
+  Kevin used this map in Cadence on the unit on 2026-11-04 ("it worked"). The status attribute is for
+  people; a factory profile carries only verified and pattern rows.
+
+  THE PANEL. The mixer reads 3 1 2 4 from left to right, and each channel sends on the MIDI channel
+  printed on it, so Cadence CH1 is the SECOND fader from the left.
+
+  CH4 VOLUME (CC 14, MIDI channel 4) is bound by pattern: the captured unit's rightmost fader was
+  faulty (about 200 messages a second at rest, reaching only 118 of 127), so it was left out of the
+  user map. Channels 1 to 3 all send CC 14 on their own MIDI channel, and a sound unit's fader 4 does
+  the same. If yours chatters too, clear its row in the mapping dialog.
+
+  LEFT OUT ON PURPOSE:
+    PHONES MIX or BOOTH (CC 15, channel 16): one of the two sends it, the capture did not settle which.
+      Bind master.cue to it with Learn if your PHONES MIX turns it.
+    LEVEL (CC 3), CROSSFADER (CC 14, channel 16): Cadence has no trim or crossfader target.
+    MASTER LEVEL (CC 20), PHONES LEVEL (CC 19), channel 16: left to the unit's own output stage. Bind
+      them to master.gain and master.phones if turning them does not change the sound.
+    PITCH (CC 31 with its fine half on CC 75), per-deck tempo: decks follow the master through SYNC.
+    LOOP AUTO turn (CC 32, 1 and 127): Cadence has no step target for loop size.
+    SHIFT (28), DECK SELECT (31), VINYL (35): notes on the deck's channel, with no target here.
+    Pads and the FX section were not captured. Decks 3 and 4 have no deck controls here: what DECK
+    SELECT does to the MIDI channel was not captured either.
+
+  THE JOG sends CC 54 as a relative tick (1 and 127), and a position on CC 17 and CC 49. It is a fine
+  wheel, up to 800 ticks a second in a gentle turn, so it is bound Fine. Touch is note 33. If the wheel
+  runs backwards, add inv="1" to its bind.
+-->
+<CadenceMidiMap name="Denon DJ SC LIVE 4" maker="Denon DJ" model="SC LIVE 4" match="sclive4" version="1" factory="1">
+  <!-- Mixer channel 1: MIDI channel 1 -->
+  <bind target="ch1.gain" kind="0" ch="1" num="14" status="verified"/>  <!-- VOLUME fader -->
+  <bind target="ch1.high" kind="0" ch="1" num="4" status="verified"/>  <!-- HIGH -->
+  <bind target="ch1.mid" kind="0" ch="1" num="6" status="verified"/>  <!-- MID -->
+  <bind target="ch1.low" kind="0" ch="1" num="8" status="verified"/>  <!-- LOW -->
+  <bind target="ch1.filter" kind="0" ch="1" num="11" status="verified"/>  <!-- SWEEP FX knob -->
+  <bind target="ch1.cue" kind="1" ch="1" num="13" status="verified"/>  <!-- CUE -->
+
+  <!-- Mixer channel 2: MIDI channel 2 -->
+  <bind target="ch2.gain" kind="0" ch="2" num="14" status="verified"/>  <!-- VOLUME fader -->
+  <bind target="ch2.high" kind="0" ch="2" num="4" status="verified"/>  <!-- HIGH -->
+  <bind target="ch2.mid" kind="0" ch="2" num="6" status="verified"/>  <!-- MID -->
+  <bind target="ch2.low" kind="0" ch="2" num="8" status="verified"/>  <!-- LOW -->
+  <bind target="ch2.filter" kind="0" ch="2" num="11" status="verified"/>  <!-- SWEEP FX knob -->
+  <bind target="ch2.cue" kind="1" ch="2" num="13" status="verified"/>  <!-- CUE -->
+
+  <!-- Mixer channel 3: MIDI channel 3 -->
+  <bind target="ch3.gain" kind="0" ch="3" num="14" status="verified"/>  <!-- VOLUME fader -->
+  <bind target="ch3.high" kind="0" ch="3" num="4" status="pattern"/>  <!-- HIGH -->
+  <bind target="ch3.mid" kind="0" ch="3" num="6" status="pattern"/>  <!-- MID -->
+  <bind target="ch3.low" kind="0" ch="3" num="8" status="pattern"/>  <!-- LOW -->
+  <bind target="ch3.filter" kind="0" ch="3" num="11" status="pattern"/>  <!-- SWEEP FX knob -->
+  <bind target="ch3.cue" kind="1" ch="3" num="13" status="verified"/>  <!-- CUE -->
+
+  <!-- Mixer channel 4: MIDI channel 4 -->
+  <bind target="ch4.gain" kind="0" ch="4" num="14" status="pattern"/>  <!-- VOLUME fader -->
+  <bind target="ch4.high" kind="0" ch="4" num="4" status="pattern"/>  <!-- HIGH -->
+  <bind target="ch4.mid" kind="0" ch="4" num="6" status="pattern"/>  <!-- MID -->
+  <bind target="ch4.low" kind="0" ch="4" num="8" status="pattern"/>  <!-- LOW -->
+  <bind target="ch4.filter" kind="0" ch="4" num="11" status="pattern"/>  <!-- SWEEP FX knob -->
+  <bind target="ch4.cue" kind="1" ch="4" num="13" status="verified"/>  <!-- CUE -->
+
+  <!-- Left deck: MIDI channel 5, Cadence CH1 -->
+  <bind target="ch1.clip" kind="1" ch="5" num="10" status="verified"/>  <!-- PLAY -->
+  <bind target="ch1.cuepad1" kind="1" ch="5" num="9" status="verified"/>  <!-- CUE: hot cue 1 -->
+  <bind target="ch1.sync" kind="1" ch="5" num="8" status="verified"/>  <!-- SYNC -->
+  <bind target="ch1.key" kind="1" ch="5" num="34" status="verified"/>  <!-- KEYLOCK -->
+  <bind target="ch1.slip" kind="1" ch="5" num="36" status="verified"/>  <!-- SLIP -->
+  <bind target="ch1.jumpback" kind="1" ch="5" num="6" status="verified"/>  <!-- BEAT JUMP left -->
+  <bind target="ch1.jumpfwd" kind="1" ch="5" num="7" status="verified"/>  <!-- BEAT JUMP right -->
+  <bind target="ch1.loophalf" kind="1" ch="5" num="37" status="verified"/>  <!-- LOOP IN: loop /2 -->
+  <bind target="ch1.loopdbl" kind="1" ch="5" num="38" status="verified"/>  <!-- LOOP OUT: loop x2 -->
+  <bind target="ch1.loop" kind="1" ch="5" num="39" status="verified"/>  <!-- LOOP AUTO press: loop on/off -->
+  <bind target="ch1.jog" kind="0" ch="5" num="54" mode="rel" rel="2c" scale="fine" status="verified"/>  <!-- JOG: top plate and rim -->
+
+  <!-- Right deck: MIDI channel 6, Cadence CH2 -->
+  <bind target="ch2.clip" kind="1" ch="6" num="10" status="verified"/>  <!-- PLAY -->
+  <bind target="ch2.cuepad1" kind="1" ch="6" num="9" status="verified"/>  <!-- CUE: hot cue 1 -->
+  <bind target="ch2.sync" kind="1" ch="6" num="8" status="verified"/>  <!-- SYNC -->
+  <bind target="ch2.key" kind="1" ch="6" num="34" status="pattern"/>  <!-- KEYLOCK -->
+  <bind target="ch2.slip" kind="1" ch="6" num="36" status="pattern"/>  <!-- SLIP -->
+  <bind target="ch2.jumpback" kind="1" ch="6" num="6" status="pattern"/>  <!-- BEAT JUMP left -->
+  <bind target="ch2.jumpfwd" kind="1" ch="6" num="7" status="pattern"/>  <!-- BEAT JUMP right -->
+  <bind target="ch2.loophalf" kind="1" ch="6" num="37" status="pattern"/>  <!-- LOOP IN: loop /2 -->
+  <bind target="ch2.loopdbl" kind="1" ch="6" num="38" status="pattern"/>  <!-- LOOP OUT: loop x2 -->
+  <bind target="ch2.loop" kind="1" ch="6" num="39" status="pattern"/>  <!-- LOOP AUTO press: loop on/off -->
+  <bind target="ch2.jog" kind="0" ch="6" num="54" mode="rel" rel="2c" scale="fine" status="pattern"/>  <!-- JOG: top plate and rim -->
+
+  <!-- Browser and master section: MIDI channel 16 -->
+  <bind target="browse.scroll" kind="0" ch="16" num="5" mode="rel" rel="2c" status="verified"/>  <!-- BROWSE turn -->
+  <bind target="browse.toggle" kind="1" ch="16" num="6" status="verified"/>  <!-- BROWSE press: show the Collection -->
+  <bind target="ch1.load" kind="1" ch="16" num="1" status="verified"/>  <!-- LOAD left -->
+  <bind target="ch2.load" kind="1" ch="16" num="2" status="verified"/>  <!-- LOAD right -->
+</CadenceMidiMap>

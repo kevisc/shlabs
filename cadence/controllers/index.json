@@ -1,0 +1,135 @@
+{
+ "schema": 1,
+ "profiles": [
+  {
+   "file": "akai-apc-mini-mk2.xml",
+   "name": "Akai Professional APC mini mk2",
+   "maker": "Akai Professional",
+   "model": "APC mini mk2",
+   "match": "apcminimk2",
+   "version": 1,
+   "source": "manual",
+   "notes": "From Akai Professional's MIDI documentation. Not yet tried on the hardware."
+  },
+  {
+   "file": "allen-heath-xone-k2.xml",
+   "name": "Allen & Heath Xone:K2",
+   "maker": "Allen & Heath",
+   "model": "Xone:K2",
+   "match": "xonek2",
+   "version": 1,
+   "source": "manual",
+   "notes": "From Allen & Heath's MIDI documentation. Not yet tried on the hardware."
+  },
+  {
+   "file": "allen-heath-xone-k3.xml",
+   "name": "Allen & Heath Xone:K3",
+   "maker": "Allen & Heath",
+   "model": "Xone:K3",
+   "match": "xonek3",
+   "version": 1,
+   "source": "manual",
+   "notes": "From Allen & Heath's MIDI documentation. Not yet tried on the hardware."
+  },
+  {
+   "file": "djtt-midi-fighter-twister.xml",
+   "name": "DJ TechTools Midi Fighter Twister",
+   "maker": "DJ TechTools",
+   "model": "Midi Fighter Twister",
+   "match": "midifightertwister",
+   "version": 1,
+   "source": "manual",
+   "notes": "From DJ TechTools's MIDI documentation. Not yet tried on the hardware."
+  },
+  {
+   "file": "hercules-djcontrol-inpulse-200.xml",
+   "name": "Hercules DJControl Inpulse 200 (2019, not MK2)",
+   "maker": "Hercules",
+   "model": "DJControl Inpulse 200",
+   "match": "inpulse200",
+   "version": 1,
+   "source": "manual",
+   "notes": "From Hercules's MIDI documentation. Not yet tried on the hardware."
+  },
+  {
+   "file": "hercules-djcontrol-inpulse-300.xml",
+   "name": "Hercules DJControl Inpulse 300 (2019, not MK2)",
+   "maker": "Hercules",
+   "model": "DJControl Inpulse 300",
+   "match": "inpulse300",
+   "version": 1,
+   "source": "manual",
+   "notes": "From Hercules's MIDI documentation. Not yet tried on the hardware."
+  },
+  {
+   "file": "hercules-djcontrol-inpulse-500.xml",
+   "name": "Hercules DJControl Inpulse 500",
+   "maker": "Hercules",
+   "model": "DJControl Inpulse 500",
+   "match": "inpulse500",
+   "version": 1,
+   "source": "manual",
+   "notes": "From Hercules's MIDI documentation. Not yet tried on the hardware."
+  },
+  {
+   "file": "novation-launch-control-xl-3.xml",
+   "name": "Novation Launch Control XL 3",
+   "maker": "Novation",
+   "model": "Launch Control XL 3",
+   "match": "launchcontrolxl3",
+   "version": 1,
+   "source": "manual",
+   "notes": "From Novation's MIDI documentation. Not yet tried on the hardware."
+  },
+  {
+   "file": "pioneer-ddj-400.xml",
+   "name": "Pioneer DJ DDJ-400",
+   "maker": "Pioneer DJ",
+   "model": "DDJ-400",
+   "match": "ddj400",
+   "version": 1,
+   "source": "manual",
+   "notes": "From Pioneer DJ's MIDI documentation. Not yet tried on the hardware."
+  },
+  {
+   "file": "pioneer-ddj-flx4.xml",
+   "name": "Pioneer DJ DDJ-FLX4",
+   "maker": "Pioneer DJ",
+   "model": "DDJ-FLX4",
+   "match": "ddjflx4",
+   "version": 1,
+   "source": "manual",
+   "notes": "From Pioneer DJ's MIDI documentation. Not yet tried on the hardware."
+  },
+  {
+   "file": "pioneer-ddj-flx6.xml",
+   "name": "Pioneer DJ DDJ-FLX6 / DDJ-FLX6-GT",
+   "maker": "Pioneer DJ",
+   "model": "DDJ-FLX6",
+   "match": "ddjflx6",
+   "version": 1,
+   "source": "manual",
+   "notes": "From Pioneer DJ's MIDI documentation. Not yet tried on the hardware."
+  },
+  {
+   "file": "pioneer-ddj-rev1.xml",
+   "name": "Pioneer DJ DDJ-REV1",
+   "maker": "Pioneer DJ",
+   "model": "DDJ-REV1",
+   "match": "ddjrev1",
+   "version": 1,
+   "source": "manual",
+   "notes": "From Pioneer DJ's MIDI documentation. Not yet tried on the hardware."
+  },
+  {
+   "file": "reloop-mixon-4.xml",
+   "name": "Reloop Mixon 4",
+   "maker": "Reloop",
+   "model": "Mixon 4",
+   "match": "mixon4",
+   "version": 1,
+   "source": "manual",
+   "notes": "From Reloop's MIDI documentation. Not yet tried on the hardware."
+  }
+ ]
+}

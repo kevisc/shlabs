@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Novation Launch Control XL 3: a Cadence profile from the online library (A208).
+
+  SOURCE, and only this: the manufacturer's own MIDI documentation.
+    Launch Control XL 3 User Guide, Version 2.0 (Focusrite Audio Engineering Ltd (Novation), 2026 (PDF created 2026-01-09)), pages 22 (Using Custom Modes: mode 16 is a fixed default), 23 (Custom Mode settings: Output Port default All), 84 (Settings: Global MIDI Channel default 1), 88 (Appendix: Default Mode (16) parameters)
+    https://fael-downloads-prod.focusrite.com/customer/prod/downloads/launch_control_xl_3-pdf-en.pdf
+    Launch Control XL 3 programmer's reference guide, Version 1.0 (Focusrite Audio Engineering Ltd (Novation), 2026 (PDF created 2026-04-17)), pages 4 (device ID appended to device name), 5 (MIDI interfaces), 7 (standalone mode), 8-10 (DAW mode, not used here)
+    https://fael-downloads-prod.focusrite.com/customer/prod/downloads/launch_control_xl_3_programmer_s_reference_guide-pdf_en.pdf
+  No mapping file from any other application was read or used.
+
+  status="manual": the message is the manufacturer's. Nobody has tried this map on the hardware
+  yet. If a control does nothing, use Learn on that row and tell us at shlabs.contact@gmail.com.
+
+  BEFORE YOU START: Standalone (MIDI) mode, Custom Mode 16 (the fixed default mode: press Mode, press the 16th mode button, press Mode again). Read from the MIDI In/Out interface (first interface on Windows), not the DAW interface.
+
+  LEFT OUT (no Cadence target): Faders 9-12 (CC9-12): left free.; Button row 2, columns 5-8 (CC49-52): left free.; Page, Track, Record, Play, Shift and Mode buttons: the programmer's reference says "The Page, Track, Record, Play, Solo/Arm and Mute/Select buttons are unused in this mode" (standalone), and Shift/Mode open menus.; DAW mode (enabled by the host with a 9Fh 0Ch 7Fh message): not used, because a profile cannot send that message. In DAW mode the buttons move to channel 1.
+
+  A jog wheel that moves too fast or too slow: set its row to Fine, or invert it, in the dialog.
+-->
+<CadenceMidiMap name="Novation Launch Control XL 3" maker="Novation" model="Launch Control XL 3" match="launchcontrolxl3" version="1">
+  <bind target="ch1.high" kind="0" ch="16" num="13" status="manual"/>  <!-- Encoder row 1, column 1, User Guide p.88 -->
+  <bind target="ch1.mid" kind="0" ch="16" num="21" status="manual"/>  <!-- Encoder row 2, column 1, User Guide p.88 -->
+  <bind target="ch1.low" kind="0" ch="16" num="29" status="manual"/>  <!-- Encoder row 3, column 1, User Guide p.88 -->
+  <bind target="ch1.gain" kind="0" ch="16" num="5" status="manual"/>  <!-- Fader 1, User Guide p.88 -->
+  <bind target="ch2.high" kind="0" ch="16" num="14" status="manual"/>  <!-- Encoder row 1, column 2, User Guide p.88 -->
+  <bind target="ch2.mid" kind="0" ch="16" num="22" status="manual"/>  <!-- Encoder row 2, column 2, User Guide p.88 -->
+  <bind target="ch2.low" kind="0" ch="16" num="30" status="manual"/>  <!-- Encoder row 3, column 2, User Guide p.88 -->
+  <bind target="ch2.gain" kind="0" ch="16" num="6" status="manual"/>  <!-- Fader 2, User Guide p.88 -->
+  <bind target="ch3.high" kind="0" ch="16" num="15" status="manual"/>  <!-- Encoder row 1, column 3, User Guide p.88 -->
+  <bind target="ch3.mid" kind="0" ch="16" num="23" status="manual"/>  <!-- Encoder row 2, column 3, User Guide p.88 -->
+  <bind target="ch3.low" kind="0" ch="16" num="31" status="manual"/>  <!-- Encoder row 3, column 3, User Guide p.88 -->
+  <bind target="ch3.gain" kind="0" ch="16" num="7" status="manual"/>  <!-- Fader 3, User Guide p.88 -->
+  <bind target="ch4.high" kind="0" ch="16" num="16" status="manual"/>  <!-- Encoder row 1, column 4, User Guide p.88 -->
+  <bind target="ch4.mid" kind="0" ch="16" num="24" status="manual"/>  <!-- Encoder row 2, column 4, User Guide p.88 -->
+  <bind target="ch4.low" kind="0" ch="16" num="32" status="manual"/>  <!-- Encoder row 3, column 4, User Guide p.88 -->
+  <bind target="ch4.gain" kind="0" ch="16" num="8" status="manual"/>  <!-- Fader 4, User Guide p.88 -->
+  <bind target="ch1.filter" kind="0" ch="16" num="17" status="manual"/>  <!-- Encoder row 1, column 5, User Guide p.88 -->
+  <bind target="ch1.delay" kind="0" ch="16" num="25" status="manual"/>  <!-- Encoder row 2, column 5, User Guide p.88 -->
+  <bind target="ch1.reverb" kind="0" ch="16" num="33" status="manual"/>  <!-- Encoder row 3, column 5, User Guide p.88 -->
+  <bind target="ch2.filter" kind="0" ch="16" num="18" status="manual"/>  <!-- Encoder row 1, column 6, User Guide p.88 -->
+  <bind target="ch2.delay" kind="0" ch="16" num="26" status="manual"/>  <!-- Encoder row 2, column 6, User Guide p.88 -->
+  <bind target="ch2.reverb" kind="0" ch="16" num="34" status="manual"/>  <!-- Encoder row 3, column 6, User Guide p.88 -->
+  <bind target="ch3.filter" kind="0" ch="16" num="19" status="manual"/>  <!-- Encoder row 1, column 7, User Guide p.88 -->
+  <bind target="ch3.delay" kind="0" ch="16" num="27" status="manual"/>  <!-- Encoder row 2, column 7, User Guide p.88 -->
+  <bind target="ch3.reverb" kind="0" ch="16" num="35" status="manual"/>  <!-- Encoder row 3, column 7, User Guide p.88 -->
+  <bind target="ch4.filter" kind="0" ch="16" num="20" status="manual"/>  <!-- Encoder row 1, column 8, User Guide p.88 -->
+  <bind target="ch4.delay" kind="0" ch="16" num="28" status="manual"/>  <!-- Encoder row 2, column 8, User Guide p.88 -->
+  <bind target="ch4.reverb" kind="0" ch="16" num="36" status="manual"/>  <!-- Encoder row 3, column 8, User Guide p.88 -->
+  <bind target="ch1.cue" kind="0" ch="16" num="37" status="manual"/>  <!-- Button row 1 (upper), column 1, User Guide p.88 -->
+  <bind target="ch1.sync" kind="0" ch="16" num="45" status="manual"/>  <!-- Button row 2 (lower), column 1, User Guide p.88 -->
+  <bind target="ch1.loop" kind="0" ch="16" num="41" status="manual"/>  <!-- Button row 1 (upper), column 5, User Guide p.88 -->
+  <bind target="ch2.cue" kind="0" ch="16" num="38" status="manual"/>  <!-- Button row 1 (upper), column 2, User Guide p.88 -->
+  <bind target="ch2.sync" kind="0" ch="16" num="46" status="manual"/>  <!-- Button row 2 (lower), column 2, User Guide p.88 -->
+  <bind target="ch2.loop" kind="0" ch="16" num="42" status="manual"/>  <!-- Button row 1 (upper), column 6, User Guide p.88 -->
+  <bind target="ch3.cue" kind="0" ch="16" num="39" status="manual"/>  <!-- Button row 1 (upper), column 3, User Guide p.88 -->
+  <bind target="ch3.sync" kind="0" ch="16" num="47" status="manual"/>  <!-- Button row 2 (lower), column 3, User Guide p.88 -->
+  <bind target="ch3.loop" kind="0" ch="16" num="43" status="manual"/>  <!-- Button row 1 (upper), column 7, User Guide p.88 -->
+  <bind target="ch4.cue" kind="0" ch="16" num="40" status="manual"/>  <!-- Button row 1 (upper), column 4, User Guide p.88 -->
+  <bind target="ch4.sync" kind="0" ch="16" num="48" status="manual"/>  <!-- Button row 2 (lower), column 4, User Guide p.88 -->
+  <bind target="ch4.loop" kind="0" ch="16" num="44" status="manual"/>  <!-- Button row 1 (upper), column 8, User Guide p.88 -->
+</CadenceMidiMap>

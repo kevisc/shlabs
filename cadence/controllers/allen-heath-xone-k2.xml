@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Allen & Heath Xone:K2: a Cadence profile from the online library (A208).
+
+  SOURCE, and only this: the manufacturer's own MIDI documentation.
+    XONE:K2 User Guide, Publication AP8509 Issue 3 (Allen & Heath Limited, 2018 (PDF created 2018-10-03)), pages 9 (MIDI Controls), 11 (MIDI Channel Number), 12-13 (Latching Layers), 14-16 (MIDI Implementation Send), 19-20 (MIDI Note Implementation Table)
+    https://acueexpress.com/wp-content/uploads/2022/11/XoneK2_UG_AP8509_3.pdf
+    XONE:K2 User Guide, Publication AP8509 Issue 2 (cross-check only; send chart identical to Issue 3) (Allen & Heath Limited, 2012 (PDF created 2012-08-01)), pages MIDI Implementation Send pages
+    https://r2.gear4music.com/media/29/292118/download_292118.pdf
+  No mapping file from any other application was read or used.
+
+  status="manual": the message is the manufacturer's. Nobody has tried this map on the hardware
+  yet. If a control does nothing, use Learn on that row and tell us at shlabs.contact@gmail.com.
+
+  BEFORE YOU START: Factory settings: global MIDI channel 15, Latching Layers OFF (setup mode option 1).
+
+  CADENCE'S CHOICES:
+    Allen & Heath's guide was read from a retailer's unmodified copy of the PDF: allen-heath.com refused automated downloads. The unit's factory MIDI channel is 15, with Latching Layers off.
+
+  LEFT OUT (no Cadence target): Top-row encoder push switches (notes E3 F3 F#3 G3 = 52-55): no Cadence target that fits a push on the filter encoder.; Bottom-row left encoder (CC20, push C#0 = 13): left free.; LAYER button (C0 = 12) and EXIT SETUP button (D#0 = 15): left free.; All amber and green layer messages (CC22-CC69, notes in octaves 4-9): they are sent only when Latching Layers are on.
+
+  A jog wheel that moves too fast or too slow: set its row to Fine, or invert it, in the dialog.
+-->
+<CadenceMidiMap name="Allen &amp; Heath Xone:K2" maker="Allen &amp; Heath" model="Xone:K2" match="xonek2" version="1">
+  <bind target="ch1.filter" kind="0" ch="15" num="0" mode="rel" rel="2c" status="manual"/>  <!-- Top-row encoder 1 (turn), p.14 -->
+  <bind target="ch2.filter" kind="0" ch="15" num="1" mode="rel" rel="2c" status="manual"/>  <!-- Top-row encoder 2 (turn), p.14 -->
+  <bind target="ch3.filter" kind="0" ch="15" num="2" mode="rel" rel="2c" status="manual"/>  <!-- Top-row encoder 3 (turn), p.14 -->
+  <bind target="ch4.filter" kind="0" ch="15" num="3" mode="rel" rel="2c" status="manual"/>  <!-- Top-row encoder 4 (turn), p.14 -->
+  <bind target="ch1.high" kind="0" ch="15" num="4" status="manual"/>  <!-- Pot row 1, pot 1, p.14 -->
+  <bind target="ch1.mid" kind="0" ch="15" num="8" status="manual"/>  <!-- Pot row 2, pot 1, p.14 -->
+  <bind target="ch1.low" kind="0" ch="15" num="12" status="manual"/>  <!-- Pot row 3, pot 1, p.15 -->
+  <bind target="ch1.gain" kind="0" ch="15" num="16" status="manual"/>  <!-- Linear fader 1, p.15 -->
+  <bind target="ch2.high" kind="0" ch="15" num="5" status="manual"/>  <!-- Pot row 1, pot 2, p.14 -->
+  <bind target="ch2.mid" kind="0" ch="15" num="9" status="manual"/>  <!-- Pot row 2, pot 2, p.14 -->
+  <bind target="ch2.low" kind="0" ch="15" num="13" status="manual"/>  <!-- Pot row 3, pot 2, p.15 -->
+  <bind target="ch2.gain" kind="0" ch="15" num="17" status="manual"/>  <!-- Linear fader 2, p.15 -->
+  <bind target="ch3.high" kind="0" ch="15" num="6" status="manual"/>  <!-- Pot row 1, pot 3, p.14 -->
+  <bind target="ch3.mid" kind="0" ch="15" num="10" status="manual"/>  <!-- Pot row 2, pot 3, p.14 -->
+  <bind target="ch3.low" kind="0" ch="15" num="14" status="manual"/>  <!-- Pot row 3, pot 3, p.15 -->
+  <bind target="ch3.gain" kind="0" ch="15" num="18" status="manual"/>  <!-- Linear fader 3, p.15 -->
+  <bind target="ch4.high" kind="0" ch="15" num="7" status="manual"/>  <!-- Pot row 1, pot 4, p.14 -->
+  <bind target="ch4.mid" kind="0" ch="15" num="11" status="manual"/>  <!-- Pot row 2, pot 4, p.14 -->
+  <bind target="ch4.low" kind="0" ch="15" num="15" status="manual"/>  <!-- Pot row 3, pot 4, p.15 -->
+  <bind target="ch4.gain" kind="0" ch="15" num="19" status="manual"/>  <!-- Linear fader 4, p.15 -->
+  <bind target="ch1.sync" kind="1" ch="15" num="48" status="manual"/>  <!-- Pot switch under pot row 1, column 1 (sends C3), p.14; note table p.19 -->
+  <bind target="ch2.sync" kind="1" ch="15" num="49" status="manual"/>  <!-- Pot switch under pot row 1, column 2 (sends C#3), p.14; note table p.19 -->
+  <bind target="ch3.sync" kind="1" ch="15" num="50" status="manual"/>  <!-- Pot switch under pot row 1, column 3 (sends D3), p.14; note table p.19 -->
+  <bind target="ch4.sync" kind="1" ch="15" num="51" status="manual"/>  <!-- Pot switch under pot row 1, column 4 (sends D#3), p.14; note table p.19 -->
+  <bind target="ch1.loop" kind="1" ch="15" num="44" status="manual"/>  <!-- Pot switch under pot row 2, column 1 (sends G#2), p.14; note table p.19 -->
+  <bind target="ch2.loop" kind="1" ch="15" num="45" status="manual"/>  <!-- Pot switch under pot row 2, column 2 (sends A2), p.14; note table p.19 -->
+  <bind target="ch3.loop" kind="1" ch="15" num="46" status="manual"/>  <!-- Pot switch under pot row 2, column 3 (sends A#2), p.14; note table p.19 -->
+  <bind target="ch4.loop" kind="1" ch="15" num="47" status="manual"/>  <!-- Pot switch under pot row 2, column 4 (sends B2), p.14; note table p.19 -->
+  <bind target="ch1.cue" kind="1" ch="15" num="40" status="manual"/>  <!-- Pot switch under pot row 3 (just above the fader), column 1 (sends E2), p.15; note table p.19 -->
+  <bind target="ch2.cue" kind="1" ch="15" num="41" status="manual"/>  <!-- Pot switch under pot row 3 (just above the fader), column 2 (sends F2), p.15; note table p.19 -->
+  <bind target="ch3.cue" kind="1" ch="15" num="42" status="manual"/>  <!-- Pot switch under pot row 3 (just above the fader), column 3 (sends F#2), p.15; note table p.19 -->
+  <bind target="ch4.cue" kind="1" ch="15" num="43" status="manual"/>  <!-- Pot switch under pot row 3 (just above the fader), column 4 (sends G2), p.15; note table p.19 -->
+  <bind target="ch1.cuepad1" kind="1" ch="15" num="36" status="manual"/>  <!-- Switch matrix row 1 (A B C D), column 1 (sends C2), p.15; note table p.19 -->
+  <bind target="ch2.cuepad1" kind="1" ch="15" num="37" status="manual"/>  <!-- Switch matrix row 1 (A B C D), column 2 (sends C#2), p.15; note table p.19 -->
+  <bind target="ch3.cuepad1" kind="1" ch="15" num="38" status="manual"/>  <!-- Switch matrix row 1 (A B C D), column 3 (sends D2), p.15; note table p.19 -->
+  <bind target="ch4.cuepad1" kind="1" ch="15" num="39" status="manual"/>  <!-- Switch matrix row 1 (A B C D), column 4 (sends D#2), p.15; note table p.19 -->
+  <bind target="ch1.cuepad2" kind="1" ch="15" num="32" status="manual"/>  <!-- Switch matrix row 2 (E F G H), column 1 (sends G#1), p.15; note table p.19 -->
+  <bind target="ch2.cuepad2" kind="1" ch="15" num="33" status="manual"/>  <!-- Switch matrix row 2 (E F G H), column 2 (sends A1), p.15; note table p.19 -->
+  <bind target="ch3.cuepad2" kind="1" ch="15" num="34" status="manual"/>  <!-- Switch matrix row 2 (E F G H), column 3 (sends A#1), p.15; note table p.19 -->
+  <bind target="ch4.cuepad2" kind="1" ch="15" num="35" status="manual"/>  <!-- Switch matrix row 2 (E F G H), column 4 (sends B1), p.15; note table p.19 -->
+  <bind target="ch1.cuepad3" kind="1" ch="15" num="28" status="manual"/>  <!-- Switch matrix row 3 (I J K L), column 1 (sends E1), p.16; note table p.19 -->
+  <bind target="ch2.cuepad3" kind="1" ch="15" num="29" status="manual"/>  <!-- Switch matrix row 3 (I J K L), column 2 (sends F1), p.16; note table p.19 -->
+  <bind target="ch3.cuepad3" kind="1" ch="15" num="30" status="manual"/>  <!-- Switch matrix row 3 (I J K L), column 3 (sends F#1), p.16; note table p.19 -->
+  <bind target="ch4.cuepad3" kind="1" ch="15" num="31" status="manual"/>  <!-- Switch matrix row 3 (I J K L), column 4 (sends G1), p.16; note table p.19 -->
+  <bind target="ch1.cuepad4" kind="1" ch="15" num="24" status="manual"/>  <!-- Switch matrix row 4 (M N O P), column 1 (sends C1), p.16; note table p.19 -->
+  <bind target="ch2.cuepad4" kind="1" ch="15" num="25" status="manual"/>  <!-- Switch matrix row 4 (M N O P), column 2 (sends C#1), p.16; note table p.19 -->
+  <bind target="ch3.cuepad4" kind="1" ch="15" num="26" status="manual"/>  <!-- Switch matrix row 4 (M N O P), column 3 (sends D1), p.16; note table p.19 -->
+  <bind target="ch4.cuepad4" kind="1" ch="15" num="27" status="manual"/>  <!-- Switch matrix row 4 (M N O P), column 4 (sends D#1), p.16; note table p.19 -->
+  <bind target="browse.scroll" kind="0" ch="15" num="21" mode="rel" rel="2c" status="manual"/>  <!-- Bottom-row right encoder (panel label "◄► SCROLL", turn), p.16 -->
+  <bind target="browse.toggle" kind="1" ch="15" num="14" status="manual"/>  <!-- Bottom-row right encoder push (panel label "▼ SEL", sends D0), p.16; note table p.19 -->
+</CadenceMidiMap>

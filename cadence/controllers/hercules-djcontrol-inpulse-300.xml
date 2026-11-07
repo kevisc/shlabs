@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Hercules DJControl Inpulse 300: a Cadence profile from the online library (A208).
+
+  SOURCE, and only this: the manufacturer's own MIDI documentation.
+    List of MIDI commands: MIDI commands of Hercules DJControl Inpulse 300 (file V_1_2) (Guillemot Corporation (Hercules); linked from https://support.hercules.com/en/product/djcontrolinpulse300, 2019-08-06 (PDF creation date)), pages 58 PDF pages; MIDI input tables PDF pp. 3-38. Page refs are PDF page (printed page).
+    https://ts.hercules.com/download/sound/manuals/DJC_Inpulse300/DJControlInpulse300_MIDI_Commands_V_1_2.pdf
+    DJControl Inpulse 300 User Manual (EN) (Guillemot Corporation (Hercules), 2018-10-24 (PDF creation date)), pages Used for pad mode names and order, ROLL and BEATJUMP pad meanings, loop and jog behaviour, hardware master/headphone knobs
+    https://ts.hercules.com/download/sound/manuals/DJC_Inpulse300/DJControl_Inpulse_300_User_Manual_EN.pdf
+  No mapping file from any other application was read or used.
+
+  status="manual": the message is the manufacturer's. Nobody has tried this map on the hardware
+  yet. If a control does nothing, use Learn on that row and tell us at shlabs.contact@gmail.com.
+
+  BEFORE YOU START: The user manual (Compatibility) says the unit works without drivers on any PC or Mac (USB Audio and USB MIDI standards). The pads send the cuepad messages only while the deck's HOTCUE mode is selected (ROLL mode for the roll binds, BEATJUMP mode for jumpback/jumpfwd). Turn VINYL on for each deck so that turning the jog with the top touched sends the scratch message bound here (see doubts).
+
+  CADENCE'S CHOICES:
+    the jog is bound to CC 9, the turn the manual sends with VINYL off and from the ring with VINYL on. With VINYL on, touching the TOP sends CC 10 instead: Learn the top to the jog row if you scratch that way.
+    Not bound, because one target holds one control: Deck A (left) CUE button (ch1.cuepad1), since Deck A (left) pad 1 in HOTCUE mode (MODE1) takes ch1.cuepad1; Deck B (right) CUE button (ch2.cuepad1), since Deck B (right) pad 1 in HOTCUE mode (MODE1) takes ch2.cuepad1.
+
+  LEFT OUT (no Cadence target): XFADER (B0 00): crossfader, no Cadence target; GAIN_A / GAIN_B (B1 05 / B2 05): gain trim knobs; Cadence chN.gain is the volume fader; VOL_MASTER (B0 03) and VOL_HDP (B0 04): the user manual calls the Master and Headphones knobs hardware settings, so master.gain / master.phones are not bound (binding them would apply the level twice); PFL_MASTER (90 02): MASTER headphone-monitor button; no target (no CUE/MIX knob on this unit); BEATMATCH_GUIDE (90 01), ASSISTANT (90 03), BROWSE_ENC_ASSISTANT (B0 02); FX_ON / FX2_ON (91|92 00, 2B), PADFX_SELECT_1-6 (91|92 25-2A), FX_LVL (B1|B2 06), DRY_WET (B1|B2 07), PAD_FX_1&2 (B1|B2 0D): effects; QUANTIZE (91|92 02), VINYL (91|92 03), SHIFT (91|92 04), JOG_TOUCH (91|92 08); PITCH_DA / PITCH_B (B1|B2 08): tempo fader, no target; JOG_A / JOG_B (B1|B2 09): jog turn without the scratch condition; not bound because the brief prefers the touch-turn message (see doubts); JOG_PADSCRATCH (B1|B2 0C) and JOG_PAD_B (B2 0B); LOOP_IN (91|92 09) and LOOP_OUT (91|92 0A): set loop in/out points, no target; LOAD long press (91|92 0E), MODE1-8 buttons (91|92 0F-16); Pads in SLICER, SAMPLER, TONEPLAY, FX, SLICER LOOP modes (MODE3-7); ROLL pads 1, 2, 7, 8 (1/16, 1/8, 4, 8 beats); BEATJUMP pads 3-8 (2, 4, 8 beat jumps); All SHIFT messages, including SHIFT+LOOP IN / SHIFT+LOOP OUT (loop /2, x2): see doubts; 14-bit LSB CCs (B0|B1|B2 20-2D)
+
+  A jog wheel that moves too fast or too slow: set its row to Fine, or invert it, in the dialog.
+-->
+<CadenceMidiMap name="Hercules DJControl Inpulse 300 (2019, not MK2)" maker="Hercules" model="DJControl Inpulse 300" match="inpulse300" version="1">
+  <bind target="browse.toggle" kind="1" ch="1" num="0" status="manual"/>  <!-- Browse encoder push, PDF p. 4 (printed p. 2) -->
+  <bind target="browse.scroll" kind="0" ch="1" num="1" mode="rel" rel="2c" status="manual"/>  <!-- Browse encoder turn, PDF p. 30 (printed p. 28) -->
+  <bind target="ch1.slip" kind="1" ch="2" num="1" status="manual"/>  <!-- Deck A (left) SLIP button, PDF p. 5 (printed p. 3) -->
+  <bind target="ch1.sync" kind="1" ch="2" num="5" status="manual"/>  <!-- Deck A (left) SYNC button, PDF p. 5 (printed p. 3) -->
+  <bind target="ch1.cuepad1" kind="1" ch="7" num="0" status="manual"/>  <!-- Deck A (left) pad 1 in HOTCUE mode (MODE1), PDF p. 7 (printed p. 5) -->
+  <bind target="ch1.clip" kind="1" ch="2" num="7" status="manual"/>  <!-- Deck A (left) PLAY/PAUSE button, PDF p. 5 (printed p. 3) -->
+  <bind target="ch1.loop" kind="1" ch="2" num="11" status="manual"/>  <!-- Deck A (left) LOOP IN held 0.5 s (user manual: launches a 4-beat automatic loop), PDF p. 5 (printed p. 3) -->
+  <bind target="ch1.cue" kind="1" ch="2" num="12" status="manual"/>  <!-- Deck A (left) headphone PFL button, PDF p. 5 (printed p. 3) -->
+  <bind target="ch1.load" kind="1" ch="2" num="13" status="manual"/>  <!-- Deck A (left) LOAD button, PDF p. 5 (printed p. 3) -->
+  <bind target="ch1.gain" kind="0" ch="2" num="0" status="manual"/>  <!-- Deck A (left) volume fader, PDF p. 32 (printed p. 30) -->
+  <bind target="ch1.filter" kind="0" ch="2" num="1" status="manual"/>  <!-- Deck A (left) FILTER knob (low-pass/high-pass), PDF p. 32 (printed p. 30) -->
+  <bind target="ch1.low" kind="0" ch="2" num="2" status="manual"/>  <!-- Deck A (left) EQ LOW knob, PDF p. 32 (printed p. 30) -->
+  <bind target="ch1.mid" kind="0" ch="2" num="3" status="manual"/>  <!-- Deck A (left) EQ MID knob, PDF p. 32 (printed p. 30) -->
+  <bind target="ch1.high" kind="0" ch="2" num="4" status="manual"/>  <!-- Deck A (left) EQ HIGH knob, PDF p. 32 (printed p. 30) -->
+  <bind target="ch1.jog" kind="0" ch="2" num="9" mode="rel" rel="2c" status="manual"/>  <!-- Deck 1 (left) jog wheel turn (CC 9: the ring, and the top with VINYL off), PDF p. 32 (printed p. 30) -->
+  <bind target="ch1.cuepad2" kind="1" ch="7" num="1" status="manual"/>  <!-- Deck A (left) pad 2 in HOTCUE mode (MODE1), PDF p. 7 (printed p. 5) -->
+  <bind target="ch1.cuepad3" kind="1" ch="7" num="2" status="manual"/>  <!-- Deck A (left) pad 3 in HOTCUE mode (MODE1), PDF p. 7 (printed p. 5) -->
+  <bind target="ch1.cuepad4" kind="1" ch="7" num="3" status="manual"/>  <!-- Deck A (left) pad 4 in HOTCUE mode (MODE1), PDF p. 7 (printed p. 5) -->
+  <bind target="ch1.cuepad5" kind="1" ch="7" num="4" status="manual"/>  <!-- Deck A (left) pad 5 in HOTCUE mode (MODE1), PDF p. 7 (printed p. 5) -->
+  <bind target="ch1.cuepad6" kind="1" ch="7" num="5" status="manual"/>  <!-- Deck A (left) pad 6 in HOTCUE mode (MODE1), PDF p. 7 (printed p. 5) -->
+  <bind target="ch1.cuepad7" kind="1" ch="7" num="6" status="manual"/>  <!-- Deck A (left) pad 7 in HOTCUE mode (MODE1), PDF p. 7 (printed p. 5) -->
+  <bind target="ch1.cuepad8" kind="1" ch="7" num="7" status="manual"/>  <!-- Deck A (left) pad 8 in HOTCUE mode (MODE1), PDF p. 7 (printed p. 5) -->
+  <bind target="ch1.roll1" kind="1" ch="7" num="18" status="manual"/>  <!-- Deck A (left) pad 3 in ROLL mode (MODE2); user manual: 1/4 beat roll, PDF p. 7 (printed p. 5) -->
+  <bind target="ch1.roll2" kind="1" ch="7" num="19" status="manual"/>  <!-- Deck A (left) pad 4 in ROLL mode (MODE2); user manual: 1/2 beat roll, PDF p. 7 (printed p. 5) -->
+  <bind target="ch1.roll3" kind="1" ch="7" num="20" status="manual"/>  <!-- Deck A (left) pad 5 in ROLL mode (MODE2); user manual: 1 beat roll, PDF p. 7 (printed p. 5) -->
+  <bind target="ch1.roll4" kind="1" ch="7" num="21" status="manual"/>  <!-- Deck A (left) pad 6 in ROLL mode (MODE2); user manual: 2 beats roll, PDF p. 7 (printed p. 5) -->
+  <bind target="ch1.jumpback" kind="1" ch="7" num="112" status="manual"/>  <!-- Deck A (left) pad 1 in BEATJUMP mode (MODE8); user manual: jumps back 1 beat, PDF p. 10 (printed p. 8) -->
+  <bind target="ch1.jumpfwd" kind="1" ch="7" num="113" status="manual"/>  <!-- Deck A (left) pad 2 in BEATJUMP mode (MODE8); user manual: jumps ahead 1 beat, PDF p. 10 (printed p. 8) -->
+  <bind target="ch2.slip" kind="1" ch="3" num="1" status="manual"/>  <!-- Deck B (right) SLIP button, PDF p. 18 (printed p. 16) -->
+  <bind target="ch2.sync" kind="1" ch="3" num="5" status="manual"/>  <!-- Deck B (right) SYNC button, PDF p. 18 (printed p. 16) -->
+  <bind target="ch2.cuepad1" kind="1" ch="8" num="0" status="manual"/>  <!-- Deck B (right) pad 1 in HOTCUE mode (MODE1), PDF p. 20 (printed p. 18) -->
+  <bind target="ch2.clip" kind="1" ch="3" num="7" status="manual"/>  <!-- Deck B (right) PLAY/PAUSE button, PDF p. 18 (printed p. 16) -->
+  <bind target="ch2.loop" kind="1" ch="3" num="11" status="manual"/>  <!-- Deck B (right) LOOP IN held 0.5 s (user manual: launches a 4-beat automatic loop), PDF p. 18 (printed p. 16) -->
+  <bind target="ch2.cue" kind="1" ch="3" num="12" status="manual"/>  <!-- Deck B (right) headphone PFL button, PDF p. 18 (printed p. 16) -->
+  <bind target="ch2.load" kind="1" ch="3" num="13" status="manual"/>  <!-- Deck B (right) LOAD button, PDF p. 18 (printed p. 16) -->
+  <bind target="ch2.gain" kind="0" ch="3" num="0" status="manual"/>  <!-- Deck B (right) volume fader, PDF p. 36 (printed p. 34) -->
+  <bind target="ch2.filter" kind="0" ch="3" num="1" status="manual"/>  <!-- Deck B (right) FILTER knob (low-pass/high-pass), PDF p. 36 (printed p. 34) -->
+  <bind target="ch2.low" kind="0" ch="3" num="2" status="manual"/>  <!-- Deck B (right) EQ LOW knob, PDF p. 36 (printed p. 34) -->
+  <bind target="ch2.mid" kind="0" ch="3" num="3" status="manual"/>  <!-- Deck B (right) EQ MID knob, PDF p. 36 (printed p. 34) -->
+  <bind target="ch2.high" kind="0" ch="3" num="4" status="manual"/>  <!-- Deck B (right) EQ HIGH knob, PDF p. 36 (printed p. 34) -->
+  <bind target="ch2.jog" kind="0" ch="3" num="9" mode="rel" rel="2c" status="manual"/>  <!-- Deck 2 (right) jog wheel turn (CC 9: the ring, and the top with VINYL off), PDF p. 36 (printed p. 34) -->
+  <bind target="ch2.cuepad2" kind="1" ch="8" num="1" status="manual"/>  <!-- Deck B (right) pad 2 in HOTCUE mode (MODE1), PDF p. 20 (printed p. 18) -->
+  <bind target="ch2.cuepad3" kind="1" ch="8" num="2" status="manual"/>  <!-- Deck B (right) pad 3 in HOTCUE mode (MODE1), PDF p. 20 (printed p. 18) -->
+  <bind target="ch2.cuepad4" kind="1" ch="8" num="3" status="manual"/>  <!-- Deck B (right) pad 4 in HOTCUE mode (MODE1), PDF p. 20 (printed p. 18) -->
+  <bind target="ch2.cuepad5" kind="1" ch="8" num="4" status="manual"/>  <!-- Deck B (right) pad 5 in HOTCUE mode (MODE1), PDF p. 20 (printed p. 18) -->
+  <bind target="ch2.cuepad6" kind="1" ch="8" num="5" status="manual"/>  <!-- Deck B (right) pad 6 in HOTCUE mode (MODE1), PDF p. 20 (printed p. 18) -->
+  <bind target="ch2.cuepad7" kind="1" ch="8" num="6" status="manual"/>  <!-- Deck B (right) pad 7 in HOTCUE mode (MODE1), PDF p. 20 (printed p. 18) -->
+  <bind target="ch2.cuepad8" kind="1" ch="8" num="7" status="manual"/>  <!-- Deck B (right) pad 8 in HOTCUE mode (MODE1), PDF p. 20 (printed p. 18) -->
+  <bind target="ch2.roll1" kind="1" ch="8" num="18" status="manual"/>  <!-- Deck B (right) pad 3 in ROLL mode (MODE2); user manual: 1/4 beat roll, PDF p. 20 (printed p. 18) -->
+  <bind target="ch2.roll2" kind="1" ch="8" num="19" status="manual"/>  <!-- Deck B (right) pad 4 in ROLL mode (MODE2); user manual: 1/2 beat roll, PDF p. 20 (printed p. 18) -->
+  <bind target="ch2.roll3" kind="1" ch="8" num="20" status="manual"/>  <!-- Deck B (right) pad 5 in ROLL mode (MODE2); user manual: 1 beat roll, PDF p. 20 (printed p. 18) -->
+  <bind target="ch2.roll4" kind="1" ch="8" num="21" status="manual"/>  <!-- Deck B (right) pad 6 in ROLL mode (MODE2); user manual: 2 beats roll, PDF p. 20 (printed p. 18) -->
+  <bind target="ch2.jumpback" kind="1" ch="8" num="112" status="manual"/>  <!-- Deck B (right) pad 1 in BEATJUMP mode (MODE8); user manual: jumps back 1 beat, PDF p. 23 (printed p. 21) -->
+  <bind target="ch2.jumpfwd" kind="1" ch="8" num="113" status="manual"/>  <!-- Deck B (right) pad 2 in BEATJUMP mode (MODE8); user manual: jumps ahead 1 beat, PDF p. 23 (printed p. 21) -->
+</CadenceMidiMap>

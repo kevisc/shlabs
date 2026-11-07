@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Pioneer DJ DDJ-FLX6: a Cadence profile from the online library (A208).
+
+  SOURCE, and only this: the manufacturer's own MIDI documentation.
+    DDJ-FLX6 List of MIDI messages (AlphaTheta Corporation (Pioneer DJ), 2020-10-29 (PDF date; © 2020)), pages 1-10
+    https://downloads.support.alphatheta.com/software_info/dj-controllers/DDJ-FLX6/DDJ-FLX6_MIDI_message_List_E1.pdf
+    DDJ-FLX6 MIDI-Compatible Software (links the list above; says 'DDJ-FLX6/DDJ-FLX6-GT works with other MIDI-compatible software') (AlphaTheta Help Center, accessed 2026-11-07), pages n/a
+    https://support.alphatheta.com/en-US/articles/4404631697945
+    DDJ-FLX6 Instruction Manual (DRI1673B; listed on the DDJ-FLX6-GT manual page) (AlphaTheta Corporation (Pioneer DJ), 2022-04-08 (PDF date)), pages 13 (CUE/LOOP CALL halves/doubles), 16 (MASTER button), 20 (jog, Vinyl mode), 44 (Beat Loop pads), 45 (Beat Jump pads), 104-105 (Utilities, MIDI controller mode), 109 (MIDI device name), 118 (other DJ applications)
+    https://downloads.support.alphatheta.com/manuals/dj-controllers/DDJ-FLX6-GT/DDJ-FLX6-GT_DRI1673B_manual.pdf
+  No mapping file from any other application was read or used.
+
+  status="manual": the message is the manufacturer's. Nobody has tried this map on the hardware
+  yet. If a control does nothing, use Learn on that row and tell us at shlabs.contact@gmail.com.
+
+  BEFORE YOU START: When neither rekordbox nor Serato DJ Pro is running, the unit works as a general MIDI controller. To force general MIDI mode while one of them is running: disconnect USB, hold SHIFT + left-deck PLAY/PAUSE while you connect USB (Utilities mode), press the left-deck BEAT JUMP mode button so it is lit, then disconnect USB (manual pp. 104-105). AlphaTheta's help page also says to power-cycle the unit after you switch DJ applications. Use the DECK button on each side to reach decks 3 and 4.
+
+  CADENCE'S CHOICES:
+    the jog is the platter TOP's turn with Vinyl mode on (CC 34), the unit's default. With Vinyl mode off the top sends CC 35, and the wheel's side sends its own message: Learn either to the jog row if that is how you play.
+    Not bound, because one target holds one control: Deck 1 CUE button (L side) (ch1.cuepad1), since Deck 1 performance pad 1, HOT CUE mode takes ch1.cuepad1; Deck 2 CUE button (R side) (ch2.cuepad1), since Deck 2 performance pad 1, HOT CUE mode takes ch2.cuepad1; Deck 3 CUE button (L side) (ch3.cuepad1), since Deck 3 performance pad 1, HOT CUE mode takes ch3.cuepad1; Deck 4 CUE button (R side) (ch4.cuepad1), since Deck 4 performance pad 1, HOT CUE mode takes ch4.cuepad1.
+
+  LEFT OUT (no Cadence target): SHIFT buttons (note 63) and all SHIFT messages; Jog touch (note 54), wheel side turn (CC 33), turn with Vinyl mode off (CC 35), SHIFT+top (CC 41), SHIFT+side (CC 38), jog illumination; DECK select buttons (note 114 / note 60 control on-off messages), JOG CUTTER (note 28); IN/-4BEAT (note 16; long press adds note 20) and OUT (note 17): no loop-in/out target; CUE/LOOP MEMORY (note 61), MERGE FX section, Beat FX section (BFX SELECT, CH SELECT, BEAT ◁/▷, LEVEL/DEPTH, ON/OFF); MASTER button (note 92): the manual says it sets the deck as sync master (rekordbox) or cancels Sync (Serato); it is not key lock; TEMPO sliders (CC 0/32), TRIM (CC 4/36), INPUT SELECT (CH4), BOOTH LEVEL, MIC LEVEL, MASTER CUE button, crossfader (CC 31/63); Pad mode buttons; BEAT LOOP pads 5-8; BEAT JUMP pads 3-8; PAD FX, SAMPLER, KEYBOARD, KEY SHIFT, SP. SCRATCH pad pages; Fader start / crossfader start notes and the CH LEVEL METER MIDI-OUT messages
+
+  A jog wheel that moves too fast or too slow: set its row to Fine, or invert it, in the dialog.
+-->
+<CadenceMidiMap name="Pioneer DJ DDJ-FLX6 / DDJ-FLX6-GT" maker="Pioneer DJ" model="DDJ-FLX6" match="ddjflx6" version="1">
+  <bind target="ch1.clip" kind="1" ch="1" num="11" status="manual"/>  <!-- Deck 1 PLAY/PAUSE (L side), p. 1 -->
+  <bind target="ch1.cuepad1" kind="1" ch="8" num="0" status="manual"/>  <!-- Deck 1 performance pad 1, HOT CUE mode, p. 5 -->
+  <bind target="ch1.jog" kind="0" ch="1" num="34" mode="rel" rel="binoff" status="manual"/>  <!-- Deck 1 jog dial, platter (top) turn, Vinyl mode on, p. 2 -->
+  <bind target="ch1.loop" kind="1" ch="1" num="77" status="manual"/>  <!-- Deck 1 RELOOP/EXIT, p. 2 -->
+  <bind target="ch1.loophalf" kind="1" ch="1" num="81" status="manual"/>  <!-- Deck 1 CUE/LOOP CALL ◁ (halves the loop during loop playback), p. 2 -->
+  <bind target="ch1.loopdbl" kind="1" ch="1" num="83" status="manual"/>  <!-- Deck 1 CUE/LOOP CALL ▷ (doubles the loop during loop playback), p. 2 -->
+  <bind target="ch1.sync" kind="1" ch="1" num="88" status="manual"/>  <!-- Deck 1 BEAT SYNC, p. 3 -->
+  <bind target="ch1.high" kind="0" ch="1" num="7" status="manual"/>  <!-- CH1 EQ Hi knob, p. 4 -->
+  <bind target="ch1.mid" kind="0" ch="1" num="11" status="manual"/>  <!-- CH1 EQ Mid knob, p. 4 -->
+  <bind target="ch1.low" kind="0" ch="1" num="15" status="manual"/>  <!-- CH1 EQ Low knob, p. 4 -->
+  <bind target="ch1.filter" kind="0" ch="7" num="23" status="manual"/>  <!-- CH1 FILTER knob, p. 4 -->
+  <bind target="ch1.cue" kind="1" ch="1" num="84" status="manual"/>  <!-- CH1 CH CUE (headphone cue) button, p. 4 -->
+  <bind target="ch1.gain" kind="0" ch="1" num="19" status="manual"/>  <!-- CH1 channel fader, p. 4 -->
+  <bind target="ch1.load" kind="1" ch="7" num="70" status="manual"/>  <!-- LOAD (Deck1) button, p. 5 -->
+  <bind target="ch1.cuepad2" kind="1" ch="8" num="1" status="manual"/>  <!-- Deck 1 performance pad 2, HOT CUE mode, p. 6 -->
+  <bind target="ch1.cuepad3" kind="1" ch="8" num="2" status="manual"/>  <!-- Deck 1 performance pad 3, HOT CUE mode, p. 7 -->
+  <bind target="ch1.cuepad4" kind="1" ch="8" num="3" status="manual"/>  <!-- Deck 1 performance pad 4, HOT CUE mode, p. 7 -->
+  <bind target="ch1.cuepad5" kind="1" ch="8" num="4" status="manual"/>  <!-- Deck 1 performance pad 5, HOT CUE mode, p. 8 -->
+  <bind target="ch1.cuepad6" kind="1" ch="8" num="5" status="manual"/>  <!-- Deck 1 performance pad 6, HOT CUE mode, p. 9 -->
+  <bind target="ch1.cuepad7" kind="1" ch="8" num="6" status="manual"/>  <!-- Deck 1 performance pad 7, HOT CUE mode, p. 9 -->
+  <bind target="ch1.cuepad8" kind="1" ch="8" num="7" status="manual"/>  <!-- Deck 1 performance pad 8, HOT CUE mode, p. 10 -->
+  <bind target="ch1.roll1" kind="1" ch="8" num="96" status="manual"/>  <!-- Deck 1 performance pad 1, BEAT LOOP mode, p. 5 -->
+  <bind target="ch1.roll2" kind="1" ch="8" num="97" status="manual"/>  <!-- Deck 1 performance pad 2, BEAT LOOP mode, p. 6 -->
+  <bind target="ch1.roll3" kind="1" ch="8" num="98" status="manual"/>  <!-- Deck 1 performance pad 3, BEAT LOOP mode, p. 7 -->
+  <bind target="ch1.roll4" kind="1" ch="8" num="99" status="manual"/>  <!-- Deck 1 performance pad 4, BEAT LOOP mode, p. 7 -->
+  <bind target="ch1.jumpback" kind="1" ch="8" num="32" status="manual"/>  <!-- Deck 1 performance pad 1, BEAT JUMP mode, p. 5 -->
+  <bind target="ch1.jumpfwd" kind="1" ch="8" num="33" status="manual"/>  <!-- Deck 1 performance pad 2, BEAT JUMP mode, p. 6 -->
+  <bind target="ch2.clip" kind="1" ch="2" num="11" status="manual"/>  <!-- Deck 2 PLAY/PAUSE (R side), p. 1 -->
+  <bind target="ch2.cuepad1" kind="1" ch="10" num="0" status="manual"/>  <!-- Deck 2 performance pad 1, HOT CUE mode, p. 6 -->
+  <bind target="ch2.jog" kind="0" ch="2" num="34" mode="rel" rel="binoff" status="manual"/>  <!-- Deck 2 jog dial, platter (top) turn, Vinyl mode on, p. 2 -->
+  <bind target="ch2.loop" kind="1" ch="2" num="77" status="manual"/>  <!-- Deck 2 RELOOP/EXIT, p. 2 -->
+  <bind target="ch2.loophalf" kind="1" ch="2" num="81" status="manual"/>  <!-- Deck 2 CUE/LOOP CALL ◁ (halves the loop during loop playback), p. 2 -->
+  <bind target="ch2.loopdbl" kind="1" ch="2" num="83" status="manual"/>  <!-- Deck 2 CUE/LOOP CALL ▷ (doubles the loop during loop playback), p. 2 -->
+  <bind target="ch2.sync" kind="1" ch="2" num="88" status="manual"/>  <!-- Deck 2 BEAT SYNC, p. 3 -->
+  <bind target="ch2.high" kind="0" ch="2" num="7" status="manual"/>  <!-- CH2 EQ Hi knob, p. 4 -->
+  <bind target="ch2.mid" kind="0" ch="2" num="11" status="manual"/>  <!-- CH2 EQ Mid knob, p. 4 -->
+  <bind target="ch2.low" kind="0" ch="2" num="15" status="manual"/>  <!-- CH2 EQ Low knob, p. 4 -->
+  <bind target="ch2.filter" kind="0" ch="7" num="24" status="manual"/>  <!-- CH2 FILTER knob, p. 4 -->
+  <bind target="ch2.cue" kind="1" ch="2" num="84" status="manual"/>  <!-- CH2 CH CUE (headphone cue) button, p. 4 -->
+  <bind target="ch2.gain" kind="0" ch="2" num="19" status="manual"/>  <!-- CH2 channel fader, p. 4 -->
+  <bind target="ch2.load" kind="1" ch="7" num="71" status="manual"/>  <!-- LOAD (Deck2) button, p. 5 -->
+  <bind target="ch2.cuepad2" kind="1" ch="10" num="1" status="manual"/>  <!-- Deck 2 performance pad 2, HOT CUE mode, p. 6 -->
+  <bind target="ch2.cuepad3" kind="1" ch="10" num="2" status="manual"/>  <!-- Deck 2 performance pad 3, HOT CUE mode, p. 7 -->
+  <bind target="ch2.cuepad4" kind="1" ch="10" num="3" status="manual"/>  <!-- Deck 2 performance pad 4, HOT CUE mode, p. 8 -->
+  <bind target="ch2.cuepad5" kind="1" ch="10" num="4" status="manual"/>  <!-- Deck 2 performance pad 5, HOT CUE mode, p. 8 -->
+  <bind target="ch2.cuepad6" kind="1" ch="10" num="5" status="manual"/>  <!-- Deck 2 performance pad 6, HOT CUE mode, p. 9 -->
+  <bind target="ch2.cuepad7" kind="1" ch="10" num="6" status="manual"/>  <!-- Deck 2 performance pad 7, HOT CUE mode, p. 10 -->
+  <bind target="ch2.cuepad8" kind="1" ch="10" num="7" status="manual"/>  <!-- Deck 2 performance pad 8, HOT CUE mode, p. 10 -->
+  <bind target="ch2.roll1" kind="1" ch="10" num="96" status="manual"/>  <!-- Deck 2 performance pad 1, BEAT LOOP mode, p. 6 -->
+  <bind target="ch2.roll2" kind="1" ch="10" num="97" status="manual"/>  <!-- Deck 2 performance pad 2, BEAT LOOP mode, p. 6 -->
+  <bind target="ch2.roll3" kind="1" ch="10" num="98" status="manual"/>  <!-- Deck 2 performance pad 3, BEAT LOOP mode, p. 7 -->
+  <bind target="ch2.roll4" kind="1" ch="10" num="99" status="manual"/>  <!-- Deck 2 performance pad 4, BEAT LOOP mode, p. 8 -->
+  <bind target="ch2.jumpback" kind="1" ch="10" num="32" status="manual"/>  <!-- Deck 2 performance pad 1, BEAT JUMP mode, p. 6 -->
+  <bind target="ch2.jumpfwd" kind="1" ch="10" num="33" status="manual"/>  <!-- Deck 2 performance pad 2, BEAT JUMP mode, p. 6 -->
+  <bind target="ch3.clip" kind="1" ch="3" num="11" status="manual"/>  <!-- Deck 3 PLAY/PAUSE (L side), p. 1 -->
+  <bind target="ch3.cuepad1" kind="1" ch="12" num="0" status="manual"/>  <!-- Deck 3 performance pad 1, HOT CUE mode, p. 5 -->
+  <bind target="ch3.jog" kind="0" ch="3" num="34" mode="rel" rel="binoff" status="manual"/>  <!-- Deck 3 jog dial, platter (top) turn, Vinyl mode on, p. 2 -->
+  <bind target="ch3.loop" kind="1" ch="3" num="77" status="manual"/>  <!-- Deck 3 RELOOP/EXIT, p. 2 -->
+  <bind target="ch3.loophalf" kind="1" ch="3" num="81" status="manual"/>  <!-- Deck 3 CUE/LOOP CALL ◁ (halves the loop during loop playback), p. 2 -->
+  <bind target="ch3.loopdbl" kind="1" ch="3" num="83" status="manual"/>  <!-- Deck 3 CUE/LOOP CALL ▷ (doubles the loop during loop playback), p. 2 -->
+  <bind target="ch3.sync" kind="1" ch="3" num="88" status="manual"/>  <!-- Deck 3 BEAT SYNC, p. 3 -->
+  <bind target="ch3.high" kind="0" ch="3" num="7" status="manual"/>  <!-- CH3 EQ Hi knob, p. 4 -->
+  <bind target="ch3.mid" kind="0" ch="3" num="11" status="manual"/>  <!-- CH3 EQ Mid knob, p. 4 -->
+  <bind target="ch3.low" kind="0" ch="3" num="15" status="manual"/>  <!-- CH3 EQ Low knob, p. 4 -->
+  <bind target="ch3.filter" kind="0" ch="7" num="25" status="manual"/>  <!-- CH3 FILTER knob, p. 4 -->
+  <bind target="ch3.cue" kind="1" ch="3" num="84" status="manual"/>  <!-- CH3 CH CUE (headphone cue) button, p. 4 -->
+  <bind target="ch3.gain" kind="0" ch="3" num="19" status="manual"/>  <!-- CH3 channel fader, p. 4 -->
+  <bind target="ch3.load" kind="1" ch="7" num="72" status="manual"/>  <!-- LOAD (Deck3) button, p. 5 -->
+  <bind target="ch3.cuepad2" kind="1" ch="12" num="1" status="manual"/>  <!-- Deck 3 performance pad 2, HOT CUE mode, p. 6 -->
+  <bind target="ch3.cuepad3" kind="1" ch="12" num="2" status="manual"/>  <!-- Deck 3 performance pad 3, HOT CUE mode, p. 7 -->
+  <bind target="ch3.cuepad4" kind="1" ch="12" num="3" status="manual"/>  <!-- Deck 3 performance pad 4, HOT CUE mode, p. 7 -->
+  <bind target="ch3.cuepad5" kind="1" ch="12" num="4" status="manual"/>  <!-- Deck 3 performance pad 5, HOT CUE mode, p. 8 -->
+  <bind target="ch3.cuepad6" kind="1" ch="12" num="5" status="manual"/>  <!-- Deck 3 performance pad 6, HOT CUE mode, p. 9 -->
+  <bind target="ch3.cuepad7" kind="1" ch="12" num="6" status="manual"/>  <!-- Deck 3 performance pad 7, HOT CUE mode, p. 9 -->
+  <bind target="ch3.cuepad8" kind="1" ch="12" num="7" status="manual"/>  <!-- Deck 3 performance pad 8, HOT CUE mode, p. 10 -->
+  <bind target="ch3.roll1" kind="1" ch="12" num="96" status="manual"/>  <!-- Deck 3 performance pad 1, BEAT LOOP mode, p. 5 -->
+  <bind target="ch3.roll2" kind="1" ch="12" num="97" status="manual"/>  <!-- Deck 3 performance pad 2, BEAT LOOP mode, p. 6 -->
+  <bind target="ch3.roll3" kind="1" ch="12" num="98" status="manual"/>  <!-- Deck 3 performance pad 3, BEAT LOOP mode, p. 7 -->
+  <bind target="ch3.roll4" kind="1" ch="12" num="99" status="manual"/>  <!-- Deck 3 performance pad 4, BEAT LOOP mode, p. 7 -->
+  <bind target="ch3.jumpback" kind="1" ch="12" num="32" status="manual"/>  <!-- Deck 3 performance pad 1, BEAT JUMP mode, p. 5 -->
+  <bind target="ch3.jumpfwd" kind="1" ch="12" num="33" status="manual"/>  <!-- Deck 3 performance pad 2, BEAT JUMP mode, p. 6 -->
+  <bind target="ch4.clip" kind="1" ch="4" num="11" status="manual"/>  <!-- Deck 4 PLAY/PAUSE (R side), p. 1 -->
+  <bind target="ch4.cuepad1" kind="1" ch="14" num="0" status="manual"/>  <!-- Deck 4 performance pad 1, HOT CUE mode, p. 6 -->
+  <bind target="ch4.jog" kind="0" ch="4" num="34" mode="rel" rel="binoff" status="manual"/>  <!-- Deck 4 jog dial, platter (top) turn, Vinyl mode on, p. 2 -->
+  <bind target="ch4.loop" kind="1" ch="4" num="77" status="manual"/>  <!-- Deck 4 RELOOP/EXIT, p. 2 -->
+  <bind target="ch4.loophalf" kind="1" ch="4" num="81" status="manual"/>  <!-- Deck 4 CUE/LOOP CALL ◁ (halves the loop during loop playback), p. 2 -->
+  <bind target="ch4.loopdbl" kind="1" ch="4" num="83" status="manual"/>  <!-- Deck 4 CUE/LOOP CALL ▷ (doubles the loop during loop playback), p. 2 -->
+  <bind target="ch4.sync" kind="1" ch="4" num="88" status="manual"/>  <!-- Deck 4 BEAT SYNC, p. 3 -->
+  <bind target="ch4.high" kind="0" ch="4" num="7" status="manual"/>  <!-- CH4 EQ Hi knob, p. 4 -->
+  <bind target="ch4.mid" kind="0" ch="4" num="11" status="manual"/>  <!-- CH4 EQ Mid knob, p. 4 -->
+  <bind target="ch4.low" kind="0" ch="4" num="15" status="manual"/>  <!-- CH4 EQ Low knob, p. 4 -->
+  <bind target="ch4.filter" kind="0" ch="7" num="26" status="manual"/>  <!-- CH4 FILTER knob, p. 4 -->
+  <bind target="ch4.cue" kind="1" ch="4" num="84" status="manual"/>  <!-- CH4 CH CUE (headphone cue) button, p. 4 -->
+  <bind target="ch4.gain" kind="0" ch="4" num="19" status="manual"/>  <!-- CH4 channel fader, p. 4 -->
+  <bind target="ch4.load" kind="1" ch="7" num="73" status="manual"/>  <!-- LOAD (Deck4) button, p. 5 -->
+  <bind target="ch4.cuepad2" kind="1" ch="14" num="1" status="manual"/>  <!-- Deck 4 performance pad 2, HOT CUE mode, p. 6 -->
+  <bind target="ch4.cuepad3" kind="1" ch="14" num="2" status="manual"/>  <!-- Deck 4 performance pad 3, HOT CUE mode, p. 7 -->
+  <bind target="ch4.cuepad4" kind="1" ch="14" num="3" status="manual"/>  <!-- Deck 4 performance pad 4, HOT CUE mode, p. 8 -->
+  <bind target="ch4.cuepad5" kind="1" ch="14" num="4" status="manual"/>  <!-- Deck 4 performance pad 5, HOT CUE mode, p. 8 -->
+  <bind target="ch4.cuepad6" kind="1" ch="14" num="5" status="manual"/>  <!-- Deck 4 performance pad 6, HOT CUE mode, p. 9 -->
+  <bind target="ch4.cuepad7" kind="1" ch="14" num="6" status="manual"/>  <!-- Deck 4 performance pad 7, HOT CUE mode, p. 10 -->
+  <bind target="ch4.cuepad8" kind="1" ch="14" num="7" status="manual"/>  <!-- Deck 4 performance pad 8, HOT CUE mode, p. 10 -->
+  <bind target="ch4.roll1" kind="1" ch="14" num="96" status="manual"/>  <!-- Deck 4 performance pad 1, BEAT LOOP mode, p. 6 -->
+  <bind target="ch4.roll2" kind="1" ch="14" num="97" status="manual"/>  <!-- Deck 4 performance pad 2, BEAT LOOP mode, p. 6 -->
+  <bind target="ch4.roll3" kind="1" ch="14" num="98" status="manual"/>  <!-- Deck 4 performance pad 3, BEAT LOOP mode, p. 7 -->
+  <bind target="ch4.roll4" kind="1" ch="14" num="99" status="manual"/>  <!-- Deck 4 performance pad 4, BEAT LOOP mode, p. 8 -->
+  <bind target="ch4.jumpback" kind="1" ch="14" num="32" status="manual"/>  <!-- Deck 4 performance pad 1, BEAT JUMP mode, p. 6 -->
+  <bind target="ch4.jumpfwd" kind="1" ch="14" num="33" status="manual"/>  <!-- Deck 4 performance pad 2, BEAT JUMP mode, p. 6 -->
+  <bind target="master.gain" kind="0" ch="7" num="8" status="manual"/>  <!-- MASTER LEVEL knob, p. 4 -->
+  <bind target="master.cue" kind="0" ch="7" num="12" status="manual"/>  <!-- HEADPHONE MIX knob, p. 5 -->
+  <bind target="master.phones" kind="0" ch="7" num="13" status="manual"/>  <!-- HEADPHONE LEVEL knob, p. 5 -->
+  <bind target="browse.scroll" kind="0" ch="7" num="64" mode="rel" rel="2c" status="manual"/>  <!-- BROWSE rotary selector turn, p. 5 -->
+  <bind target="browse.toggle" kind="1" ch="7" num="65" status="manual"/>  <!-- BROWSE rotary selector press, p. 5 -->
+</CadenceMidiMap>

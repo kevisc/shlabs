@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Pioneer DJ DDJ-REV1: a Cadence profile from the online library (A208).
+
+  SOURCE, and only this: the manufacturer's own MIDI documentation.
+    DDJ-REV1 List of MIDI message (AlphaTheta Corporation (Pioneer DJ), 2021-12-09 (PDF date)), pages 1-5
+    https://downloads.support.alphatheta.com/software_info/dj-controllers/DDJ-REV1/DDJ-REV1_MIDI_Message_List_E1.pdf
+    DDJ-REV1 - MIDI-compatible software (links the list above) (AlphaTheta Help Center, accessed 2026-11-07), pages n/a
+    https://support.alphatheta.com/en-US/articles/4414574224025
+    DDJ-REV1 Instruction Manual (DRI1744B) (AlphaTheta Corporation (Pioneer DJ), 2021-12-06 (PDF date)), pages 9-10 (DECK select, AUTO LOOP, Loop 1/2X, Loop 2X), 14 (Roll mode), 47-49 (Utilities mode), 51 (MIDI device name), 57 (other DJ applications)
+    https://downloads.support.alphatheta.com/manuals/dj-controllers/DDJ-REV1/DDJ-REV1_DRI1744B_manual.pdf
+  No mapping file from any other application was read or used.
+
+  status="manual": the message is the manufacturer's. Nobody has tried this map on the hardware
+  yet. If a control does nothing, use Learn on that row and tell us at shlabs.contact@gmail.com.
+
+  BEFORE YOU START: None documented: the Utilities mode (manual pp. 47-49) has no MIDI-mode setting. Use the DECK button on each side to reach decks 3 and 4. AlphaTheta's help page says to power-cycle the unit after you switch DJ applications.
+
+  CADENCE'S CHOICES:
+    the jog is the platter TOP's turn with Vinyl mode on (CC 34), the unit's default. With Vinyl mode off the top sends CC 35, and the wheel's side sends its own message: Learn either to the jog row if that is how you play.
+    The ROLL pads are not bound: no AlphaTheta document gives their beat lengths.
+    Not bound, because one target holds one control: Deck 1 CUE button (ch1.cuepad1), since Deck 1 PAD 1, HOT CUE mode takes ch1.cuepad1; Deck 2 CUE button (ch2.cuepad1), since Deck 2 PAD 1, HOT CUE mode takes ch2.cuepad1; Deck 3 CUE button (ch3.cuepad1), since Deck 3 PAD 1, HOT CUE mode takes ch3.cuepad1; Deck 4 CUE button (ch4.cuepad1), since Deck 4 PAD 1, HOT CUE mode takes ch4.cuepad1.
+
+  LEFT OUT (no Cadence target): SHIFT button (ch 7 note 63) and all +SHIFT messages; Jog touch (note 54), wheel side turn (CC 33), turn with Vinyl mode off (CC 35), SHIFT+top (CC 31), SHIFT+side (CC 38); DECK select buttons (note 114, note 60 control on/off, note 23, note 96); TEMPO sliders (CC 0/32), GAIN (TRIM) knobs (CC 4/36), crossfader (ch 7 CC 31/63); MASTER CUE button (ch 7 note 99). The REV1 list has no headphone MIX knob, so master.cue is not bound; FX 1 / FX 2 section (ON/OFF, SLOT SELECT, LEVEL/DEPTH, browser +FX slot CCs 80-85); Pad mode buttons (HOT CUE 27, AUTO LOOP 30, TRACKING 32, SAMPLER 34); AUTO LOOP, TRACKING SCRATCH, SAMPLER, BEAT JUMP, TRANS, SCRATCH BANK pad pages; ROLL pads 5-8; Beat jump: the manual only says SHIFT + HOT CUE mode button 'Enters Beat Jump mode' and gives no pad directions, so chN.jumpback / chN.jumpfwd are not bound; Fader start notes (102, 81, 82)
+
+  A jog wheel that moves too fast or too slow: set its row to Fine, or invert it, in the dialog.
+-->
+<CadenceMidiMap name="Pioneer DJ DDJ-REV1" maker="Pioneer DJ" model="DDJ-REV1" match="ddjrev1" version="1">
+  <bind target="ch1.clip" kind="1" ch="1" num="11" status="manual"/>  <!-- Deck 1 PLAY/PAUSE, p. 2 -->
+  <bind target="ch1.cuepad1" kind="1" ch="8" num="0" status="manual"/>  <!-- Deck 1 PAD 1, HOT CUE mode, p. 3 -->
+  <bind target="ch1.jog" kind="0" ch="1" num="34" mode="rel" rel="binoff" status="manual"/>  <!-- Deck 1 jog, platter (top) turn, Vinyl mode on, p. 2 -->
+  <bind target="ch1.loop" kind="1" ch="1" num="20" status="manual"/>  <!-- Deck 1 AUTO LOOP button, p. 2 -->
+  <bind target="ch1.loophalf" kind="1" ch="1" num="18" status="manual"/>  <!-- Deck 1 Loop 1/2X button, p. 2 -->
+  <bind target="ch1.loopdbl" kind="1" ch="1" num="19" status="manual"/>  <!-- Deck 1 Loop 2X button, p. 2 -->
+  <bind target="ch1.sync" kind="1" ch="1" num="88" status="manual"/>  <!-- Deck 1 SYNC, p. 2 -->
+  <bind target="ch1.gain" kind="0" ch="1" num="19" status="manual"/>  <!-- Channel fader (deck 1), p. 2 -->
+  <bind target="ch1.high" kind="0" ch="1" num="7" status="manual"/>  <!-- EQ HI knob (deck 1), p. 2 -->
+  <bind target="ch1.mid" kind="0" ch="1" num="11" status="manual"/>  <!-- EQ MID knob (deck 1), p. 2 -->
+  <bind target="ch1.low" kind="0" ch="1" num="15" status="manual"/>  <!-- EQ LOW knob (deck 1), p. 2 -->
+  <bind target="ch1.cue" kind="1" ch="1" num="84" status="manual"/>  <!-- Headphone CUE button (deck 1), p. 2 -->
+  <bind target="ch1.filter" kind="0" ch="7" num="23" status="manual"/>  <!-- FILTER knob (CH1), p. 3 -->
+  <bind target="ch1.load" kind="1" ch="7" num="70" status="manual"/>  <!-- LOAD button (left side, deck 1 selected), p. 1 -->
+  <bind target="ch1.cuepad2" kind="1" ch="8" num="1" status="manual"/>  <!-- Deck 1 PAD 2, HOT CUE mode, p. 3 -->
+  <bind target="ch1.cuepad3" kind="1" ch="8" num="2" status="manual"/>  <!-- Deck 1 PAD 3, HOT CUE mode, p. 4 -->
+  <bind target="ch1.cuepad4" kind="1" ch="8" num="3" status="manual"/>  <!-- Deck 1 PAD 4, HOT CUE mode, p. 4 -->
+  <bind target="ch1.cuepad5" kind="1" ch="8" num="4" status="manual"/>  <!-- Deck 1 PAD 5, HOT CUE mode, p. 4 -->
+  <bind target="ch1.cuepad6" kind="1" ch="8" num="5" status="manual"/>  <!-- Deck 1 PAD 6, HOT CUE mode, p. 4 -->
+  <bind target="ch1.cuepad7" kind="1" ch="8" num="6" status="manual"/>  <!-- Deck 1 PAD 7, HOT CUE mode, p. 4 -->
+  <bind target="ch1.cuepad8" kind="1" ch="8" num="7" status="manual"/>  <!-- Deck 1 PAD 8, HOT CUE mode, p. 5 -->
+  <bind target="ch2.clip" kind="1" ch="2" num="11" status="manual"/>  <!-- Deck 2 PLAY/PAUSE, p. 2 -->
+  <bind target="ch2.cuepad1" kind="1" ch="10" num="0" status="manual"/>  <!-- Deck 2 PAD 1, HOT CUE mode, p. 3 -->
+  <bind target="ch2.jog" kind="0" ch="2" num="34" mode="rel" rel="binoff" status="manual"/>  <!-- Deck 2 jog, platter (top) turn, Vinyl mode on, p. 2 -->
+  <bind target="ch2.loop" kind="1" ch="2" num="20" status="manual"/>  <!-- Deck 2 AUTO LOOP button, p. 2 -->
+  <bind target="ch2.loophalf" kind="1" ch="2" num="18" status="manual"/>  <!-- Deck 2 Loop 1/2X button, p. 2 -->
+  <bind target="ch2.loopdbl" kind="1" ch="2" num="19" status="manual"/>  <!-- Deck 2 Loop 2X button, p. 2 -->
+  <bind target="ch2.sync" kind="1" ch="2" num="88" status="manual"/>  <!-- Deck 2 SYNC, p. 2 -->
+  <bind target="ch2.gain" kind="0" ch="2" num="19" status="manual"/>  <!-- Channel fader (deck 2), p. 2 -->
+  <bind target="ch2.high" kind="0" ch="2" num="7" status="manual"/>  <!-- EQ HI knob (deck 2), p. 2 -->
+  <bind target="ch2.mid" kind="0" ch="2" num="11" status="manual"/>  <!-- EQ MID knob (deck 2), p. 2 -->
+  <bind target="ch2.low" kind="0" ch="2" num="15" status="manual"/>  <!-- EQ LOW knob (deck 2), p. 2 -->
+  <bind target="ch2.cue" kind="1" ch="2" num="84" status="manual"/>  <!-- Headphone CUE button (deck 2), p. 2 -->
+  <bind target="ch2.filter" kind="0" ch="7" num="24" status="manual"/>  <!-- FILTER knob (CH2), p. 3 -->
+  <bind target="ch2.load" kind="1" ch="7" num="71" status="manual"/>  <!-- LOAD button (right side, deck 2 selected), p. 1 -->
+  <bind target="ch2.cuepad2" kind="1" ch="10" num="1" status="manual"/>  <!-- Deck 2 PAD 2, HOT CUE mode, p. 3 -->
+  <bind target="ch2.cuepad3" kind="1" ch="10" num="2" status="manual"/>  <!-- Deck 2 PAD 3, HOT CUE mode, p. 4 -->
+  <bind target="ch2.cuepad4" kind="1" ch="10" num="3" status="manual"/>  <!-- Deck 2 PAD 4, HOT CUE mode, p. 4 -->
+  <bind target="ch2.cuepad5" kind="1" ch="10" num="4" status="manual"/>  <!-- Deck 2 PAD 5, HOT CUE mode, p. 4 -->
+  <bind target="ch2.cuepad6" kind="1" ch="10" num="5" status="manual"/>  <!-- Deck 2 PAD 6, HOT CUE mode, p. 4 -->
+  <bind target="ch2.cuepad7" kind="1" ch="10" num="6" status="manual"/>  <!-- Deck 2 PAD 7, HOT CUE mode, p. 4 -->
+  <bind target="ch2.cuepad8" kind="1" ch="10" num="7" status="manual"/>  <!-- Deck 2 PAD 8, HOT CUE mode, p. 5 -->
+  <bind target="ch3.clip" kind="1" ch="3" num="11" status="manual"/>  <!-- Deck 3 PLAY/PAUSE, p. 2 -->
+  <bind target="ch3.cuepad1" kind="1" ch="12" num="0" status="manual"/>  <!-- Deck 3 PAD 1, HOT CUE mode, p. 3 -->
+  <bind target="ch3.jog" kind="0" ch="3" num="34" mode="rel" rel="binoff" status="manual"/>  <!-- Deck 3 jog, platter (top) turn, Vinyl mode on, p. 2 -->
+  <bind target="ch3.loop" kind="1" ch="3" num="20" status="manual"/>  <!-- Deck 3 AUTO LOOP button, p. 2 -->
+  <bind target="ch3.loophalf" kind="1" ch="3" num="18" status="manual"/>  <!-- Deck 3 Loop 1/2X button, p. 2 -->
+  <bind target="ch3.loopdbl" kind="1" ch="3" num="19" status="manual"/>  <!-- Deck 3 Loop 2X button, p. 2 -->
+  <bind target="ch3.sync" kind="1" ch="3" num="88" status="manual"/>  <!-- Deck 3 SYNC, p. 2 -->
+  <bind target="ch3.gain" kind="0" ch="3" num="19" status="manual"/>  <!-- Channel fader (deck 3), p. 2 -->
+  <bind target="ch3.high" kind="0" ch="3" num="7" status="manual"/>  <!-- EQ HI knob (deck 3), p. 2 -->
+  <bind target="ch3.mid" kind="0" ch="3" num="11" status="manual"/>  <!-- EQ MID knob (deck 3), p. 2 -->
+  <bind target="ch3.low" kind="0" ch="3" num="15" status="manual"/>  <!-- EQ LOW knob (deck 3), p. 2 -->
+  <bind target="ch3.cue" kind="1" ch="3" num="84" status="manual"/>  <!-- Headphone CUE button (deck 3), p. 2 -->
+  <bind target="ch3.filter" kind="0" ch="7" num="25" status="manual"/>  <!-- FILTER knob (CH3), p. 3 -->
+  <bind target="ch3.load" kind="1" ch="7" num="72" status="manual"/>  <!-- LOAD button (left side, deck 3 selected), p. 1 -->
+  <bind target="ch3.cuepad2" kind="1" ch="12" num="1" status="manual"/>  <!-- Deck 3 PAD 2, HOT CUE mode, p. 3 -->
+  <bind target="ch3.cuepad3" kind="1" ch="12" num="2" status="manual"/>  <!-- Deck 3 PAD 3, HOT CUE mode, p. 4 -->
+  <bind target="ch3.cuepad4" kind="1" ch="12" num="3" status="manual"/>  <!-- Deck 3 PAD 4, HOT CUE mode, p. 4 -->
+  <bind target="ch3.cuepad5" kind="1" ch="12" num="4" status="manual"/>  <!-- Deck 3 PAD 5, HOT CUE mode, p. 4 -->
+  <bind target="ch3.cuepad6" kind="1" ch="12" num="5" status="manual"/>  <!-- Deck 3 PAD 6, HOT CUE mode, p. 4 -->
+  <bind target="ch3.cuepad7" kind="1" ch="12" num="6" status="manual"/>  <!-- Deck 3 PAD 7, HOT CUE mode, p. 4 -->
+  <bind target="ch3.cuepad8" kind="1" ch="12" num="7" status="manual"/>  <!-- Deck 3 PAD 8, HOT CUE mode, p. 5 -->
+  <bind target="ch4.clip" kind="1" ch="4" num="11" status="manual"/>  <!-- Deck 4 PLAY/PAUSE, p. 2 -->
+  <bind target="ch4.cuepad1" kind="1" ch="14" num="0" status="manual"/>  <!-- Deck 4 PAD 1, HOT CUE mode, p. 3 -->
+  <bind target="ch4.jog" kind="0" ch="4" num="34" mode="rel" rel="binoff" status="manual"/>  <!-- Deck 4 jog, platter (top) turn, Vinyl mode on, p. 2 -->
+  <bind target="ch4.loop" kind="1" ch="4" num="20" status="manual"/>  <!-- Deck 4 AUTO LOOP button, p. 2 -->
+  <bind target="ch4.loophalf" kind="1" ch="4" num="18" status="manual"/>  <!-- Deck 4 Loop 1/2X button, p. 2 -->
+  <bind target="ch4.loopdbl" kind="1" ch="4" num="19" status="manual"/>  <!-- Deck 4 Loop 2X button, p. 2 -->
+  <bind target="ch4.sync" kind="1" ch="4" num="88" status="manual"/>  <!-- Deck 4 SYNC, p. 2 -->
+  <bind target="ch4.gain" kind="0" ch="4" num="19" status="manual"/>  <!-- Channel fader (deck 4), p. 2 -->
+  <bind target="ch4.high" kind="0" ch="4" num="7" status="manual"/>  <!-- EQ HI knob (deck 4), p. 2 -->
+  <bind target="ch4.mid" kind="0" ch="4" num="11" status="manual"/>  <!-- EQ MID knob (deck 4), p. 2 -->
+  <bind target="ch4.low" kind="0" ch="4" num="15" status="manual"/>  <!-- EQ LOW knob (deck 4), p. 2 -->
+  <bind target="ch4.cue" kind="1" ch="4" num="84" status="manual"/>  <!-- Headphone CUE button (deck 4), p. 2 -->
+  <bind target="ch4.filter" kind="0" ch="7" num="26" status="manual"/>  <!-- FILTER knob (CH4), p. 3 -->
+  <bind target="ch4.load" kind="1" ch="7" num="73" status="manual"/>  <!-- LOAD button (right side, deck 4 selected), p. 1 -->
+  <bind target="ch4.cuepad2" kind="1" ch="14" num="1" status="manual"/>  <!-- Deck 4 PAD 2, HOT CUE mode, p. 3 -->
+  <bind target="ch4.cuepad3" kind="1" ch="14" num="2" status="manual"/>  <!-- Deck 4 PAD 3, HOT CUE mode, p. 4 -->
+  <bind target="ch4.cuepad4" kind="1" ch="14" num="3" status="manual"/>  <!-- Deck 4 PAD 4, HOT CUE mode, p. 4 -->
+  <bind target="ch4.cuepad5" kind="1" ch="14" num="4" status="manual"/>  <!-- Deck 4 PAD 5, HOT CUE mode, p. 4 -->
+  <bind target="ch4.cuepad6" kind="1" ch="14" num="5" status="manual"/>  <!-- Deck 4 PAD 6, HOT CUE mode, p. 4 -->
+  <bind target="ch4.cuepad7" kind="1" ch="14" num="6" status="manual"/>  <!-- Deck 4 PAD 7, HOT CUE mode, p. 4 -->
+  <bind target="ch4.cuepad8" kind="1" ch="14" num="7" status="manual"/>  <!-- Deck 4 PAD 8, HOT CUE mode, p. 5 -->
+  <bind target="master.gain" kind="0" ch="7" num="8" status="manual"/>  <!-- MASTER LEVEL knob, p. 2 -->
+  <bind target="master.phones" kind="0" ch="7" num="13" status="manual"/>  <!-- HEADPHONES LEVEL knob, p. 2 -->
+  <bind target="browse.scroll" kind="0" ch="7" num="64" mode="rel" rel="2c" status="manual"/>  <!-- Rotary Selector turn, p. 1 -->
+  <bind target="browse.toggle" kind="1" ch="7" num="65" status="manual"/>  <!-- Rotary Selector press, p. 1 -->
+</CadenceMidiMap>
