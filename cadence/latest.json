@@ -1,9 +1,9 @@
 {
   "schema": 1,
   "mac": {
-    "version": "0.9.3",
+    "version": "0.9.4",
     "url": "https://shlabs.ch/cadence/beta/",
-    "notes": "Hot cues on a controller: mapped pads go by number, a press on an empty one sets the cue, MAP mode shows all eight."
+    "notes": "Suggested hot cues, a whole set on one deck, a stream card and tracklists, sections on a controller, rails on the mixer."
   },
   "win": {
     "version": "0.6.0",
