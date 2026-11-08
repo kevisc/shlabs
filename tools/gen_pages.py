@@ -13,10 +13,11 @@ design system (see css/shlabs.css).
 
         index.html   404.html
         about/  donate/  downloads/  empiria/
-        cadence/  phosphor/  cell/  schlagzeugs/  contour/  spazio/  lacuna/
+        cadence/  kinora/  cell/  schlagzeugs/  contour/  spazio/  lacuna/
         legato/  stesso/  tonnetz/  metro185/   (glue/ redirects to legato/)
         stochast/  mashina/  lucida/  rikoshet/  atmos/  terra/
-        gsw/  gsw/cadence/  gsw/phosphor/   (Schwiizerdütsch, see gsw_home())
+        gsw/  gsw/cadence/  gsw/kinora/   (Schwiizerdütsch, see gsw_home())
+        phosphor/  gsw/phosphor/   (redirects: Kinora was called Phosphor)
 
     It never touches: cadence/manual/ (the product manual deliberately
     matches the app's own look, not the site), CNAME, img/, README.md,
@@ -77,7 +78,7 @@ NAV_LINKS = [
 FOOTER_COLS = [
     ("Flagships", [
         ("Cadence", "/cadence/"),
-        ("Phosphor", "/phosphor/"),
+        ("Kinora", "/kinora/"),
     ]),
     ("Instruments &amp; effects", [
         ("Cell", "/cell/"),
@@ -359,7 +360,7 @@ def render_parts(parts, counter):
     return "\n".join(out)
 
 
-GSW_TWIN = {"Cadence": "/gsw/cadence/", "Phosphor": "/gsw/phosphor/"}
+GSW_TWIN = {"Cadence": "/gsw/cadence/", "Kinora": "/gsw/kinora/"}
 
 
 def product_page(p):
@@ -570,12 +571,12 @@ PRODUCTS["cadence"] = {
         ]},
         {"slab": True, "id": "bundle", "parts": [
             ("head", "The bundle", "Ten products"),
-            ("h3", "Cadence and Phosphor work together"),
-            ("lead", """Cadence sends live data to Phosphor over OSC. Phosphor uses that data to drive the picture, so the visuals follow the set while you keep mixing. Both apps do this today."""),
+            ("h3", "Cadence and Kinora work together"),
+            ("lead", """Cadence sends live data to Kinora over OSC. Kinora uses that data to drive the picture, so the visuals follow the set while you keep mixing. Both apps do this today."""),
             ("rows", [
                 ("Cadence sends", "Clock, structure, energy",
                  """Beat and clock phase, BPM and transport, master band energy across bass, mid and high, kick onsets, and a drop-aware intensity signal. When a deck plays separated stems, it also sends per-stem levels and drum-stem onsets. The broadcast runs continuously while you play."""),
-                ("So Phosphor can", "Keep visuals on the same grid",
+                ("So Kinora can", "Keep visuals on the same grid",
                  """Lock scene motion to beat phase. Follow the bands with reactive parameters. Fire shockwave ripples on kick onsets. Raise the image into each drop. Output runs fullscreen on a projector."""),
             ]),
             ("body", """The bundle also includes <a class="link" href="/cell/">Cell</a>, <a class="link" href="/schlagzeugs/">Schlagzeugs</a>, <a class="link" href="/contour/">Contour</a>, <a class="link" href="/spazio/">Spazio</a>, <a class="link" href="/lacuna/">Lacuna</a>, <a class="link" href="/legato/">Legato</a>, <a class="link" href="/stesso/">Stesso</a> and <a class="link" href="/tonnetz/">Tonnetz</a>. That is every instrument, effect and mastering tool in the line."""),
@@ -583,7 +584,7 @@ PRODUCTS["cadence"] = {
             ("body", """Lacuna follows Cadence's key. With Follow on, its six resonances retune to the key of the deck Cadence plays, in any host on the same computer."""),
             ("body", """A Tonnetz link is planned for the bundle. Cadence would follow and steer harmony through note-follow over OSC."""),
             ("mono", "Bundle pricing announced at release."),
-            ("acts", [("/phosphor/", "Phosphor &rarr;", ""),
+            ("acts", [("/kinora/", "Kinora &rarr;", ""),
                       ("/tonnetz/", "Tonnetz &rarr;", ""),
                       ALL_PRODUCTS]),
         ]},
@@ -601,20 +602,20 @@ PRODUCTS["cadence"] = {
     ],
 }
 
-# ─── Phosphor ─────────────────────────────────────────────────────────
-PRODUCTS["phosphor"] = {
-    "name": "Phosphor",
-    "title": "Phosphor · SHLabs",
-    "desc": """Phosphor is a GPU-based audio-reactive video synthesiser: thirty-two scenes, a 100k particle system, band envelopes and onset detection, Syphon output and recording. It locks to Cadence over OSC, to the host playhead, or to the beat it finds in the audio. On a Mac it can capture whatever is playing. VST3 / AU / Standalone. Coming soon.""",
+# ─── Kinora (called Phosphor until November 2026) ───────────────────────────
+PRODUCTS["kinora"] = {
+    "name": "Kinora",
+    "title": "Kinora · SHLabs",
+    "desc": """Kinora, formerly Phosphor, is a GPU-based audio-reactive video synthesiser: thirty-two scenes, a 100k particle system, band envelopes and onset detection, Syphon output and recording. It locks to Cadence over OSC, to the host playhead, or to the beat it finds in the audio. On a Mac it can capture whatever is playing. VST3 / AU / Standalone. Coming soon.""",
     "crumb": ("Visuals", "/#cat-visuals"),
     "cat": "Audio-reactive video synth",
     "status": "Coming soon",
     "soon": True,
-    "claim": "An audio-reactive video synthesiser.",
+    "claim": "An audio-reactive video synthesiser. Until November 2026 it was called Phosphor. The Kinora was a home moving-picture viewer, made from 1896 to 1914.",
     "lead": """A GLSL engine on the GPU, with thirty-two scenes and a particle system of 100,000 points. Band envelopes and onset detection drive the image. It locks to your clock or to the beat it finds in the audio. Output goes fullscreen to a projector or floats over the music you play. When inserted on a track, it passes the audio through unchanged.""",
     "spec": ["VST3 · AU · Standalone", "macOS"],
     "shot": ("/img/shots/phosphor-live.jpg",
-             "The Phosphor window in LIVE mode, with the Night Drive 85 preset. Current development build",
+             "The window in LIVE mode, with the Night Drive 85 preset. A development build from before the rename, so the header still reads PHOSPHOR",
              1920, 1230),
     "sections": [
         {"parts": [
@@ -627,9 +628,9 @@ PRODUCTS["phosphor"] = {
                 ("Reactivity", "Bands and onsets",
                  """Separate envelopes for overall level and for bass, mid and high. Onset detectors for kick, snare and hat. Spectral centroid tilts the colour with the brightness of the sound. One master REACT control sets the overall response."""),
                 ("Sync", "Clock sources",
-                 """Lock to <a class="link" href="/cadence/">Cadence</a> over OSC and follow beat, phase, BPM, transport, band energy, onsets and drop intensity. Use the host playhead inside a DAW. Or let Phosphor find the beat in the audio, for a stream or a record with no clock."""),
+                 """Lock to <a class="link" href="/cadence/">Cadence</a> over OSC and follow beat, phase, BPM, transport, band energy, onsets and drop intensity. Use the host playhead inside a DAW. Or let Kinora find the beat in the audio, for a stream or a record with no clock."""),
                 ("Just listen", "A visualiser for the music you play",
-                 """On a Mac, Phosphor captures what any app plays, such as Spotify, Apple Music or a browser, with no cable and no loopback driver. A hands-free director runs over it. Phosphor asks the player what is playing, so a new track changes the scene and the album art sets the palette. You can float it over the player, with click-through if you want, or set it as a live desktop wallpaper with a menu bar icon. A flash limiter keeps the picture under three flashes a second. The controls fade when the mouse rests."""),
+                 """On a Mac, Kinora captures what any app plays, such as Spotify, Apple Music or a browser, with no cable and no loopback driver. A hands-free director runs over it. Kinora asks the player what is playing, so a new track changes the scene and the album art sets the palette. You can float it over the player, with click-through if you want, or set it as a live desktop wallpaper with a menu bar icon. A flash limiter keeps the picture under three flashes a second. The controls fade when the mouse rests."""),
                 ("Performance", "For live use",
                  """Fullscreen output to a second display or projector. <strong>Evolve</strong> gives hands-free generative drift. <strong>Auto</strong> moves between presets, and <strong>Flow</strong> morphs between them: cut, smooth or slow. 138 factory presets and 15 colour palettes, layered dual-engine blending, a video-clip layer with reactive blending, and shockwave ripples on the kick."""),
                 ("I/O &amp; control", "Outputs and remote control",
@@ -642,17 +643,17 @@ PRODUCTS["phosphor"] = {
             ("frames", [
                 ("/img/phosphor/lotus.jpg", "Lotus", "Bloom", 1280, 720),
                 ("/img/phosphor/chrome-studio.jpg", "Chrome Studio", "Chrome", 1280, 720),
-            ], "Frames rendered by the Phosphor engine at 1280 &times; 720. Each label gives the preset, then its scene."),
+            ], "Frames rendered by the Kinora engine at 1280 &times; 720. Each label gives the preset, then its scene."),
         ]},
         {"slab": True, "id": "bundle", "parts": [
             ("head", "The bundle", "Bundle pricing at release"),
-            ("h3", "Phosphor locks to Cadence"),
-            ("body", """Cadence broadcasts clock phase, beat, BPM, transport, master band energy, kick onsets and a drop-aware intensity signal over OSC. Phosphor uses them to put motion on the beat, move parameters with the bands, react to the kick and raise the image into the drop. The bundle also includes the plugin line: Cell, Schlagzeugs, Contour, Spazio, Lacuna, Legato, Stesso and Tonnetz."""),
+            ("h3", "Kinora locks to Cadence"),
+            ("body", """Cadence broadcasts clock phase, beat, BPM, transport, master band energy, kick onsets and a drop-aware intensity signal over OSC. Kinora uses them to put motion on the beat, move parameters with the bands, react to the kick and raise the image into the drop. The bundle also includes the plugin line: Cell, Schlagzeugs, Contour, Spazio, Lacuna, Legato, Stesso and Tonnetz."""),
             ("acts", [("/cadence/#bundle", "See the bundle &rarr;", "")]),
         ]},
         {"parts": [
             ("head", "Get it", ""),
-            ("lead", """Phosphor is a paid, closed-source SHLabs app in active development."""),
+            ("lead", """Kinora is a paid, closed-source SHLabs app in active development."""),
             ("body", """This page is an early look. Pricing and availability will be announced at release. For early access, or to ask about a specific host, projector or media server, write to us."""),
             ("acts", [(MAIL, "Write us", "fill"), ALL_PRODUCTS]),
         ]},
@@ -1241,7 +1242,7 @@ INDEX_GROUPS = [
          "Soon", "is-soon"),
     ]),
     ("cat-visuals", "Visuals", "Video synthesis", [
-        ("11", "/phosphor/", "Audio-reactive video synth", "Phosphor",
+        ("11", "/kinora/", "Audio-reactive video synth", "Kinora",
          """Beat-locked GPU scenes for a projector, or for whatever your Mac is playing. Thirty-two scenes and Syphon output.""",
          "Soon", "is-soon"),
     ]),
@@ -1300,7 +1301,7 @@ def homepage():
 
     return (
         head("SHLabs · Software for music and visuals",
-             """SHLabs is an independent studio in Switzerland. It makes Cadence, a performance mixer and master clock, Phosphor, an audio-reactive video synth, a line of VST3 and AU plugins, and free modules for VCV Rack 2.""",
+             """SHLabs is an independent studio in Switzerland. It makes Cadence, a performance mixer and master clock, Kinora, an audio-reactive video synth, a line of VST3 and AU plugins, and free modules for VCV Rack 2.""",
              home=True,
              og=("SHLabs · Software for music and visuals",
                  "An independent studio in Switzerland. Apps, plugins and modules for the stage, the DAW and VCV Rack."))
@@ -1371,7 +1372,7 @@ def homepage():
     <div class="flag pad">
       <div class="flag__id">
         <span class="mono dim">Visuals · VST3 · AU · Standalone</span>
-        <h3 class="flag__name"><a href="/phosphor/">Phosphor</a></h3>
+        <h3 class="flag__name"><a href="/kinora/">Kinora</a></h3>
       </div>
       <div class="flag__text">
         <p class="flag__claim">An audio-reactive video synth.</p>
@@ -1396,7 +1397,7 @@ def homepage():
       <div class="note__v">
         <p class="body">
           Cadence sends its clock, beat phase, band energy, kick onsets and drop
-          intensity to Phosphor over OSC, so the visuals follow the set. The bundle
+          intensity to Kinora over OSC, so the visuals follow the set. The bundle
           also includes Cell, Schlagzeugs, Contour, Spazio, Lacuna, Legato, Stesso
           and Tonnetz.
         </p>
@@ -1834,6 +1835,15 @@ def notfound_page():
     )
 
 
+def renamed_stub(lang, name, target, words):
+    """A product that changed its name. The old address forwards at once, to people and to
+    search engines, like glue/ does for Legato. phosphor/beta/ is not touched: it is its own page."""
+    return ('<!doctype html>\n<html lang="%s"><head><meta charset="utf-8"><title>%s · SHLabs</title>\n'
+            '<meta http-equiv="refresh" content="0; url=%s"><link rel="canonical" href="https://shlabs.ch%s">\n'
+            '<meta name="robots" content="noindex"></head>\n'
+            '<body><p>%s <a href="%s">%s</a>.</p></body></html>\n' % (lang, name, target, target, words, target, name))
+
+
 def empiria_page():
     """A redirect stub. The canonical page is /stochast/; the visible copy is
     only ever seen if the refresh and the script are both blocked."""
@@ -1924,7 +1934,7 @@ def cadence_beta_page():
           recorded set, up to two hours. Settings serves a now-playing card for OBS, and every
           master recording gets its tracklist as a text file and a .cue sheet. A controller can
           jump between sections, and rails on every mixer strip show which blocks are open.
-          The new Phosphor features in 0.9.4 need the next Phosphor beta, which is not on this
+          The new Phosphor features in 0.9.4 need the next Kinora beta (Kinora is the new name of Phosphor), which is not on this
           page yet. The zip also carries 0.9.3's hot cues on a controller, where a mapped pad is
           the cue with its number and a press on an empty one sets it; 0.9.2's Peers, where another Cadence on the network mirrors this mix as a
           surface and either chair can move any control, with the linked collection loadable over the
@@ -1942,7 +1952,7 @@ def cadence_beta_page():
           carries its licence and third-party notices and passed an in-process smoke test; Glue is
           now Legato. Lacuna 0.2.0 and Schlagzeugs 0.2.0 are universal too. A Mac zip holds the AU and the VST3; a Windows zip
           holds the VST3 and a standalone exe. Each has its own install card. On the Mac, Cell,
-          Contour, Legato (1.1.0, called Glue until 1.0.0; the Windows zip is still Glue 1.0.0), Spazio, Stesso and Tonnetz are universal builds and Phosphor 0.6.1 is
+          Contour, Legato (1.1.0, called Glue until 1.0.0; the Windows zip is still Glue 1.0.0), Spazio, Stesso and Tonnetz are universal builds and Kinora (still named Phosphor 0.6.1 in its zip) is
           Apple Silicon only. Nothing is code-signed for Windows, so the standalone exe asks once;
           a host loading the VST3 does not.
         </p>
@@ -1975,7 +1985,7 @@ GSW_LINK = [
     ("Bass, Mitte, Höhi", "Jede Teil vom Mix isch im Bild",
      """Parameter folged de drüü Bänder."""),
     ("Kick-Treffer", "Jede Kick git en visuelle Treffer",
-     """Phosphor löst bi jedem Kick e Schockwälle uus."""),
+     """Kinora löst bi jedem Kick e Schockwälle uus."""),
     ("Drop-Intensität", "S Bild baut sich bis zum Drop uuf",
      """Cadence meldet, wie starch de Drop isch."""),
 ]
@@ -1995,7 +2005,7 @@ GSW_CADENCE = [
      """Kanal scharf stelle, iizähle, spile. De Loop lauft grad im Takt wiiter. De Master nimmt Cadence als 24-Bit-WAV uuf."""),
 ]
 
-GSW_PHOSPHOR = [
+GSW_KINORA = [
     ("Szene", "32 Szene",
      """Vo Fields und Fractal bis Horizon, Pipes und Chrome. Alles lauft i GLSL uf de GPU."""),
     ("Partikel", "100'000 Pünkt",
@@ -2003,7 +2013,7 @@ GSW_PHOSPHOR = [
     ("Reaktion", "Bänder und Onsets",
      """Eigeni Hüllkurve für Level, Bass, Mitte und Höhi. Onset-Detektore für Kick, Snare und Hat."""),
     ("Sync", "Clock-Quälle",
-     """Cadence per OSC, de Host-Playhead i de DAW, oder de Beat, wo Phosphor im Audio findet."""),
+     """Cadence per OSC, de Host-Playhead i de DAW, oder de Beat, wo Kinora im Audio findet."""),
     ("Output", "Bild use",
      """Vollbild uf en zweite Bildschirm oder en Beamer. Syphon uf macOS, H.264-Ufnahm und PNG-Snapshots."""),
 ]
@@ -2029,7 +2039,7 @@ def gsw_nav(english):
         '      <a class="wordmark" href="/gsw/">SH<i>labs</i></a>\n'
         '      <div class="nav__links mono">\n'
         '      <a href="/gsw/cadence/">Cadence</a>\n'
-        '      <a href="/gsw/phosphor/">Phosphor</a>\n'
+        '      <a href="/gsw/kinora/">Kinora</a>\n'
         '%s'
         '      </div>\n'
         '    </div>\n'
@@ -2108,13 +2118,13 @@ def gsw_home():
     <div class="flag pad">
       <div class="flag__id">
         <span class="mono dim">Visuals · VST3 · AU · Standalone</span>
-        <h3 class="flag__name"><a href="/gsw/phosphor/">Phosphor</a></h3>
+        <h3 class="flag__name"><a href="/gsw/kinora/">Kinora</a></h3>
       </div>
       <div class="flag__text">
         <p class="flag__claim">En Video-Synth, wo uf Audio reagiert.</p>
         <p class="body">
           E GPU-Engine mit 32 Szene und eme Partikelsystem mit
-          100'000 Pünkt. Hüllkurve und Onset-Detektore stüüred s Bild. Phosphor
+          100'000 Pünkt. Hüllkurve und Onset-Detektore stüüred s Bild. Kinora
           synchronisiert sich mit Cadence oder mit em Host und lauft im Vollbild
           uf em Beamer.
         </p>
@@ -2130,7 +2140,7 @@ def gsw_home():
       <span class="mono dim">Per OSC</span>
     </div>
     <div class="blk pad">
-      <p class="lead">Cadence schickt Live-Date a Phosphor. Phosphor bruucht si, zum s Bild z stüüre. Du chasch eifach wiiter mixe.</p>
+      <p class="lead">Cadence schickt Live-Date a Kinora. Kinora bruucht si, zum s Bild z stüüre. Du chasch eifach wiiter mixe.</p>
     </div>
 %s
   </section>
@@ -2143,7 +2153,7 @@ def gsw_home():
       <span class="mono dim">Priis bim Release</span>
     </div>
     <div class="blk pad">
-      <p class="lead">Zäh Produkt: Cadence, Phosphor und acht Plugins.</p>
+      <p class="lead">Zäh Produkt: Cadence, Kinora und acht Plugins.</p>
       <p class="body">Cell, Schlagzeugs, Contour, Spazio, Lacuna, Legato, Stesso und Tonnetz.</p>
       <div class="acts">
         <a class="act act--fill" href="mailto:shlabs.contact@gmail.com">Schriib eus</a>
@@ -2219,19 +2229,19 @@ def gsw_cadence():
         """Jede Kanal nimmt en Live-Iigang oder en Player mit Beatgrid. E sample-gnaui MIDI-Clock stüürt dini Hardware. Assist chan de Mix hebe, während du spilsch. Was du uf eme Keyboard oder eme Hardware-Synth spilsch, nimmt Cadence uf em gliiche Kanal als Loop uuf.""",
         GSW_CADENCE,
         """Cadence isch e choschtepflichtigi App i aktiver Entwicklig. D Beta lauft uf macOS und Windows. Für Early Access schriib eus.""",
-        "Phosphor")
+        "Kinora")
 
 
-def gsw_phosphor():
+def gsw_kinora():
     return gsw_product(
-        "phosphor", "Phosphor", "Audio-reaktive Video-Synth",
+        "kinora", "Kinora", "Audio-reaktive Video-Synth",
         "En Video-Synth, wo uf Audio reagiert.",
-        """E GLSL-Engine uf de GPU, mit 32 Szene und eme Partikelsystem mit 100'000 Pünkt. Bänder und Onsets stüüred s Bild. Wänn Phosphor uf eme Track lauft, gaht s Audio unveränderet dure.""",
-        GSW_PHOSPHOR,
-        """Phosphor isch e choschtepflichtigi App i aktiver Entwicklig. Für Early Access schriib eus.""",
+        """E GLSL-Engine uf de GPU, mit 32 Szene und eme Partikelsystem mit 100'000 Pünkt. Bänder und Onsets stüüred s Bild. Wänn Kinora uf eme Track lauft, gaht s Audio unveränderet dure. Bis im November 2026 hät d App Phosphor gheisse.""",
+        GSW_KINORA,
+        """Kinora isch e choschtepflichtigi App i aktiver Entwicklig. Für Early Access schriib eus.""",
         "Cadence",
         shot=("/img/shots/phosphor-live.jpg",
-              "S Phosphor-Fänschter im LIVE-Modus, mit em Preset Night Drive 85. Aktuelli Entwicklerversion",
+              "S Fänschter im LIVE-Modus, mit em Preset Night Drive 85. E Entwicklerversion vor em neue Name, drum staht no PHOSPHOR obe",
               1920, 1230))
 
 
@@ -2255,8 +2265,11 @@ def main():
         write("%s/index.html" % slug, product_page(p))
     write("gsw/index.html", gsw_home())
     write("gsw/cadence/index.html", gsw_cadence())
-    write("gsw/phosphor/index.html", gsw_phosphor())
-    print("done: %d pages" % (10 + len(PRODUCTS)))
+    write("gsw/kinora/index.html", gsw_kinora())
+    # Kinora was called Phosphor until November 2026: the old addresses send people on.
+    write("phosphor/index.html", renamed_stub("en", "Kinora", "/kinora/", "Phosphor is now called"))
+    write("gsw/phosphor/index.html", renamed_stub("gsw", "Kinora", "/gsw/kinora/", "Phosphor heisst jetzt"))
+    print("done: %d pages" % (12 + len(PRODUCTS)))
 
 
 if __name__ == "__main__":
