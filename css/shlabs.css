@@ -193,6 +193,38 @@ h1, h2, h3, h4, p { margin: 0; }
 .nav__links a.is-accent { color: var(--amber-ink); }
 .nav__links a[aria-current="page"] { color: var(--ink); }
 
+/* language switch: EN | CH at the end of the nav. The filled segment is the
+   page's language. On hover the fill moves to the other segment, so the
+   switch shows where it goes, and the flag waves once. Red stays inside the
+   flag: amber is still the only accent. */
+.nav__links a.lang {
+  display: inline-flex;
+  border: 1px solid var(--ink);
+  color: var(--ink);
+  letter-spacing: .1em;
+  line-height: 1;
+}
+.lang__seg {
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 4px 6px 3px;
+  transition: background-color .12s linear, color .12s linear;
+}
+.lang__seg.is-on { background: var(--ink); color: var(--paper); }
+.lang:hover .lang__seg.is-on,
+.lang:focus-visible .lang__seg.is-on { background: transparent; color: var(--ink); }
+.lang:hover .lang__seg:not(.is-on),
+.lang:focus-visible .lang__seg:not(.is-on) { background: var(--ink); color: var(--paper); }
+.lang__flag { flex: none; display: block; transform-origin: 50% 90%; }
+.lang:hover .lang__flag { animation: lang-wave .5s ease-in-out; }
+@keyframes lang-wave {
+  30% { transform: rotate(-12deg); }
+  65% { transform: rotate(9deg); }
+}
+/* On a small phone the switch shows only the language it leads to. */
+@media (max-width: 400px) {
+  .lang__seg.is-on { display: none; }
+}
+
 /* ─── hero ───────────────────────────────────────────────────────────── */
 .hero { padding-top: clamp(38px, 7vw, 96px); padding-bottom: clamp(26px, 3.6vw, 46px); }
 .hero__meta {
@@ -501,6 +533,26 @@ h1, h2, h3, h4, p { margin: 0; }
 .plate--hi { max-width: none; }
 .plate img { display: block; width: 100%; }
 .fig figcaption { margin-top: 11px; color: var(--grey); line-height: 1.5; }
+
+/* frames: engine frames side by side, each labelled preset · scene. Two
+   1280 px frames across the sheet show at about native density on a 2x
+   screen. It sits in a .band--tight, so it carries its own air off the rule,
+   as .explore does. */
+.frames {
+  padding-top: clamp(22px, 2.6vw, 32px);
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(14px, 2vw, 28px);
+}
+.frame .plate { max-width: none; background: var(--ink); }
+.frame__cap {
+  display: flex; justify-content: space-between; gap: 8px;
+  margin: 9px 0 0;
+  color: var(--ink);
+}
+@media (max-width: 720px) {
+  .frames { grid-template-columns: minmax(0, 1fr); }
+}
 .figs { display: grid; gap: clamp(24px, 3vw, 40px); }
 
 .band { padding-top: clamp(30px, 4vw, 54px); padding-bottom: clamp(30px, 4vw, 54px); }
@@ -668,6 +720,7 @@ h1, h2, h3, h4, p { margin: 0; }
 }
 
 @media (max-width: 480px) {
+  .nav__links .nav-hide-sm { display: none; }
   .hero__meta, .psheet__meta { flex-direction: column; gap: 6px; }
   .foot__col { grid-column: 1 / -1; }
   .row { grid-template-columns: 1.9rem minmax(0, 1fr) 4.2rem; }

@@ -238,7 +238,7 @@
           <div class="stage" id="stage">
             <div class="stage__in">
               <img class="is-on" src="/tap/q1.webp" width="960" height="540" fetchpriority="high"
-                   alt="A glowing amber accretion disc around a black sphere, rendered by Phosphor">
+                   alt="A sun setting over a neon grid, rendered by Phosphor">
             </div>
           </div>
           <div class="clock mono" aria-hidden="true">
@@ -254,7 +254,7 @@
             <div class="clock__row pad">
               <span>Phosphor</span>
               <span class="clock__read">
-                <span class="dim">Quasar Jets</span>
+                <span class="dim" id="look">Night Drive 85</span>
                 <span class="status">Locked</span>
               </span>
             </div>
@@ -269,7 +269,7 @@
             <a class="act" href="/tap/shlabs.vcf">Save contact</a>
           </div>
           <p class="soon mono status">Coming soon <span class="dim">· Bundle pricing at release</span></p>
-          <p class="credit">Real Phosphor frames. The Cadence set is simulated at 124&nbsp;BPM.</p>
+          <p class="credit">Real Phosphor frames from eight factory presets. The Cadence set is simulated at 124&nbsp;BPM.</p>
         </div>
       </section>
 
@@ -308,7 +308,7 @@
 
         <article class="app">
           <a class="plate" href="/phosphor/" tabindex="-1" aria-hidden="true">
-            <img src="/img/shots/phosphor-visual.jpg" width="1600" height="715" loading="lazy" alt="">
+            <img src="/tap/phosphor.webp" width="1200" height="696" loading="lazy" alt="">
           </a>
           <div class="app__t pad">
             <h3><a href="/phosphor/">Phosphor <span>&rarr;</span></a></h3>
@@ -368,13 +368,16 @@
       });
 
       /* The clock. One 124 BPM count drives the readout, the beat squares, the bar
-         and the picture. The eight frames span 16 beats of the same render, so the
-         page shows a new frame every two beats. */
+         and the picture. The eight frames are eight factory presets. The page cuts
+         to the next one on each downbeat, and the readout names it. */
       if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-      var BEAT_MS = 60000 / 124, BEATS_PER_FRAME = 2, FRAMES = 8;
+      var BEAT_MS = 60000 / 124, BEATS_PER_FRAME = 4, FRAMES = 8;
+      var NAMES = ['Night Drive 85', 'Chrome Studio', 'Dot Burst', 'Lotus',
+                   'Phosphor Scope', 'Red Sphere', 'Mandala Bloom', 'Sunset Tunnel'];
       var stageIn = document.querySelector('.stage__in');
       var pos = document.getElementById('pos');
+      var look = document.getElementById('look');
       var bar = document.getElementById('bar');
       var squares = document.getElementById('beats').children;
       var frames = [stageIn.querySelector('img')];
@@ -402,6 +405,7 @@
           frames[shown].classList.remove('is-on');
           shown = (beat / BEATS_PER_FRAME) % FRAMES;
           frames[shown].classList.add('is-on');
+          look.textContent = NAMES[shown];
         }
         if (stageIn.animate) {
           stageIn.animate(

@@ -21,7 +21,8 @@
       <a href="/#flagships">Flagships</a>
       <a href="/#index">Index</a>
       <a href="/#studio" class="nav-hide">Studio</a>
-      <a href="https://github.com/shlabs-audio" class="is-accent" rel="noopener">GitHub</a>
+      <a href="https://github.com/shlabs-audio" class="is-accent nav-hide-sm" rel="noopener">GitHub</a>
+      <a class="lang" href="/gsw/phosphor/" hreflang="gsw" lang="gsw" title="Schwiizerdütsch" aria-label="Schwiizerdütsch"><span class="lang__seg is-on" aria-hidden="true">EN</span><span class="lang__seg" aria-hidden="true"><svg class="lang__flag" width="9" height="9" viewBox="0 0 32 32" aria-hidden="true" focusable="false"><rect width="32" height="32" fill="#d52b1e"/><rect x="13" y="6" width="6" height="20" fill="#fff"/><rect x="6" y="13" width="20" height="6" fill="#fff"/></svg>CH</span></a>
       </div>
     </div>
   </nav>
@@ -51,8 +52,8 @@
 
   <div class="band band--tight pad">
     <figure class="fig">
-      <div class="plate"><img src="/img/shots/phosphor.jpg" alt="The Phosphor plugin interface" width="1280" height="1040" loading="lazy"></div>
-      <figcaption class="mono">The Phosphor plugin interface.</figcaption>
+      <div class="plate"><img src="/img/shots/phosphor-live.jpg" alt="The Phosphor window in LIVE mode, with the Night Drive 85 preset. Current development build" width="1920" height="1230" loading="lazy"></div>
+      <figcaption class="mono">The Phosphor window in LIVE mode, with the Night Drive 85 preset. Current development build.</figcaption>
     </figure>
   </div>
 
@@ -64,8 +65,8 @@
     </div>
     <div class="spec">
       <span class="row__no">01</span>
-      <span class="row__id"><span class="row__cat">Scene engine</span><h3 class="row__name">Five scene families</h3></span>
-      <p class="row__desc">Everything renders on the GPU in GLSL. <strong>Fields</strong> covers more than twelve morphable patterns. <strong>Tunnel</strong> is a flythrough. <strong>Fractals</strong> runs Julia, Mandelbrot and Burning Ship. <strong>Spectrum</strong> draws bars, radial and spectrograph views from an FFT. <strong>Ambient</strong> holds nebula, aurora, caustics and lava.</p>
+      <span class="row__id"><span class="row__cat">Scene engine</span><h3 class="row__name">Thirty-two scenes</h3></span>
+      <p class="row__desc">Everything renders on the GPU in GLSL. <strong>Fields</strong> holds more than twelve morphable patterns. <strong>Fractal</strong> runs Julia, Mandelbrot and Burning Ship. <strong>Spectrum</strong> and <strong>Waveform</strong> draw the audio itself from an FFT and an oscilloscope. Other scenes include a tunnel flythrough, a retro horizon, flowers, jellyfish, 3D pipes, chrome, mazes and datamosh. Press G to open the scene gallery.</p>
     </div>
     <div class="spec">
       <span class="row__no">02</span>
@@ -90,7 +91,7 @@
     <div class="spec">
       <span class="row__no">06</span>
       <span class="row__id"><span class="row__cat">Performance</span><h3 class="row__name">For live use</h3></span>
-      <p class="row__desc">Fullscreen output to a second display or projector. <strong>Evolve</strong> gives hands-free generative drift. <strong>Auto</strong> moves between presets, and <strong>Flow</strong> morphs between them: cut, smooth or slow. More than 36 presets and 15 colour palettes, layered dual-engine blending, a video-clip layer with reactive blending, and shockwave ripples on the kick.</p>
+      <p class="row__desc">Fullscreen output to a second display or projector. <strong>Evolve</strong> gives hands-free generative drift. <strong>Auto</strong> moves between presets, and <strong>Flow</strong> morphs between them: cut, smooth or slow. 138 factory presets and 15 colour palettes, layered dual-engine blending, a video-clip layer with reactive blending, and shockwave ripples on the kick.</p>
     </div>
     <div class="spec">
       <span class="row__no">07</span>
@@ -105,11 +106,21 @@
   <section class="sec">
     <div class="group__head group__head--first">
       <h2 class="mono">Engine output</h2>
+      <span class="mono dim-2">Two of the 138 presets</span>
     </div>
     <div class="band band--tight pad">
       <figure class="fig">
-        <div class="plate"><img src="/img/shots/phosphor-visual.jpg" alt="A frame rendered by the Phosphor engine" width="1600" height="715" loading="lazy"></div>
-        <figcaption class="mono">Engine output: a single frame captured from Phosphor.</figcaption>
+        <div class="frames">
+        <div class="frame">
+          <div class="plate"><img src="/img/phosphor/lotus.jpg" alt="Lotus, a frame from the Bloom scene" width="1280" height="720" loading="lazy"></div>
+          <p class="frame__cap mono"><span>Lotus</span><span class="dim-2">Bloom</span></p>
+        </div>
+        <div class="frame">
+          <div class="plate"><img src="/img/phosphor/chrome-studio.jpg" alt="Chrome Studio, a frame from the Chrome scene" width="1280" height="720" loading="lazy"></div>
+          <p class="frame__cap mono"><span>Chrome Studio</span><span class="dim-2">Chrome</span></p>
+        </div>
+        </div>
+        <figcaption class="mono">Frames rendered by the Phosphor engine at 1280 &times; 720. Each label gives the preset, then its scene.</figcaption>
       </figure>
     </div>
   </section>

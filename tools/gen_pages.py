@@ -71,7 +71,7 @@ NAV_LINKS = [
     ("Flagships", "#flagships", ""),
     ("Index", "#index", ""),
     ("Studio", "#studio", "nav-hide"),
-    ("GitHub", GITHUB, "is-accent"),
+    ("GitHub", GITHUB, "is-accent nav-hide-sm"),
 ]
 
 FOOTER_COLS = [
@@ -114,6 +114,21 @@ SWISS = (
     '<rect x="6" y="13" width="20" height="6" fill="#fff"/></svg>'
 )
 
+LANG_FLAG = SWISS.replace('<svg width="12" height="12"', '<svg class="lang__flag" width="9" height="9"')
+
+
+def lang_switch(here, href):
+    """The EN | CH switch at the end of the nav. `here` is the page's own
+    language ("en" or "gsw"). The switch links to the same page in the other
+    language, or to the Swiss German home when there is no such page."""
+    to, label = ("gsw", "Schwiizerdütsch") if here == "en" else ("en", "English")
+    en = "lang__seg is-on" if here == "en" else "lang__seg"
+    ch = "lang__seg is-on" if here == "gsw" else "lang__seg"
+    return ('      <a class="lang" href="%s" hreflang="%s" lang="%s" title="%s" aria-label="%s">'
+            '<span class="%s" aria-hidden="true">EN</span>'
+            '<span class="%s" aria-hidden="true">%sCH</span></a>\n'
+            % (href, to, to, label, label, en, ch, LANG_FLAG))
+
 
 def head(title, desc, *, home=False, robots=None, canonical=None, refresh=None,
          script=False, og=None, lang="en"):
@@ -153,7 +168,7 @@ def head(title, desc, *, home=False, robots=None, canonical=None, refresh=None,
     return "\n".join(L)
 
 
-def nav(home=False, current=None):
+def nav(home=False, current=None, gsw="/gsw/"):
     root = "" if home else "/"
     out = []
     for label, target, cls in NAV_LINKS:
@@ -169,9 +184,9 @@ def nav(home=False, current=None):
         '  <nav class="nav">\n'
         '    <div class="nav__in pad">\n'
         '      <a class="wordmark" href="%s">SH<i>labs</i></a>\n'
-        '      <div class="nav__links mono">\n%s\n      </div>\n'
+        '      <div class="nav__links mono">\n%s\n%s      </div>\n'
         '    </div>\n'
-        '  </nav>\n' % ("#top" if home else "/", "\n".join(out))
+        '  </nav>\n' % ("#top" if home else "/", "\n".join(out), lang_switch("en", gsw))
     )
 
 
@@ -286,6 +301,24 @@ def render_parts(parts, counter):
             _, src, alt, w, h, cap = part
             out.append('    <div class="band band--tight pad">\n%s\n    </div>'
                        % plate_html(src, alt, w, h, cap))
+        elif kind == "frames":
+            # A grid of engine frames, each labelled with its preset and scene.
+            flush()
+            _, frames, cap = part
+            cells = "\n".join(
+                '        <div class="frame">\n'
+                '          <div class="plate"><img src="%s" alt="%s, a frame from the %s scene" '
+                'width="%d" height="%d" loading="lazy"></div>\n'
+                '          <p class="frame__cap mono"><span>%s</span><span class="dim-2">%s</span></p>\n'
+                '        </div>' % (src, name, scene, w, h, name, scene)
+                for src, name, scene, w, h in frames)
+            out.append(
+                '    <div class="band band--tight pad">\n'
+                '      <figure class="fig">\n'
+                '        <div class="frames">\n%s\n        </div>\n'
+                '        <figcaption class="mono">%s</figcaption>\n'
+                '      </figure>\n'
+                '    </div>' % (cells, cap))
         elif kind == "explore":
             flush()
             # The app's own views, behind a tab row that mirrors the app's own
@@ -326,6 +359,9 @@ def render_parts(parts, counter):
     return "\n".join(out)
 
 
+GSW_TWIN = {"Cadence": "/gsw/cadence/", "Phosphor": "/gsw/phosphor/"}
+
+
 def product_page(p):
     """Render one product sheet."""
     crumb_label, crumb_href = p["crumb"]
@@ -352,7 +388,7 @@ def product_page(p):
 
     return (
         head(p["title"], p["desc"], script=p.get("script", False))
-        + nav()
+        + nav(gsw=GSW_TWIN.get(p["name"], "/gsw/"))
         + '\n  <div class="sheet">\n\n'
         '  <nav class="crumb pad mono" aria-label="Breadcrumb">\n'
         '    <a href="/#index">Index</a>\n'
@@ -577,13 +613,15 @@ PRODUCTS["phosphor"] = {
     "claim": "An audio-reactive video synthesiser.",
     "lead": """A GLSL engine on the GPU, with thirty-two scenes and a particle system of 100,000 points. Band envelopes and onset detection drive the image. It locks to your clock or to the beat it finds in the audio. Output goes fullscreen to a projector or floats over the music you play. When inserted on a track, it passes the audio through unchanged.""",
     "spec": ["VST3 · AU · Standalone", "macOS"],
-    "shot": ("/img/shots/phosphor.jpg", "The Phosphor plugin interface", 1280, 1040),
+    "shot": ("/img/shots/phosphor-live.jpg",
+             "The Phosphor window in LIVE mode, with the Night Drive 85 preset. Current development build",
+             1920, 1230),
     "sections": [
         {"parts": [
             ("head", "What it does", ""),
             ("rows", [
-                ("Scene engine", "Five scene families",
-                 """Everything renders on the GPU in GLSL. <strong>Fields</strong> covers more than twelve morphable patterns. <strong>Tunnel</strong> is a flythrough. <strong>Fractals</strong> runs Julia, Mandelbrot and Burning Ship. <strong>Spectrum</strong> draws bars, radial and spectrograph views from an FFT. <strong>Ambient</strong> holds nebula, aurora, caustics and lava."""),
+                ("Scene engine", "Thirty-two scenes",
+                 """Everything renders on the GPU in GLSL. <strong>Fields</strong> holds more than twelve morphable patterns. <strong>Fractal</strong> runs Julia, Mandelbrot and Burning Ship. <strong>Spectrum</strong> and <strong>Waveform</strong> draw the audio itself from an FFT and an oscilloscope. Other scenes include a tunnel flythrough, a retro horizon, flowers, jellyfish, 3D pipes, chrome, mazes and datamosh. Press G to open the scene gallery."""),
                 ("Particles", "100,000 points",
                  """A GPGPU particle system with more than 100,000 points, trails and reflections. The simulation runs entirely on the graphics card."""),
                 ("Reactivity", "Bands and onsets",
@@ -593,17 +631,18 @@ PRODUCTS["phosphor"] = {
                 ("Just listen", "A visualiser for the music you play",
                  """On a Mac, Phosphor captures what any app plays, such as Spotify, Apple Music or a browser, with no cable and no loopback driver. A hands-free director runs over it. Phosphor asks the player what is playing, so a new track changes the scene and the album art sets the palette. You can float it over the player, with click-through if you want, or set it as a live desktop wallpaper with a menu bar icon. A flash limiter keeps the picture under three flashes a second. The controls fade when the mouse rests."""),
                 ("Performance", "For live use",
-                 """Fullscreen output to a second display or projector. <strong>Evolve</strong> gives hands-free generative drift. <strong>Auto</strong> moves between presets, and <strong>Flow</strong> morphs between them: cut, smooth or slow. More than 36 presets and 15 colour palettes, layered dual-engine blending, a video-clip layer with reactive blending, and shockwave ripples on the kick."""),
+                 """Fullscreen output to a second display or projector. <strong>Evolve</strong> gives hands-free generative drift. <strong>Auto</strong> moves between presets, and <strong>Flow</strong> morphs between them: cut, smooth or slow. 138 factory presets and 15 colour palettes, layered dual-engine blending, a video-clip layer with reactive blending, and shockwave ripples on the kick."""),
                 ("I/O &amp; control", "Outputs and remote control",
                  """Syphon output on macOS feeds VJ software or a media server. H.264 recording and PNG snapshots capture the output. MIDI-learn covers every control, and a phone remote joins over the local network by QR code."""),
             ]),
             ("mono", """VST3 &middot; AU &middot; Standalone. macOS now. A Windows build is in CI with the visuals and reactivity. Syphon and recording stay macOS-only."""),
         ]},
         {"parts": [
-            ("head", "Engine output", ""),
-            ("plate", "/img/shots/phosphor-visual.jpg",
-             "A frame rendered by the Phosphor engine", 1600, 715,
-             "Engine output: a single frame captured from Phosphor."),
+            ("head", "Engine output", "Two of the 138 presets"),
+            ("frames", [
+                ("/img/phosphor/lotus.jpg", "Lotus", "Bloom", 1280, 720),
+                ("/img/phosphor/chrome-studio.jpg", "Chrome Studio", "Chrome", 1280, 720),
+            ], "Frames rendered by the Phosphor engine at 1280 &times; 720. Each label gives the preset, then its scene."),
         ]},
         {"slab": True, "id": "bundle", "parts": [
             ("head", "The bundle", "Bundle pricing at release"),
@@ -1265,7 +1304,7 @@ def homepage():
              home=True,
              og=("SHLabs · Software for music and visuals",
                  "An independent studio in Switzerland. Apps, plugins and modules for the stage, the DAW and VCV Rack."))
-        + nav(home=True)
+        + nav(home=True, gsw="/gsw/")
         + """
   <div class="sheet" id="top">
 
@@ -1337,14 +1376,14 @@ def homepage():
       <div class="flag__text">
         <p class="flag__claim">An audio-reactive video synth.</p>
         <p class="body">
-          A GPU engine with five scene families (fields, tunnel, fractals,
-          spectrum, ambient) and a particle system of 100,000 points. Band envelopes
+          A GPU engine with thirty-two scenes and a particle system of
+          100,000 points. Band envelopes
           and onset detectors drive the image. It locks to Cadence or to your host
           playhead and runs fullscreen on a projector.
         </p>
         <div class="flag__spec mono">
           <span>GLSL engine</span>
-          <span>36+ presets</span>
+          <span>138 presets</span>
           <span>Syphon out</span>
           <span>MIDI learn</span>
           <span class="dim-2">macOS · Windows in CI</span>
@@ -1957,8 +1996,8 @@ GSW_CADENCE = [
 ]
 
 GSW_PHOSPHOR = [
-    ("Szene", "Föif Familie",
-     """Fields, Tunnel, Fractals, Spectrum und Ambient. Alles lauft i GLSL uf de GPU."""),
+    ("Szene", "32 Szene",
+     """Vo Fields und Fractal bis Horizon, Pipes und Chrome. Alles lauft i GLSL uf de GPU."""),
     ("Partikel", "100'000 Pünkt",
      """D Simulation lauft ganz uf de Grafikcharte."""),
     ("Reaktion", "Bänder und Onsets",
@@ -1991,10 +2030,10 @@ def gsw_nav(english):
         '      <div class="nav__links mono">\n'
         '      <a href="/gsw/cadence/">Cadence</a>\n'
         '      <a href="/gsw/phosphor/">Phosphor</a>\n'
-        '      <a href="%s" class="is-accent" hreflang="en" lang="en">English</a>\n'
+        '%s'
         '      </div>\n'
         '    </div>\n'
-        '  </nav>\n' % english
+        '  </nav>\n' % lang_switch("gsw", english)
     )
 
 
@@ -2074,7 +2113,7 @@ def gsw_home():
       <div class="flag__text">
         <p class="flag__claim">En Video-Synth, wo uf Audio reagiert.</p>
         <p class="body">
-          E GPU-Engine mit föif Szene-Familie und eme Partikelsystem mit
+          E GPU-Engine mit 32 Szene und eme Partikelsystem mit
           100'000 Pünkt. Hüllkurve und Onset-Detektore stüüred s Bild. Phosphor
           synchronisiert sich mit Cadence oder mit em Host und lauft im Vollbild
           uf em Beamer.
@@ -2119,7 +2158,12 @@ def gsw_home():
     )
 
 
-def gsw_product(slug, name, cat, claim, desc, rows, close, other):
+def gsw_product(slug, name, cat, claim, desc, rows, close, other, shot=None):
+    plate = ""
+    if shot:
+        src, alt, w, h = shot
+        plate = ('\n  <div class="band band--tight pad">\n%s\n  </div>\n'
+                 % plate_html(src, alt, w, h, alt + ".", indent="    "))
     return (
         head("%s · SHLabs" % name, claim, lang="gsw",
              canonical="https://shlabs.ch/gsw/%s/" % slug)
@@ -2138,7 +2182,7 @@ def gsw_product(slug, name, cat, claim, desc, rows, close, other):
       <div class="psheet__desc"><p class="body">%s</p></div>
     </div>
   </header>
-
+%s
   <div class="rule--ink"></div>
 
   <section class="sec">
@@ -2162,7 +2206,7 @@ def gsw_product(slug, name, cat, claim, desc, rows, close, other):
     </div>
   </section>
 
-""" % (cat, name, claim, desc, gsw_spec(rows), close, other.lower(), other, slug)
+""" % (cat, name, claim, desc, plate, gsw_spec(rows), close, other.lower(), other, slug)
         + gsw_footer("/%s/" % slug)
         + tail()
     )
@@ -2185,7 +2229,10 @@ def gsw_phosphor():
         """E GLSL-Engine uf de GPU, mit 32 Szene und eme Partikelsystem mit 100'000 Pünkt. Bänder und Onsets stüüred s Bild. Wänn Phosphor uf eme Track lauft, gaht s Audio unveränderet dure.""",
         GSW_PHOSPHOR,
         """Phosphor isch e choschtepflichtigi App i aktiver Entwicklig. Für Early Access schriib eus.""",
-        "Cadence")
+        "Cadence",
+        shot=("/img/shots/phosphor-live.jpg",
+              "S Phosphor-Fänschter im LIVE-Modus, mit em Preset Night Drive 85. Aktuelli Entwicklerversion",
+              1920, 1230))
 
 
 # ═══════════════════════════════════════════════════════════════════════
