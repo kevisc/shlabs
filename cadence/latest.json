@@ -1,9 +1,9 @@
 {
   "schema": 1,
   "mac": {
-    "version": "0.9.4",
+    "version": "0.9.5",
     "url": "https://shlabs.ch/cadence/beta/",
-    "notes": "Suggested hot cues, a whole set on one deck, a stream card and tracklists, sections on a controller, rails on the mixer."
+    "notes": "Controllers ready to map with a tour of yours, a professional filter, a deeper delay and reverb, a finished FX panel, and Kinora."
   },
   "win": {
     "version": "0.6.0",
