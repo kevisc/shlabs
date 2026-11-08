@@ -12,6 +12,7 @@
 
   status="manual": the message is the manufacturer's. Nobody has tried this map on the hardware
   yet. If a control does nothing, use Learn on that row and tell us at shlabs.contact@gmail.com.
+  label="..." is the control's name on the unit, shown in the mapping dialog and the guided tour.
 
   BEFORE YOU START: The user manual (chapter 6) calls the unit a plug-and-play USB Audio and USB MIDI controller that works without drivers in DJUCED on Windows and macOS. The pads send the cuepad messages only while the deck's HOT CUE mode button (Mode 1) is selected. Turn VINYL on for each deck so that turning the jog with the top touched sends the Vinyl-mode message bound here (see doubts).
 
@@ -23,51 +24,51 @@
 
   A jog wheel that moves too fast or too slow: set its row to Fine, or invert it, in the dialog.
 -->
-<CadenceMidiMap name="Hercules DJControl Inpulse 500" maker="Hercules" model="DJControl Inpulse 500" match="inpulse500" version="1">
-  <bind target="browse.toggle" kind="1" ch="1" num="0" status="manual"/>  <!-- Browse encoder push, PDF p. 8 (printed p. 8) -->
-  <bind target="browse.scroll" kind="0" ch="1" num="1" mode="rel" rel="2c" status="manual"/>  <!-- Browse encoder turn, PDF p. 8 (printed p. 8) -->
-  <bind target="ch1.clip" kind="1" ch="2" num="7" status="manual"/>  <!-- Deck 1 (left) PLAY/PAUSE button, PDF p. 1 (printed p. 1) -->
-  <bind target="ch1.cuepad1" kind="1" ch="7" num="0" status="manual"/>  <!-- Deck 1 (left) pad 1 in Mode 1 (HOT CUE), PDF p. 2 (printed p. 2) -->
-  <bind target="ch1.loophalf" kind="1" ch="5" num="9" status="manual"/>  <!-- Deck 1 (left) SHIFT + LOOP IN (user manual: divides the loop length by 2), PDF p. 1 (printed p. 1) -->
-  <bind target="ch1.loopdbl" kind="1" ch="5" num="10" status="manual"/>  <!-- Deck 1 (left) SHIFT + LOOP OUT (user manual: doubles the loop length), PDF p. 1 (printed p. 1) -->
-  <bind target="ch1.loop" kind="1" ch="2" num="44" status="manual"/>  <!-- Deck 1 (left) Autoloop encoder push (user manual: Reloop / exit the loop), PDF p. 1 (printed p. 1) -->
-  <bind target="ch1.sync" kind="1" ch="2" num="5" status="manual"/>  <!-- Deck 1 (left) SYNC button, PDF p. 1 (printed p. 1) -->
-  <bind target="ch1.jog" kind="0" ch="2" num="9" mode="rel" rel="2c" status="manual"/>  <!-- Deck 1 (left) jog wheel turn (CC 9: the ring, and the top with VINYL off), PDF p. 2 (printed p. 2) -->
-  <bind target="ch1.slip" kind="1" ch="2" num="1" status="manual"/>  <!-- Deck 1 (left) SLIP button, PDF p. 2 (printed p. 2) -->
-  <bind target="ch1.cuepad2" kind="1" ch="7" num="1" status="manual"/>  <!-- Deck 1 (left) pad 2 in Mode 1 (HOT CUE), PDF p. 2 (printed p. 2) -->
-  <bind target="ch1.cuepad3" kind="1" ch="7" num="2" status="manual"/>  <!-- Deck 1 (left) pad 3 in Mode 1 (HOT CUE), PDF p. 2 (printed p. 2) -->
-  <bind target="ch1.cuepad4" kind="1" ch="7" num="3" status="manual"/>  <!-- Deck 1 (left) pad 4 in Mode 1 (HOT CUE), PDF p. 2 (printed p. 2) -->
-  <bind target="ch1.cuepad5" kind="1" ch="7" num="4" status="manual"/>  <!-- Deck 1 (left) pad 5 in Mode 1 (HOT CUE), PDF p. 2 (printed p. 2) -->
-  <bind target="ch1.cuepad6" kind="1" ch="7" num="5" status="manual"/>  <!-- Deck 1 (left) pad 6 in Mode 1 (HOT CUE), PDF p. 2 (printed p. 2) -->
-  <bind target="ch1.cuepad7" kind="1" ch="7" num="6" status="manual"/>  <!-- Deck 1 (left) pad 7 in Mode 1 (HOT CUE), PDF p. 2 (printed p. 2) -->
-  <bind target="ch1.cuepad8" kind="1" ch="7" num="7" status="manual"/>  <!-- Deck 1 (left) pad 8 in Mode 1 (HOT CUE), PDF p. 2 (printed p. 2) -->
-  <bind target="ch1.gain" kind="0" ch="2" num="0" status="manual"/>  <!-- Deck 1 (left) volume fader, PDF p. 5 (printed p. 5) -->
-  <bind target="ch1.cue" kind="1" ch="2" num="12" status="manual"/>  <!-- Deck 1 (left) headphone PFL button, PDF p. 5 (printed p. 5) -->
-  <bind target="ch1.filter" kind="0" ch="2" num="1" status="manual"/>  <!-- Deck 1 (left) FILTER/FX knob (filter when FX1-4 are off), PDF p. 5 (printed p. 5) -->
-  <bind target="ch1.low" kind="0" ch="2" num="2" status="manual"/>  <!-- Deck 1 (left) EQ LOW knob, PDF p. 6 (printed p. 6) -->
-  <bind target="ch1.mid" kind="0" ch="2" num="3" status="manual"/>  <!-- Deck 1 (left) EQ MID knob, PDF p. 6 (printed p. 6) -->
-  <bind target="ch1.high" kind="0" ch="2" num="4" status="manual"/>  <!-- Deck 1 (left) EQ HIGH knob, PDF p. 6 (printed p. 6) -->
-  <bind target="ch1.load" kind="1" ch="2" num="13" status="manual"/>  <!-- Deck 1 (left) LOAD button, PDF p. 8 (printed p. 8) -->
-  <bind target="ch2.clip" kind="1" ch="3" num="7" status="manual"/>  <!-- Deck 2 (right) PLAY/PAUSE button, PDF p. 10 (printed p. 10) -->
-  <bind target="ch2.cuepad1" kind="1" ch="8" num="0" status="manual"/>  <!-- Deck 2 (right) pad 1 in Mode 1 (HOT CUE), PDF p. 11 (printed p. 11) -->
-  <bind target="ch2.loophalf" kind="1" ch="6" num="9" status="manual"/>  <!-- Deck 2 (right) SHIFT + LOOP IN (user manual: divides the loop length by 2), PDF p. 10 (printed p. 10) -->
-  <bind target="ch2.loopdbl" kind="1" ch="6" num="10" status="manual"/>  <!-- Deck 2 (right) SHIFT + LOOP OUT (user manual: doubles the loop length), PDF p. 10 (printed p. 10) -->
-  <bind target="ch2.loop" kind="1" ch="3" num="44" status="manual"/>  <!-- Deck 2 (right) Autoloop encoder push (user manual: Reloop / exit the loop), PDF p. 10 (printed p. 10) -->
-  <bind target="ch2.sync" kind="1" ch="3" num="5" status="manual"/>  <!-- Deck 2 (right) SYNC button, PDF p. 11 (printed p. 11) -->
-  <bind target="ch2.jog" kind="0" ch="3" num="9" mode="rel" rel="2c" status="manual"/>  <!-- Deck 2 (right) jog wheel turn (CC 9: the ring, and the top with VINYL off), PDF p. 11 (printed p. 11) -->
-  <bind target="ch2.slip" kind="1" ch="3" num="1" status="manual"/>  <!-- Deck 2 (right) SLIP button, PDF p. 11 (printed p. 11) -->
-  <bind target="ch2.cuepad2" kind="1" ch="8" num="1" status="manual"/>  <!-- Deck 2 (right) pad 2 in Mode 1 (HOT CUE), PDF p. 11 (printed p. 11) -->
-  <bind target="ch2.cuepad3" kind="1" ch="8" num="2" status="manual"/>  <!-- Deck 2 (right) pad 3 in Mode 1 (HOT CUE), PDF p. 11 (printed p. 11) -->
-  <bind target="ch2.cuepad4" kind="1" ch="8" num="3" status="manual"/>  <!-- Deck 2 (right) pad 4 in Mode 1 (HOT CUE), PDF p. 11 (printed p. 11) -->
-  <bind target="ch2.cuepad5" kind="1" ch="8" num="4" status="manual"/>  <!-- Deck 2 (right) pad 5 in Mode 1 (HOT CUE), PDF p. 12 (printed p. 12) -->
-  <bind target="ch2.cuepad6" kind="1" ch="8" num="5" status="manual"/>  <!-- Deck 2 (right) pad 6 in Mode 1 (HOT CUE), PDF p. 12 (printed p. 12) -->
-  <bind target="ch2.cuepad7" kind="1" ch="8" num="6" status="manual"/>  <!-- Deck 2 (right) pad 7 in Mode 1 (HOT CUE), PDF p. 12 (printed p. 12) -->
-  <bind target="ch2.cuepad8" kind="1" ch="8" num="7" status="manual"/>  <!-- Deck 2 (right) pad 8 in Mode 1 (HOT CUE), PDF p. 12 (printed p. 12) -->
-  <bind target="ch2.gain" kind="0" ch="3" num="0" status="manual"/>  <!-- Deck 2 (right) volume fader, PDF p. 5 (printed p. 5) -->
-  <bind target="ch2.cue" kind="1" ch="3" num="12" status="manual"/>  <!-- Deck 2 (right) headphone PFL button, PDF p. 5 (printed p. 5) -->
-  <bind target="ch2.filter" kind="0" ch="3" num="1" status="manual"/>  <!-- Deck 2 (right) FILTER/FX knob (filter when FX1-4 are off), PDF p. 5 (printed p. 5) -->
-  <bind target="ch2.low" kind="0" ch="3" num="2" status="manual"/>  <!-- Deck 2 (right) EQ LOW knob, PDF p. 6 (printed p. 6) -->
-  <bind target="ch2.mid" kind="0" ch="3" num="3" status="manual"/>  <!-- Deck 2 (right) EQ MID knob, PDF p. 6 (printed p. 6) -->
-  <bind target="ch2.high" kind="0" ch="3" num="4" status="manual"/>  <!-- Deck 2 (right) EQ HIGH knob, PDF p. 6 (printed p. 6) -->
-  <bind target="ch2.load" kind="1" ch="3" num="13" status="manual"/>  <!-- Deck 2 (right) LOAD button, PDF p. 8 (printed p. 8) -->
+<CadenceMidiMap name="Hercules DJControl Inpulse 500" maker="Hercules" model="DJControl Inpulse 500" match="inpulse500" version="2">
+  <bind target="browse.toggle" kind="1" ch="1" num="0" label="Browse encoder push" status="manual"/>  <!-- Browse encoder push, PDF p. 8 (printed p. 8) -->
+  <bind target="browse.scroll" kind="0" ch="1" num="1" mode="rel" rel="2c" label="Browse encoder turn" status="manual"/>  <!-- Browse encoder turn, PDF p. 8 (printed p. 8) -->
+  <bind target="ch1.clip" kind="1" ch="2" num="7" label="Deck 1 (left) PLAY/PAUSE button" status="manual"/>  <!-- Deck 1 (left) PLAY/PAUSE button, PDF p. 1 (printed p. 1) -->
+  <bind target="ch1.cuepad1" kind="1" ch="7" num="0" label="Deck 1 (left) pad 1 in Mode 1 (HOT CUE)" status="manual"/>  <!-- Deck 1 (left) pad 1 in Mode 1 (HOT CUE), PDF p. 2 (printed p. 2) -->
+  <bind target="ch1.loophalf" kind="1" ch="5" num="9" label="Deck 1 (left) SHIFT + LOOP IN" status="manual"/>  <!-- Deck 1 (left) SHIFT + LOOP IN (user manual: divides the loop length by 2), PDF p. 1 (printed p. 1) -->
+  <bind target="ch1.loopdbl" kind="1" ch="5" num="10" label="Deck 1 (left) SHIFT + LOOP OUT" status="manual"/>  <!-- Deck 1 (left) SHIFT + LOOP OUT (user manual: doubles the loop length), PDF p. 1 (printed p. 1) -->
+  <bind target="ch1.loop" kind="1" ch="2" num="44" label="Deck 1 (left) Autoloop encoder push" status="manual"/>  <!-- Deck 1 (left) Autoloop encoder push (user manual: Reloop / exit the loop), PDF p. 1 (printed p. 1) -->
+  <bind target="ch1.sync" kind="1" ch="2" num="5" label="Deck 1 (left) SYNC button" status="manual"/>  <!-- Deck 1 (left) SYNC button, PDF p. 1 (printed p. 1) -->
+  <bind target="ch1.jog" kind="0" ch="2" num="9" mode="rel" rel="2c" label="Left deck jog wheel turn" status="manual"/>  <!-- Left deck jog wheel turn (CC 9: the ring, and the top with VINYL off), PDF p. 2 (printed p. 2) -->
+  <bind target="ch1.slip" kind="1" ch="2" num="1" label="Deck 1 (left) SLIP button" status="manual"/>  <!-- Deck 1 (left) SLIP button, PDF p. 2 (printed p. 2) -->
+  <bind target="ch1.cuepad2" kind="1" ch="7" num="1" label="Deck 1 (left) pad 2 in Mode 1 (HOT CUE)" status="manual"/>  <!-- Deck 1 (left) pad 2 in Mode 1 (HOT CUE), PDF p. 2 (printed p. 2) -->
+  <bind target="ch1.cuepad3" kind="1" ch="7" num="2" label="Deck 1 (left) pad 3 in Mode 1 (HOT CUE)" status="manual"/>  <!-- Deck 1 (left) pad 3 in Mode 1 (HOT CUE), PDF p. 2 (printed p. 2) -->
+  <bind target="ch1.cuepad4" kind="1" ch="7" num="3" label="Deck 1 (left) pad 4 in Mode 1 (HOT CUE)" status="manual"/>  <!-- Deck 1 (left) pad 4 in Mode 1 (HOT CUE), PDF p. 2 (printed p. 2) -->
+  <bind target="ch1.cuepad5" kind="1" ch="7" num="4" label="Deck 1 (left) pad 5 in Mode 1 (HOT CUE)" status="manual"/>  <!-- Deck 1 (left) pad 5 in Mode 1 (HOT CUE), PDF p. 2 (printed p. 2) -->
+  <bind target="ch1.cuepad6" kind="1" ch="7" num="5" label="Deck 1 (left) pad 6 in Mode 1 (HOT CUE)" status="manual"/>  <!-- Deck 1 (left) pad 6 in Mode 1 (HOT CUE), PDF p. 2 (printed p. 2) -->
+  <bind target="ch1.cuepad7" kind="1" ch="7" num="6" label="Deck 1 (left) pad 7 in Mode 1 (HOT CUE)" status="manual"/>  <!-- Deck 1 (left) pad 7 in Mode 1 (HOT CUE), PDF p. 2 (printed p. 2) -->
+  <bind target="ch1.cuepad8" kind="1" ch="7" num="7" label="Deck 1 (left) pad 8 in Mode 1 (HOT CUE)" status="manual"/>  <!-- Deck 1 (left) pad 8 in Mode 1 (HOT CUE), PDF p. 2 (printed p. 2) -->
+  <bind target="ch1.gain" kind="0" ch="2" num="0" label="Deck 1 (left) volume fader" status="manual"/>  <!-- Deck 1 (left) volume fader, PDF p. 5 (printed p. 5) -->
+  <bind target="ch1.cue" kind="1" ch="2" num="12" label="Deck 1 (left) headphone PFL button" status="manual"/>  <!-- Deck 1 (left) headphone PFL button, PDF p. 5 (printed p. 5) -->
+  <bind target="ch1.filter" kind="0" ch="2" num="1" label="Deck 1 FILTER/FX knob" status="manual"/>  <!-- Deck 1 (left) FILTER/FX knob (filter when FX1-4 are off), PDF p. 5 (printed p. 5) -->
+  <bind target="ch1.low" kind="0" ch="2" num="2" label="Deck 1 (left) EQ LOW knob" status="manual"/>  <!-- Deck 1 (left) EQ LOW knob, PDF p. 6 (printed p. 6) -->
+  <bind target="ch1.mid" kind="0" ch="2" num="3" label="Deck 1 (left) EQ MID knob" status="manual"/>  <!-- Deck 1 (left) EQ MID knob, PDF p. 6 (printed p. 6) -->
+  <bind target="ch1.high" kind="0" ch="2" num="4" label="Deck 1 (left) EQ HIGH knob" status="manual"/>  <!-- Deck 1 (left) EQ HIGH knob, PDF p. 6 (printed p. 6) -->
+  <bind target="ch1.load" kind="1" ch="2" num="13" label="Deck 1 (left) LOAD button" status="manual"/>  <!-- Deck 1 (left) LOAD button, PDF p. 8 (printed p. 8) -->
+  <bind target="ch2.clip" kind="1" ch="3" num="7" label="Deck 2 (right) PLAY/PAUSE button" status="manual"/>  <!-- Deck 2 (right) PLAY/PAUSE button, PDF p. 10 (printed p. 10) -->
+  <bind target="ch2.cuepad1" kind="1" ch="8" num="0" label="Deck 2 (right) pad 1 in Mode 1 (HOT CUE)" status="manual"/>  <!-- Deck 2 (right) pad 1 in Mode 1 (HOT CUE), PDF p. 11 (printed p. 11) -->
+  <bind target="ch2.loophalf" kind="1" ch="6" num="9" label="Deck 2 (right) SHIFT + LOOP IN" status="manual"/>  <!-- Deck 2 (right) SHIFT + LOOP IN (user manual: divides the loop length by 2), PDF p. 10 (printed p. 10) -->
+  <bind target="ch2.loopdbl" kind="1" ch="6" num="10" label="Deck 2 (right) SHIFT + LOOP OUT" status="manual"/>  <!-- Deck 2 (right) SHIFT + LOOP OUT (user manual: doubles the loop length), PDF p. 10 (printed p. 10) -->
+  <bind target="ch2.loop" kind="1" ch="3" num="44" label="Deck 2 (right) Autoloop encoder push" status="manual"/>  <!-- Deck 2 (right) Autoloop encoder push (user manual: Reloop / exit the loop), PDF p. 10 (printed p. 10) -->
+  <bind target="ch2.sync" kind="1" ch="3" num="5" label="Deck 2 (right) SYNC button" status="manual"/>  <!-- Deck 2 (right) SYNC button, PDF p. 11 (printed p. 11) -->
+  <bind target="ch2.jog" kind="0" ch="3" num="9" mode="rel" rel="2c" label="Right deck jog wheel turn" status="manual"/>  <!-- Right deck jog wheel turn (CC 9: the ring, and the top with VINYL off), PDF p. 11 (printed p. 11) -->
+  <bind target="ch2.slip" kind="1" ch="3" num="1" label="Deck 2 (right) SLIP button" status="manual"/>  <!-- Deck 2 (right) SLIP button, PDF p. 11 (printed p. 11) -->
+  <bind target="ch2.cuepad2" kind="1" ch="8" num="1" label="Deck 2 (right) pad 2 in Mode 1 (HOT CUE)" status="manual"/>  <!-- Deck 2 (right) pad 2 in Mode 1 (HOT CUE), PDF p. 11 (printed p. 11) -->
+  <bind target="ch2.cuepad3" kind="1" ch="8" num="2" label="Deck 2 (right) pad 3 in Mode 1 (HOT CUE)" status="manual"/>  <!-- Deck 2 (right) pad 3 in Mode 1 (HOT CUE), PDF p. 11 (printed p. 11) -->
+  <bind target="ch2.cuepad4" kind="1" ch="8" num="3" label="Deck 2 (right) pad 4 in Mode 1 (HOT CUE)" status="manual"/>  <!-- Deck 2 (right) pad 4 in Mode 1 (HOT CUE), PDF p. 11 (printed p. 11) -->
+  <bind target="ch2.cuepad5" kind="1" ch="8" num="4" label="Deck 2 (right) pad 5 in Mode 1 (HOT CUE)" status="manual"/>  <!-- Deck 2 (right) pad 5 in Mode 1 (HOT CUE), PDF p. 12 (printed p. 12) -->
+  <bind target="ch2.cuepad6" kind="1" ch="8" num="5" label="Deck 2 (right) pad 6 in Mode 1 (HOT CUE)" status="manual"/>  <!-- Deck 2 (right) pad 6 in Mode 1 (HOT CUE), PDF p. 12 (printed p. 12) -->
+  <bind target="ch2.cuepad7" kind="1" ch="8" num="6" label="Deck 2 (right) pad 7 in Mode 1 (HOT CUE)" status="manual"/>  <!-- Deck 2 (right) pad 7 in Mode 1 (HOT CUE), PDF p. 12 (printed p. 12) -->
+  <bind target="ch2.cuepad8" kind="1" ch="8" num="7" label="Deck 2 (right) pad 8 in Mode 1 (HOT CUE)" status="manual"/>  <!-- Deck 2 (right) pad 8 in Mode 1 (HOT CUE), PDF p. 12 (printed p. 12) -->
+  <bind target="ch2.gain" kind="0" ch="3" num="0" label="Deck 2 (right) volume fader" status="manual"/>  <!-- Deck 2 (right) volume fader, PDF p. 5 (printed p. 5) -->
+  <bind target="ch2.cue" kind="1" ch="3" num="12" label="Deck 2 (right) headphone PFL button" status="manual"/>  <!-- Deck 2 (right) headphone PFL button, PDF p. 5 (printed p. 5) -->
+  <bind target="ch2.filter" kind="0" ch="3" num="1" label="Deck 2 FILTER/FX knob" status="manual"/>  <!-- Deck 2 (right) FILTER/FX knob (filter when FX1-4 are off), PDF p. 5 (printed p. 5) -->
+  <bind target="ch2.low" kind="0" ch="3" num="2" label="Deck 2 (right) EQ LOW knob" status="manual"/>  <!-- Deck 2 (right) EQ LOW knob, PDF p. 6 (printed p. 6) -->
+  <bind target="ch2.mid" kind="0" ch="3" num="3" label="Deck 2 (right) EQ MID knob" status="manual"/>  <!-- Deck 2 (right) EQ MID knob, PDF p. 6 (printed p. 6) -->
+  <bind target="ch2.high" kind="0" ch="3" num="4" label="Deck 2 (right) EQ HIGH knob" status="manual"/>  <!-- Deck 2 (right) EQ HIGH knob, PDF p. 6 (printed p. 6) -->
+  <bind target="ch2.load" kind="1" ch="3" num="13" label="Deck 2 (right) LOAD button" status="manual"/>  <!-- Deck 2 (right) LOAD button, PDF p. 8 (printed p. 8) -->
 </CadenceMidiMap>

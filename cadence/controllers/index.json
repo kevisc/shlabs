@@ -7,7 +7,7 @@
    "maker": "Akai Professional",
    "model": "APC mini mk2",
    "match": "apcminimk2",
-   "version": 1,
+   "version": 2,
    "source": "manual",
    "notes": "From Akai Professional's MIDI documentation. Not yet tried on the hardware."
   },
@@ -17,7 +17,7 @@
    "maker": "Allen & Heath",
    "model": "Xone:K2",
    "match": "xonek2",
-   "version": 1,
+   "version": 2,
    "source": "manual",
    "notes": "From Allen & Heath's MIDI documentation. Not yet tried on the hardware."
   },
@@ -27,7 +27,7 @@
    "maker": "Allen & Heath",
    "model": "Xone:K3",
    "match": "xonek3",
-   "version": 1,
+   "version": 2,
    "source": "manual",
    "notes": "From Allen & Heath's MIDI documentation. Not yet tried on the hardware."
   },
@@ -37,7 +37,7 @@
    "maker": "DJ TechTools",
    "model": "Midi Fighter Twister",
    "match": "midifightertwister",
-   "version": 1,
+   "version": 2,
    "source": "manual",
    "notes": "From DJ TechTools's MIDI documentation. Not yet tried on the hardware."
   },
@@ -47,7 +47,7 @@
    "maker": "Hercules",
    "model": "DJControl Inpulse 200",
    "match": "inpulse200",
-   "version": 1,
+   "version": 2,
    "source": "manual",
    "notes": "From Hercules's MIDI documentation. Not yet tried on the hardware."
   },
@@ -57,7 +57,7 @@
    "maker": "Hercules",
    "model": "DJControl Inpulse 300",
    "match": "inpulse300",
-   "version": 1,
+   "version": 2,
    "source": "manual",
    "notes": "From Hercules's MIDI documentation. Not yet tried on the hardware."
   },
@@ -67,7 +67,7 @@
    "maker": "Hercules",
    "model": "DJControl Inpulse 500",
    "match": "inpulse500",
-   "version": 1,
+   "version": 2,
    "source": "manual",
    "notes": "From Hercules's MIDI documentation. Not yet tried on the hardware."
   },
@@ -77,7 +77,7 @@
    "maker": "Novation",
    "model": "Launch Control XL 3",
    "match": "launchcontrolxl3",
-   "version": 1,
+   "version": 2,
    "source": "manual",
    "notes": "From Novation's MIDI documentation. Not yet tried on the hardware."
   },
@@ -87,7 +87,7 @@
    "maker": "Pioneer DJ",
    "model": "DDJ-400",
    "match": "ddj400",
-   "version": 1,
+   "version": 2,
    "source": "manual",
    "notes": "From Pioneer DJ's MIDI documentation. Not yet tried on the hardware."
   },
@@ -97,7 +97,7 @@
    "maker": "Pioneer DJ",
    "model": "DDJ-FLX4",
    "match": "ddjflx4",
-   "version": 1,
+   "version": 2,
    "source": "manual",
    "notes": "From Pioneer DJ's MIDI documentation. Not yet tried on the hardware."
   },
@@ -107,7 +107,7 @@
    "maker": "Pioneer DJ",
    "model": "DDJ-FLX6",
    "match": "ddjflx6",
-   "version": 1,
+   "version": 2,
    "source": "manual",
    "notes": "From Pioneer DJ's MIDI documentation. Not yet tried on the hardware."
   },
@@ -117,7 +117,7 @@
    "maker": "Pioneer DJ",
    "model": "DDJ-REV1",
    "match": "ddjrev1",
-   "version": 1,
+   "version": 2,
    "source": "manual",
    "notes": "From Pioneer DJ's MIDI documentation. Not yet tried on the hardware."
   },
@@ -127,7 +127,7 @@
    "maker": "Reloop",
    "model": "Mixon 4",
    "match": "mixon4",
-   "version": 1,
+   "version": 2,
    "source": "manual",
    "notes": "From Reloop's MIDI documentation. Not yet tried on the hardware."
   }

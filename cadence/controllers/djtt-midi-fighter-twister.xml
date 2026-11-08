@@ -10,6 +10,7 @@
 
   status="manual": the message is the manufacturer's. Nobody has tried this map on the hardware
   yet. If a control does nothing, use Learn on that row and tell us at shlabs.contact@gmail.com.
+  label="..." is the control's name on the unit, shown in the mapping dialog and the guided tour.
 
   BEFORE YOU START: Factory defaults (Midi Fighter Utility: Tools > Factory Reset), Bank 1 selected.
 
@@ -17,25 +18,25 @@
 
   A jog wheel that moves too fast or too slow: set its row to Fine, or invert it, in the dialog.
 -->
-<CadenceMidiMap name="DJ TechTools Midi Fighter Twister" maker="DJ TechTools" model="Midi Fighter Twister" match="midifightertwister" version="1">
-  <bind target="ch1.high" kind="0" ch="1" num="0" status="manual"/>  <!-- Encoder 1 (turn), Bank 1, p.17 (Appendix 1, Bank 1 MIDI); layout p.3 (Fig 1) -->
-  <bind target="ch1.mid" kind="0" ch="1" num="4" status="manual"/>  <!-- Encoder 5 (turn), Bank 1, p.17 (Appendix 1, Bank 1 MIDI); layout p.3 (Fig 1) -->
-  <bind target="ch1.low" kind="0" ch="1" num="8" status="manual"/>  <!-- Encoder 9 (turn), Bank 1, p.17 (Appendix 1, Bank 1 MIDI); layout p.3 (Fig 1) -->
-  <bind target="ch1.filter" kind="0" ch="1" num="12" status="manual"/>  <!-- Encoder 13 (turn), Bank 1, p.17 (Appendix 1, Bank 1 MIDI); layout p.3 (Fig 1) -->
-  <bind target="ch2.high" kind="0" ch="1" num="1" status="manual"/>  <!-- Encoder 2 (turn), Bank 1, p.17 (Appendix 1, Bank 1 MIDI); layout p.3 (Fig 1) -->
-  <bind target="ch2.mid" kind="0" ch="1" num="5" status="manual"/>  <!-- Encoder 6 (turn), Bank 1, p.17 (Appendix 1, Bank 1 MIDI); layout p.3 (Fig 1) -->
-  <bind target="ch2.low" kind="0" ch="1" num="9" status="manual"/>  <!-- Encoder 10 (turn), Bank 1, p.17 (Appendix 1, Bank 1 MIDI); layout p.3 (Fig 1) -->
-  <bind target="ch2.filter" kind="0" ch="1" num="13" status="manual"/>  <!-- Encoder 14 (turn), Bank 1, p.17 (Appendix 1, Bank 1 MIDI); layout p.3 (Fig 1) -->
-  <bind target="ch3.high" kind="0" ch="1" num="2" status="manual"/>  <!-- Encoder 3 (turn), Bank 1, p.17 (Appendix 1, Bank 1 MIDI); layout p.3 (Fig 1) -->
-  <bind target="ch3.mid" kind="0" ch="1" num="6" status="manual"/>  <!-- Encoder 7 (turn), Bank 1, p.17 (Appendix 1, Bank 1 MIDI); layout p.3 (Fig 1) -->
-  <bind target="ch3.low" kind="0" ch="1" num="10" status="manual"/>  <!-- Encoder 11 (turn), Bank 1, p.17 (Appendix 1, Bank 1 MIDI); layout p.3 (Fig 1) -->
-  <bind target="ch3.filter" kind="0" ch="1" num="14" status="manual"/>  <!-- Encoder 15 (turn), Bank 1, p.17 (Appendix 1, Bank 1 MIDI); layout p.3 (Fig 1) -->
-  <bind target="ch4.high" kind="0" ch="1" num="3" status="manual"/>  <!-- Encoder 4 (turn), Bank 1, p.17 (Appendix 1, Bank 1 MIDI); layout p.3 (Fig 1) -->
-  <bind target="ch4.mid" kind="0" ch="1" num="7" status="manual"/>  <!-- Encoder 8 (turn), Bank 1, p.17 (Appendix 1, Bank 1 MIDI); layout p.3 (Fig 1) -->
-  <bind target="ch4.low" kind="0" ch="1" num="11" status="manual"/>  <!-- Encoder 12 (turn), Bank 1, p.17 (Appendix 1, Bank 1 MIDI); layout p.3 (Fig 1) -->
-  <bind target="ch4.filter" kind="0" ch="1" num="15" status="manual"/>  <!-- Encoder 16 (turn), Bank 1, p.17 (Appendix 1, Bank 1 MIDI); layout p.3 (Fig 1) -->
-  <bind target="ch1.cue" kind="0" ch="2" num="12" status="manual"/>  <!-- Encoder 13 push switch, Bank 1 (CC Hold), p.17 (Appendix 1, Bank 1 MIDI); switch action p.15 -->
-  <bind target="ch2.cue" kind="0" ch="2" num="13" status="manual"/>  <!-- Encoder 14 push switch, Bank 1 (CC Hold), p.17 (Appendix 1, Bank 1 MIDI); switch action p.15 -->
-  <bind target="ch3.cue" kind="0" ch="2" num="14" status="manual"/>  <!-- Encoder 15 push switch, Bank 1 (CC Hold), p.17 (Appendix 1, Bank 1 MIDI); switch action p.15 -->
-  <bind target="ch4.cue" kind="0" ch="2" num="15" status="manual"/>  <!-- Encoder 16 push switch, Bank 1 (CC Hold), p.17 (Appendix 1, Bank 1 MIDI); switch action p.15 -->
+<CadenceMidiMap name="DJ TechTools Midi Fighter Twister" maker="DJ TechTools" model="Midi Fighter Twister" match="midifightertwister" version="2">
+  <bind target="ch1.high" kind="0" ch="1" num="0" label="Encoder 1 (turn), Bank 1" status="manual"/>  <!-- Encoder 1 (turn), Bank 1, p.17 (Appendix 1, Bank 1 MIDI); layout p.3 (Fig 1) -->
+  <bind target="ch1.mid" kind="0" ch="1" num="4" label="Encoder 5 (turn), Bank 1" status="manual"/>  <!-- Encoder 5 (turn), Bank 1, p.17 (Appendix 1, Bank 1 MIDI); layout p.3 (Fig 1) -->
+  <bind target="ch1.low" kind="0" ch="1" num="8" label="Encoder 9 (turn), Bank 1" status="manual"/>  <!-- Encoder 9 (turn), Bank 1, p.17 (Appendix 1, Bank 1 MIDI); layout p.3 (Fig 1) -->
+  <bind target="ch1.filter" kind="0" ch="1" num="12" label="Encoder 13 (turn), Bank 1" status="manual"/>  <!-- Encoder 13 (turn), Bank 1, p.17 (Appendix 1, Bank 1 MIDI); layout p.3 (Fig 1) -->
+  <bind target="ch2.high" kind="0" ch="1" num="1" label="Encoder 2 (turn), Bank 1" status="manual"/>  <!-- Encoder 2 (turn), Bank 1, p.17 (Appendix 1, Bank 1 MIDI); layout p.3 (Fig 1) -->
+  <bind target="ch2.mid" kind="0" ch="1" num="5" label="Encoder 6 (turn), Bank 1" status="manual"/>  <!-- Encoder 6 (turn), Bank 1, p.17 (Appendix 1, Bank 1 MIDI); layout p.3 (Fig 1) -->
+  <bind target="ch2.low" kind="0" ch="1" num="9" label="Encoder 10 (turn), Bank 1" status="manual"/>  <!-- Encoder 10 (turn), Bank 1, p.17 (Appendix 1, Bank 1 MIDI); layout p.3 (Fig 1) -->
+  <bind target="ch2.filter" kind="0" ch="1" num="13" label="Encoder 14 (turn), Bank 1" status="manual"/>  <!-- Encoder 14 (turn), Bank 1, p.17 (Appendix 1, Bank 1 MIDI); layout p.3 (Fig 1) -->
+  <bind target="ch3.high" kind="0" ch="1" num="2" label="Encoder 3 (turn), Bank 1" status="manual"/>  <!-- Encoder 3 (turn), Bank 1, p.17 (Appendix 1, Bank 1 MIDI); layout p.3 (Fig 1) -->
+  <bind target="ch3.mid" kind="0" ch="1" num="6" label="Encoder 7 (turn), Bank 1" status="manual"/>  <!-- Encoder 7 (turn), Bank 1, p.17 (Appendix 1, Bank 1 MIDI); layout p.3 (Fig 1) -->
+  <bind target="ch3.low" kind="0" ch="1" num="10" label="Encoder 11 (turn), Bank 1" status="manual"/>  <!-- Encoder 11 (turn), Bank 1, p.17 (Appendix 1, Bank 1 MIDI); layout p.3 (Fig 1) -->
+  <bind target="ch3.filter" kind="0" ch="1" num="14" label="Encoder 15 (turn), Bank 1" status="manual"/>  <!-- Encoder 15 (turn), Bank 1, p.17 (Appendix 1, Bank 1 MIDI); layout p.3 (Fig 1) -->
+  <bind target="ch4.high" kind="0" ch="1" num="3" label="Encoder 4 (turn), Bank 1" status="manual"/>  <!-- Encoder 4 (turn), Bank 1, p.17 (Appendix 1, Bank 1 MIDI); layout p.3 (Fig 1) -->
+  <bind target="ch4.mid" kind="0" ch="1" num="7" label="Encoder 8 (turn), Bank 1" status="manual"/>  <!-- Encoder 8 (turn), Bank 1, p.17 (Appendix 1, Bank 1 MIDI); layout p.3 (Fig 1) -->
+  <bind target="ch4.low" kind="0" ch="1" num="11" label="Encoder 12 (turn), Bank 1" status="manual"/>  <!-- Encoder 12 (turn), Bank 1, p.17 (Appendix 1, Bank 1 MIDI); layout p.3 (Fig 1) -->
+  <bind target="ch4.filter" kind="0" ch="1" num="15" label="Encoder 16 (turn), Bank 1" status="manual"/>  <!-- Encoder 16 (turn), Bank 1, p.17 (Appendix 1, Bank 1 MIDI); layout p.3 (Fig 1) -->
+  <bind target="ch1.cue" kind="0" ch="2" num="12" label="Encoder 13 push switch, Bank 1 (CC Hold)" status="manual"/>  <!-- Encoder 13 push switch, Bank 1 (CC Hold), p.17 (Appendix 1, Bank 1 MIDI); switch action p.15 -->
+  <bind target="ch2.cue" kind="0" ch="2" num="13" label="Encoder 14 push switch, Bank 1 (CC Hold)" status="manual"/>  <!-- Encoder 14 push switch, Bank 1 (CC Hold), p.17 (Appendix 1, Bank 1 MIDI); switch action p.15 -->
+  <bind target="ch3.cue" kind="0" ch="2" num="14" label="Encoder 15 push switch, Bank 1 (CC Hold)" status="manual"/>  <!-- Encoder 15 push switch, Bank 1 (CC Hold), p.17 (Appendix 1, Bank 1 MIDI); switch action p.15 -->
+  <bind target="ch4.cue" kind="0" ch="2" num="15" label="Encoder 16 push switch, Bank 1 (CC Hold)" status="manual"/>  <!-- Encoder 16 push switch, Bank 1 (CC Hold), p.17 (Appendix 1, Bank 1 MIDI); switch action p.15 -->
 </CadenceMidiMap>

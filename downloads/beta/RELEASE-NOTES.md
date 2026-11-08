@@ -1,3 +1,119 @@
+# Cadence 0.9.5 beta - release note
+
+Controllers ready to map, with a tour of yours; a professional filter, a
+deeper delay, a reverb with types and a finished FX panel; rails on every
+band; and Kinora, the new name of Phosphor. **Mac only**, like 0.9.4.
+
+## Controllers
+
+**The Denon DJ SC LIVE 4 is built in.** Its profile comes from a real unit
+and was played in Cadence: mixer, both decks, the jog wheels, browse and
+load. Plug it in and Cadence offers it.
+
+**More controllers, without a heavier app.** The mapping dialog's
+Profile menu has *Download from shlabs.ch*: a library of thirteen
+controllers made from each maker's published MIDI chart, among them the
+Pioneer DJ DDJ-FLX4, DDJ-400, DDJ-FLX6 and DDJ-REV1, the Hercules
+Inpulse 200, 300 and 500, the Reloop Mixon 4, the Allen & Heath
+Xone:K2 and K3, the Novation Launch Control XL 3, the Akai APC mini mk2
+and the Midi Fighter Twister. A pick downloads one small file into your
+profiles folder. They have not been tried on the hardware yet, so each
+says so; Learn fixes any row that does nothing. Cadence reads the
+library only when you ask. The files are also on
+shlabs.ch/cadence/controllers.
+
+**A tour of your controller.** After a profile loads, the mapping
+dialog's TOUR button lights up. It runs a short tour of your controller:
+a card for each area it drives (the mixer, each deck, browse and load),
+listing each control by the name printed on the unit, such as "Left deck
+PLAY". Move any control during the tour, and the spotlight jumps to what
+it drives. The tour is also under Guided tour in SETTINGS, as "Your
+controller". It works for a map you made with Learn too; then the cards
+name only what each control drives. The mapping dialog also shows each
+control's name beside its MIDI message.
+
+## A professional filter
+
+**The filter has settings now.** The FX panel has a FILTER column, and
+what it sets applies to all four channels. TYPE is Clean (the precise
+filter Cadence always had) or Ladder (a 4-pole transistor-ladder model
+that saturates inside its loop: warmer, and rounder when it resonates).
+SLOPE is 12 or 24 dB per octave. RESONANCE adds a peak at the cutoff, up
+to about +16 dB; it fades in over the first fifth of the knob, so a touch
+near the centre never booms or whistles, and the track's level holds at
+any setting. DRIVE saturates the filtered sound, never a channel whose
+knob is at the centre. LOW-PASS TO and HIGH-PASS TO set where the knob's
+ends land. KNOB can turn the right half into a band that closes to
+300 Hz-3 kHz at three quarters (the telephone sound) before it becomes
+the high-pass. A curve draws the response, live for every channel whose
+knob is off its centre. Type, slope and knob changes crossfade, so you
+can switch mid-sweep. The default is exactly the old filter.
+
+**Each channel's own filter.** Right-click a channel's FILTER bar.
+*Sweep with the beat* moves the filter by itself between open and the
+knob, locked to the beat, so the knob sets the depth; the caption reads
+FILTER ~ while it sweeps. The FX panel sets the sweep's length (1/16 to
+4 bars) and shape (Sine, Triangle, a closing or an opening ramp). The
+MIDI map has CH1 Filter Sweep as a toggle. The same menu gives a channel
+its own type and resonance, which Cadence remembers per channel.
+
+**A deeper delay.** TIME now runs from 1/32 to 4 bars, and *Free* sets a
+time in ms off the tempo. RIGHT gives the right side its own division,
+for wide, bouncing echoes such as 1/4 left and 1/8 dot right. DUB puts a
+resonant low-pass, band-pass or high-pass filter inside the loop, so
+every repeat passes it again and the echo thins or darkens as it repeats;
+its peak never passes the feedback you set, and MIDI and macros reach it
+as Delay Dub Filter, to sweep it live. The Dub Echo preset uses it. A
+stem's echo-out follows the longer times too.
+
+**A reverb with types.** TYPE is Room (short and close), Hall (the
+reverb as it was), Plate (dense and bright) or Shimmer (the hall with
+its tail fed back an octave up, so it climbs: a rising wash for builds,
+with SHIMMER for how much). DECAY is now apart from SIZE, from 0.3 to
+20 s, so a small room can ring long and a big hall can stay short. MOD
+sets how much the tail moves. A session saved before keeps its tail. The
+new Shimmer Rise preset shows the octave; Tight Room is now a Room. MIDI
+and macros reach Reverb Decay and Reverb Shimmer.
+
+**The FX panel, finished.** Each column heads with a rail, like the
+mixer: DELAY and REVERB's square means on, a click bypasses, and FREEZE
+is a chip. The checkboxes are gone. Under each rail, a row reads SENDS
+1 2 3 4 and OUT: four small bars show what each channel sends, and the
+OUT meter shows what the effect plays. Under FILTER the row reads KNOBS
+and shows each channel's filter knob. Hover a row for what it shows.
+Save preset... keeps the whole window under your own name, beside the
+factory presets. The reverb picture draws the bass tail apart and names
+the type.
+
+**The FX panel is three columns:** FILTER, DELAY and REVERB, in the
+mixer strip's own order. The FX presets set the filter too, with two new
+ones made for it, Club Filter and Acid Ladder. MIDI and macros reach
+Filter Resonance and Filter Drive.
+
+**PLUGINS reads whole on a slim strip.** In the Index look, the PLUGINS
+rail of a 64 px levels-console strip was cut short by one pixel in
+0.9.4. It fits now.
+
+## Rails on every band
+
+**One style for every section.** The TRACKS, MIXER, OUT, MACROS, PADS and
+WAVEFORM headers lose their triangles and become rails, like the mixer
+strips: a thin line above, the word bright when the band is open and dim
+when it is closed, and a square at the right end, filled when open. A click
+opens or closes the band, as before. MIXER has two squares for its three
+sizes: both for the full console, the left one for LEVELS, none for HIDDEN.
+The PADS square stays where it is when the band opens. The Tab key and
+VoiceOver now reach all six.
+
+## Kinora, formerly Phosphor
+
+SHLabs' visualizer Phosphor is now called Kinora. Cadence says so: the
+KINORA label in the top strip, the moves in the MIDI map ("Kinora: next
+scene"), and the tooltips. A map or macro you made with the old names
+keeps working. Cadence finds Kinora and an older Phosphor alike. The
+Kinora features from 0.9.4 still need the next Kinora beta, which is not on
+the beta page yet.
+
 # Cadence 0.9.4 beta - release note
 
 Hot cues from the scan, a whole set on one deck, a card for your stream, a

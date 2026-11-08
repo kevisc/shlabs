@@ -12,6 +12,7 @@
 
   status="manual": the message is the manufacturer's. Nobody has tried this map on the hardware
   yet. If a control does nothing, use Learn on that row and tell us at shlabs.contact@gmail.com.
+  label="..." is the control's name on the unit, shown in the mapping dialog and the guided tour.
 
   BEFORE YOU START: Standalone (MIDI) mode, Custom Mode 16 (the fixed default mode: press Mode, press the 16th mode button, press Mode again). Read from the MIDI In/Out interface (first interface on Windows), not the DAW interface.
 
@@ -19,45 +20,45 @@
 
   A jog wheel that moves too fast or too slow: set its row to Fine, or invert it, in the dialog.
 -->
-<CadenceMidiMap name="Novation Launch Control XL 3" maker="Novation" model="Launch Control XL 3" match="launchcontrolxl3" version="1">
-  <bind target="ch1.high" kind="0" ch="16" num="13" status="manual"/>  <!-- Encoder row 1, column 1, User Guide p.88 -->
-  <bind target="ch1.mid" kind="0" ch="16" num="21" status="manual"/>  <!-- Encoder row 2, column 1, User Guide p.88 -->
-  <bind target="ch1.low" kind="0" ch="16" num="29" status="manual"/>  <!-- Encoder row 3, column 1, User Guide p.88 -->
-  <bind target="ch1.gain" kind="0" ch="16" num="5" status="manual"/>  <!-- Fader 1, User Guide p.88 -->
-  <bind target="ch2.high" kind="0" ch="16" num="14" status="manual"/>  <!-- Encoder row 1, column 2, User Guide p.88 -->
-  <bind target="ch2.mid" kind="0" ch="16" num="22" status="manual"/>  <!-- Encoder row 2, column 2, User Guide p.88 -->
-  <bind target="ch2.low" kind="0" ch="16" num="30" status="manual"/>  <!-- Encoder row 3, column 2, User Guide p.88 -->
-  <bind target="ch2.gain" kind="0" ch="16" num="6" status="manual"/>  <!-- Fader 2, User Guide p.88 -->
-  <bind target="ch3.high" kind="0" ch="16" num="15" status="manual"/>  <!-- Encoder row 1, column 3, User Guide p.88 -->
-  <bind target="ch3.mid" kind="0" ch="16" num="23" status="manual"/>  <!-- Encoder row 2, column 3, User Guide p.88 -->
-  <bind target="ch3.low" kind="0" ch="16" num="31" status="manual"/>  <!-- Encoder row 3, column 3, User Guide p.88 -->
-  <bind target="ch3.gain" kind="0" ch="16" num="7" status="manual"/>  <!-- Fader 3, User Guide p.88 -->
-  <bind target="ch4.high" kind="0" ch="16" num="16" status="manual"/>  <!-- Encoder row 1, column 4, User Guide p.88 -->
-  <bind target="ch4.mid" kind="0" ch="16" num="24" status="manual"/>  <!-- Encoder row 2, column 4, User Guide p.88 -->
-  <bind target="ch4.low" kind="0" ch="16" num="32" status="manual"/>  <!-- Encoder row 3, column 4, User Guide p.88 -->
-  <bind target="ch4.gain" kind="0" ch="16" num="8" status="manual"/>  <!-- Fader 4, User Guide p.88 -->
-  <bind target="ch1.filter" kind="0" ch="16" num="17" status="manual"/>  <!-- Encoder row 1, column 5, User Guide p.88 -->
-  <bind target="ch1.delay" kind="0" ch="16" num="25" status="manual"/>  <!-- Encoder row 2, column 5, User Guide p.88 -->
-  <bind target="ch1.reverb" kind="0" ch="16" num="33" status="manual"/>  <!-- Encoder row 3, column 5, User Guide p.88 -->
-  <bind target="ch2.filter" kind="0" ch="16" num="18" status="manual"/>  <!-- Encoder row 1, column 6, User Guide p.88 -->
-  <bind target="ch2.delay" kind="0" ch="16" num="26" status="manual"/>  <!-- Encoder row 2, column 6, User Guide p.88 -->
-  <bind target="ch2.reverb" kind="0" ch="16" num="34" status="manual"/>  <!-- Encoder row 3, column 6, User Guide p.88 -->
-  <bind target="ch3.filter" kind="0" ch="16" num="19" status="manual"/>  <!-- Encoder row 1, column 7, User Guide p.88 -->
-  <bind target="ch3.delay" kind="0" ch="16" num="27" status="manual"/>  <!-- Encoder row 2, column 7, User Guide p.88 -->
-  <bind target="ch3.reverb" kind="0" ch="16" num="35" status="manual"/>  <!-- Encoder row 3, column 7, User Guide p.88 -->
-  <bind target="ch4.filter" kind="0" ch="16" num="20" status="manual"/>  <!-- Encoder row 1, column 8, User Guide p.88 -->
-  <bind target="ch4.delay" kind="0" ch="16" num="28" status="manual"/>  <!-- Encoder row 2, column 8, User Guide p.88 -->
-  <bind target="ch4.reverb" kind="0" ch="16" num="36" status="manual"/>  <!-- Encoder row 3, column 8, User Guide p.88 -->
-  <bind target="ch1.cue" kind="0" ch="16" num="37" status="manual"/>  <!-- Button row 1 (upper), column 1, User Guide p.88 -->
-  <bind target="ch1.sync" kind="0" ch="16" num="45" status="manual"/>  <!-- Button row 2 (lower), column 1, User Guide p.88 -->
-  <bind target="ch1.loop" kind="0" ch="16" num="41" status="manual"/>  <!-- Button row 1 (upper), column 5, User Guide p.88 -->
-  <bind target="ch2.cue" kind="0" ch="16" num="38" status="manual"/>  <!-- Button row 1 (upper), column 2, User Guide p.88 -->
-  <bind target="ch2.sync" kind="0" ch="16" num="46" status="manual"/>  <!-- Button row 2 (lower), column 2, User Guide p.88 -->
-  <bind target="ch2.loop" kind="0" ch="16" num="42" status="manual"/>  <!-- Button row 1 (upper), column 6, User Guide p.88 -->
-  <bind target="ch3.cue" kind="0" ch="16" num="39" status="manual"/>  <!-- Button row 1 (upper), column 3, User Guide p.88 -->
-  <bind target="ch3.sync" kind="0" ch="16" num="47" status="manual"/>  <!-- Button row 2 (lower), column 3, User Guide p.88 -->
-  <bind target="ch3.loop" kind="0" ch="16" num="43" status="manual"/>  <!-- Button row 1 (upper), column 7, User Guide p.88 -->
-  <bind target="ch4.cue" kind="0" ch="16" num="40" status="manual"/>  <!-- Button row 1 (upper), column 4, User Guide p.88 -->
-  <bind target="ch4.sync" kind="0" ch="16" num="48" status="manual"/>  <!-- Button row 2 (lower), column 4, User Guide p.88 -->
-  <bind target="ch4.loop" kind="0" ch="16" num="44" status="manual"/>  <!-- Button row 1 (upper), column 8, User Guide p.88 -->
+<CadenceMidiMap name="Novation Launch Control XL 3" maker="Novation" model="Launch Control XL 3" match="launchcontrolxl3" version="2">
+  <bind target="ch1.high" kind="0" ch="16" num="13" label="Encoder row 1, column 1" status="manual"/>  <!-- Encoder row 1, column 1, User Guide p.88 -->
+  <bind target="ch1.mid" kind="0" ch="16" num="21" label="Encoder row 2, column 1" status="manual"/>  <!-- Encoder row 2, column 1, User Guide p.88 -->
+  <bind target="ch1.low" kind="0" ch="16" num="29" label="Encoder row 3, column 1" status="manual"/>  <!-- Encoder row 3, column 1, User Guide p.88 -->
+  <bind target="ch1.gain" kind="0" ch="16" num="5" label="Fader 1" status="manual"/>  <!-- Fader 1, User Guide p.88 -->
+  <bind target="ch2.high" kind="0" ch="16" num="14" label="Encoder row 1, column 2" status="manual"/>  <!-- Encoder row 1, column 2, User Guide p.88 -->
+  <bind target="ch2.mid" kind="0" ch="16" num="22" label="Encoder row 2, column 2" status="manual"/>  <!-- Encoder row 2, column 2, User Guide p.88 -->
+  <bind target="ch2.low" kind="0" ch="16" num="30" label="Encoder row 3, column 2" status="manual"/>  <!-- Encoder row 3, column 2, User Guide p.88 -->
+  <bind target="ch2.gain" kind="0" ch="16" num="6" label="Fader 2" status="manual"/>  <!-- Fader 2, User Guide p.88 -->
+  <bind target="ch3.high" kind="0" ch="16" num="15" label="Encoder row 1, column 3" status="manual"/>  <!-- Encoder row 1, column 3, User Guide p.88 -->
+  <bind target="ch3.mid" kind="0" ch="16" num="23" label="Encoder row 2, column 3" status="manual"/>  <!-- Encoder row 2, column 3, User Guide p.88 -->
+  <bind target="ch3.low" kind="0" ch="16" num="31" label="Encoder row 3, column 3" status="manual"/>  <!-- Encoder row 3, column 3, User Guide p.88 -->
+  <bind target="ch3.gain" kind="0" ch="16" num="7" label="Fader 3" status="manual"/>  <!-- Fader 3, User Guide p.88 -->
+  <bind target="ch4.high" kind="0" ch="16" num="16" label="Encoder row 1, column 4" status="manual"/>  <!-- Encoder row 1, column 4, User Guide p.88 -->
+  <bind target="ch4.mid" kind="0" ch="16" num="24" label="Encoder row 2, column 4" status="manual"/>  <!-- Encoder row 2, column 4, User Guide p.88 -->
+  <bind target="ch4.low" kind="0" ch="16" num="32" label="Encoder row 3, column 4" status="manual"/>  <!-- Encoder row 3, column 4, User Guide p.88 -->
+  <bind target="ch4.gain" kind="0" ch="16" num="8" label="Fader 4" status="manual"/>  <!-- Fader 4, User Guide p.88 -->
+  <bind target="ch1.filter" kind="0" ch="16" num="17" label="Encoder row 1, column 5" status="manual"/>  <!-- Encoder row 1, column 5, User Guide p.88 -->
+  <bind target="ch1.delay" kind="0" ch="16" num="25" label="Encoder row 2, column 5" status="manual"/>  <!-- Encoder row 2, column 5, User Guide p.88 -->
+  <bind target="ch1.reverb" kind="0" ch="16" num="33" label="Encoder row 3, column 5" status="manual"/>  <!-- Encoder row 3, column 5, User Guide p.88 -->
+  <bind target="ch2.filter" kind="0" ch="16" num="18" label="Encoder row 1, column 6" status="manual"/>  <!-- Encoder row 1, column 6, User Guide p.88 -->
+  <bind target="ch2.delay" kind="0" ch="16" num="26" label="Encoder row 2, column 6" status="manual"/>  <!-- Encoder row 2, column 6, User Guide p.88 -->
+  <bind target="ch2.reverb" kind="0" ch="16" num="34" label="Encoder row 3, column 6" status="manual"/>  <!-- Encoder row 3, column 6, User Guide p.88 -->
+  <bind target="ch3.filter" kind="0" ch="16" num="19" label="Encoder row 1, column 7" status="manual"/>  <!-- Encoder row 1, column 7, User Guide p.88 -->
+  <bind target="ch3.delay" kind="0" ch="16" num="27" label="Encoder row 2, column 7" status="manual"/>  <!-- Encoder row 2, column 7, User Guide p.88 -->
+  <bind target="ch3.reverb" kind="0" ch="16" num="35" label="Encoder row 3, column 7" status="manual"/>  <!-- Encoder row 3, column 7, User Guide p.88 -->
+  <bind target="ch4.filter" kind="0" ch="16" num="20" label="Encoder row 1, column 8" status="manual"/>  <!-- Encoder row 1, column 8, User Guide p.88 -->
+  <bind target="ch4.delay" kind="0" ch="16" num="28" label="Encoder row 2, column 8" status="manual"/>  <!-- Encoder row 2, column 8, User Guide p.88 -->
+  <bind target="ch4.reverb" kind="0" ch="16" num="36" label="Encoder row 3, column 8" status="manual"/>  <!-- Encoder row 3, column 8, User Guide p.88 -->
+  <bind target="ch1.cue" kind="0" ch="16" num="37" label="Button row 1 (upper), column 1" status="manual"/>  <!-- Button row 1 (upper), column 1, User Guide p.88 -->
+  <bind target="ch1.sync" kind="0" ch="16" num="45" label="Button row 2 (lower), column 1" status="manual"/>  <!-- Button row 2 (lower), column 1, User Guide p.88 -->
+  <bind target="ch1.loop" kind="0" ch="16" num="41" label="Button row 1 (upper), column 5" status="manual"/>  <!-- Button row 1 (upper), column 5, User Guide p.88 -->
+  <bind target="ch2.cue" kind="0" ch="16" num="38" label="Button row 1 (upper), column 2" status="manual"/>  <!-- Button row 1 (upper), column 2, User Guide p.88 -->
+  <bind target="ch2.sync" kind="0" ch="16" num="46" label="Button row 2 (lower), column 2" status="manual"/>  <!-- Button row 2 (lower), column 2, User Guide p.88 -->
+  <bind target="ch2.loop" kind="0" ch="16" num="42" label="Button row 1 (upper), column 6" status="manual"/>  <!-- Button row 1 (upper), column 6, User Guide p.88 -->
+  <bind target="ch3.cue" kind="0" ch="16" num="39" label="Button row 1 (upper), column 3" status="manual"/>  <!-- Button row 1 (upper), column 3, User Guide p.88 -->
+  <bind target="ch3.sync" kind="0" ch="16" num="47" label="Button row 2 (lower), column 3" status="manual"/>  <!-- Button row 2 (lower), column 3, User Guide p.88 -->
+  <bind target="ch3.loop" kind="0" ch="16" num="43" label="Button row 1 (upper), column 7" status="manual"/>  <!-- Button row 1 (upper), column 7, User Guide p.88 -->
+  <bind target="ch4.cue" kind="0" ch="16" num="40" label="Button row 1 (upper), column 4" status="manual"/>  <!-- Button row 1 (upper), column 4, User Guide p.88 -->
+  <bind target="ch4.sync" kind="0" ch="16" num="48" label="Button row 2 (lower), column 4" status="manual"/>  <!-- Button row 2 (lower), column 4, User Guide p.88 -->
+  <bind target="ch4.loop" kind="0" ch="16" num="44" label="Button row 1 (upper), column 8" status="manual"/>  <!-- Button row 1 (upper), column 8, User Guide p.88 -->
 </CadenceMidiMap>

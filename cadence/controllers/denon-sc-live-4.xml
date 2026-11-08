@@ -13,6 +13,9 @@
   Kevin used this map in Cadence on the unit on 2026-11-04 ("it worked"). The status attribute is for
   people; a factory profile carries only verified and pattern rows.
 
+  label="..." is the control's name on the unit (A209). The mapping dialog shows it beside the message,
+  and the guided tour's "Your controller" chapter lists the controls by it.
+
   THE PANEL. The mixer reads 3 1 2 4 from left to right, and each channel sends on the MIDI channel
   printed on it, so Cadence CH1 is the SECOND fader from the left.
 
@@ -39,66 +42,66 @@
 -->
 <CadenceMidiMap name="Denon DJ SC LIVE 4" maker="Denon DJ" model="SC LIVE 4" match="sclive4" version="1" factory="1">
   <!-- Mixer channel 1: MIDI channel 1 -->
-  <bind target="ch1.gain" kind="0" ch="1" num="14" status="verified"/>  <!-- VOLUME fader -->
-  <bind target="ch1.high" kind="0" ch="1" num="4" status="verified"/>  <!-- HIGH -->
-  <bind target="ch1.mid" kind="0" ch="1" num="6" status="verified"/>  <!-- MID -->
-  <bind target="ch1.low" kind="0" ch="1" num="8" status="verified"/>  <!-- LOW -->
-  <bind target="ch1.filter" kind="0" ch="1" num="11" status="verified"/>  <!-- SWEEP FX knob -->
-  <bind target="ch1.cue" kind="1" ch="1" num="13" status="verified"/>  <!-- CUE -->
+  <bind target="ch1.gain" kind="0" ch="1" num="14" label="Channel 1 VOLUME fader" status="verified"/>  <!-- VOLUME fader -->
+  <bind target="ch1.high" kind="0" ch="1" num="4" label="Channel 1 HIGH" status="verified"/>  <!-- HIGH -->
+  <bind target="ch1.mid" kind="0" ch="1" num="6" label="Channel 1 MID" status="verified"/>  <!-- MID -->
+  <bind target="ch1.low" kind="0" ch="1" num="8" label="Channel 1 LOW" status="verified"/>  <!-- LOW -->
+  <bind target="ch1.filter" kind="0" ch="1" num="11" label="Channel 1 SWEEP FX knob" status="verified"/>  <!-- SWEEP FX knob -->
+  <bind target="ch1.cue" kind="1" ch="1" num="13" label="Channel 1 CUE" status="verified"/>  <!-- CUE -->
 
   <!-- Mixer channel 2: MIDI channel 2 -->
-  <bind target="ch2.gain" kind="0" ch="2" num="14" status="verified"/>  <!-- VOLUME fader -->
-  <bind target="ch2.high" kind="0" ch="2" num="4" status="verified"/>  <!-- HIGH -->
-  <bind target="ch2.mid" kind="0" ch="2" num="6" status="verified"/>  <!-- MID -->
-  <bind target="ch2.low" kind="0" ch="2" num="8" status="verified"/>  <!-- LOW -->
-  <bind target="ch2.filter" kind="0" ch="2" num="11" status="verified"/>  <!-- SWEEP FX knob -->
-  <bind target="ch2.cue" kind="1" ch="2" num="13" status="verified"/>  <!-- CUE -->
+  <bind target="ch2.gain" kind="0" ch="2" num="14" label="Channel 2 VOLUME fader" status="verified"/>  <!-- VOLUME fader -->
+  <bind target="ch2.high" kind="0" ch="2" num="4" label="Channel 2 HIGH" status="verified"/>  <!-- HIGH -->
+  <bind target="ch2.mid" kind="0" ch="2" num="6" label="Channel 2 MID" status="verified"/>  <!-- MID -->
+  <bind target="ch2.low" kind="0" ch="2" num="8" label="Channel 2 LOW" status="verified"/>  <!-- LOW -->
+  <bind target="ch2.filter" kind="0" ch="2" num="11" label="Channel 2 SWEEP FX knob" status="verified"/>  <!-- SWEEP FX knob -->
+  <bind target="ch2.cue" kind="1" ch="2" num="13" label="Channel 2 CUE" status="verified"/>  <!-- CUE -->
 
   <!-- Mixer channel 3: MIDI channel 3 -->
-  <bind target="ch3.gain" kind="0" ch="3" num="14" status="verified"/>  <!-- VOLUME fader -->
-  <bind target="ch3.high" kind="0" ch="3" num="4" status="pattern"/>  <!-- HIGH -->
-  <bind target="ch3.mid" kind="0" ch="3" num="6" status="pattern"/>  <!-- MID -->
-  <bind target="ch3.low" kind="0" ch="3" num="8" status="pattern"/>  <!-- LOW -->
-  <bind target="ch3.filter" kind="0" ch="3" num="11" status="pattern"/>  <!-- SWEEP FX knob -->
-  <bind target="ch3.cue" kind="1" ch="3" num="13" status="verified"/>  <!-- CUE -->
+  <bind target="ch3.gain" kind="0" ch="3" num="14" label="Channel 3 VOLUME fader" status="verified"/>  <!-- VOLUME fader -->
+  <bind target="ch3.high" kind="0" ch="3" num="4" label="Channel 3 HIGH" status="pattern"/>  <!-- HIGH -->
+  <bind target="ch3.mid" kind="0" ch="3" num="6" label="Channel 3 MID" status="pattern"/>  <!-- MID -->
+  <bind target="ch3.low" kind="0" ch="3" num="8" label="Channel 3 LOW" status="pattern"/>  <!-- LOW -->
+  <bind target="ch3.filter" kind="0" ch="3" num="11" label="Channel 3 SWEEP FX knob" status="pattern"/>  <!-- SWEEP FX knob -->
+  <bind target="ch3.cue" kind="1" ch="3" num="13" label="Channel 3 CUE" status="verified"/>  <!-- CUE -->
 
   <!-- Mixer channel 4: MIDI channel 4 -->
-  <bind target="ch4.gain" kind="0" ch="4" num="14" status="pattern"/>  <!-- VOLUME fader -->
-  <bind target="ch4.high" kind="0" ch="4" num="4" status="pattern"/>  <!-- HIGH -->
-  <bind target="ch4.mid" kind="0" ch="4" num="6" status="pattern"/>  <!-- MID -->
-  <bind target="ch4.low" kind="0" ch="4" num="8" status="pattern"/>  <!-- LOW -->
-  <bind target="ch4.filter" kind="0" ch="4" num="11" status="pattern"/>  <!-- SWEEP FX knob -->
-  <bind target="ch4.cue" kind="1" ch="4" num="13" status="verified"/>  <!-- CUE -->
+  <bind target="ch4.gain" kind="0" ch="4" num="14" label="Channel 4 VOLUME fader" status="pattern"/>  <!-- VOLUME fader -->
+  <bind target="ch4.high" kind="0" ch="4" num="4" label="Channel 4 HIGH" status="pattern"/>  <!-- HIGH -->
+  <bind target="ch4.mid" kind="0" ch="4" num="6" label="Channel 4 MID" status="pattern"/>  <!-- MID -->
+  <bind target="ch4.low" kind="0" ch="4" num="8" label="Channel 4 LOW" status="pattern"/>  <!-- LOW -->
+  <bind target="ch4.filter" kind="0" ch="4" num="11" label="Channel 4 SWEEP FX knob" status="pattern"/>  <!-- SWEEP FX knob -->
+  <bind target="ch4.cue" kind="1" ch="4" num="13" label="Channel 4 CUE" status="verified"/>  <!-- CUE -->
 
   <!-- Left deck: MIDI channel 5, Cadence CH1 -->
-  <bind target="ch1.clip" kind="1" ch="5" num="10" status="verified"/>  <!-- PLAY -->
-  <bind target="ch1.cuepad1" kind="1" ch="5" num="9" status="verified"/>  <!-- CUE: hot cue 1 -->
-  <bind target="ch1.sync" kind="1" ch="5" num="8" status="verified"/>  <!-- SYNC -->
-  <bind target="ch1.key" kind="1" ch="5" num="34" status="verified"/>  <!-- KEYLOCK -->
-  <bind target="ch1.slip" kind="1" ch="5" num="36" status="verified"/>  <!-- SLIP -->
-  <bind target="ch1.jumpback" kind="1" ch="5" num="6" status="verified"/>  <!-- BEAT JUMP left -->
-  <bind target="ch1.jumpfwd" kind="1" ch="5" num="7" status="verified"/>  <!-- BEAT JUMP right -->
-  <bind target="ch1.loophalf" kind="1" ch="5" num="37" status="verified"/>  <!-- LOOP IN: loop /2 -->
-  <bind target="ch1.loopdbl" kind="1" ch="5" num="38" status="verified"/>  <!-- LOOP OUT: loop x2 -->
-  <bind target="ch1.loop" kind="1" ch="5" num="39" status="verified"/>  <!-- LOOP AUTO press: loop on/off -->
-  <bind target="ch1.jog" kind="0" ch="5" num="54" mode="rel" rel="2c" scale="fine" status="verified"/>  <!-- JOG: top plate and rim -->
+  <bind target="ch1.clip" kind="1" ch="5" num="10" label="Left deck PLAY" status="verified"/>  <!-- PLAY -->
+  <bind target="ch1.cuepad1" kind="1" ch="5" num="9" label="Left deck CUE" status="verified"/>  <!-- CUE: hot cue 1 -->
+  <bind target="ch1.sync" kind="1" ch="5" num="8" label="Left deck SYNC" status="verified"/>  <!-- SYNC -->
+  <bind target="ch1.key" kind="1" ch="5" num="34" label="Left deck KEYLOCK" status="verified"/>  <!-- KEYLOCK -->
+  <bind target="ch1.slip" kind="1" ch="5" num="36" label="Left deck SLIP" status="verified"/>  <!-- SLIP -->
+  <bind target="ch1.jumpback" kind="1" ch="5" num="6" label="Left deck BEAT JUMP ◀" status="verified"/>  <!-- BEAT JUMP left -->
+  <bind target="ch1.jumpfwd" kind="1" ch="5" num="7" label="Left deck BEAT JUMP ▶" status="verified"/>  <!-- BEAT JUMP right -->
+  <bind target="ch1.loophalf" kind="1" ch="5" num="37" label="Left deck LOOP IN" status="verified"/>  <!-- LOOP IN: loop /2 -->
+  <bind target="ch1.loopdbl" kind="1" ch="5" num="38" label="Left deck LOOP OUT" status="verified"/>  <!-- LOOP OUT: loop x2 -->
+  <bind target="ch1.loop" kind="1" ch="5" num="39" label="Left deck AUTO LOOP" status="verified"/>  <!-- LOOP AUTO press: loop on/off -->
+  <bind target="ch1.jog" kind="0" ch="5" num="54" mode="rel" rel="2c" scale="fine" label="Left deck jog wheel" status="verified"/>  <!-- JOG: top plate and rim -->
 
   <!-- Right deck: MIDI channel 6, Cadence CH2 -->
-  <bind target="ch2.clip" kind="1" ch="6" num="10" status="verified"/>  <!-- PLAY -->
-  <bind target="ch2.cuepad1" kind="1" ch="6" num="9" status="verified"/>  <!-- CUE: hot cue 1 -->
-  <bind target="ch2.sync" kind="1" ch="6" num="8" status="verified"/>  <!-- SYNC -->
-  <bind target="ch2.key" kind="1" ch="6" num="34" status="pattern"/>  <!-- KEYLOCK -->
-  <bind target="ch2.slip" kind="1" ch="6" num="36" status="pattern"/>  <!-- SLIP -->
-  <bind target="ch2.jumpback" kind="1" ch="6" num="6" status="pattern"/>  <!-- BEAT JUMP left -->
-  <bind target="ch2.jumpfwd" kind="1" ch="6" num="7" status="pattern"/>  <!-- BEAT JUMP right -->
-  <bind target="ch2.loophalf" kind="1" ch="6" num="37" status="pattern"/>  <!-- LOOP IN: loop /2 -->
-  <bind target="ch2.loopdbl" kind="1" ch="6" num="38" status="pattern"/>  <!-- LOOP OUT: loop x2 -->
-  <bind target="ch2.loop" kind="1" ch="6" num="39" status="pattern"/>  <!-- LOOP AUTO press: loop on/off -->
-  <bind target="ch2.jog" kind="0" ch="6" num="54" mode="rel" rel="2c" scale="fine" status="pattern"/>  <!-- JOG: top plate and rim -->
+  <bind target="ch2.clip" kind="1" ch="6" num="10" label="Right deck PLAY" status="verified"/>  <!-- PLAY -->
+  <bind target="ch2.cuepad1" kind="1" ch="6" num="9" label="Right deck CUE" status="verified"/>  <!-- CUE: hot cue 1 -->
+  <bind target="ch2.sync" kind="1" ch="6" num="8" label="Right deck SYNC" status="verified"/>  <!-- SYNC -->
+  <bind target="ch2.key" kind="1" ch="6" num="34" label="Right deck KEYLOCK" status="pattern"/>  <!-- KEYLOCK -->
+  <bind target="ch2.slip" kind="1" ch="6" num="36" label="Right deck SLIP" status="pattern"/>  <!-- SLIP -->
+  <bind target="ch2.jumpback" kind="1" ch="6" num="6" label="Right deck BEAT JUMP ◀" status="pattern"/>  <!-- BEAT JUMP left -->
+  <bind target="ch2.jumpfwd" kind="1" ch="6" num="7" label="Right deck BEAT JUMP ▶" status="pattern"/>  <!-- BEAT JUMP right -->
+  <bind target="ch2.loophalf" kind="1" ch="6" num="37" label="Right deck LOOP IN" status="pattern"/>  <!-- LOOP IN: loop /2 -->
+  <bind target="ch2.loopdbl" kind="1" ch="6" num="38" label="Right deck LOOP OUT" status="pattern"/>  <!-- LOOP OUT: loop x2 -->
+  <bind target="ch2.loop" kind="1" ch="6" num="39" label="Right deck AUTO LOOP" status="pattern"/>  <!-- LOOP AUTO press: loop on/off -->
+  <bind target="ch2.jog" kind="0" ch="6" num="54" mode="rel" rel="2c" scale="fine" label="Right deck jog wheel" status="pattern"/>  <!-- JOG: top plate and rim -->
 
   <!-- Browser and master section: MIDI channel 16 -->
-  <bind target="browse.scroll" kind="0" ch="16" num="5" mode="rel" rel="2c" status="verified"/>  <!-- BROWSE turn -->
-  <bind target="browse.toggle" kind="1" ch="16" num="6" status="verified"/>  <!-- BROWSE press: show the Collection -->
-  <bind target="ch1.load" kind="1" ch="16" num="1" status="verified"/>  <!-- LOAD left -->
-  <bind target="ch2.load" kind="1" ch="16" num="2" status="verified"/>  <!-- LOAD right -->
+  <bind target="browse.scroll" kind="0" ch="16" num="5" mode="rel" rel="2c" label="BROWSE knob turn" status="verified"/>  <!-- BROWSE turn -->
+  <bind target="browse.toggle" kind="1" ch="16" num="6" label="BROWSE knob press" status="verified"/>  <!-- BROWSE press: show the Collection -->
+  <bind target="ch1.load" kind="1" ch="16" num="1" label="LOAD (left)" status="verified"/>  <!-- LOAD left -->
+  <bind target="ch2.load" kind="1" ch="16" num="2" label="LOAD (right)" status="verified"/>  <!-- LOAD right -->
 </CadenceMidiMap>

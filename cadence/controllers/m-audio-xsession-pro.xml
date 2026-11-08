@@ -25,47 +25,49 @@
   which is the track's earliest hot cue.
 
   The status attribute is for people. The loader ignores it, and a map saved after loading drops it.
+  label="..." is the control's name on the panel (A209). The mapping dialog shows it beside the message,
+  and the guided tour's "Your controller" chapter lists the controls by it.
 -->
 <CadenceMidiMap name="M-Audio Xsession Pro" maker="M-Audio" model="Xsession Pro" match="xsession"
                 version="1" factory="1">
   <!-- The four faders, left to right -->
-  <bind target="ch1.gain" kind="0" ch="1" num="12" status="verified"/>  <!-- PITCH A fader -->
-  <bind target="ch2.gain" kind="0" ch="1" num="11" status="verified"/>  <!-- VOLUME A fader -->
-  <bind target="ch3.gain" kind="0" ch="1" num="14" status="verified"/>  <!-- VOLUME B fader -->
-  <bind target="ch4.gain" kind="0" ch="1" num="15" status="verified"/>  <!-- PITCH B fader -->
+  <bind target="ch1.gain" kind="0" ch="1" num="12" label="PITCH A fader" status="verified"/>  <!-- PITCH A fader -->
+  <bind target="ch2.gain" kind="0" ch="1" num="11" label="VOLUME A fader" status="verified"/>  <!-- VOLUME A fader -->
+  <bind target="ch3.gain" kind="0" ch="1" num="14" label="VOLUME B fader" status="verified"/>  <!-- VOLUME B fader -->
+  <bind target="ch4.gain" kind="0" ch="1" num="15" label="PITCH B fader" status="verified"/>  <!-- PITCH B fader -->
 
   <!-- Side A knobs: 1, 2, 3 on the left of the block, HIGH, MID, LOW on the right -->
-  <bind target="ch1.filter" kind="0" ch="1" num="24" status="verified"/>  <!-- Knob 1 A -->
-  <bind target="ch1.delay" kind="0" ch="1" num="25" status="verified"/>   <!-- Knob 2 A -->
-  <bind target="ch1.reverb" kind="0" ch="1" num="26" status="verified"/>  <!-- Knob 3 A -->
-  <bind target="ch1.high" kind="0" ch="1" num="27" status="verified"/>    <!-- HIGH A -->
-  <bind target="ch1.mid" kind="0" ch="1" num="28" status="verified"/>     <!-- MID A -->
-  <bind target="ch1.low" kind="0" ch="1" num="29" status="verified"/>     <!-- LOW A -->
+  <bind target="ch1.filter" kind="0" ch="1" num="24" label="Knob 1 A" status="verified"/>  <!-- Knob 1 A -->
+  <bind target="ch1.delay" kind="0" ch="1" num="25" label="Knob 2 A" status="verified"/>   <!-- Knob 2 A -->
+  <bind target="ch1.reverb" kind="0" ch="1" num="26" label="Knob 3 A" status="verified"/>  <!-- Knob 3 A -->
+  <bind target="ch1.high" kind="0" ch="1" num="27" label="HIGH A" status="verified"/>    <!-- HIGH A -->
+  <bind target="ch1.mid" kind="0" ch="1" num="28" label="MID A" status="verified"/>     <!-- MID A -->
+  <bind target="ch1.low" kind="0" ch="1" num="29" label="LOW A" status="verified"/>     <!-- LOW A -->
 
   <!-- Side B knobs: HIGH, MID, LOW on the left of the block, 1, 2, 3 on the right -->
-  <bind target="ch2.filter" kind="0" ch="1" num="31" status="verified"/>  <!-- Knob 1 B -->
-  <bind target="ch2.delay" kind="0" ch="1" num="32" status="verified"/>   <!-- Knob 2 B -->
-  <bind target="ch2.reverb" kind="0" ch="1" num="33" status="verified"/>  <!-- Knob 3 B -->
-  <bind target="ch2.high" kind="0" ch="1" num="34" status="verified"/>    <!-- HIGH B -->
-  <bind target="ch2.mid" kind="0" ch="1" num="35" status="verified"/>     <!-- MID B -->
-  <bind target="ch2.low" kind="0" ch="1" num="36" status="verified"/>     <!-- LOW B -->
+  <bind target="ch2.filter" kind="0" ch="1" num="31" label="Knob 1 B" status="verified"/>  <!-- Knob 1 B -->
+  <bind target="ch2.delay" kind="0" ch="1" num="32" label="Knob 2 B" status="verified"/>   <!-- Knob 2 B -->
+  <bind target="ch2.reverb" kind="0" ch="1" num="33" label="Knob 3 B" status="verified"/>  <!-- Knob 3 B -->
+  <bind target="ch2.high" kind="0" ch="1" num="34" label="HIGH B" status="verified"/>    <!-- HIGH B -->
+  <bind target="ch2.mid" kind="0" ch="1" num="35" label="MID B" status="verified"/>     <!-- MID B -->
+  <bind target="ch2.low" kind="0" ch="1" num="36" label="LOW B" status="verified"/>     <!-- LOW B -->
 
   <!-- The headphone cue buttons under each knob block -->
-  <bind target="ch1.cue" kind="1" ch="1" num="44" status="verified"/>  <!-- Headphone A -->
-  <bind target="ch2.cue" kind="1" ch="1" num="45" status="verified"/>  <!-- Headphone B -->
+  <bind target="ch1.cue" kind="1" ch="1" num="44" label="Headphone A" status="verified"/>  <!-- Headphone A -->
+  <bind target="ch2.cue" kind="1" ch="1" num="45" label="Headphone B" status="verified"/>  <!-- Headphone B -->
 
   <!-- Side A transport: rewind and fast forward on top, play/pause and cue below -->
-  <bind target="ch1.jumpback" kind="1" ch="1" num="46" status="manual"/>  <!-- << A, was CH1 auto FX out -->
-  <bind target="ch1.jumpfwd" kind="1" ch="1" num="43" status="manual"/>   <!-- >> A, was CH1 auto FX in -->
-  <bind target="ch1.clip" kind="1" ch="1" num="70" status="manual"/>      <!-- Play/pause A, was CH1 auto volume in -->
-  <bind target="ch1.cuepad1" kind="1" ch="1" num="58" status="manual"/>   <!-- Cue A, was CH1 auto volume out -->
+  <bind target="ch1.jumpback" kind="1" ch="1" num="46" label="&lt;&lt; A" status="manual"/>  <!-- << A, was CH1 auto FX out -->
+  <bind target="ch1.jumpfwd" kind="1" ch="1" num="43" label="&gt;&gt; A" status="manual"/>   <!-- >> A, was CH1 auto FX in -->
+  <bind target="ch1.clip" kind="1" ch="1" num="70" label="Play/pause A" status="manual"/>      <!-- Play/pause A, was CH1 auto volume in -->
+  <bind target="ch1.cuepad1" kind="1" ch="1" num="58" label="Cue A" status="manual"/>   <!-- Cue A, was CH1 auto volume out -->
 
   <!-- Side B transport -->
-  <bind target="ch2.jumpback" kind="1" ch="1" num="56" status="manual"/>  <!-- << B, was CH2 auto FX out -->
-  <bind target="ch2.jumpfwd" kind="1" ch="1" num="57" status="manual"/>   <!-- >> B, was CH2 auto FX in -->
-  <bind target="ch2.clip" kind="1" ch="1" num="69" status="manual"/>      <!-- Play/pause B, was CH2 auto volume in -->
-  <bind target="ch2.cuepad1" kind="1" ch="1" num="59" status="manual"/>   <!-- Cue B, was CH2 auto volume out -->
+  <bind target="ch2.jumpback" kind="1" ch="1" num="56" label="&lt;&lt; B" status="manual"/>  <!-- << B, was CH2 auto FX out -->
+  <bind target="ch2.jumpfwd" kind="1" ch="1" num="57" label="&gt;&gt; B" status="manual"/>   <!-- >> B, was CH2 auto FX in -->
+  <bind target="ch2.clip" kind="1" ch="1" num="69" label="Play/pause B" status="manual"/>      <!-- Play/pause B, was CH2 auto volume in -->
+  <bind target="ch2.cuepad1" kind="1" ch="1" num="59" label="Cue B" status="manual"/>   <!-- Cue B, was CH2 auto volume out -->
 
   <!-- The crossfader (CC 17, left to right). Kevin uses it as the headphone level. -->
-  <bind target="master.phones" kind="0" ch="1" num="17" status="verified"/>
+  <bind target="master.phones" kind="0" ch="1" num="17" label="Crossfader" status="verified"/>
 </CadenceMidiMap>

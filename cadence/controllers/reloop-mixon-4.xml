@@ -12,6 +12,7 @@
 
   status="manual": the message is the manufacturer's. Nobody has tried this map on the hardware
   yet. If a control does nothing, use Learn on that row and tell us at shlabs.contact@gmail.com.
+  label="..." is the control's name on the unit, shown in the mapping dialog and the guided tour.
 
   BEFORE YOU START: Connect by USB-B to the computer (the manual says USB and the iOS connector cannot be used at the same time). Put each deck's pads in HOT CUE mode (press the HOT CUE pad-mode button) so the pads send the hot-cue notes; other pad modes send other note numbers. Use the DECK button to switch a deck section between decks 1/3 (left) and 2/4 (right); deck 3/4 controls then send on MIDI channels 7/8. The MIDI map lists a SysEx 'Deck Restriction F0 0A 01 F7 Enable Deck 3&4' (and F0 0A 00 F7 to disable); it does not say which state is the default. Master and booth volume are hardware-only and send no MIDI.
 
@@ -23,101 +24,101 @@
 
   A jog wheel that moves too fast or too slow: set its row to Fine, or invert it, in the dialog.
 -->
-<CadenceMidiMap name="Reloop Mixon 4" maker="Reloop" model="Mixon 4" match="mixon4" version="1">
-  <bind target="ch1.gain" kind="0" ch="5" num="5" status="manual"/>  <!-- Channel FADER (Deck 1 column, n=4), 1 -->
-  <bind target="ch1.high" kind="0" ch="5" num="1" status="manual"/>  <!-- EQ HIGH (Deck 1 column, n=4), 1 -->
-  <bind target="ch1.mid" kind="0" ch="5" num="2" status="manual"/>  <!-- EQ MID (Deck 1 column, n=4), 1 -->
-  <bind target="ch1.low" kind="0" ch="5" num="3" status="manual"/>  <!-- EQ LOW (Deck 1 column, n=4), 1 -->
-  <bind target="ch1.filter" kind="0" ch="5" num="4" status="manual"/>  <!-- FILTER (Deck 1 column, n=4), 1 -->
-  <bind target="ch1.cue" kind="1" ch="5" num="3" status="manual"/>  <!-- CUE (mixer PFL) (Deck 1 column, n=4), 1 -->
-  <bind target="ch1.load" kind="1" ch="5" num="2" status="manual"/>  <!-- LOAD (Deck 1 column, n=4), 1 -->
-  <bind target="ch1.jog" kind="0" ch="5" num="6" mode="rel" rel="binoff" status="manual"/>  <!-- JOG (Deck 1 column, n=4), 1 -->
-  <bind target="ch1.loop" kind="1" ch="5" num="8" status="manual"/>  <!-- AUTO LOOP (Deck 1 column, n=4), 1 -->
-  <bind target="ch1.jumpback" kind="1" ch="5" num="10" status="manual"/>  <!-- PARAM - (PARAMETER 1-) (Deck 1 column, n=4), 1 -->
-  <bind target="ch1.jumpfwd" kind="1" ch="5" num="11" status="manual"/>  <!-- PARAM + (PARAMETER 1+) (Deck 1 column, n=4), 1 -->
-  <bind target="ch1.clip" kind="1" ch="5" num="12" status="manual"/>  <!-- PLAY/PAUSE (Deck 1 column, n=4), 1 -->
-  <bind target="ch1.cuepad1" kind="1" ch="1" num="0" status="manual"/>  <!-- HOT CUE mode PAD 1 (Deck 1 column, n=0), 2 -->
-  <bind target="ch1.sync" kind="1" ch="5" num="14" status="manual"/>  <!-- SYNC (Deck 1 column, n=4), 1 -->
-  <bind target="ch1.slip" kind="1" ch="5" num="15" status="manual"/>  <!-- SLIP (Deck 1 column, n=4), 1 -->
-  <bind target="ch1.key" kind="1" ch="5" num="16" status="manual"/>  <!-- KEY LOCK (Deck 1 column, n=4), 1 -->
-  <bind target="ch1.cuepad2" kind="1" ch="1" num="1" status="manual"/>  <!-- HOT CUE mode PAD 2 (Deck 1 column, n=0), 2 -->
-  <bind target="ch1.cuepad3" kind="1" ch="1" num="2" status="manual"/>  <!-- HOT CUE mode PAD 3 (Deck 1 column, n=0), 2 -->
-  <bind target="ch1.cuepad4" kind="1" ch="1" num="3" status="manual"/>  <!-- HOT CUE mode PAD 4 (Deck 1 column, n=0), 2 -->
-  <bind target="ch1.cuepad5" kind="1" ch="1" num="4" status="manual"/>  <!-- HOT CUE mode PAD 5 (Deck 1 column, n=0), 2 -->
-  <bind target="ch1.cuepad6" kind="1" ch="1" num="5" status="manual"/>  <!-- HOT CUE mode PAD 6 (Deck 1 column, n=0), 2 -->
-  <bind target="ch1.cuepad7" kind="1" ch="1" num="6" status="manual"/>  <!-- HOT CUE mode PAD 7 (Deck 1 column, n=0), 2 -->
-  <bind target="ch1.cuepad8" kind="1" ch="1" num="7" status="manual"/>  <!-- HOT CUE mode PAD 8 (Deck 1 column, n=0), 2 -->
-  <bind target="ch2.gain" kind="0" ch="6" num="5" status="manual"/>  <!-- Channel FADER (Deck 2 column, n=5), 1 -->
-  <bind target="ch2.high" kind="0" ch="6" num="1" status="manual"/>  <!-- EQ HIGH (Deck 2 column, n=5), 1 -->
-  <bind target="ch2.mid" kind="0" ch="6" num="2" status="manual"/>  <!-- EQ MID (Deck 2 column, n=5), 1 -->
-  <bind target="ch2.low" kind="0" ch="6" num="3" status="manual"/>  <!-- EQ LOW (Deck 2 column, n=5), 1 -->
-  <bind target="ch2.filter" kind="0" ch="6" num="4" status="manual"/>  <!-- FILTER (Deck 2 column, n=5), 1 -->
-  <bind target="ch2.cue" kind="1" ch="6" num="3" status="manual"/>  <!-- CUE (mixer PFL) (Deck 2 column, n=5), 1 -->
-  <bind target="ch2.load" kind="1" ch="6" num="2" status="manual"/>  <!-- LOAD (Deck 2 column, n=5), 1 -->
-  <bind target="ch2.jog" kind="0" ch="6" num="6" mode="rel" rel="binoff" status="manual"/>  <!-- JOG (Deck 2 column, n=5), 1 -->
-  <bind target="ch2.loop" kind="1" ch="6" num="8" status="manual"/>  <!-- AUTO LOOP (Deck 2 column, n=5), 1 -->
-  <bind target="ch2.jumpback" kind="1" ch="6" num="10" status="manual"/>  <!-- PARAM - (PARAMETER 1-) (Deck 2 column, n=5), 1 -->
-  <bind target="ch2.jumpfwd" kind="1" ch="6" num="11" status="manual"/>  <!-- PARAM + (PARAMETER 1+) (Deck 2 column, n=5), 1 -->
-  <bind target="ch2.clip" kind="1" ch="6" num="12" status="manual"/>  <!-- PLAY/PAUSE (Deck 2 column, n=5), 1 -->
-  <bind target="ch2.cuepad1" kind="1" ch="2" num="0" status="manual"/>  <!-- HOT CUE mode PAD 1 (Deck 2 column, n=1), 2 -->
-  <bind target="ch2.sync" kind="1" ch="6" num="14" status="manual"/>  <!-- SYNC (Deck 2 column, n=5), 1 -->
-  <bind target="ch2.slip" kind="1" ch="6" num="15" status="manual"/>  <!-- SLIP (Deck 2 column, n=5), 1 -->
-  <bind target="ch2.key" kind="1" ch="6" num="16" status="manual"/>  <!-- KEY LOCK (Deck 2 column, n=5), 1 -->
-  <bind target="ch2.cuepad2" kind="1" ch="2" num="1" status="manual"/>  <!-- HOT CUE mode PAD 2 (Deck 2 column, n=1), 2 -->
-  <bind target="ch2.cuepad3" kind="1" ch="2" num="2" status="manual"/>  <!-- HOT CUE mode PAD 3 (Deck 2 column, n=1), 2 -->
-  <bind target="ch2.cuepad4" kind="1" ch="2" num="3" status="manual"/>  <!-- HOT CUE mode PAD 4 (Deck 2 column, n=1), 2 -->
-  <bind target="ch2.cuepad5" kind="1" ch="2" num="4" status="manual"/>  <!-- HOT CUE mode PAD 5 (Deck 2 column, n=1), 2 -->
-  <bind target="ch2.cuepad6" kind="1" ch="2" num="5" status="manual"/>  <!-- HOT CUE mode PAD 6 (Deck 2 column, n=1), 2 -->
-  <bind target="ch2.cuepad7" kind="1" ch="2" num="6" status="manual"/>  <!-- HOT CUE mode PAD 7 (Deck 2 column, n=1), 2 -->
-  <bind target="ch2.cuepad8" kind="1" ch="2" num="7" status="manual"/>  <!-- HOT CUE mode PAD 8 (Deck 2 column, n=1), 2 -->
-  <bind target="ch3.gain" kind="0" ch="7" num="5" status="manual"/>  <!-- Channel FADER (Deck 3 column, n=6), 1 -->
-  <bind target="ch3.high" kind="0" ch="7" num="1" status="manual"/>  <!-- EQ HIGH (Deck 3 column, n=6), 1 -->
-  <bind target="ch3.mid" kind="0" ch="7" num="2" status="manual"/>  <!-- EQ MID (Deck 3 column, n=6), 1 -->
-  <bind target="ch3.low" kind="0" ch="7" num="3" status="manual"/>  <!-- EQ LOW (Deck 3 column, n=6), 1 -->
-  <bind target="ch3.filter" kind="0" ch="7" num="4" status="manual"/>  <!-- FILTER (Deck 3 column, n=6), 1 -->
-  <bind target="ch3.cue" kind="1" ch="7" num="3" status="manual"/>  <!-- CUE (mixer PFL) (Deck 3 column, n=6), 1 -->
-  <bind target="ch3.load" kind="1" ch="7" num="2" status="manual"/>  <!-- LOAD (Deck 3 column, n=6), 1 -->
-  <bind target="ch3.jog" kind="0" ch="7" num="6" mode="rel" rel="binoff" status="manual"/>  <!-- JOG (Deck 3 column, n=6), 1 -->
-  <bind target="ch3.loop" kind="1" ch="7" num="8" status="manual"/>  <!-- AUTO LOOP (Deck 3 column, n=6), 1 -->
-  <bind target="ch3.jumpback" kind="1" ch="7" num="10" status="manual"/>  <!-- PARAM - (PARAMETER 1-) (Deck 3 column, n=6), 1 -->
-  <bind target="ch3.jumpfwd" kind="1" ch="7" num="11" status="manual"/>  <!-- PARAM + (PARAMETER 1+) (Deck 3 column, n=6), 1 -->
-  <bind target="ch3.clip" kind="1" ch="7" num="12" status="manual"/>  <!-- PLAY/PAUSE (Deck 3 column, n=6), 1 -->
-  <bind target="ch3.cuepad1" kind="1" ch="3" num="0" status="manual"/>  <!-- HOT CUE mode PAD 1 (Deck 3 column, n=2), 2 -->
-  <bind target="ch3.sync" kind="1" ch="7" num="14" status="manual"/>  <!-- SYNC (Deck 3 column, n=6), 1 -->
-  <bind target="ch3.slip" kind="1" ch="7" num="15" status="manual"/>  <!-- SLIP (Deck 3 column, n=6), 1 -->
-  <bind target="ch3.key" kind="1" ch="7" num="16" status="manual"/>  <!-- KEY LOCK (Deck 3 column, n=6), 1 -->
-  <bind target="ch3.cuepad2" kind="1" ch="3" num="1" status="manual"/>  <!-- HOT CUE mode PAD 2 (Deck 3 column, n=2), 2 -->
-  <bind target="ch3.cuepad3" kind="1" ch="3" num="2" status="manual"/>  <!-- HOT CUE mode PAD 3 (Deck 3 column, n=2), 2 -->
-  <bind target="ch3.cuepad4" kind="1" ch="3" num="3" status="manual"/>  <!-- HOT CUE mode PAD 4 (Deck 3 column, n=2), 2 -->
-  <bind target="ch3.cuepad5" kind="1" ch="3" num="4" status="manual"/>  <!-- HOT CUE mode PAD 5 (Deck 3 column, n=2), 2 -->
-  <bind target="ch3.cuepad6" kind="1" ch="3" num="5" status="manual"/>  <!-- HOT CUE mode PAD 6 (Deck 3 column, n=2), 2 -->
-  <bind target="ch3.cuepad7" kind="1" ch="3" num="6" status="manual"/>  <!-- HOT CUE mode PAD 7 (Deck 3 column, n=2), 2 -->
-  <bind target="ch3.cuepad8" kind="1" ch="3" num="7" status="manual"/>  <!-- HOT CUE mode PAD 8 (Deck 3 column, n=2), 2 -->
-  <bind target="ch4.gain" kind="0" ch="8" num="5" status="manual"/>  <!-- Channel FADER (Deck 4 column, n=7), 1 -->
-  <bind target="ch4.high" kind="0" ch="8" num="1" status="manual"/>  <!-- EQ HIGH (Deck 4 column, n=7), 1 -->
-  <bind target="ch4.mid" kind="0" ch="8" num="2" status="manual"/>  <!-- EQ MID (Deck 4 column, n=7), 1 -->
-  <bind target="ch4.low" kind="0" ch="8" num="3" status="manual"/>  <!-- EQ LOW (Deck 4 column, n=7), 1 -->
-  <bind target="ch4.filter" kind="0" ch="8" num="4" status="manual"/>  <!-- FILTER (Deck 4 column, n=7), 1 -->
-  <bind target="ch4.cue" kind="1" ch="8" num="3" status="manual"/>  <!-- CUE (mixer PFL) (Deck 4 column, n=7), 1 -->
-  <bind target="ch4.load" kind="1" ch="8" num="2" status="manual"/>  <!-- LOAD (Deck 4 column, n=7), 1 -->
-  <bind target="ch4.jog" kind="0" ch="8" num="6" mode="rel" rel="binoff" status="manual"/>  <!-- JOG (Deck 4 column, n=7), 1 -->
-  <bind target="ch4.loop" kind="1" ch="8" num="8" status="manual"/>  <!-- AUTO LOOP (Deck 4 column, n=7), 1 -->
-  <bind target="ch4.jumpback" kind="1" ch="8" num="10" status="manual"/>  <!-- PARAM - (PARAMETER 1-) (Deck 4 column, n=7), 1 -->
-  <bind target="ch4.jumpfwd" kind="1" ch="8" num="11" status="manual"/>  <!-- PARAM + (PARAMETER 1+) (Deck 4 column, n=7), 1 -->
-  <bind target="ch4.clip" kind="1" ch="8" num="12" status="manual"/>  <!-- PLAY/PAUSE (Deck 4 column, n=7), 1 -->
-  <bind target="ch4.cuepad1" kind="1" ch="4" num="0" status="manual"/>  <!-- HOT CUE mode PAD 1 (Deck 4 column, n=3), 2 -->
-  <bind target="ch4.sync" kind="1" ch="8" num="14" status="manual"/>  <!-- SYNC (Deck 4 column, n=7), 1 -->
-  <bind target="ch4.slip" kind="1" ch="8" num="15" status="manual"/>  <!-- SLIP (Deck 4 column, n=7), 1 -->
-  <bind target="ch4.key" kind="1" ch="8" num="16" status="manual"/>  <!-- KEY LOCK (Deck 4 column, n=7), 1 -->
-  <bind target="ch4.cuepad2" kind="1" ch="4" num="1" status="manual"/>  <!-- HOT CUE mode PAD 2 (Deck 4 column, n=3), 2 -->
-  <bind target="ch4.cuepad3" kind="1" ch="4" num="2" status="manual"/>  <!-- HOT CUE mode PAD 3 (Deck 4 column, n=3), 2 -->
-  <bind target="ch4.cuepad4" kind="1" ch="4" num="3" status="manual"/>  <!-- HOT CUE mode PAD 4 (Deck 4 column, n=3), 2 -->
-  <bind target="ch4.cuepad5" kind="1" ch="4" num="4" status="manual"/>  <!-- HOT CUE mode PAD 5 (Deck 4 column, n=3), 2 -->
-  <bind target="ch4.cuepad6" kind="1" ch="4" num="5" status="manual"/>  <!-- HOT CUE mode PAD 6 (Deck 4 column, n=3), 2 -->
-  <bind target="ch4.cuepad7" kind="1" ch="4" num="6" status="manual"/>  <!-- HOT CUE mode PAD 7 (Deck 4 column, n=3), 2 -->
-  <bind target="ch4.cuepad8" kind="1" ch="4" num="7" status="manual"/>  <!-- HOT CUE mode PAD 8 (Deck 4 column, n=3), 2 -->
-  <bind target="browse.scroll" kind="0" ch="11" num="4" mode="rel" rel="binoff" status="manual"/>  <!-- TRAX (turn), 1 -->
-  <bind target="browse.toggle" kind="1" ch="11" num="0" status="manual"/>  <!-- TRAX (PUSH), 1 -->
-  <bind target="master.cue" kind="0" ch="11" num="3" status="manual"/>  <!-- HEADPHONE CUE MIX, 1 -->
-  <bind target="master.phones" kind="0" ch="11" num="7" status="manual"/>  <!-- HEADPHONE CUE VOL, 1 -->
+<CadenceMidiMap name="Reloop Mixon 4" maker="Reloop" model="Mixon 4" match="mixon4" version="2">
+  <bind target="ch1.gain" kind="0" ch="5" num="5" label="Channel FADER (Deck 1)" status="manual"/>  <!-- Channel FADER (Deck 1 column, n=4), 1 -->
+  <bind target="ch1.high" kind="0" ch="5" num="1" label="EQ HIGH (Deck 1)" status="manual"/>  <!-- EQ HIGH (Deck 1 column, n=4), 1 -->
+  <bind target="ch1.mid" kind="0" ch="5" num="2" label="EQ MID (Deck 1)" status="manual"/>  <!-- EQ MID (Deck 1 column, n=4), 1 -->
+  <bind target="ch1.low" kind="0" ch="5" num="3" label="EQ LOW (Deck 1)" status="manual"/>  <!-- EQ LOW (Deck 1 column, n=4), 1 -->
+  <bind target="ch1.filter" kind="0" ch="5" num="4" label="FILTER (Deck 1)" status="manual"/>  <!-- FILTER (Deck 1 column, n=4), 1 -->
+  <bind target="ch1.cue" kind="1" ch="5" num="3" label="CUE (mixer PFL) (Deck 1)" status="manual"/>  <!-- CUE (mixer PFL) (Deck 1 column, n=4), 1 -->
+  <bind target="ch1.load" kind="1" ch="5" num="2" label="LOAD (Deck 1)" status="manual"/>  <!-- LOAD (Deck 1 column, n=4), 1 -->
+  <bind target="ch1.jog" kind="0" ch="5" num="6" mode="rel" rel="binoff" label="JOG (Deck 1)" status="manual"/>  <!-- JOG (Deck 1 column, n=4), 1 -->
+  <bind target="ch1.loop" kind="1" ch="5" num="8" label="AUTO LOOP (Deck 1)" status="manual"/>  <!-- AUTO LOOP (Deck 1 column, n=4), 1 -->
+  <bind target="ch1.jumpback" kind="1" ch="5" num="10" label="PARAM - (PARAMETER 1-) (Deck 1)" status="manual"/>  <!-- PARAM - (PARAMETER 1-) (Deck 1 column, n=4), 1 -->
+  <bind target="ch1.jumpfwd" kind="1" ch="5" num="11" label="PARAM + (PARAMETER 1+) (Deck 1)" status="manual"/>  <!-- PARAM + (PARAMETER 1+) (Deck 1 column, n=4), 1 -->
+  <bind target="ch1.clip" kind="1" ch="5" num="12" label="PLAY/PAUSE (Deck 1)" status="manual"/>  <!-- PLAY/PAUSE (Deck 1 column, n=4), 1 -->
+  <bind target="ch1.cuepad1" kind="1" ch="1" num="0" label="HOT CUE mode PAD 1 (Deck 1)" status="manual"/>  <!-- HOT CUE mode PAD 1 (Deck 1 column, n=0), 2 -->
+  <bind target="ch1.sync" kind="1" ch="5" num="14" label="SYNC (Deck 1)" status="manual"/>  <!-- SYNC (Deck 1 column, n=4), 1 -->
+  <bind target="ch1.slip" kind="1" ch="5" num="15" label="SLIP (Deck 1)" status="manual"/>  <!-- SLIP (Deck 1 column, n=4), 1 -->
+  <bind target="ch1.key" kind="1" ch="5" num="16" label="KEY LOCK (Deck 1)" status="manual"/>  <!-- KEY LOCK (Deck 1 column, n=4), 1 -->
+  <bind target="ch1.cuepad2" kind="1" ch="1" num="1" label="HOT CUE mode PAD 2 (Deck 1)" status="manual"/>  <!-- HOT CUE mode PAD 2 (Deck 1 column, n=0), 2 -->
+  <bind target="ch1.cuepad3" kind="1" ch="1" num="2" label="HOT CUE mode PAD 3 (Deck 1)" status="manual"/>  <!-- HOT CUE mode PAD 3 (Deck 1 column, n=0), 2 -->
+  <bind target="ch1.cuepad4" kind="1" ch="1" num="3" label="HOT CUE mode PAD 4 (Deck 1)" status="manual"/>  <!-- HOT CUE mode PAD 4 (Deck 1 column, n=0), 2 -->
+  <bind target="ch1.cuepad5" kind="1" ch="1" num="4" label="HOT CUE mode PAD 5 (Deck 1)" status="manual"/>  <!-- HOT CUE mode PAD 5 (Deck 1 column, n=0), 2 -->
+  <bind target="ch1.cuepad6" kind="1" ch="1" num="5" label="HOT CUE mode PAD 6 (Deck 1)" status="manual"/>  <!-- HOT CUE mode PAD 6 (Deck 1 column, n=0), 2 -->
+  <bind target="ch1.cuepad7" kind="1" ch="1" num="6" label="HOT CUE mode PAD 7 (Deck 1)" status="manual"/>  <!-- HOT CUE mode PAD 7 (Deck 1 column, n=0), 2 -->
+  <bind target="ch1.cuepad8" kind="1" ch="1" num="7" label="HOT CUE mode PAD 8 (Deck 1)" status="manual"/>  <!-- HOT CUE mode PAD 8 (Deck 1 column, n=0), 2 -->
+  <bind target="ch2.gain" kind="0" ch="6" num="5" label="Channel FADER (Deck 2)" status="manual"/>  <!-- Channel FADER (Deck 2 column, n=5), 1 -->
+  <bind target="ch2.high" kind="0" ch="6" num="1" label="EQ HIGH (Deck 2)" status="manual"/>  <!-- EQ HIGH (Deck 2 column, n=5), 1 -->
+  <bind target="ch2.mid" kind="0" ch="6" num="2" label="EQ MID (Deck 2)" status="manual"/>  <!-- EQ MID (Deck 2 column, n=5), 1 -->
+  <bind target="ch2.low" kind="0" ch="6" num="3" label="EQ LOW (Deck 2)" status="manual"/>  <!-- EQ LOW (Deck 2 column, n=5), 1 -->
+  <bind target="ch2.filter" kind="0" ch="6" num="4" label="FILTER (Deck 2)" status="manual"/>  <!-- FILTER (Deck 2 column, n=5), 1 -->
+  <bind target="ch2.cue" kind="1" ch="6" num="3" label="CUE (mixer PFL) (Deck 2)" status="manual"/>  <!-- CUE (mixer PFL) (Deck 2 column, n=5), 1 -->
+  <bind target="ch2.load" kind="1" ch="6" num="2" label="LOAD (Deck 2)" status="manual"/>  <!-- LOAD (Deck 2 column, n=5), 1 -->
+  <bind target="ch2.jog" kind="0" ch="6" num="6" mode="rel" rel="binoff" label="JOG (Deck 2)" status="manual"/>  <!-- JOG (Deck 2 column, n=5), 1 -->
+  <bind target="ch2.loop" kind="1" ch="6" num="8" label="AUTO LOOP (Deck 2)" status="manual"/>  <!-- AUTO LOOP (Deck 2 column, n=5), 1 -->
+  <bind target="ch2.jumpback" kind="1" ch="6" num="10" label="PARAM - (PARAMETER 1-) (Deck 2)" status="manual"/>  <!-- PARAM - (PARAMETER 1-) (Deck 2 column, n=5), 1 -->
+  <bind target="ch2.jumpfwd" kind="1" ch="6" num="11" label="PARAM + (PARAMETER 1+) (Deck 2)" status="manual"/>  <!-- PARAM + (PARAMETER 1+) (Deck 2 column, n=5), 1 -->
+  <bind target="ch2.clip" kind="1" ch="6" num="12" label="PLAY/PAUSE (Deck 2)" status="manual"/>  <!-- PLAY/PAUSE (Deck 2 column, n=5), 1 -->
+  <bind target="ch2.cuepad1" kind="1" ch="2" num="0" label="HOT CUE mode PAD 1 (Deck 2)" status="manual"/>  <!-- HOT CUE mode PAD 1 (Deck 2 column, n=1), 2 -->
+  <bind target="ch2.sync" kind="1" ch="6" num="14" label="SYNC (Deck 2)" status="manual"/>  <!-- SYNC (Deck 2 column, n=5), 1 -->
+  <bind target="ch2.slip" kind="1" ch="6" num="15" label="SLIP (Deck 2)" status="manual"/>  <!-- SLIP (Deck 2 column, n=5), 1 -->
+  <bind target="ch2.key" kind="1" ch="6" num="16" label="KEY LOCK (Deck 2)" status="manual"/>  <!-- KEY LOCK (Deck 2 column, n=5), 1 -->
+  <bind target="ch2.cuepad2" kind="1" ch="2" num="1" label="HOT CUE mode PAD 2 (Deck 2)" status="manual"/>  <!-- HOT CUE mode PAD 2 (Deck 2 column, n=1), 2 -->
+  <bind target="ch2.cuepad3" kind="1" ch="2" num="2" label="HOT CUE mode PAD 3 (Deck 2)" status="manual"/>  <!-- HOT CUE mode PAD 3 (Deck 2 column, n=1), 2 -->
+  <bind target="ch2.cuepad4" kind="1" ch="2" num="3" label="HOT CUE mode PAD 4 (Deck 2)" status="manual"/>  <!-- HOT CUE mode PAD 4 (Deck 2 column, n=1), 2 -->
+  <bind target="ch2.cuepad5" kind="1" ch="2" num="4" label="HOT CUE mode PAD 5 (Deck 2)" status="manual"/>  <!-- HOT CUE mode PAD 5 (Deck 2 column, n=1), 2 -->
+  <bind target="ch2.cuepad6" kind="1" ch="2" num="5" label="HOT CUE mode PAD 6 (Deck 2)" status="manual"/>  <!-- HOT CUE mode PAD 6 (Deck 2 column, n=1), 2 -->
+  <bind target="ch2.cuepad7" kind="1" ch="2" num="6" label="HOT CUE mode PAD 7 (Deck 2)" status="manual"/>  <!-- HOT CUE mode PAD 7 (Deck 2 column, n=1), 2 -->
+  <bind target="ch2.cuepad8" kind="1" ch="2" num="7" label="HOT CUE mode PAD 8 (Deck 2)" status="manual"/>  <!-- HOT CUE mode PAD 8 (Deck 2 column, n=1), 2 -->
+  <bind target="ch3.gain" kind="0" ch="7" num="5" label="Channel FADER (Deck 3)" status="manual"/>  <!-- Channel FADER (Deck 3 column, n=6), 1 -->
+  <bind target="ch3.high" kind="0" ch="7" num="1" label="EQ HIGH (Deck 3)" status="manual"/>  <!-- EQ HIGH (Deck 3 column, n=6), 1 -->
+  <bind target="ch3.mid" kind="0" ch="7" num="2" label="EQ MID (Deck 3)" status="manual"/>  <!-- EQ MID (Deck 3 column, n=6), 1 -->
+  <bind target="ch3.low" kind="0" ch="7" num="3" label="EQ LOW (Deck 3)" status="manual"/>  <!-- EQ LOW (Deck 3 column, n=6), 1 -->
+  <bind target="ch3.filter" kind="0" ch="7" num="4" label="FILTER (Deck 3)" status="manual"/>  <!-- FILTER (Deck 3 column, n=6), 1 -->
+  <bind target="ch3.cue" kind="1" ch="7" num="3" label="CUE (mixer PFL) (Deck 3)" status="manual"/>  <!-- CUE (mixer PFL) (Deck 3 column, n=6), 1 -->
+  <bind target="ch3.load" kind="1" ch="7" num="2" label="LOAD (Deck 3)" status="manual"/>  <!-- LOAD (Deck 3 column, n=6), 1 -->
+  <bind target="ch3.jog" kind="0" ch="7" num="6" mode="rel" rel="binoff" label="JOG (Deck 3)" status="manual"/>  <!-- JOG (Deck 3 column, n=6), 1 -->
+  <bind target="ch3.loop" kind="1" ch="7" num="8" label="AUTO LOOP (Deck 3)" status="manual"/>  <!-- AUTO LOOP (Deck 3 column, n=6), 1 -->
+  <bind target="ch3.jumpback" kind="1" ch="7" num="10" label="PARAM - (PARAMETER 1-) (Deck 3)" status="manual"/>  <!-- PARAM - (PARAMETER 1-) (Deck 3 column, n=6), 1 -->
+  <bind target="ch3.jumpfwd" kind="1" ch="7" num="11" label="PARAM + (PARAMETER 1+) (Deck 3)" status="manual"/>  <!-- PARAM + (PARAMETER 1+) (Deck 3 column, n=6), 1 -->
+  <bind target="ch3.clip" kind="1" ch="7" num="12" label="PLAY/PAUSE (Deck 3)" status="manual"/>  <!-- PLAY/PAUSE (Deck 3 column, n=6), 1 -->
+  <bind target="ch3.cuepad1" kind="1" ch="3" num="0" label="HOT CUE mode PAD 1 (Deck 3)" status="manual"/>  <!-- HOT CUE mode PAD 1 (Deck 3 column, n=2), 2 -->
+  <bind target="ch3.sync" kind="1" ch="7" num="14" label="SYNC (Deck 3)" status="manual"/>  <!-- SYNC (Deck 3 column, n=6), 1 -->
+  <bind target="ch3.slip" kind="1" ch="7" num="15" label="SLIP (Deck 3)" status="manual"/>  <!-- SLIP (Deck 3 column, n=6), 1 -->
+  <bind target="ch3.key" kind="1" ch="7" num="16" label="KEY LOCK (Deck 3)" status="manual"/>  <!-- KEY LOCK (Deck 3 column, n=6), 1 -->
+  <bind target="ch3.cuepad2" kind="1" ch="3" num="1" label="HOT CUE mode PAD 2 (Deck 3)" status="manual"/>  <!-- HOT CUE mode PAD 2 (Deck 3 column, n=2), 2 -->
+  <bind target="ch3.cuepad3" kind="1" ch="3" num="2" label="HOT CUE mode PAD 3 (Deck 3)" status="manual"/>  <!-- HOT CUE mode PAD 3 (Deck 3 column, n=2), 2 -->
+  <bind target="ch3.cuepad4" kind="1" ch="3" num="3" label="HOT CUE mode PAD 4 (Deck 3)" status="manual"/>  <!-- HOT CUE mode PAD 4 (Deck 3 column, n=2), 2 -->
+  <bind target="ch3.cuepad5" kind="1" ch="3" num="4" label="HOT CUE mode PAD 5 (Deck 3)" status="manual"/>  <!-- HOT CUE mode PAD 5 (Deck 3 column, n=2), 2 -->
+  <bind target="ch3.cuepad6" kind="1" ch="3" num="5" label="HOT CUE mode PAD 6 (Deck 3)" status="manual"/>  <!-- HOT CUE mode PAD 6 (Deck 3 column, n=2), 2 -->
+  <bind target="ch3.cuepad7" kind="1" ch="3" num="6" label="HOT CUE mode PAD 7 (Deck 3)" status="manual"/>  <!-- HOT CUE mode PAD 7 (Deck 3 column, n=2), 2 -->
+  <bind target="ch3.cuepad8" kind="1" ch="3" num="7" label="HOT CUE mode PAD 8 (Deck 3)" status="manual"/>  <!-- HOT CUE mode PAD 8 (Deck 3 column, n=2), 2 -->
+  <bind target="ch4.gain" kind="0" ch="8" num="5" label="Channel FADER (Deck 4)" status="manual"/>  <!-- Channel FADER (Deck 4 column, n=7), 1 -->
+  <bind target="ch4.high" kind="0" ch="8" num="1" label="EQ HIGH (Deck 4)" status="manual"/>  <!-- EQ HIGH (Deck 4 column, n=7), 1 -->
+  <bind target="ch4.mid" kind="0" ch="8" num="2" label="EQ MID (Deck 4)" status="manual"/>  <!-- EQ MID (Deck 4 column, n=7), 1 -->
+  <bind target="ch4.low" kind="0" ch="8" num="3" label="EQ LOW (Deck 4)" status="manual"/>  <!-- EQ LOW (Deck 4 column, n=7), 1 -->
+  <bind target="ch4.filter" kind="0" ch="8" num="4" label="FILTER (Deck 4)" status="manual"/>  <!-- FILTER (Deck 4 column, n=7), 1 -->
+  <bind target="ch4.cue" kind="1" ch="8" num="3" label="CUE (mixer PFL) (Deck 4)" status="manual"/>  <!-- CUE (mixer PFL) (Deck 4 column, n=7), 1 -->
+  <bind target="ch4.load" kind="1" ch="8" num="2" label="LOAD (Deck 4)" status="manual"/>  <!-- LOAD (Deck 4 column, n=7), 1 -->
+  <bind target="ch4.jog" kind="0" ch="8" num="6" mode="rel" rel="binoff" label="JOG (Deck 4)" status="manual"/>  <!-- JOG (Deck 4 column, n=7), 1 -->
+  <bind target="ch4.loop" kind="1" ch="8" num="8" label="AUTO LOOP (Deck 4)" status="manual"/>  <!-- AUTO LOOP (Deck 4 column, n=7), 1 -->
+  <bind target="ch4.jumpback" kind="1" ch="8" num="10" label="PARAM - (PARAMETER 1-) (Deck 4)" status="manual"/>  <!-- PARAM - (PARAMETER 1-) (Deck 4 column, n=7), 1 -->
+  <bind target="ch4.jumpfwd" kind="1" ch="8" num="11" label="PARAM + (PARAMETER 1+) (Deck 4)" status="manual"/>  <!-- PARAM + (PARAMETER 1+) (Deck 4 column, n=7), 1 -->
+  <bind target="ch4.clip" kind="1" ch="8" num="12" label="PLAY/PAUSE (Deck 4)" status="manual"/>  <!-- PLAY/PAUSE (Deck 4 column, n=7), 1 -->
+  <bind target="ch4.cuepad1" kind="1" ch="4" num="0" label="HOT CUE mode PAD 1 (Deck 4)" status="manual"/>  <!-- HOT CUE mode PAD 1 (Deck 4 column, n=3), 2 -->
+  <bind target="ch4.sync" kind="1" ch="8" num="14" label="SYNC (Deck 4)" status="manual"/>  <!-- SYNC (Deck 4 column, n=7), 1 -->
+  <bind target="ch4.slip" kind="1" ch="8" num="15" label="SLIP (Deck 4)" status="manual"/>  <!-- SLIP (Deck 4 column, n=7), 1 -->
+  <bind target="ch4.key" kind="1" ch="8" num="16" label="KEY LOCK (Deck 4)" status="manual"/>  <!-- KEY LOCK (Deck 4 column, n=7), 1 -->
+  <bind target="ch4.cuepad2" kind="1" ch="4" num="1" label="HOT CUE mode PAD 2 (Deck 4)" status="manual"/>  <!-- HOT CUE mode PAD 2 (Deck 4 column, n=3), 2 -->
+  <bind target="ch4.cuepad3" kind="1" ch="4" num="2" label="HOT CUE mode PAD 3 (Deck 4)" status="manual"/>  <!-- HOT CUE mode PAD 3 (Deck 4 column, n=3), 2 -->
+  <bind target="ch4.cuepad4" kind="1" ch="4" num="3" label="HOT CUE mode PAD 4 (Deck 4)" status="manual"/>  <!-- HOT CUE mode PAD 4 (Deck 4 column, n=3), 2 -->
+  <bind target="ch4.cuepad5" kind="1" ch="4" num="4" label="HOT CUE mode PAD 5 (Deck 4)" status="manual"/>  <!-- HOT CUE mode PAD 5 (Deck 4 column, n=3), 2 -->
+  <bind target="ch4.cuepad6" kind="1" ch="4" num="5" label="HOT CUE mode PAD 6 (Deck 4)" status="manual"/>  <!-- HOT CUE mode PAD 6 (Deck 4 column, n=3), 2 -->
+  <bind target="ch4.cuepad7" kind="1" ch="4" num="6" label="HOT CUE mode PAD 7 (Deck 4)" status="manual"/>  <!-- HOT CUE mode PAD 7 (Deck 4 column, n=3), 2 -->
+  <bind target="ch4.cuepad8" kind="1" ch="4" num="7" label="HOT CUE mode PAD 8 (Deck 4)" status="manual"/>  <!-- HOT CUE mode PAD 8 (Deck 4 column, n=3), 2 -->
+  <bind target="browse.scroll" kind="0" ch="11" num="4" mode="rel" rel="binoff" label="TRAX (turn)" status="manual"/>  <!-- TRAX (turn), 1 -->
+  <bind target="browse.toggle" kind="1" ch="11" num="0" label="TRAX (PUSH)" status="manual"/>  <!-- TRAX (PUSH), 1 -->
+  <bind target="master.cue" kind="0" ch="11" num="3" label="HEADPHONE CUE MIX" status="manual"/>  <!-- HEADPHONE CUE MIX, 1 -->
+  <bind target="master.phones" kind="0" ch="11" num="7" label="HEADPHONE CUE VOL" status="manual"/>  <!-- HEADPHONE CUE VOL, 1 -->
 </CadenceMidiMap>

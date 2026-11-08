@@ -152,7 +152,7 @@ footer{margin-top:60px;padding-top:16px;border-top:1px solid var(--edge);color:v
 <h3>Transport bar</h3>
 <p><span class="btn">PLAY</span> starts the master clock (and sends MIDI Start). The <b>BPM slider</b> (60&ndash;180) eases to a new tempo gradually instead of snapping. <span class="btn">T</span> is tap-tempo, <span class="btn">M</span> the metronome (right-click it to route the click to master and/or headphones and set its level). Quantize &mdash; the <i>one</i> grid for everything &mdash; lives in <span class="btn">SETTINGS</span>; see <a href="#transport">Transport &amp; quantize</a>. When Cadence follows a MIDI clock, the tempo's tag reads <b>MIDI</b> instead of BPM; see <a href="#clock-in">Following a MIDI clock</a>.</p>
 <h3>Top bar buttons</h3>
-<p>Left to right: <span class="btn">BROWSE</span> (dock the collection into PERFORM, COMPOSER or SAMPLER, also <kbd>C</kbd>), <span class="btn">ASSIST</span> (auto-mixing &mdash; right-click for its options, among them <b>Hold</b>: taken while a mix is running it freezes that transition &mdash; faders, EQ, filters and stem moves together &mdash; where it stands, and releasing it carries on from exactly that point) and <span class="btn">REC</span>. Then, after a gap, the configuration group: <span class="btn">FX</span> (delay &amp; reverb), <span class="btn">COMPRESSOR</span>, <span class="btn">OSC</span>, <span class="btn">MAP</span> (MIDI, macro and OSC mapping &mdash; PERFORM and COMPOSER) and <span class="btn">SETTINGS</span>. Beside them sit the <b>engine readout</b> (buffer &middot; output latency &middot; DSP load &mdash; click it for engine options) and the <b>CADENCE</b> wordmark (click for About &amp; licenses).</p>
+<p>Left to right: <span class="btn">BROWSE</span> (dock the collection into PERFORM, COMPOSER or SAMPLER, also <kbd>C</kbd>), <span class="btn">ASSIST</span> (auto-mixing &mdash; right-click for its options, among them <b>Hold</b>: taken while a mix is running it freezes that transition &mdash; faders, EQ, filters and stem moves together &mdash; where it stands, and releasing it carries on from exactly that point) and <span class="btn">REC</span>. Then, after a gap, the configuration group: <span class="btn">FX</span> (filter, delay &amp; reverb), <span class="btn">COMPRESSOR</span>, <span class="btn">OSC</span>, <span class="btn">MAP</span> (MIDI, macro and OSC mapping &mdash; PERFORM and COMPOSER) and <span class="btn">SETTINGS</span>. Beside them sit the <b>engine readout</b> (buffer &middot; output latency &middot; DSP load &mdash; click it for engine options) and the <b>CADENCE</b> wordmark (click for About &amp; licenses).</p>
 <p class="muted">The top bar stays deliberately short: the plugin manager, the MIDI mapping list, UI zoom, the waveform colour choice and the shortcut overlay all live inside <span class="btn">SETTINGS</span>.</p>
 </section>
 
@@ -190,8 +190,49 @@ footer{margin-top:60px;padding-top:16px;border-top:1px solid var(--edge);color:v
   <li><b>Right-click FX</b> to choose which of its three rows to show.</li>
   <li>With LEVEL closed, the fader becomes a slim level bar under the rail.</li>
 </ul>
+<p>The bands of Perform use the same rails: <b>TRACKS</b>, <b>MIXER</b>, <b>OUT</b>, <b>MACROS</b>, <b>PADS</b> and <b>WAVEFORM</b>. Click one to open or close its band. The Tab key reaches them, and VoiceOver reads each one as open or closed.</p>
 <h3>Sound shaping</h3>
-<p>Three-band EQ (<b>HIGH/MID/LOW</b>, full kill at the bottom), a dual-slope <b>FILTER</b> (low-pass left of centre, high-pass right), and <b>DLY/VERB</b> sends into the built-in tempo delay and reverb (their character is set in the <span class="btn">FX</span> panel). The <b>FX+/FX&minus; VOL+/VOL&minus; FLT+/FLT&minus;</b> chips run gradual automation ramps over bars &mdash; hands-free build-ups and fade-outs.</p>
+<p>Three-band EQ (<b>HIGH/MID/LOW</b>, full kill at the bottom), a <b>FILTER</b> (low-pass left of centre, high-pass right; see <i>The filter</i> below), and <b>DLY/VERB</b> sends into the built-in tempo delay and reverb (their character is set in the <span class="btn">FX</span> panel). The <b>FX+/FX&minus; VOL+/VOL&minus; FLT+/FLT&minus;</b> chips run gradual automation ramps over bars &mdash; hands-free build-ups and fade-outs.</p>
+<h3>The FX panel</h3>
+<p>Click <span class="btn">FX</span> for the effects&rsquo; settings, shared by the four channels, in three columns: FILTER, DELAY and REVERB. Each column heads with a rail, like the mixer. DELAY and REVERB&rsquo;s square means the effect is on: click the rail to bypass it (it fades out) and again to bring it back. The <b>FREEZE</b> chip holds the tail. Under each rail is a live row. Under DELAY and REVERB it reads <b>SENDS</b>, then the four channels: each small bar is how much that channel sends into the effect, which is the channel&rsquo;s DELAY or REVERB bar on its strip. <b>OUT</b> on the right is a meter of what the effect plays now; it moves only while the effect sounds. Under FILTER the row reads <b>KNOBS</b>: each bar is that channel&rsquo;s FILTER knob from its centre, low-pass to the left of the tick and high-pass to the right, and it moves with a sweep. Hover a row for the same words.</p>
+<p><b>PRESET</b> holds the factory settings and your own. <i>Save preset...</i> keeps the whole window under a name, and an existing name is replaced. <i>Delete</i> removes the preset you picked. Your presets live in Cadence&rsquo;s data folder, in fx-presets.xml.</p>
+<h3>The filter</h3>
+<p>Each channel&rsquo;s <b>FILTER</b> knob is off at its centre. Turn it left for a low-pass, right for a high-pass. The FILTER column of the <span class="btn">FX</span> panel sets how the filter sounds on all four channels:</p>
+<ul>
+  <li><b>TYPE</b>: <i>Clean</i> is a precise state-variable filter. <i>Ladder</i> is a 4-pole transistor-ladder model that saturates inside its loop: warmer, and rounder at high resonance.</li>
+  <li><b>SLOPE</b>: 12 or 24 dB per octave. 24 dB is the deeper club sweep.</li>
+  <li><b>KNOB</b>: <i>Low-pass | high-pass</i>, or <i>Low-pass | band-pass &gt; high-pass</i>. In the second, the right half first closes a band from both sides, to 300 Hz&ndash;3 kHz at three quarters (the telephone sound), then keeps rising as a high-pass.</li>
+  <li><b>RESONANCE</b>: a peak at the cutoff, up to about +16 dB. It fades in over the first fifth of the knob, so a touch near the centre never booms or whistles. The track&rsquo;s level holds at any setting.</li>
+  <li><b>DRIVE</b>: saturation, 0 to 12 dB. It colours only the filtered sound: a channel with its knob at the centre stays clean.</li>
+  <li><b>LOW-PASS TO</b> and <b>HIGH-PASS TO</b>: where the knob&rsquo;s two ends land, 80 Hz and 8 kHz by default.</li>
+</ul>
+<p>The curve above the controls draws the filter&rsquo;s response. The two dim curves show the knob at a quarter and at three quarters. Each channel with its knob off the centre draws its own curve, live. A change of type, slope or knob mode crossfades over 30 ms, so you can switch while a filter is on. The default settings are the filter Cadence always had. The FX presets set the filter too, and <i>Club Filter</i> and <i>Acid Ladder</i> are presets made for it. MIDI and macros reach <i>Filter Resonance</i> and <i>Filter Drive</i>.</p>
+<p><b>Right-click a channel&rsquo;s FILTER bar</b> for that channel&rsquo;s own choices:</p>
+<ul>
+  <li><b>Sweep with the beat</b>: the filter moves by itself between open and the knob, locked to the beat, so the knob sets how deep it goes. The caption reads <b>FILTER ~</b> while it sweeps. The FX panel&rsquo;s <b>SWEEP</b> sets how long one sweep takes (1/16 to 4 bars) and <b>SHAPE</b> its form: Sine, Triangle, a Closing ramp (a build) or an Opening ramp. With the clock stopped the sweep holds still. In the MIDI map it is <i>CH1 Filter Sweep</i>, a toggle. The sweep is off at every launch, like the knob.</li>
+  <li><b>Type</b> and <b>Resonance</b>: <i>Common</i> follows the FX panel; or give this channel its own Clean or Ladder and its own resonance (0 to 100&nbsp;%). Cadence remembers each channel&rsquo;s choice.</li>
+</ul>
+<p>The FX panel&rsquo;s curve draws each channel as its filter plays: with its own type and resonance, and moving with its sweep.</p>
+<h3>The delay</h3>
+<p>Each channel&rsquo;s <b>DELAY</b> bar sends it into its own tempo delay. The DELAY column of the FX panel sets how all four sound:</p>
+<ul>
+  <li><b>TIME</b>: a division of the bar, from 1/32 to 4 bars, or <i>Free</i> for a time in ms off the tempo (<b>FREE TIME</b>, 10 ms to 4 s).</li>
+  <li><b>RIGHT</b>: the right side&rsquo;s own division, for wide, bouncing echoes (for example 1/4 left and 1/8 dot right). <i>Same</i> keeps one time for both.</li>
+  <li><b>CHAR</b> is Clean, Tape or Ambient. <b>FEEDBACK</b>, <b>TONE</b>, <b>HP</b> and <b>DRIVE</b> shape the repeats, <b>PINGPONG</b> bounces them between left and right, and <b>DUCK</b> holds them back under the dry sound.</li>
+  <li><b>DUB</b>: a resonant filter inside the loop, low-pass, band-pass or high-pass. Every repeat passes it again, so the echo thins or darkens as it repeats. <b>DUB FREQ</b> and <b>DUB RES</b> set it, and its peak never passes the feedback you set. MIDI and macros reach <i>Delay Dub Filter</i>, to sweep it live.</li>
+  <li><b>FREEZE</b> holds the repeats. <b>BYPASS</b> fades the delay out.</li>
+</ul>
+<p>The picture shows the repeats on the beat grid with their times in ms. With its own RIGHT time it shows two rows, left above right, and a dub filter names itself on the left.</p>
+<h3>The reverb</h3>
+<p>Each channel&rsquo;s <b>REVERB</b> bar sends it into one shared room. The REVERB column of the FX panel sets the room:</p>
+<ul>
+  <li><b>TYPE</b>: <i>Room</i> is short and close. <i>Hall</i> is the reverb Cadence always had. <i>Plate</i> is dense and bright. <i>Shimmer</i> is the hall with its tail fed back an octave up, so every pass climbs: a rising wash for builds. <b>SHIMMER</b> sets how much comes back.</li>
+  <li><b>SIZE</b> is the room and <b>DECAY</b> is how long it rings (0.3 to 20 s), set apart: a small room can ring long and a big hall can stay short.</li>
+  <li><b>DAMPING</b> darkens the tail, <b>BASS</b> lengthens or shortens its low end, <b>PREDELAY</b> holds it back off the transient, <b>WIDTH</b> spreads it, <b>HP</b> keeps bass out of it and <b>DUCK</b> holds it back under the dry sound.</li>
+  <li><b>MOD</b> is how much the tail moves: a slow swirl that keeps long tails from ringing metallic.</li>
+  <li><b>FREEZE</b> holds the tail. <b>BYPASS</b> fades the reverb out.</li>
+</ul>
+<p>The picture draws the tail&rsquo;s decay with its RT60. MIDI and macros reach <i>Reverb Decay</i> and <i>Reverb Shimmer</i> as well as size, damping and width. A session saved before DECAY existed keeps its old tail.</p>
 <h3>Fader, trim and routing</h3>
 <p>The channel fader tops out at <b>0 dB</b> &mdash; headroom lives on the master only. Under the hood every scanned track also carries an <b>auto-gain trim</b> toward &minus;14 LUFS, so decks come up at comparable loudness. <span class="btn amber">CUE</span> sends the channel pre-fader to your headphones; <span class="btn">ON</span> assigns it to the master bus (quantized mute/unmute).</p>
 <p>With a hardware mixer, each deck can leave on its own output pair instead. See <a href="#external-mixer">External mixer</a>.</p>
@@ -199,15 +240,15 @@ footer{margin-top:60px;padding-top:16px;border-top:1px solid var(--edge);color:v
 
 <section id="console">
 <h2>Centre console &amp; MACROS</h2>
-<p>The mixer console sits between the deck columns. Its header <b>cycles through three sizes</b> on each click, so you can trade console for deck space mid-set:</p>
+<p>The mixer console sits between the deck columns. Its rail <b>cycles through three sizes</b> on each click, so you can trade console for deck space mid-set. Its two squares show which: both filled for the full console, the left one for LEVELS, none for HIDDEN.</p>
 <ul>
   <li><span class="btn">MIXER</span> &mdash; the full channel strips.</li>
   <li><span class="btn">MIXER - LEVELS</span> &mdash; bare level strips: meter, fader and PLUGINS only.</li>
   <li><span class="btn">MIXER - HIDDEN</span> &mdash; no console at all; the decks take the whole width.</li>
 </ul>
-<p>The header row itself always stays, so the console can never get lost. Drag either edge to trade width with the decks &mdash; the full and compact sizes remember their own widths.</p>
+<p>The rail itself always stays, so the console can never get lost. Drag either edge to trade width with the decks &mdash; the full and compact sizes remember their own widths.</p>
 <p><b>STEMS rows</b> &mdash; click the <span class="btn">STEMS</span> line under a strip&rsquo;s header to show each deck&rsquo;s four stem levels, <b>DRUMS, BASS, OTHER and VOCALS</b>, above its EQ. One click opens or closes them on that channel only, like the EQ, and Cadence remembers each channel&rsquo;s choice. They start closed. Each bar is that stem&rsquo;s own level, the same one the deck&rsquo;s chip drag and a mapped knob set: full is 0&nbsp;dB, half-way is &minus;12&nbsp;dB, empty is off. Drag a bar to set it; double-click it for 0&nbsp;dB. <b>Click a stem&rsquo;s name to mute it</b> on the next bar, exactly as its chip on the deck does (shift-click for instant). Right-click the name for the stem's menu, the one a long press on its chip opens: <i>Echo out</i>, the held <i>Roll</i> lengths and its sends. A small square after the name shows the state: filled means audible, hollow means muted, and it blinks while a mute waits for its bar. A muted stem&rsquo;s name and bar go dim. When a deck has no stems to play &mdash; not separated yet, still separating, or held by a warped grid &mdash; the rows stay where they are, greyed, and hovering one says why. In MIDI MAP mode, click a stem&rsquo;s bar to learn a knob for that stem&rsquo;s level. The rows are hidden in the MIXER - LEVELS size. Assist&rsquo;s and the Composer&rsquo;s stem moves ride on top of these levels and never reset them, and the bar shows them: while one holds a stem below your level, the bar is lit up to what the stem plays and dim from there up to your level. Letters above CUE and MAIN show which Composer envelopes drive the channel: <b>V</b> volume, <b>F</b> filter, <b>D</b> delay, <b>R</b> reverb and <b>S</b> stems.</p>
-<p><b>MACROS</b> is its own collapsible band at the bottom of the console (click the header to open or close it): eight slots in two columns, M1&ndash;M4 down the left, M5&ndash;M8 down the right, each captioned with its name and, when it drives more than one thing, its target count; a <span class="btn">LEARN</span> chip and a page navigator sit in the row above. Each slot draws the face of its <b>kind</b>: a bar (fader or knob), a button, a momentary pad (hold) or a row of radio stops. It hides with the console. See <a href="#master">Master section</a>.</p>
+<p><b>MACROS</b> is its own collapsible band at the bottom of the console (click its rail to open or close it): eight slots in two columns, M1&ndash;M4 down the left, M5&ndash;M8 down the right, each captioned with its name and, when it drives more than one thing, its target count; a <span class="btn">LEARN</span> chip and a page navigator sit in the row above. Each slot draws the face of its <b>kind</b>: a bar (fader or knob), a button, a momentary pad (hold) or a row of radio stops. It hides with the console. See <a href="#master">Master section</a>.</p>
 </section>
 
 <section id="master">
@@ -250,7 +291,7 @@ footer{margin-top:60px;padding-top:16px;border-top:1px solid var(--edge);color:v
 <ul>
   <li><b>Click a lane</b> to seek that deck (quantized). Clicking a stopped deck starts it from that point.</li>
   <li><b>Drag the divider</b> below the band to make the lanes taller or shorter.</li>
-  <li><b>Click the header</b> to collapse the band to a single row and give the height back to the decks.</li>
+  <li><b>Click the TRACKS rail</b> to collapse the band to a single row and give the height back to the decks.</li>
 </ul>
 <p class="muted">Cues, loops and section editing stay in the deck overviews &mdash; this band is for seeing and seeking.</p>
 </section>
@@ -640,7 +681,7 @@ footer{margin-top:60px;padding-top:16px;border-top:1px solid var(--edge);color:v
 <section id="osc">
 <h2>OSC &amp; the module bus</h2>
 <h3>Main OSC out</h3>
-<p>The <span class="btn">OSC</span> panel points a configurable target (host/port) at visualizers or show control &mdash; SHLabs <b>Phosphor</b> locks its visuals to it. Messages include <code>/cadence/bpm</code>, <code>/cadence/beat</code>, <code>/cadence/phase</code>, <code>/cadence/transport</code>, per-channel and master levels, band energies, kick onsets, a section-intensity signal, and the live section's index/type and progress-through.</p>
+<p>The <span class="btn">OSC</span> panel points a configurable target (host/port) at visualizers or show control &mdash; SHLabs <b>Kinora</b> (formerly Phosphor) locks its visuals to it. Messages include <code>/cadence/bpm</code>, <code>/cadence/beat</code>, <code>/cadence/phase</code>, <code>/cadence/transport</code>, per-channel and master levels, band energies, kick onsets, a section-intensity signal, and the live section's index/type and progress-through.</p>
 <h3>Stem bus</h3>
 <p>When a deck is playing separated stems, Cadence also broadcasts what the mix is <i>made of</i>: <code>/cadence/stems/drums</code>, <code>/bass</code>, <code>/other</code> and <code>/cadence/stems/vocals</code> (0..1 levels of the audible mix, taken <b>after</b> the per-stem gains and mutes, so killing the drums takes them out of the feed) plus <code>/cadence/stems/drums/onset</code>, a per-hit spike from the drum stem alone that no bassline can trigger. Several stem decks are combined by taking the loudest, not by adding. <code>/cadence/stems/active</code> (0/1) says whether any audible deck is on stems &mdash; it repeats about twice a second so a module can join mid-set; the levels are sent only while it is 1.</p>
 <h3>Module bus</h3>
@@ -683,6 +724,16 @@ footer{margin-top:60px;padding-top:16px;border-top:1px solid var(--edge);color:v
 
 <h3>M-Audio Xsession Pro</h3>
 <p>The first factory profile. The four faders, left to right, are the volumes of decks 1 to 4. The six knobs on the A side are deck 1's filter, delay and reverb and its three EQ bands; the B side does the same for deck 2. The headphone buttons are the cue of decks 1 and 2, and the crossfader is the headphone level. On each side, rewind and fast forward jump back and forward by the quantize grid, play/pause plays, and cue jumps to the deck's first cue pad: the track's earliest hot cue. The Xsession Pro has no jog wheels and no browse or load controls.</p>
+
+<h3>Denon DJ SC LIVE 4</h3>
+<p>The second factory profile, made from a real unit in Computer mode. The mixer reads 3 1 2 4 from left to right, and each channel answers to the number printed on it, so Cadence CH1 is the second fader from the left. Each channel&rsquo;s volume, EQ, sweep FX knob (the filter) and CUE are mapped. The left deck is CH1 and the right deck CH2: PLAY, CUE (hot cue 1), SYNC, KEYLOCK, SLIP, beat jump, the loop buttons and the jog wheel. The browse knob scrolls the Collection, its press opens it, and the two LOAD buttons load the selected track. The crossfader, the pitch faders and the pads are not mapped; the master and phones levels stay on the unit. The profile file says what each row is and how sure we are of it.</p>
+
+<h3>More controllers online</h3>
+<p><b>Profile</b> &rarr; <i>Download from shlabs.ch&hellip;</i> lists the profile library: controllers from Pioneer DJ, Hercules, Reloop, Allen &amp; Heath, Novation, Akai and DJ TechTools, made from each maker&rsquo;s published MIDI chart. Pick yours and Cadence downloads it into your profiles folder and offers to load it; a controller that is plugged in says <i>(connected)</i>. Cadence reads the library only when you ask, and nothing else leaves your computer. These profiles have not been tried on the hardware yet, so each one says <i>(from the manual)</i>: if a control does nothing, use Learn on that row. A download never replaces a profile you made; it replaces only its own earlier copy. The same files are on <a href="https://shlabs.ch/cadence/controllers/">shlabs.ch/cadence/controllers</a>, with the controllers that publish no MIDI chart.</p>
+
+<h3>A tour of your controller</h3>
+<p>After a profile loads, the <span class="btn">TOUR</span> button beside <b>Profile</b> lights up. It closes the dialog and runs a short tour of your controller. The first card names the controller and counts its mapped controls. Then comes one card for each area it drives: the mixer, each deck, browse and load, and the master. Each card lists the controls by the names printed on the unit, with what each one drives in Cadence: <i>Left deck PLAY &rarr; Clip Play</i>. A control that repeats on every channel is one line: <i>Channel 1 to 4 VOLUME fader &rarr; CH1 to 4 Volume</i>. <b>Move any control during the tour</b>, and a card for that control appears, with the spotlight on the part it drives. <b>NEXT</b> then goes on, and <b>BACK</b> returns to the card it interrupted. The controls work while the tour runs, so a fader you move really moves.</p>
+<p>The tour is also in Settings, under <span class="btn">Guided tour...</span> as <i>Your controller</i>, whenever a MIDI control is mapped. A map you made with Learn gets it too; its cards then name only what each control drives, so move a control to see which one it is. The mapping dialog shows each control&rsquo;s name beside its MIDI message. Learn or Clear on a row removes the name, because the row then listens to a different control.</p>
 
 <h3>Jog wheels</h3>
 <p>Bind <i>CH n Jog</i> to a jog wheel or an endless encoder: press Learn, then turn it one way and then the other.</p>
